@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "saved": "2026-08-21T04:13:00.125Z",
+    "saved": "2026-08-21T04:58:57.168Z",
     "version": 8,
-    "count": 32
+    "count": 33
   },
   "students": [
     {
@@ -725,6 +725,40 @@
       "phone": ""
     },
     {
+      "id": 1787288335155.9739,
+      "name": "MMH Niloy Chowdhury",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Waiting for documents from student side to submit application",
+      "counselor": "",
+      "phone": "",
+      "email": "",
+      "uniCount": 0,
+      "moreUni": "Y",
+      "moreUniDate": "2026-08-25",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "Y",
+      "lastUpdated": 1787288335155,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "locked": false,
+      "closedInfo": null,
+      "visaApplicationRef": null
+    },
+    {
       "id": 1786707888166.244,
       "name": "Monira Akter",
       "country": "New Zealand",
@@ -1306,6 +1340,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787288335155,
+      "msg": "Added: MMH Niloy Chowdhury"
+    },
     {
       "ts": 1787285578117,
       "msg": "Data imported"

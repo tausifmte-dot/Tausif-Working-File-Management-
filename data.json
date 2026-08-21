@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-21T05:00:05.090Z",
+    "saved": "2026-08-21T05:28:00.701Z",
     "version": 8,
     "count": 34
   },
@@ -9,7 +9,7 @@
       "id": 1786707888165.754,
       "name": "Akimul Islam",
       "country": "New Zealand",
-      "intake": "October 2026",
+      "intake": "February 2027",
       "status": "Active",
       "appStage": "Unconditional offer letter issued",
       "counselor": "Rajib Hossain",
@@ -25,7 +25,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888165,
+      "lastUpdated": 1787290068963,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1374,6 +1374,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787290078697,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787288403084,
       "msg": "Added: Md. Mahmudul Haque"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-21T05:28:00.701Z",
+    "saved": "2026-08-21T05:35:00.710Z",
     "version": 8,
     "count": 34
   },
@@ -16,22 +16,30 @@
       "uniCount": 0,
       "moreUni": "N",
       "moreUniDate": "",
-      "bankMatured": "",
-      "bankMonths": "",
+      "bankMatured": "Y",
+      "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
       "defer": "N",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
-      "visaPrep": "",
+      "visaPrep": "Ready",
       "visaNext": "",
-      "lastUpdated": 1787290068963,
+      "lastUpdated": 1787290495242,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "White cliff College",
+          "program": "Bachelor of Applied Computing L 7",
+          "agent": "NZUAC",
+          "applicationDate": "2026-01-08"
+        }
+      ],
       "stageHistory": [
         {
           "stage": "Unconditional offer letter issued",
@@ -1374,6 +1382,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787290498701,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787290078697,
       "msg": "Auto-saved"

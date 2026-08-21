@@ -1,12 +1,1338 @@
 {
   "_meta": {
-    "exported": "2026-08-21T03:59:21.982715+00:00",
-    "counsellor": "Tausif Jaman",
+    "saved": "2026-08-21T04:13:00.125Z",
     "version": 8,
-    "count": 0
+    "count": 32
   },
-  "students": [],
+  "students": [
+    {
+      "id": 1786707888165.754,
+      "name": "Akimul Islam",
+      "country": "New Zealand",
+      "intake": "October 2026",
+      "status": "Active",
+      "appStage": "Unconditional offer letter issued",
+      "counselor": "Rajib Hossain",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1779321600000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.0344,
+      "name": "Ali Akbar Ishrak",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Processing for Application",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Processing for Application",
+          "enteredDate": 1759795200000,
+          "duration": 0
+        },
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1759795200000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888165.7642,
+      "name": "Amrito Gain",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Unconditional offer letter issued",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1775347200000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888165.7734,
+      "name": "Asik Mia",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Application submitted",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1784160000000,
+          "duration": 0
+        },
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1784160000000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.1926,
+      "name": "Barshan Bose",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "",
+      "counselor": "",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "phone": ""
+    },
+    {
+      "id": 1786707888159.537,
+      "name": "Esmat Eshita Esmat",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888158,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.429,
+      "name": "Hafsa Islam Oyshe",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Visa Refused",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1787223953881,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1787223953881,
+          "duration": 0
+        },
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1772582400000,
+          "duration": 169
+        }
+      ],
+      "locked": true,
+      "closedInfo": {
+        "reason": "Visa Refused — No Resubmission (Final)",
+        "stage": "Visa Refused",
+        "date": 1787223953882,
+        "university": "",
+        "program": ""
+      },
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.1072,
+      "name": "Iqbal Hossain Hasib",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Waiting for documents from student side to submit application",
+      "counselor": "Md Meraj",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1787223932950,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Waiting for documents from student side to submit application",
+          "enteredDate": 1787223932950,
+          "duration": 0
+        },
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1771027200000,
+          "duration": 187
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.4526,
+      "name": "Jannatul Fardhous",
+      "country": "New Zealand",
+      "intake": "February 2026",
+      "status": "Active",
+      "appStage": "GTE Rejected",
+      "counselor": "Tushar Abdullah",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "Y",
+      "gsStatus": "Rejected",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "GTE Rejected",
+          "enteredDate": 1762905600000,
+          "duration": 0
+        },
+        {
+          "stage": "Applied for GTE",
+          "enteredDate": 1762905600000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.3389,
+      "name": "Lamia Akter",
+      "country": "New Zealand",
+      "intake": "October 2026",
+      "status": "Active",
+      "appStage": "Application submitted",
+      "counselor": "Rajib Hossain",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1780272000000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.485,
+      "name": "Mahin Prodhan",
+      "country": "New Zealand",
+      "intake": "October 2026",
+      "status": "Active",
+      "appStage": "Visa Refused",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1787221846891,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1786966811614,
+          "duration": 0
+        },
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1761264000000,
+          "duration": 297
+        },
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1761264000000,
+          "duration": 0
+        },
+        {
+          "stage": "Deferred Intake Requested",
+          "enteredDate": 1761264000000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.6492,
+      "name": "MD ABDULLAH AL SAIF",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Visa Refused",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1764633600000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.386,
+      "name": "Md Anaf Bin Hassan",
+      "country": "New Zealand",
+      "intake": "October 2026",
+      "status": "Active",
+      "appStage": "Visa documentation/Bank Maturity Pending",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Visa documentation/Bank Maturity Pending",
+          "enteredDate": 1777766400000,
+          "duration": 0
+        },
+        {
+          "stage": "Processing for Application",
+          "enteredDate": 1777766400000,
+          "duration": 0
+        },
+        {
+          "stage": "Visa documentation/Bank Maturity Pending",
+          "enteredDate": 1777766400000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888165.96,
+      "name": "Md Monjurul Hasan Rabbi",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Processing for Application",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Processing for Application",
+          "enteredDate": 1778630400000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.878,
+      "name": "MD Nafij Iqbal Sazid",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Visa Refused",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1764547200000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.5527,
+      "name": "MD RAKIBUL ISLAM",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Unconditional offer letter issued",
+      "counselor": "Md Meraj",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1764806400000,
+          "duration": 0
+        },
+        {
+          "stage": "Processing for Application",
+          "enteredDate": 1764806400000,
+          "duration": 0
+        },
+        {
+          "stage": "Processing for Application",
+          "enteredDate": 1764806400000,
+          "duration": 0
+        },
+        {
+          "stage": "Processing for Application",
+          "enteredDate": 1764806400000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.9294,
+      "name": "MD. NUR ULLAH RUPOM",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Conditional offer letter issued",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "Y",
+      "gsStatus": "Applied",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1766534400000,
+          "duration": 0
+        },
+        {
+          "stage": "Applied for GTE",
+          "enteredDate": 1766534400000,
+          "duration": 0
+        },
+        {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1766534400000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888165.9988,
+      "name": "Md. Riad",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Unconditional offer letter issued",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1777507200000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.244,
+      "name": "Monira Akter",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "",
+      "counselor": "M H Semon",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.5266,
+      "name": "Moon Sarkar",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Unconditional offer letter issued",
+      "counselor": "",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1772150400000,
+          "duration": 0
+        },
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1772150400000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1723894400031,
+      "name": "Nahid Hasan Sakib",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Application submitted - Awaiting Statement of Purpose",
+      "counselor": "HBD Services Bangladesh",
+      "uniCount": 2,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1787221562354,
+      "remarks": "NZUAC Student. Dual application: Wintec (Bachelor Applied Management Supply Chain) + Ara Institute (Bachelor Applied Management Supply Chain & Logistics). Both Feb 2027 intake. Documents submitted: Passport, Resume, PTE, Academic records. CRITICAL: Statement of Purpose required for both universities - OVERDUE as of Aug 17, 2026. Expected offers: Sept-Oct 2026.",
+      "situation": "Pending SOP submission",
+      "remarksHistory": [
+        {
+          "date": 1786966263727,
+          "remark": "Application submitted to both NZUAC universities. Documents sent. Awaiting SOP from student.",
+          "by": "HBD Services"
+        }
+      ],
+      "situationHistory": [
+        {
+          "situation": "Pending SOP submission",
+          "date": 1786966263727
+        }
+      ],
+      "applicationCompletions": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Waikato Institute of Technology (Wintec)",
+          "program": "Bachelor of Applied Management in Supply Chain Logistics",
+          "agent": "NZUAC",
+          "applicationDate": "2026-08-04"
+        },
+        {
+          "country": "New Zealand",
+          "university": "Ara Institute of Canterbury",
+          "program": "Bachelor of Applied Management (Supply Chain & Logistics)",
+          "agent": "GSP",
+          "applicationDate": "2026-08-04"
+        }
+      ],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1785801600000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.4446,
+      "name": "Nasib Ibne Nizam",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Processing for Application",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Processing for Application",
+          "enteredDate": 1777334400000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888165.7935,
+      "name": "Nayeem Hasan",
+      "country": "New Zealand",
+      "intake": "October 2026",
+      "status": "Active",
+      "appStage": "Application submitted",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1779408000000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.7832,
+      "name": "Nusrat Jahan Eva",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Electronic visa document received",
+      "counselor": "Tushar Abdullah",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Electronic visa document received",
+          "enteredDate": 1770249600000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.2905,
+      "name": "Rakibul Hasan Robin",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Application submitted",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1781395200000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.9136,
+      "name": "Sadek Mahbub Sunny",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Processing for Application",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Processing for Application",
+          "enteredDate": 1771200000000,
+          "duration": 0
+        },
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1771200000000,
+          "duration": 0
+        },
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1771200000000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.329,
+      "name": "Saira Sadia",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Visa lodged",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1772668800000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.6946,
+      "name": "Sharair Hossen Emon",
+      "country": "New Zealand",
+      "intake": "October 2026",
+      "status": "Active",
+      "appStage": "Unconditional offer letter issued",
+      "counselor": "Rajib Hossain",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1772064000000,
+          "duration": 0
+        },
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1772064000000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.8071,
+      "name": "Snigdha Islam Santa",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Visa lodged",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "Y",
+      "gsStatus": "Applied",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1765411200000,
+          "duration": 0
+        },
+        {
+          "stage": "Applied for GTE",
+          "enteredDate": 1765411200000,
+          "duration": 0
+        },
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1765411200000,
+          "duration": 0
+        },
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1765411200000,
+          "duration": 0
+        },
+        {
+          "stage": "GTE Rejected",
+          "enteredDate": 1765411200000,
+          "duration": 0
+        },
+        {
+          "stage": "GTE Rejected",
+          "enteredDate": 1765411200000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888165.9783,
+      "name": "Tabassum Raisy",
+      "country": "New Zealand",
+      "intake": "October 2026",
+      "status": "Active",
+      "appStage": "Application submitted",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888165,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1777507200000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888167.1116,
+      "name": "Tanjedul Sarker",
+      "country": "New Zealand",
+      "intake": "June 2026",
+      "status": "Active",
+      "appStage": "Conditional offer letter issued",
+      "counselor": "Edris Ali Emon",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "Y",
+      "gsStatus": "Applied",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [
+        {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1766275200000,
+          "duration": 0
+        },
+        {
+          "stage": "GTE Assessment",
+          "enteredDate": 1766275200000,
+          "duration": 0
+        },
+        {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1766275200000,
+          "duration": 0
+        },
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1766275200000,
+          "duration": 0
+        }
+      ],
+      "phone": ""
+    },
+    {
+      "id": 1786707888166.6794,
+      "name": "Tasfia mim Mim",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1786707888166,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "phone": ""
+    }
+  ],
   "pendingTasks": [],
   "quickNotes": [],
-  "log": []
+  "log": [
+    {
+      "ts": 1787285578117,
+      "msg": "Data imported"
+    },
+    {
+      "ts": 1787223953883,
+      "msg": "Visa refused, decision recorded: Hafsa Islam Oyshe"
+    },
+    {
+      "ts": 1787221899224,
+      "msg": "Auto-saved"
+    },
+    {
+      "ts": 1787221598386,
+      "msg": "Auto-saved"
+    },
+    {
+      "ts": 1787220949225,
+      "msg": "Auto-saved"
+    },
+    {
+      "ts": 1786966850593,
+      "msg": "Auto-saved"
+    },
+    {
+      "ts": 1786966290866,
+      "msg": "Data imported"
+    }
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-21T05:36:51.392Z",
+    "saved": "2026-08-21T05:38:00.707Z",
     "version": 8,
     "count": 34
   },
@@ -122,7 +122,7 @@
       "id": 1786707888165.7642,
       "name": "Amrito Gain",
       "country": "New Zealand",
-      "intake": "June 2026",
+      "intake": "October 2026",
       "status": "Active",
       "appStage": "Unconditional offer letter issued",
       "counselor": "Tausif Jaman",
@@ -138,7 +138,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888165,
+      "lastUpdated": 1787290663051,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1410,6 +1410,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787290678693,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787290609387,
       "msg": "Visa lodged: Ali Akbar Ishrak"

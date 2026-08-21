@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-21T05:39:04.283Z",
+    "saved": "2026-08-21T05:40:00.709Z",
     "version": 8,
     "count": 34
   },
@@ -136,9 +136,9 @@
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
-      "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1787290742275,
+      "visaPrep": "Ready",
+      "visaNext": "Y",
+      "lastUpdated": 1787290799362,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1428,6 +1428,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787290798696,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787290742276,
       "msg": "Visa lodged: Amrito Gain"

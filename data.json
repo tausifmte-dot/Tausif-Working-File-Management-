@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-21T05:41:00.711Z",
+    "saved": "2026-08-21T16:10:59.352Z",
     "version": 8,
     "count": 34
   },
@@ -923,7 +923,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Application submitted - Awaiting Statement of Purpose",
+      "appStage": "Application submitted",
       "counselor": "HBD Services Bangladesh",
       "uniCount": 2,
       "moreUni": "N",
@@ -937,7 +937,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787221562354,
+      "lastUpdated": 1787328609305,
       "remarks": "NZUAC Student. Dual application: Wintec (Bachelor Applied Management Supply Chain) + Ara Institute (Bachelor Applied Management Supply Chain & Logistics). Both Feb 2027 intake. Documents submitted: Passport, Resume, PTE, Academic records. CRITICAL: Statement of Purpose required for both universities - OVERDUE as of Aug 17, 2026. Expected offers: Sept-Oct 2026.",
       "situation": "Pending SOP submission",
       "remarksHistory": [
@@ -966,15 +966,20 @@
           "country": "New Zealand",
           "university": "Ara Institute of Canterbury",
           "program": "Bachelor of Applied Management (Supply Chain & Logistics)",
-          "agent": "GSP",
+          "agent": "NZUAC",
           "applicationDate": "2026-08-04"
         }
       ],
       "stageHistory": [
         {
           "stage": "Application submitted",
-          "enteredDate": 1785801600000,
+          "enteredDate": 1787328601269,
           "duration": 0
+        },
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1785801600000,
+          "duration": 17
         }
       ],
       "phone": ""
@@ -1428,6 +1433,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787328657347,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787290858697,
       "msg": "Auto-saved"

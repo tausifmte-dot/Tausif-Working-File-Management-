@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-21T05:35:00.710Z",
+    "saved": "2026-08-21T05:35:17.336Z",
     "version": 8,
     "count": 34
   },
@@ -11,7 +11,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Unconditional offer letter issued",
+      "appStage": "Visa lodged",
       "counselor": "Rajib Hossain",
       "uniCount": 0,
       "moreUni": "N",
@@ -24,8 +24,8 @@
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "Ready",
-      "visaNext": "",
-      "lastUpdated": 1787290495242,
+      "visaNext": "Y",
+      "lastUpdated": 1787290515330,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -42,12 +42,22 @@
       ],
       "stageHistory": [
         {
+          "stage": "Visa lodged",
+          "enteredDate": 1787290515330,
+          "duration": 0
+        },
+        {
           "stage": "Unconditional offer letter issued",
           "enteredDate": 1779321600000,
-          "duration": 0
+          "duration": 92
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "White cliff College",
+        "program": "Bachelor of Applied Computing L 7"
+      }
     },
     {
       "id": 1786707888167.0344,
@@ -1382,6 +1392,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787290515331,
+      "msg": "Visa lodged: Akimul Islam"
+    },
     {
       "ts": 1787290498701,
       "msg": "Auto-saved"

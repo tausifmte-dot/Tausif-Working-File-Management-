@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "saved": "2026-08-21T04:58:57.168Z",
+    "saved": "2026-08-21T05:00:05.090Z",
     "version": 8,
-    "count": 33
+    "count": 34
   },
   "students": [
     {
@@ -641,6 +641,40 @@
         }
       ],
       "phone": ""
+    },
+    {
+      "id": 1787288403083.617,
+      "name": "Md. Mahmudul Haque",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Waiting for documents from student side to submit application",
+      "counselor": "",
+      "phone": "",
+      "email": "",
+      "uniCount": 0,
+      "moreUni": "Y",
+      "moreUniDate": "2026-08-25",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1787288403083,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "locked": false,
+      "closedInfo": null,
+      "visaApplicationRef": null
     },
     {
       "id": 1786707888166.9294,
@@ -1340,6 +1374,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787288403084,
+      "msg": "Added: Md. Mahmudul Haque"
+    },
     {
       "ts": 1787288335155,
       "msg": "Added: MMH Niloy Chowdhury"

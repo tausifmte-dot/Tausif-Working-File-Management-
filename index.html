@@ -1543,31 +1543,28 @@ function setTheme(theme) {
 // LOAD / SAVE
 // ════════════════════════════════════════════════════════════
 async function load(){
-  // Always load from localStorage first so UI appears instantly
-  try{const d=localStorage.getItem(SK);if(d)students=JSON.parse(d);}catch(e){}
-  if(!students.length){try{const old=localStorage.getItem('hbd_v6_data');if(old){students=JSON.parse(old);migrateData();}}catch(e){}}
-  try{pendingTasks=JSON.parse(localStorage.getItem(TK)||'[]');}catch(e){pendingTasks=[];}
-  try{quickNotes=JSON.parse(localStorage.getItem(NK)||'[]');}catch(e){quickNotes=[];}
   populateEditIntakes();populateEditStages();
-  // If GitHub configured, fetch latest from repo (overrides localStorage)
+  students=[];pendingTasks=[];quickNotes=[];
   const ghToken=localStorage.getItem(GHK_TOKEN);
   const ghOwner=localStorage.getItem(GHK_OWNER);
   const ghRepo=localStorage.getItem(GHK_REPO);
-  if(ghToken&&ghOwner&&ghRepo){
-    setSyncStatus('fetching');
-    const ok=await fetchFromGitHub(ghToken,ghOwner,ghRepo);
-    if(!ok&&!students.length)await loadBundledData();
-    else if(!ok){migrateData();students.sort((a,b)=>a.name.localeCompare(b.name));}
-  } else {
-    if(!students.length)await loadBundledData();
-    else{migrateData();students.sort((a,b)=>a.name.localeCompare(b.name));}
-  }
-  renderAll();renderWhatsAppPanel();setDirty(false);initModalClickListeners();
-  // Pre-fill Settings fields if configured
   if(ghOwner)document.getElementById('gh-owner').value=ghOwner;
   if(ghRepo)document.getElementById('gh-repo').value=ghRepo;
   if(ghToken)document.getElementById('gh-token').value=ghToken;
+  if(ghToken&&ghOwner&&ghRepo){
+    setSyncStatus('fetching');
+    const ok=await fetchFromGitHub(ghToken,ghOwner,ghRepo);
+    if(!ok){
+      students=[];pendingTasks=[];quickNotes=[];
+      setSyncStatus('error','Could not load data from GitHub');
+      alert('⚠️ Could not load student data from GitHub. Check your internet connection or the GitHub Sync settings, then reload the page.\n\nNothing will be shown or saved until this is resolved, to avoid overwriting your GitHub data with a blank slate.');
+    }
+  } else {
+    setSyncStatus('nofile');
+  }
+  renderAll();renderWhatsAppPanel();setDirty(false);initModalClickListeners();
 }
+
 function migrateData(){
   students.forEach(s=>{
     if(s.moreUni==='Yes')s.moreUni='Y';if(s.moreUni==='No')s.moreUni='N';
@@ -1594,9 +1591,6 @@ function migrateData(){
   });
 }
 function persist(label){
-  localStorage.setItem(SK,JSON.stringify(students));
-  localStorage.setItem(TK,JSON.stringify(pendingTasks));
-  localStorage.setItem(NK,JSON.stringify(quickNotes));
   addLog(label||'Auto-saved');setDirty(false);
   debouncedPush();
 }
@@ -1650,9 +1644,6 @@ async function fetchFromGitHub(token,owner,repo){
       if(data.pendingTasks)pendingTasks=data.pendingTasks;
       if(data.quickNotes)quickNotes=data.quickNotes;
       if(data.log)localStorage.setItem(LOGK,JSON.stringify(data.log));
-      localStorage.setItem(SK,JSON.stringify(students));
-      localStorage.setItem(TK,JSON.stringify(pendingTasks));
-      localStorage.setItem(NK,JSON.stringify(quickNotes));
       migrateData();students.sort((a,b)=>a.name.localeCompare(b.name));
       setSyncStatus('ok');
       return true;

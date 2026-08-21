@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-21T05:38:00.707Z",
+    "saved": "2026-08-21T05:39:00.704Z",
     "version": 8,
     "count": 34
   },
@@ -129,8 +129,8 @@
       "uniCount": 0,
       "moreUni": "N",
       "moreUniDate": "",
-      "bankMatured": "",
-      "bankMonths": "",
+      "bankMatured": "Y",
+      "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
       "defer": "N",
       "gsApplied": "N",
@@ -138,13 +138,21 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787290663051,
+      "lastUpdated": 1787290718864,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Otago Polytechnic (Otago Poly)",
+          "program": "Bachelor of information technology L7",
+          "agent": "GEEbee",
+          "applicationDate": ""
+        }
+      ],
       "stageHistory": [
         {
           "stage": "Unconditional offer letter issued",
@@ -1410,6 +1418,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787290738688,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787290678693,
       "msg": "Auto-saved"

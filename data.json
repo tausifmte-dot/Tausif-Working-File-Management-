@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-22T07:55:44.557Z",
+    "saved": "2026-08-22T08:01:35.090Z",
     "version": 8,
     "count": 34
   },
@@ -25,10 +25,15 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1787371568826,
-      "remarks": "",
+      "lastUpdated": 1787385693033,
+      "remarks": "Deferral requested — visa decision pending with class commencement imminent (2026-08-26).",
       "situation": "",
-      "remarksHistory": [],
+      "remarksHistory": [
+        {
+          "ts": 1787385693034,
+          "text": "Deferral requested — visa decision pending with class commencement imminent (2026-08-26)."
+        }
+      ],
       "situationHistory": [],
       "applicationCompletions": [],
       "uniApplications": [
@@ -1507,6 +1512,14 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787385693071,
+      "msg": "Deferral requested for Akimul Islam"
+    },
+    {
+      "ts": 1787385693045,
+      "msg": "Deferral requested: Akimul Islam"
+    },
     {
       "ts": 1787385342527,
       "msg": "Auto-saved"

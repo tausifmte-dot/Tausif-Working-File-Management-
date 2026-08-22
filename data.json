@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-22T03:59:59.870Z",
+    "saved": "2026-08-22T04:03:46.464Z",
     "version": 8,
     "count": 34
   },
@@ -25,7 +25,7 @@
       "coe": "N",
       "visaPrep": "Ready",
       "visaNext": "",
-      "lastUpdated": 1787371146546,
+      "lastUpdated": 1787371414013,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -39,7 +39,7 @@
           "agent": "NZUAC",
           "applicationDate": "2026-01-08",
           "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
-          "classCommencementDate": "2025-08-27"
+          "classCommencementDate": "2026-08-26"
         }
       ],
       "stageHistory": [
@@ -1478,6 +1478,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787371424460,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787371197867,
       "msg": "Auto-saved"

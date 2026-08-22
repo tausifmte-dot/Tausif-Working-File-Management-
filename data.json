@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-22T03:07:55.186Z",
+    "saved": "2026-08-22T03:55:59.884Z",
     "version": 8,
     "count": 34
   },
@@ -56,8 +56,10 @@
       "visaApplicationRef": {
         "country": "New Zealand",
         "university": "White cliff College",
-        "program": "Bachelor of Applied Computing L 7"
-      }
+        "program": "Bachelor of Applied Computing L 7",
+        "classCommencementDate": ""
+      },
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.0344,
@@ -115,9 +117,11 @@
       "visaApplicationRef": {
         "country": "New Zealand",
         "university": "Auckland Institute of Studies (AIS)",
-        "program": "Bachelor of Business L7"
+        "program": "Bachelor of Business L7",
+        "classCommencementDate": ""
       },
-      "email": ""
+      "email": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888165.7642,
@@ -170,8 +174,10 @@
       "visaApplicationRef": {
         "country": "New Zealand",
         "university": "Otago Polytechnic (Otago Poly)",
-        "program": "Bachelor of information technology L7"
-      }
+        "program": "Bachelor of information technology L7",
+        "classCommencementDate": ""
+      },
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888165.7734,
@@ -212,7 +218,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.1926,
@@ -242,7 +249,8 @@
       "applicationCompletions": [],
       "uniApplications": [],
       "stageHistory": [],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888159.537,
@@ -272,7 +280,8 @@
       "applicationCompletions": [],
       "uniApplications": [],
       "stageHistory": [],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.429,
@@ -321,7 +330,8 @@
         "university": "",
         "program": ""
       },
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.1072,
@@ -362,7 +372,8 @@
           "duration": 187
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.4526,
@@ -403,7 +414,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.3389,
@@ -439,7 +451,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.485,
@@ -490,7 +503,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.6492,
@@ -526,7 +540,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.386,
@@ -572,7 +587,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888165.96,
@@ -608,7 +624,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.878,
@@ -644,7 +661,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.5527,
@@ -695,7 +713,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1787288403083.617,
@@ -729,7 +748,8 @@
       "stageHistory": [],
       "locked": false,
       "closedInfo": null,
-      "visaApplicationRef": null
+      "visaApplicationRef": null,
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.9294,
@@ -775,7 +795,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888165.9988,
@@ -811,7 +832,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1787288335155.9739,
@@ -845,7 +867,8 @@
       "stageHistory": [],
       "locked": false,
       "closedInfo": null,
-      "visaApplicationRef": null
+      "visaApplicationRef": null,
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.244,
@@ -875,7 +898,8 @@
       "applicationCompletions": [],
       "uniApplications": [],
       "stageHistory": [],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.5266,
@@ -916,7 +940,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1723894400031,
@@ -983,7 +1008,8 @@
           "duration": 17
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.4446,
@@ -1019,7 +1045,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888165.7935,
@@ -1055,7 +1082,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.7832,
@@ -1091,7 +1119,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.2905,
@@ -1127,7 +1156,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.9136,
@@ -1173,7 +1203,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.329,
@@ -1209,7 +1240,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.6946,
@@ -1250,7 +1282,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.8071,
@@ -1258,7 +1291,7 @@
       "country": "New Zealand",
       "intake": "June 2026",
       "status": "Active",
-      "appStage": "Visa lodged",
+      "appStage": "Need to look for universities",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -1272,7 +1305,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1787370899240,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1281,9 +1314,14 @@
       "uniApplications": [],
       "stageHistory": [
         {
+          "stage": "Need to look for universities",
+          "enteredDate": 1787370899240,
+          "duration": 0
+        },
+        {
           "stage": "Visa lodged",
           "enteredDate": 1765411200000,
-          "duration": 0
+          "duration": 254
         },
         {
           "stage": "Applied for GTE",
@@ -1311,7 +1349,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888165.9783,
@@ -1347,7 +1386,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888167.1116,
@@ -1398,7 +1438,8 @@
           "duration": 0
         }
       ],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.6794,
@@ -1428,12 +1469,17 @@
       "applicationCompletions": [],
       "uniApplications": [],
       "stageHistory": [],
-      "phone": ""
+      "phone": "",
+      "visaFieldsLocked": false
     }
   ],
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787370957868,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787368073185,
       "msg": "Updated: Ali Akbar Ishrak"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-22T07:54:33.915Z",
+    "saved": "2026-08-22T07:55:44.557Z",
     "version": 8,
     "count": 34
   },
@@ -1416,7 +1416,7 @@
       "country": "New Zealand",
       "intake": "June 2026",
       "status": "Active",
-      "appStage": "Visa lodged",
+      "appStage": "Tuition fee paid",
       "counselor": "Edris Ali Emon",
       "uniCount": 0,
       "moreUni": "N",
@@ -1430,7 +1430,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787385271901,
+      "lastUpdated": 1787385283736,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1438,6 +1438,11 @@
       "applicationCompletions": [],
       "uniApplications": [],
       "stageHistory": [
+        {
+          "stage": "Tuition fee paid",
+          "enteredDate": 1787385283736,
+          "duration": 0
+        },
         {
           "stage": "Visa lodged",
           "enteredDate": 1787385271901,
@@ -1502,6 +1507,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787385342527,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787385271909,
       "msg": "Visa lodged: Tanjedul Sarker"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-22T04:06:10.827Z",
+    "saved": "2026-08-22T07:54:33.915Z",
     "version": 8,
     "count": 34
   },
@@ -1416,7 +1416,7 @@
       "country": "New Zealand",
       "intake": "June 2026",
       "status": "Active",
-      "appStage": "Conditional offer letter issued",
+      "appStage": "Visa lodged",
       "counselor": "Edris Ali Emon",
       "uniCount": 0,
       "moreUni": "N",
@@ -1430,7 +1430,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1787385271901,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1439,9 +1439,14 @@
       "uniApplications": [],
       "stageHistory": [
         {
+          "stage": "Visa lodged",
+          "enteredDate": 1787385271901,
+          "duration": 0
+        },
+        {
           "stage": "Conditional offer letter issued",
           "enteredDate": 1766275200000,
-          "duration": 0
+          "duration": 244
         },
         {
           "stage": "GTE Assessment",
@@ -1460,7 +1465,7 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": true
     },
     {
       "id": 1786707888166.6794,
@@ -1497,6 +1502,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787385271909,
+      "msg": "Visa lodged: Tanjedul Sarker"
+    },
     {
       "ts": 1787371568826,
       "msg": "Visa lodged: Akimul Islam"

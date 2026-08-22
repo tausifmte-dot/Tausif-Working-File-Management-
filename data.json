@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-22T04:05:46.459Z",
+    "saved": "2026-08-22T04:06:10.827Z",
     "version": 8,
     "count": 34
   },
@@ -19,13 +19,13 @@
       "bankMatured": "Y",
       "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
-      "defer": "N",
+      "defer": "Y",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
-      "visaPrep": "Ready",
-      "visaNext": "",
-      "lastUpdated": 1787371498520,
+      "visaPrep": "",
+      "visaNext": "N",
+      "lastUpdated": 1787371568826,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -40,9 +40,28 @@
           "applicationDate": "2026-01-08",
           "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
           "classCommencementDate": "2026-08-26"
+        },
+        {
+          "country": "New Zealand",
+          "university": "University of Waikato (Waikato)",
+          "program": "Ii",
+          "agent": "NZUAC",
+          "applicationDate": "2026-08-22",
+          "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
+          "classCommencementDate": "2026-08-26"
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1787371568826,
+          "duration": 0
+        },
+        {
+          "stage": "New information requested by the visa officer",
+          "enteredDate": 1787371561151,
+          "duration": 0
+        },
         {
           "stage": "Visa lodged",
           "enteredDate": 1787290515330,
@@ -57,11 +76,11 @@
       "phone": "",
       "visaApplicationRef": {
         "country": "New Zealand",
-        "university": "White cliff College",
-        "program": "Bachelor of Applied Computing L 7",
-        "classCommencementDate": ""
+        "university": "University of Waikato (Waikato)",
+        "program": "Ii",
+        "classCommencementDate": "2026-08-26"
       },
-      "visaFieldsLocked": false
+      "visaFieldsLocked": true
     },
     {
       "id": 1786707888167.0344,
@@ -1478,6 +1497,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787371568826,
+      "msg": "Visa lodged: Akimul Islam"
+    },
     {
       "ts": 1787371544458,
       "msg": "Auto-saved"

@@ -478,6 +478,64 @@ body.dark .fx-chip{
 
 /* PAGES */
 .page-view{display:none;flex:1;overflow-y:auto;padding:14px 18px}.page-view.active{display:flex;flex-direction:column}
+/* Uni Applications Kanban */
+.uk-hdr{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;padding:14px 16px;margin-bottom:12px}
+.uk-title{font-size:17px;font-weight:700;color:var(--text-primary,#1e3a5f)}
+.uk-sub{font-size:12px;color:var(--text-secondary,#4a7098);margin-top:3px}
+.uk-summary{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:12px}
+.uk-sc{border-radius:11px;padding:10px 12px;position:relative;overflow:hidden}
+.uk-sc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.uk-sc.c1::after{background:linear-gradient(90deg,#60a5fa,#2563eb)}
+.uk-sc.c2::after{background:linear-gradient(90deg,#a78bfa,#7c3aed)}
+.uk-sc.c3::after{background:linear-gradient(90deg,#fbbf24,#d97706)}
+.uk-sc.c4::after{background:linear-gradient(90deg,#f87171,#dc2626)}
+.uk-sc.c5::after{background:linear-gradient(90deg,#34d399,#059669)}
+.uk-sc.c6::after{background:linear-gradient(90deg,#9ca3af,#6b7280)}
+.uk-sv{font-size:19px;font-weight:700}
+.uk-sl{font-size:10.5px;color:var(--text-secondary,#4a7098);margin-top:3px;line-height:1.3}
+.uk-filters{display:flex;gap:16px;flex-wrap:wrap;align-items:center;padding:12px 16px;margin-bottom:12px}
+.uk-fgroup{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.uk-flabel{font-size:10.5px;font-weight:700;color:var(--text-muted,#8aabc8);text-transform:uppercase;letter-spacing:.05em;margin-right:2px}
+.uk-chip{padding:4px 11px;border-radius:16px;font-size:11px;font-weight:600;border:1px solid #bfdbfe;background:#eff6ff;color:#4a7098;cursor:pointer}
+.uk-chip.active{background:#2563eb;color:#fff;border-color:#2563eb}
+.uk-search{margin-left:auto;font-size:12px;padding:7px 12px;border:1.5px solid #bfdbfe;border-radius:8px;background:#fff;min-width:220px}
+.uk-board{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;align-items:start}
+.uk-col{display:flex;flex-direction:column;gap:9px}
+.uk-col-hdr{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;border-radius:11px;font-size:12.5px;font-weight:700}
+.uk-col-hdr .uk-cnt{font-size:11px;font-weight:700;background:rgba(255,255,255,0.65);border-radius:10px;padding:1px 9px}
+.uk-col-hdr.uk-notapplied{background:linear-gradient(135deg,#f3f4f6,#e5e7eb);color:#4b5563}
+.uk-col-hdr.uk-submitted{background:linear-gradient(135deg,#dbeafe,#bfdbfe);color:#1d4ed8}
+.uk-col-hdr.uk-lodged{background:linear-gradient(135deg,#fef3c7,#fde68a);color:#92400e}
+.uk-col-hdr.uk-refused{background:linear-gradient(135deg,#fee2e2,#fecaca);color:#991b1b}
+.uk-col-hdr.uk-issued{background:linear-gradient(135deg,#d1fae5,#a7f3d0);color:#065f46}
+.uk-col-body{display:flex;flex-direction:column;gap:9px;min-height:60px;max-height:68vh;overflow-y:auto;padding-bottom:6px}
+.uk-empty{font-size:11px;color:var(--text-muted,#8aabc8);font-style:italic;padding:10px;text-align:center}
+.uk-card{border-radius:11px;padding:11px 12px;cursor:pointer}
+.uk-card.uk-alarm{border:1.5px solid #dc2626 !important;box-shadow:0 0 0 1px rgba(220,38,38,0.15),0 4px 14px rgba(220,38,38,0.12)}
+.uk-c-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px}
+.uk-c-name{font-weight:700;font-size:13px}
+.uk-c-lock{font-size:10.5px;color:var(--text-muted,#8aabc8);white-space:nowrap}
+.uk-c-uni{font-size:11.5px;color:var(--text-secondary,#4a7098);margin-top:3px;line-height:1.35}
+.uk-c-meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.uk-tag{font-size:10px;font-weight:700;padding:2px 7px;border-radius:20px}
+.uk-tag-agent{background:#dbeafe;color:#1d4ed8}
+.uk-tag-country{background:#f3f4f6;color:#4a7098}
+.uk-tag-defer{background:#fef3c7;color:#d97706}
+.uk-tag-vn-y{background:#d1fae5;color:#059669}
+.uk-tag-vn-n{background:#fee2e2;color:#dc2626}
+.uk-tag-vn-blank{background:#f3f4f6;color:#9ca3af}
+.uk-c-classdate{display:flex;justify-content:space-between;align-items:center;margin-top:9px;padding-top:8px;border-top:1px dashed #dbeafe;font-size:11px}
+.uk-cd-lbl{color:var(--text-muted,#8aabc8)}
+.uk-cd-val{font-weight:700}
+.uk-cd-days{font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;margin-left:6px}
+.uk-cd-fresh{background:#d1fae5;color:#059669}
+.uk-cd-warn{background:#fef3c7;color:#d97706}
+.uk-cd-alarm{background:#fee2e2;color:#dc2626}
+.uk-c-linkrow{margin-top:7px;display:flex;justify-content:space-between;align-items:center;gap:6px}
+.uk-c-link{font-size:11px;font-weight:600;color:#2563eb;text-decoration:none}
+.uk-defer-btn{font-size:10.5px;font-weight:700;padding:4px 9px;border-radius:7px;border:1.5px solid #dc2626;color:#dc2626;background:rgba(220,38,38,0.06);cursor:pointer}
+.uk-missing{font-size:10px;font-weight:700;color:#dc2626}
+@media(max-width:1100px){.uk-board{grid-template-columns:repeat(2,1fr)}.uk-summary{grid-template-columns:repeat(3,1fr)}}
 
 /* ══════════ DASHBOARD ══════════ */
 .dash-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:14px;padding:14px 18px}
@@ -882,6 +940,7 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
   <div class="nav-tabs">
     <button class="nav-tab active" onclick="showPage('p1')">&#9635; Dashboard</button>
     <button class="nav-tab" onclick="showPage('p2')">&#9776; Student Files</button>
+    <button class="nav-tab" onclick="showPage('p5')">&#127891; Uni Applications</button>
     <button class="nav-tab" onclick="showPage('p3')">&#127807; NZ Green List</button>
     <button class="nav-tab" onclick="showPage('p4')">&#9881; Settings</button>
   </div>
@@ -977,6 +1036,11 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
 
   <!-- Dashboard Layout Row 3: Pending Tasks | Application Reminders | Days Since Last Worked On -->
   <div style="display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px">
+    <div class="glass2" id="visa-alarm-wrap" style="padding:14px 16px;margin-bottom:14px;display:none">
+      <div class="slbl" style="margin-bottom:6px;color:var(--er,#dc2626)">&#9200; Visa Decision Pending — Class Starting Soon</div>
+      <div class="remind-section" id="visa-alarm-sec"></div>
+    </div>
+
     <div class="dash-center-3col">
       <div class="glass2" style="padding:14px 16px;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
@@ -1054,6 +1118,33 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
     </div>
   </div>
 
+</div>
+
+<!-- ════════════════ PAGE 5 — UNIVERSITY APPLICATIONS (KANBAN) ════════════════ -->
+<div id="p5" class="page-view">
+  <div class="glass2 uk-hdr">
+    <div>
+      <div class="uk-title">🎓 University Applications</div>
+      <div class="uk-sub">Kanban view — synced live with student records, agents, visa timing & deferral status</div>
+    </div>
+    <div style="display:flex;gap:8px;flex-wrap:wrap">
+      <button class="btn btn-txt btn-sm" onclick="exportUniKanbanTXT()">⬇ Export Report</button>
+    </div>
+  </div>
+
+  <div class="uk-summary" id="uk-summary"></div>
+
+  <div class="glass2 uk-filters">
+    <div class="uk-fgroup" id="uk-agent-filters"><span class="uk-flabel">Agent</span></div>
+    <div class="uk-fgroup" id="uk-country-filters"><span class="uk-flabel">Country</span></div>
+    <input class="uk-search" id="uk-search" placeholder="🔍 Search student, university, program..." oninput="renderUniKanban()">
+  </div>
+
+  <div class="uk-board" id="uk-board"></div>
+
+  <div class="glass2" style="padding:10px 18px;font-size:11px;color:var(--tm);margin-top:12px">
+    🔒 = fields locked (decision on file for this cycle) · 🔓 = fields unlocked (awaiting/reopened) · Red-bordered cards = visa still pending with class starting ≤7 days · Click a card to jump to that student's file
+  </div>
 </div>
 
 <!-- ════════════════ PAGE 3 — NZ GREEN LIST ════════════════ -->
@@ -1305,6 +1396,12 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
           <div class="fgroup"><label>Agent (if any)</label><select id="uni-add-agent" onchange="autoSaveUniAppField()"><option value="">-- Direct/Self --</option><option>UP</option><option>GEEbee</option><option>RBS</option><option>NZUAC</option><option>GSP</option><option>Other</option></select></div>
           <div class="fgroup"><label>Application Date</label><input id="uni-add-date" type="date" onchange="autoSaveUniAppField()"></div>
         </div>
+        <div class="frow">
+          <div class="fgroup" style="flex:1"><label>Program Webpage Link <span style="color:var(--er,#dc2626);font-weight:700">*</span> <span style="font-weight:400;color:var(--tm);font-size:10.5px">(required — official program/course page)</span></label><input id="uni-add-link" type="url" placeholder="https://www.university.edu/program-page" onchange="autoSaveUniAppField()" required></div>
+        </div>
+        <div class="frow">
+          <div class="fgroup" style="flex:1"><label>Class Commencement Date <span style="color:var(--er,#dc2626);font-weight:700">*</span> <span style="font-weight:400;color:var(--tm);font-size:10.5px">(required — from the offer letter; drives visa-timing calculations)</span></label><input id="uni-add-classdate" type="date" onchange="autoSaveUniAppField()" required></div>
+        </div>
         <div style="display:flex;align-items:center;gap:8px">
           <button class="btn btn-primary btn-sm" id="uni-form-submit-btn" onclick="addUniApplication()">+ Add Application</button>
           <button class="btn btn-sm" style="border-color:#d1d5db;color:#6b7280;display:none" id="uni-form-cancel-btn" onclick="cancelEditUniApp()">Done Editing</button>
@@ -1518,9 +1615,11 @@ function showPage(id){
   document.querySelectorAll('.page-view').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.nav-tab')[id==='p1'?0:id==='p2'?1:id==='p3'?2:3].classList.add('active');
+  const navIdx={p1:0,p2:1,p5:2,p3:3,p4:4}[id]||0;
+  document.querySelectorAll('.nav-tab')[navIdx].classList.add('active');
   if(id==='p2'){renderStudentList();renderDetail();if(studentView==='cards')renderCardsP2();}
   if(id==='p3')glRenderBrowse();
+  if(id==='p5')renderUniKanban();
 }
 
 function setTheme(theme) {
@@ -1575,6 +1674,8 @@ function migrateData(){
     if(s.visaNext==='Yes')s.visaNext='Y';if(s.visaNext==='No')s.visaNext='N';
     if(!s.phone)s.phone='';if(!s.appStage)s.appStage='';
     if(!s.remarksHistory)s.remarksHistory=[];if(!s.situationHistory)s.situationHistory=[];if(!s.applicationCompletions)s.applicationCompletions=[];
+    if(typeof s.visaFieldsLocked!=='boolean')s.visaFieldsLocked=false;
+    if(s.visaApplicationRef&&typeof s.visaApplicationRef.classCommencementDate==='undefined')s.visaApplicationRef.classCommencementDate='';
     // Migrate old uni data to uniApplications array
     if(!s.uniApplications)s.uniApplications=[];
     if(s.universities&&typeof s.universities==='object'){
@@ -1738,7 +1839,7 @@ function updateLastAction(msg){
 // DEFAULT DATA
 // ════════════════════════════════════════════════════════════
 function blankStudent(name){
-  return{id:Date.now()+Math.random(),name:name||'New Student',country:'',intake:'',status:'Active',appStage:'',counselor:'',phone:'',email:'',uniCount:0,moreUni:'N',moreUniDate:'',bankMatured:'',bankMonths:'',bankExpectedDate:'',defer:'N',gsApplied:'N',gsStatus:'',coe:'N',visaPrep:'',visaNext:'',lastUpdated:Date.now(),remarks:'',situation:'',remarksHistory:[],situationHistory:[],applicationCompletions:[],uniApplications:[],stageHistory:[],locked:false,closedInfo:null,visaApplicationRef:null};
+  return{id:Date.now()+Math.random(),name:name||'New Student',country:'',intake:'',status:'Active',appStage:'',counselor:'',phone:'',email:'',uniCount:0,moreUni:'N',moreUniDate:'',bankMatured:'',bankMonths:'',bankExpectedDate:'',defer:'N',gsApplied:'N',gsStatus:'',coe:'N',visaPrep:'',visaNext:'',lastUpdated:Date.now(),remarks:'',situation:'',remarksHistory:[],situationHistory:[],applicationCompletions:[],uniApplications:[],stageHistory:[],locked:false,visaFieldsLocked:false,closedInfo:null,visaApplicationRef:null};
 }
 async function loadBundledData(){
   try{
@@ -1780,6 +1881,11 @@ function uf(idx,field,val){
     renderDetail();
     return;
   }
+  if(student.visaFieldsLocked && ['moreUni','moreUniDate','defer','visaPrep','visaNext'].includes(field)){
+    alert('🔒 This field is locked because a visa decision (Lodged/Issued) is already on file for the current cycle.');
+    renderDetail();
+    return;
+  }
   if(field==='appStage'){
     const group=visaGroupOf(val);
     if(group && val!==student.appStage){
@@ -1817,6 +1923,28 @@ function visaGroupOf(stage){
   if(s==='visa refused'||s==='visa rejected')return 'refused';
   if(s==='visa lodged')return 'lodged';
   return null;
+}
+// ── Visa timing engine ──
+// Assumed average lead time (days) needed between lodging a fresh visa
+// application and receiving a decision. Used to auto-determine whether a
+// reapplication after refusal can still land before the intake's class
+// commencement date.
+const VISA_DECISION_LEAD_DAYS=60;
+function recomputeVisaNext(s){
+  const ref=s.visaApplicationRef;
+  const classDate=ref&&ref.classCommencementDate?ref.classCommencementDate:null;
+  if(!classDate){ s.visaNext=''; return; }
+  const daysToClass=Math.floor((new Date(classDate)-Date.now())/86400000);
+  if(daysToClass>=VISA_DECISION_LEAD_DAYS){
+    s.visaNext='Y';
+  }else{
+    s.visaNext='N';
+    s.defer='Y'; // not enough runway — automatically pushed to the next intake
+  }
+}
+function daysUntil(dateStr){
+  if(!dateStr)return null;
+  return Math.floor((new Date(dateStr)-Date.now())/86400000);
 }
 function lockStudent(s,reason,stage){
   s.locked=true;
@@ -1862,7 +1990,16 @@ function confirmVisaDecision(){
   s.lastUpdated=Date.now();
   if(selVal!==''){
     const app=apps[parseInt(selVal,10)];
-    if(app)s.visaApplicationRef={country:app.country,university:app.university,program:app.program};
+    if(app)s.visaApplicationRef={country:app.country,university:app.university,program:app.program,classCommencementDate:app.classCommencementDate||''};
+  }
+  if(group==='issued'||group==='lodged'){
+    // Decision pending or granted: these questions are no longer relevant for this cycle
+    s.moreUni='N';
+    s.moreUniDate='';
+    s.visaPrep='';
+    s.defer='N';
+    s.visaFieldsLocked=true;
+    recomputeVisaNext(s);
   }
   if(group==='issued'){
     lockStudent(s,'Visa Issued — Application Closed',newStage);
@@ -1871,9 +2008,17 @@ function confirmVisaDecision(){
     const wantsResubmit=resubmit?resubmit.value:'Y';
     if(wantsResubmit==='N'){
       lockStudent(s,'Visa Refused — No Resubmission (Final)',newStage);
+      s.visaFieldsLocked=true;
     }else{
       s.locked=false;
       s.closedInfo=null;
+      // Reopen the questionnaire so it must be answered again for the reapplication
+      s.visaFieldsLocked=false;
+      s.moreUni='';
+      s.moreUniDate='';
+      s.visaPrep='';
+      s.defer='';
+      recomputeVisaNext(s); // auto-determined from class commencement date, not asked
     }
   }
   closeMo('visa-decision-mo');
@@ -1901,7 +2046,7 @@ function reopenStudent(idx){
 // RENDER ALL — charts only on dashboard or explicit request
 // ════════════════════════════════════════════════════════════
 function renderAll(){
-  renderIntakeTabs();updateSummary();renderReminders();renderTasks();renderProgress();renderQuickNotes();renderActionHistory();renderStaleStudents();renderAgentOverview();
+  renderIntakeTabs();updateSummary();renderReminders();renderVisaAlarm();renderTasks();renderProgress();renderQuickNotes();renderActionHistory();renderStaleStudents();renderAgentOverview();
   renderStudentList();renderDetail();if(studentView==='cards')renderCardsP2();
   renderDashboardStudentSection();renderWhatsAppPanel();
   if(activePage==='p1')renderCharts();
@@ -2207,6 +2352,199 @@ function renderReminders(){
   }).join('');
 }
 
+// ════════════════════════════════════════════════════════════
+// VISA DECISION ALARM — pending decisions with class starting soon
+// ════════════════════════════════════════════════════════════
+const VISA_ALARM_WINDOW_DAYS=7;
+function renderVisaAlarm(){
+  const wrap=document.getElementById('visa-alarm-wrap');
+  const sec=document.getElementById('visa-alarm-sec');
+  if(!wrap||!sec)return;
+  const pending=students.filter(s=>{
+    if(s.status==='Discontinued')return false;
+    const grp=visaGroupOf(s.appStage);
+    if(grp!=='lodged')return false;
+    const cd=s.visaApplicationRef&&s.visaApplicationRef.classCommencementDate;
+    if(!cd)return false;
+    const d=daysUntil(cd);
+    return d!==null && d<=VISA_ALARM_WINDOW_DAYS;
+  });
+  if(!pending.length){wrap.style.display='none';sec.innerHTML='';return;}
+  wrap.style.display='block';
+  sec.innerHTML=pending.map(s=>{
+    const idx=students.findIndex(x=>x.id===s.id);
+    const d=daysUntil(s.visaApplicationRef.classCommencementDate);
+    const timeLbl=d<0?`<strong>${Math.abs(d)}d overdue</strong> — classes already started`:d===0?'<strong>classes start today!</strong>':`<strong>${d}d left</strong> before classes start (${s.visaApplicationRef.classCommencementDate})`;
+    return `<div class="remind-item urgent"><div class="remind-main"><div><strong>${esc(s.name)}</strong> — visa decision still pending · ${timeLbl}</div><div style="font-size:11px;margin-top:4px">${esc(s.visaApplicationRef.university||'')}${s.visaApplicationRef.program?' — '+esc(s.visaApplicationRef.program):''} · Country: ${esc(s.country||'Not set')}</div></div><div class="remind-actions"><button class="btn-remind-done" style="background:var(--er,#dc2626)" onclick="requestDeferralPrompt(${idx})">Request Deferral</button></div></div>`;
+  }).join('');
+}
+// ════════════════════════════════════════════════════════════
+// UNIVERSITY APPLICATIONS — KANBAN PAGE (p5)
+// ════════════════════════════════════════════════════════════
+let ukAgentFilter='ALL',ukCountryFilter='ALL';
+function ukColumnOf(stage){
+  const grp=visaGroupOf(stage);
+  if(grp==='issued')return 'issued';
+  if(grp==='refused')return 'refused';
+  if(grp==='lodged')return 'lodged';
+  if(stage&&/submit/i.test(stage))return 'submitted';
+  return 'notapplied';
+}
+function renderUniKanban(){
+  // Agent filter chips
+  const agentWrap=document.getElementById('uk-agent-filters');
+  if(agentWrap){
+    const usedAgents=Array.from(new Set(students.flatMap(s=>(s.uniApplications||[]).map(a=>a.agent||'Direct/Self'))));
+    agentWrap.innerHTML='<span class="uk-flabel">Agent</span>'+
+      `<span class="uk-chip${ukAgentFilter==='ALL'?' active':''}" onclick="ukAgentFilter='ALL';renderUniKanban()">All</span>`+
+      usedAgents.map(a=>`<span class="uk-chip${ukAgentFilter===a?' active':''}" onclick="ukAgentFilter='${esc(a)}';renderUniKanban()">${esc(a)}</span>`).join('');
+  }
+  const countryWrap=document.getElementById('uk-country-filters');
+  if(countryWrap){
+    const usedCountries=Array.from(new Set(students.flatMap(s=>(s.uniApplications||[]).map(a=>a.country))));
+    countryWrap.innerHTML='<span class="uk-flabel">Country</span>'+
+      `<span class="uk-chip${ukCountryFilter==='ALL'?' active':''}" onclick="ukCountryFilter='ALL';renderUniKanban()">All</span>`+
+      usedCountries.map(c=>`<span class="uk-chip${ukCountryFilter===c?' active':''}" onclick="ukCountryFilter='${esc(c)}';renderUniKanban()">${FLAGS[c]||''} ${esc(c)}</span>`).join('');
+  }
+
+  const searchEl=document.getElementById('uk-search');
+  const q=(searchEl?searchEl.value:'').trim().toLowerCase();
+
+  // Build flat list of {student, idx, app, col}
+  let cards=[];
+  students.forEach((s,idx)=>{
+    if(s.status==='Discontinued')return;
+    const col=ukColumnOf(s.appStage);
+    const apps=(s.uniApplications||[]);
+    if(apps.length===0){
+      cards.push({s,idx,app:null,col:'notapplied'});
+    }else{
+      apps.forEach(a=>cards.push({s,idx,app:a,col}));
+    }
+  });
+
+  // Filters
+  cards=cards.filter(c=>{
+    if(ukAgentFilter!=='ALL'){
+      const ag=c.app?(c.app.agent||'Direct/Self'):null;
+      if(ag!==ukAgentFilter)return false;
+    }
+    if(ukCountryFilter!=='ALL'){
+      const cn=c.app?c.app.country:null;
+      if(cn!==ukCountryFilter)return false;
+    }
+    if(q){
+      const hay=`${c.s.name} ${c.app?c.app.university:''} ${c.app?c.app.program:''}`.toLowerCase();
+      if(!hay.includes(q))return false;
+    }
+    return true;
+  });
+
+  // Summary metrics (computed off the full unfiltered set, not the filtered view)
+  const allApps=students.filter(s=>s.status!=='Discontinued').flatMap(s=>(s.uniApplications||[]).map(a=>({s,a})));
+  const totalApps=allApps.length;
+  const agentsActive=new Set(allApps.map(x=>x.a.agent||'Direct/Self')).size;
+  const lodgedCount=students.filter(s=>s.status!=='Discontinued'&&visaGroupOf(s.appStage)==='lodged').length;
+  const alarmCount=students.filter(s=>{
+    if(s.status==='Discontinued')return false;
+    if(visaGroupOf(s.appStage)!=='lodged')return false;
+    const cd=s.visaApplicationRef&&s.visaApplicationRef.classCommencementDate;
+    if(!cd)return false;
+    const d=daysUntil(cd);
+    return d!==null&&d<=VISA_ALARM_WINDOW_DAYS;
+  }).length;
+  const issuedCount=students.filter(s=>s.status!=='Discontinued'&&visaGroupOf(s.appStage)==='issued').length;
+  const deferredCount=students.filter(s=>s.status!=='Discontinued'&&s.defer==='Y').length;
+
+  const summaryEl=document.getElementById('uk-summary');
+  if(summaryEl){
+    summaryEl.innerHTML=`
+      <div class="glass2 uk-sc c1"><div class="uk-sv">${totalApps}</div><div class="uk-sl">Total Applications</div></div>
+      <div class="glass2 uk-sc c2"><div class="uk-sv">${agentsActive}</div><div class="uk-sl">Agents Active</div></div>
+      <div class="glass2 uk-sc c3"><div class="uk-sv">${lodgedCount}</div><div class="uk-sl">Lodged — Awaiting Decision</div></div>
+      <div class="glass2 uk-sc c4"><div class="uk-sv">${alarmCount}</div><div class="uk-sl">🚨 Class Starts ≤7 Days</div></div>
+      <div class="glass2 uk-sc c5"><div class="uk-sv">${issuedCount}</div><div class="uk-sl">Visa Issued</div></div>
+      <div class="glass2 uk-sc c6"><div class="uk-sv">${deferredCount}</div><div class="uk-sl">Deferred</div></div>`;
+  }
+
+  const cols=[
+    {key:'notapplied',label:'🕓 Not Yet Applied',cls:'uk-notapplied'},
+    {key:'submitted',label:'📤 Submitted',cls:'uk-submitted'},
+    {key:'lodged',label:'⏳ Lodged',cls:'uk-lodged'},
+    {key:'refused',label:'❌ Refused',cls:'uk-refused'},
+    {key:'issued',label:'✅ Issued',cls:'uk-issued'}
+  ];
+
+  const boardEl=document.getElementById('uk-board');
+  if(!boardEl)return;
+  boardEl.innerHTML=cols.map(col=>{
+    const colCards=cards.filter(c=>c.col===col.key);
+    const body=colCards.length?colCards.map(c=>ukCardHtml(c)).join(''):'<div class="uk-empty">No applications</div>';
+    return `<div class="uk-col"><div class="uk-col-hdr ${col.cls}"><span>${col.label}</span><span class="uk-cnt">${colCards.length}</span></div><div class="uk-col-body">${body}</div></div>`;
+  }).join('');
+}
+function ukCardHtml(c){
+  const s=c.s,a=c.app,idx=c.idx;
+  const lockLbl=s.locked?'🔒 File Closed':(s.visaFieldsLocked?'🔒':'🔓');
+  let alarm=false,classRow='';
+  if(a){
+    if(a.classCommencementDate){
+      const d=daysUntil(a.classCommencementDate);
+      const isLodgedCol=c.col==='lodged';
+      if(isLodgedCol&&d!==null&&d<=VISA_ALARM_WINDOW_DAYS)alarm=true;
+      const dayCls=d===null?'':(d<=VISA_ALARM_WINDOW_DAYS?'uk-cd-alarm':(d<=21?'uk-cd-warn':'uk-cd-fresh'));
+      const dayLbl=d===null?'':(d<0?`${Math.abs(d)}d overdue`:d===0?'today!':`${d}d left`);
+      classRow=`<div class="uk-c-classdate"><span class="uk-cd-lbl">Class starts</span><span class="uk-cd-val">${esc(a.classCommencementDate)}</span>${dayLbl?`<span class="uk-cd-days ${dayCls}">${dayLbl}</span>`:''}</div>`;
+    }else{
+      classRow=`<div class="uk-c-classdate"><span class="uk-cd-lbl">Class starts</span><span class="uk-missing">Missing</span></div>`;
+    }
+  }
+  const vnTag=s.visaNext==='Y'?'<span class="uk-tag uk-tag-vn-y">Next Intake: Y</span>':s.visaNext==='N'?'<span class="uk-tag uk-tag-vn-n">Next Intake: N</span>':'<span class="uk-tag uk-tag-vn-blank">Next Intake: —</span>';
+  const deferTag=s.defer==='Y'?'<span class="uk-tag uk-tag-defer">Deferred</span>':'';
+  const linkHtml=a&&a.link?`<a class="uk-c-link" href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 Program page</a>`:(a?'<span class="uk-missing">No link</span>':'<span></span>');
+  const deferBtn=(alarm)?`<button class="uk-defer-btn" onclick="event.stopPropagation();requestDeferralPrompt(${idx})">Request Deferral</button>`:'';
+  return `<div class="glass2 uk-card${alarm?' uk-alarm':''}" onclick="showPage('p2');selectStudent(${idx});">
+    <div class="uk-c-top"><div class="uk-c-name">${esc(s.name)}</div><div class="uk-c-lock">${lockLbl}</div></div>
+    ${a?`<div class="uk-c-uni">${esc(a.university)}${a.program?'<br>'+esc(a.program):''}</div>`:'<div class="uk-c-uni" style="font-style:italic">No applications logged yet</div>'}
+    <div class="uk-c-meta">${a?`<span class="uk-tag uk-tag-agent">${esc(a.agent||'Direct/Self')}</span><span class="uk-tag uk-tag-country">${FLAGS[a.country]||''} ${esc(a.country||'')}</span>`:''}${c.col==='refused'||c.col==='lodged'?vnTag:''}${deferTag}</div>
+    ${classRow}
+    <div class="uk-c-linkrow">${linkHtml}${deferBtn}</div>
+  </div>`;
+}
+function exportUniKanbanTXT(){
+  const lines=['UNIVERSITY APPLICATIONS REPORT','Generated: '+new Date().toLocaleString(),''];
+  students.forEach(s=>{
+    if(s.status==='Discontinued')return;
+    const apps=s.uniApplications||[];
+    if(!apps.length)return;
+    lines.push(`${s.name} — Stage: ${s.appStage||'N/A'} — Defer: ${s.defer||'-'} — Next Intake: ${s.visaNext||'-'}`);
+    apps.forEach((a,j)=>{
+      lines.push(`   ${j+1}. ${a.university} (${a.country}) — ${a.program||'N/A'} — Agent: ${a.agent||'Direct/Self'}`);
+      lines.push(`      Class starts: ${a.classCommencementDate||'MISSING'} | Link: ${a.link||'MISSING'}`);
+    });
+    lines.push('');
+  });
+  const blob=new Blob([lines.join('\n')],{type:'text/plain'});
+  const url=URL.createObjectURL(blob);
+  const link=document.createElement('a');
+  link.href=url;link.download='university_applications_report.txt';link.click();
+  URL.revokeObjectURL(url);
+}
+function requestDeferralPrompt(idx){
+  const s=students[idx];
+  if(!s)return;
+  if(!confirm(`${s.name}'s visa decision has not arrived and classes start soon.\n\nRequest a deferral letter from the university and mark this application as deferred?`))return;
+  s.defer='Y';
+  s.lastUpdated=Date.now();
+  if(!s.remarksHistory)s.remarksHistory=[];
+  const note=`Deferral requested — visa decision pending with class commencement imminent (${s.visaApplicationRef?s.visaApplicationRef.classCommencementDate:''}).`;
+  s.remarksHistory.unshift({ts:Date.now(),text:note});
+  s.remarks=note;
+  addLog('Deferral requested: '+s.name);
+  persist('Deferral requested for '+s.name);
+  renderAll();
+  if(activePage==='p5')renderUniKanban();
+}
 function renderStaleStudents(){
   const sec=document.getElementById('stale-sec');
   if(!sec)return;
@@ -2450,6 +2788,8 @@ function editUniApp(i){
   document.getElementById('uni-add-program').value=a.program||'';
   document.getElementById('uni-add-agent').value=a.agent||'';
   document.getElementById('uni-add-date').value=a.applicationDate||'';
+  document.getElementById('uni-add-link').value=a.link||'';
+  document.getElementById('uni-add-classdate').value=a.classCommencementDate||'';
   document.getElementById('uni-form-title').textContent='Edit Application (changes save automatically)';
   document.getElementById('uni-form-submit-btn').style.display='none';
   document.getElementById('uni-form-cancel-btn').style.display='inline-block';
@@ -2468,6 +2808,8 @@ function cancelEditUniApp(){
   document.getElementById('uni-add-program').value='';
   document.getElementById('uni-add-agent').value='';
   document.getElementById('uni-add-date').value='';
+  document.getElementById('uni-add-link').value='';
+  document.getElementById('uni-add-classdate').value='';
   document.getElementById('uni-form-title').textContent='Add New Application';
   document.getElementById('uni-form-submit-btn').textContent='+ Add Application';
   document.getElementById('uni-form-submit-btn').style.display='inline-block';
@@ -2482,13 +2824,29 @@ function autoSaveUniAppField(){
   const program=document.getElementById('uni-add-program').value.trim();
   const agent=document.getElementById('uni-add-agent').value;
   const applicationDate=document.getElementById('uni-add-date').value;
+  const link=document.getElementById('uni-add-link').value.trim();
+  const classCommencementDate=document.getElementById('uni-add-classdate').value;
   const university=uniSel||uniText;
   if(!country||!university)return;
-  students[uniModalIdx].uniApplications[uniEditIdx]={country,university,program,agent,applicationDate};
+  if(!link||!isValidUrl(link)){
+    const linkField=document.getElementById('uni-add-link');
+    if(linkField){linkField.style.boxShadow='0 0 0 3px rgba(220,38,38,0.35)';setTimeout(()=>{linkField.style.boxShadow='';},1200);}
+    return;
+  }
+  if(!classCommencementDate){
+    const cdField=document.getElementById('uni-add-classdate');
+    if(cdField){cdField.style.boxShadow='0 0 0 3px rgba(220,38,38,0.35)';setTimeout(()=>{cdField.style.boxShadow='';},1200);}
+    return;
+  }
+  students[uniModalIdx].uniApplications[uniEditIdx]={country,university,program,agent,applicationDate,link,classCommencementDate};
   students[uniModalIdx].lastUpdated=Date.now();
+  recomputeVisaNext(students[uniModalIdx]);
   renderUniApps();renderAll();markDirty();
   const msg=document.getElementById('uni-autosave-msg');
   if(msg){msg.style.opacity='1';clearTimeout(window._uniSaveMsgTimer);window._uniSaveMsgTimer=setTimeout(()=>{msg.style.opacity='0';},1500);}
+}
+function isValidUrl(v){
+  try{const u=new URL(v);return u.protocol==='http:'||u.protocol==='https:';}catch(e){return false;}
 }
 function addUniApplication(){
   if(uniModalIdx===null)return;
@@ -2498,15 +2856,21 @@ function addUniApplication(){
   const program=document.getElementById('uni-add-program').value.trim();
   const agent=document.getElementById('uni-add-agent').value;
   const applicationDate=document.getElementById('uni-add-date').value;
+  const link=document.getElementById('uni-add-link').value.trim();
+  const classCommencementDate=document.getElementById('uni-add-classdate').value;
   const university=uniSel||uniText;
   if(!country||!university){return alert('Please select a country and university.');}
-  const entry={country,university,program,agent,applicationDate};
+  if(!link){return alert('Program Webpage Link is required. Please paste the official program/course page URL before adding this application.');}
+  if(!isValidUrl(link)){return alert('That doesn\'t look like a valid link. Please enter a full URL, e.g. https://www.university.edu/program-page');}
+  if(!classCommencementDate){return alert('Class Commencement Date is required (from the offer letter). This is needed to calculate visa-timing for the intake.');}
+  const entry={country,university,program,agent,applicationDate,link,classCommencementDate};
   if(uniEditIdx!==null){
     students[uniModalIdx].uniApplications[uniEditIdx]=entry;
   }else{
     students[uniModalIdx].uniApplications.push(entry);
   }
   students[uniModalIdx].lastUpdated=Date.now();
+  recomputeVisaNext(students[uniModalIdx]);
   cancelEditUniApp();
   renderAll();markDirty();
 }
@@ -2522,7 +2886,7 @@ function renderUniApps(){
   const apps=students[uniModalIdx].uniApplications||[];
   const el=document.getElementById('uni-apps-list');
   if(!apps.length){el.innerHTML='<div style="padding:12px;text-align:center;color:var(--tm);font-size:12px;font-style:italic">No university applications yet</div>';return;}
-  el.innerHTML=`<table class="uni-apps-table"><thead><tr><th>#</th><th>Country</th><th>University</th><th>Program</th><th>Agent</th><th></th></tr></thead><tbody>${apps.map((a,i)=>`<tr class="clickable"${uniEditIdx===i?' style="background:rgba(37,99,235,0.1)"':''} onclick="editUniApp(${i})"><td>${i+1}</td><td>${FLAGS[a.country]||''} ${esc(a.country)}</td><td>${esc(a.university)}</td><td>${esc(a.program)||'—'}</td><td>${esc(a.agent)||'Direct/Self'}</td><td><button class="btn-del" onclick="event.stopPropagation();removeUniApp(${i})">&#215;</button></td></tr>`).join('')}</tbody></table>`;
+  el.innerHTML=`<table class="uni-apps-table"><thead><tr><th>#</th><th>Country</th><th>University</th><th>Program</th><th>Agent</th><th>Class Starts</th><th>Link</th><th></th></tr></thead><tbody>${apps.map((a,i)=>`<tr class="clickable"${uniEditIdx===i?' style="background:rgba(37,99,235,0.1)"':''} onclick="editUniApp(${i})"><td>${i+1}</td><td>${FLAGS[a.country]||''} ${esc(a.country)}</td><td>${esc(a.university)}</td><td>${esc(a.program)||'—'}</td><td>${esc(a.agent)||'Direct/Self'}</td><td>${a.classCommencementDate?esc(a.classCommencementDate):'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td>${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--b600,#2563eb);font-weight:600;text-decoration:none">&#128279; Open</a>`:'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td><button class="btn-del" onclick="event.stopPropagation();removeUniApp(${i})">&#215;</button></td></tr>`).join('')}</tbody></table>`;
 }
 
 function setDashboardStudentView(v){
@@ -2677,7 +3041,7 @@ function renderDetail(){
   // University apps display
   let uniHtml='<div style="padding:8px;text-align:center;color:var(--tm);font-size:12px;font-style:italic">No university applications</div>';
   if(s.uniApplications&&s.uniApplications.length){
-    uniHtml=`<table class="uni-apps-table"><thead><tr><th>Country</th><th>University</th><th>Program</th><th>Agent</th></tr></thead><tbody>${s.uniApplications.map((a,ai)=>`<tr class="clickable" onclick="openUniModal(${idx});editUniApp(${ai})"><td>${FLAGS[a.country]||''} ${esc(a.country)}</td><td>${esc(a.university)}</td><td>${esc(a.program)||'—'}</td><td>${esc(a.agent)||'Direct/Self'}</td></tr>`).join('')}</tbody></table>`;
+    uniHtml=`<table class="uni-apps-table"><thead><tr><th>Country</th><th>University</th><th>Program</th><th>Agent</th><th>Class Starts</th><th>Link</th></tr></thead><tbody>${s.uniApplications.map((a,ai)=>`<tr class="clickable" onclick="openUniModal(${idx});editUniApp(${ai})"><td>${FLAGS[a.country]||''} ${esc(a.country)}</td><td>${esc(a.university)}</td><td>${esc(a.program)||'—'}</td><td>${esc(a.agent)||'Direct/Self'}</td><td>${a.classCommencementDate?esc(a.classCommencementDate):'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td>${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--b600,#2563eb);font-weight:600;text-decoration:none">&#128279; Open</a>`:'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td></tr>`).join('')}</tbody></table>`;
   }
   document.getElementById('detail-content').innerHTML=`
     <div class="detail-hdr"><div><div class="detail-name">${esc(s.name)}</div><div style="font-size:12px;color:var(--ts);margin-top:2px">${FLAGS[s.country]||'🌐'} ${s.country||'No country'} · ${s.intake||'No intake'}</div></div><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">${s.locked?`<button class="btn btn-sm" style="border-color:#d97706;color:#d97706;background:rgba(217,119,6,0.1);font-weight:700" onclick="reopenStudent(${idx})">🔓 Reopen File</button>`:`<button class="btn btn-primary btn-sm" onclick="openAddTask('${s.id}')">+ Task</button><button class="btn btn-uni" onclick="openUniModal(${idx})">&#127891; Universities</button><button class="btn btn-addinfo" onclick="openAddInfo(${idx})">&#128221; Info</button><button class="btn btn-primary btn-sm" onclick="openSituationCollectorPrefill('${s.id}')">&#128204; Situation</button>`}<button class="btn btn-sm" style="border-color:#2563eb;color:#2563eb;background:rgba(37,99,235,0.08)" onclick="openStageHistoryModal(${idx})">📊 Stage History</button><button class="btn btn-sm" style="border-color:#25D366;color:#128C7E;background:rgba(37,211,102,0.08)" onclick="openStudentWhatsApp(${idx})">Send WhatsApp message</button>${s.locked?'':`<button class="btn btn-edit btn-sm" onclick="openEdit(${idx})">&#9998; Edit</button>`}<button class="btn btn-del" onclick="askDel(${idx})">&#215; Remove</button></div></div>
@@ -2694,15 +3058,15 @@ function renderDetail(){
       <div class="detail-field"><label>Intake</label><select onchange="uf(${idx},'intake',this.value)">${INTAKES.map(o=>`<option value="${o}"${s.intake===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
       <div class="detail-sep">University Applications</div>
       <div style="grid-column:1/-1">${uniHtml}<button class="btn btn-uni btn-sm" style="margin-top:8px" onclick="openUniModal(${idx})">&#127891; Manage Universities</button></div>
-      <div class="detail-field"><label>Do I need to submit more applications?</label><select onchange="uf(${idx},'moreUni',this.value);renderDetail()">${YN.map(o=>`<option${s.moreUni===o?' selected':''}>${o}</option>`).join('')}</select></div>
-      ${s.moreUni==='Y'?`<div class="detail-field"><label>By when?</label><input type="date" value="${esc(s.moreUniDate)}" onchange="uf(${idx},'moreUniDate',this.value)"></div>`:''}
+      <div class="detail-field"><label>Do I need to submit more applications?</label><select ${s.visaFieldsLocked?'disabled title="Locked — visa decision already lodged/issued for this cycle"':''} onchange="uf(${idx},'moreUni',this.value);renderDetail()">${['','N','Y'].map(o=>`<option value="${o}"${s.moreUni===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
+      ${s.moreUni==='Y'?`<div class="detail-field"><label>By when?</label><input type="date" value="${esc(s.moreUniDate)}" ${s.visaFieldsLocked?'disabled':''} onchange="uf(${idx},'moreUniDate',this.value)"></div>`:''}
       <div class="detail-sep">Bank</div>
       <div class="detail-field"><label>Bank Matured?</label><select onchange="uf(${idx},'bankMatured',this.value);renderDetail()">${['','Y','N','havent opened yet'].map(o=>`<option value="${o}"${s.bankMatured===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
       <div class="detail-field"><label>Bank Detail</label>${bankDet}</div>
-      <div class="detail-sep">Deferral & Visa</div>
-      <div class="detail-field"><label>Defer?</label><select onchange="uf(${idx},'defer',this.value)">${YN.map(o=>`<option${s.defer===o?' selected':''}>${o}</option>`).join('')}</select></div>
-      <div class="detail-field"><label>Visa Readiness</label><select onchange="uf(${idx},'visaPrep',this.value)">${VISA_PREP.map(o=>`<option value="${o}"${s.visaPrep===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
-      <div class="detail-field"><label>Visa Next Intake?</label><select onchange="uf(${idx},'visaNext',this.value)">${['','Y','N'].map(o=>`<option value="${o}"${s.visaNext===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
+      <div class="detail-sep">Deferral & Visa${s.visaFieldsLocked?' <span style="font-size:10.5px;font-weight:600;color:var(--tm)">(locked — decision on file for current cycle)</span>':''}</div>
+      <div class="detail-field"><label>Defer?</label><select ${s.visaFieldsLocked?'disabled title="Locked — visa decision already lodged/issued for this cycle"':''} onchange="uf(${idx},'defer',this.value)">${['','N','Y'].map(o=>`<option value="${o}"${s.defer===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
+      <div class="detail-field"><label>Visa Readiness</label><select ${s.visaFieldsLocked?'disabled title="Locked — visa decision already lodged/issued for this cycle"':''} onchange="uf(${idx},'visaPrep',this.value)">${VISA_PREP.map(o=>`<option value="${o}"${s.visaPrep===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
+      <div class="detail-field"><label>Visa Next Intake? <span style="font-weight:400;font-size:10.5px;color:var(--tm)">(auto-calculated)</span></label><div style="padding:8px 10px;border:1px solid var(--b100);border-radius:8px;font-size:12.5px;font-weight:700;background:${s.visaNext==='Y'?'var(--okbg,#d1fae5)':s.visaNext==='N'?'var(--erbg,#fee2e2)':'var(--nabg,#f3f4f6)'};color:${s.visaNext==='Y'?'var(--ok,#059669)':s.visaNext==='N'?'var(--er,#dc2626)':'var(--tm)'}">${s.visaNext==='Y'?'✓ Yes — enough time before class starts':s.visaNext==='N'?'✕ No — pushed to next intake':'— Set a Class Commencement Date on the application to calculate'}</div></div>
       ${au?`<div class="detail-sep">GS & CoE (Australia)</div><div class="detail-field"><label>GS Applied?</label><select onchange="uf(${idx},'gsApplied',this.value);renderDetail()">${YN.map(o=>`<option${s.gsApplied===o?' selected':''}>${o}</option>`).join('')}</select></div>${s.gsApplied==='Y'?`<div class="detail-field"><label>GS Status</label><select onchange="uf(${idx},'gsStatus',this.value)">${GS_STAT.map(o=>`<option${s.gsStatus===o?' selected':''}>${o}</option>`).join('')}</select></div>`:''}<div class="detail-field"><label>CoE?</label><select onchange="uf(${idx},'coe',this.value)">${YN.map(o=>`<option${s.coe===o?' selected':''}>${o}</option>`).join('')}</select></div>`:`<div class="detail-sep">GS & CoE</div><div class="detail-field" style="grid-column:1/-1"><div class="na-cell">GS/CoE applicable for Australia only</div></div>`}
     </div>
     <div style="margin-top:14px;padding-top:10px;border-top:1px solid var(--b100)"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:11px;font-weight:600;color:var(--tm);text-transform:uppercase">Latest Info</span><span class="age-badge ${fmtAge(s.lastUpdated).cls}">${fmtAge(s.lastUpdated).label}</span></div><div style="font-size:12px;color:var(--ts);line-height:1.5">${s.remarks?`<strong>Remark:</strong> ${esc(s.remarks)}<br>`:''}${s.situation?`<strong>Situation:</strong> ${esc(s.situation)}`:''}${!s.remarks&&!s.situation?'<em style="color:var(--tm)">No info yet. Click "Additional Info" to add.</em>':''}</div></div></div>`;
@@ -3243,6 +3607,7 @@ function exportTXT(){
         lines.push(`    Universities     :`);
         s.uniApplications.forEach((u,j)=>{
           lines.push(`      ${j+1}. ${u.university} (${u.country}) — ${u.program||'N/A'}`);
+          lines.push(`         Link: ${u.link||'— missing —'}`);
         });
       }
       lines.push('');

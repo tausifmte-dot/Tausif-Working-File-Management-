@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-21T16:10:59.352Z",
+    "saved": "2026-08-22T03:07:55.186Z",
     "version": 8,
     "count": 34
   },
@@ -79,7 +79,7 @@
       "coe": "N",
       "visaPrep": "Ready",
       "visaNext": "Y",
-      "lastUpdated": 1787290609387,
+      "lastUpdated": 1787368073185,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -116,7 +116,8 @@
         "country": "New Zealand",
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Business L7"
-      }
+      },
+      "email": ""
     },
     {
       "id": 1786707888165.7642,
@@ -1433,6 +1434,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787368073185,
+      "msg": "Updated: Ali Akbar Ishrak"
+    },
     {
       "ts": 1787328657347,
       "msg": "Auto-saved"

@@ -2360,7 +2360,7 @@ function renderVisaAlarm(){
   const wrap=document.getElementById('visa-alarm-wrap');
   const sec=document.getElementById('visa-alarm-sec');
   if(!wrap||!sec)return;
-  const pending=students.filter(s=>{
+  const inWindow=students.filter(s=>{
     if(s.status==='Discontinued')return false;
     const grp=visaGroupOf(s.appStage);
     if(grp!=='lodged')return false;
@@ -2369,14 +2369,23 @@ function renderVisaAlarm(){
     const d=daysUntil(cd);
     return d!==null && d<=VISA_ALARM_WINDOW_DAYS;
   });
-  if(!pending.length){wrap.style.display='none';sec.innerHTML='';return;}
+  const pending=inWindow.filter(s=>s.defer!=='Y');
+  const resolved=inWindow.filter(s=>s.defer==='Y');
+  if(!inWindow.length){wrap.style.display='none';sec.innerHTML='';return;}
   wrap.style.display='block';
-  sec.innerHTML=pending.map(s=>{
+  const titleEl=wrap.querySelector('.slbl');
+  if(titleEl)titleEl.innerHTML=`&#9200; Visa Decision Pending — Class Starting Soon ${pending.length?`<span style="font-size:11px;font-weight:700;background:var(--er,#dc2626);color:#fff;border-radius:10px;padding:1px 9px;margin-left:6px">${pending.length} need action</span>`:'<span style="font-size:11px;font-weight:700;background:var(--ok,#059669);color:#fff;border-radius:10px;padding:1px 9px;margin-left:6px">All handled ✓</span>'}`;
+  const rowHtml=(s,resolvedRow)=>{
     const idx=students.findIndex(x=>x.id===s.id);
     const d=daysUntil(s.visaApplicationRef.classCommencementDate);
     const timeLbl=d<0?`<strong>${Math.abs(d)}d overdue</strong> — classes already started`:d===0?'<strong>classes start today!</strong>':`<strong>${d}d left</strong> before classes start (${s.visaApplicationRef.classCommencementDate})`;
-    return `<div class="remind-item urgent"><div class="remind-main"><div><strong>${esc(s.name)}</strong> — visa decision still pending · ${timeLbl}</div><div style="font-size:11px;margin-top:4px">${esc(s.visaApplicationRef.university||'')}${s.visaApplicationRef.program?' — '+esc(s.visaApplicationRef.program):''} · Country: ${esc(s.country||'Not set')}</div></div><div class="remind-actions"><button class="btn-remind-done" style="background:var(--er,#dc2626)" onclick="requestDeferralPrompt(${idx})">Request Deferral</button></div></div>`;
-  }).join('');
+    const statusTag=resolvedRow?'<span style="font-size:10.5px;font-weight:700;color:var(--ok,#059669);background:var(--okbg,#d1fae5);border-radius:10px;padding:2px 9px;margin-left:6px">&#10003; Deferral Requested</span>':'';
+    const actionBtn=resolvedRow
+      ?`<button class="btn-remind-done" style="background:var(--ok,#059669)" onclick="undoDeferralPrompt(${idx})">Undo</button>`
+      :`<button class="btn-remind-done" style="background:var(--er,#dc2626)" onclick="requestDeferralPrompt(${idx})">Request Deferral</button>`;
+    return `<div class="remind-item${resolvedRow?'':' urgent'}"${resolvedRow?' style="opacity:0.75"':''}><div class="remind-main"><div><strong>${esc(s.name)}</strong> — visa decision still pending · ${timeLbl} ${statusTag}</div><div style="font-size:11px;margin-top:4px">${esc(s.visaApplicationRef.university||'')}${s.visaApplicationRef.program?' — '+esc(s.visaApplicationRef.program):''} · Country: ${esc(s.country||'Not set')}</div></div><div class="remind-actions">${actionBtn}</div></div>`;
+  };
+  sec.innerHTML=pending.map(s=>rowHtml(s,false)).join('')+resolved.map(s=>rowHtml(s,true)).join('');
 }
 // ════════════════════════════════════════════════════════════
 // UNIVERSITY APPLICATIONS — KANBAN PAGE (p5)
@@ -2448,6 +2457,7 @@ function renderUniKanban(){
   const alarmCount=students.filter(s=>{
     if(s.status==='Discontinued')return false;
     if(visaGroupOf(s.appStage)!=='lodged')return false;
+    if(s.defer==='Y')return false; // already actioned — no longer needs attention
     const cd=s.visaApplicationRef&&s.visaApplicationRef.classCommencementDate;
     if(!cd)return false;
     const d=daysUntil(cd);
@@ -2486,12 +2496,12 @@ function renderUniKanban(){
 function ukCardHtml(c){
   const s=c.s,a=c.app,idx=c.idx;
   const lockLbl=s.locked?'🔒 File Closed':(s.visaFieldsLocked?'🔒':'🔓');
-  let alarm=false,classRow='';
+  let inUrgentWindow=false,classRow='';
   if(a){
     if(a.classCommencementDate){
       const d=daysUntil(a.classCommencementDate);
       const isLodgedCol=c.col==='lodged';
-      if(isLodgedCol&&d!==null&&d<=VISA_ALARM_WINDOW_DAYS)alarm=true;
+      if(isLodgedCol&&d!==null&&d<=VISA_ALARM_WINDOW_DAYS)inUrgentWindow=true;
       const dayCls=d===null?'':(d<=VISA_ALARM_WINDOW_DAYS?'uk-cd-alarm':(d<=21?'uk-cd-warn':'uk-cd-fresh'));
       const dayLbl=d===null?'':(d<0?`${Math.abs(d)}d overdue`:d===0?'today!':`${d}d left`);
       classRow=`<div class="uk-c-classdate"><span class="uk-cd-lbl">Class starts</span><span class="uk-cd-val">${esc(a.classCommencementDate)}</span>${dayLbl?`<span class="uk-cd-days ${dayCls}">${dayLbl}</span>`:''}</div>`;
@@ -2499,11 +2509,14 @@ function ukCardHtml(c){
       classRow=`<div class="uk-c-classdate"><span class="uk-cd-lbl">Class starts</span><span class="uk-missing">Missing</span></div>`;
     }
   }
+  const resolved=inUrgentWindow&&s.defer==='Y';
+  const alarm=inUrgentWindow&&s.defer!=='Y'; // still needs action -> red
   const vnTag=s.visaNext==='Y'?'<span class="uk-tag uk-tag-vn-y">Next Intake: Y</span>':s.visaNext==='N'?'<span class="uk-tag uk-tag-vn-n">Next Intake: N</span>':'<span class="uk-tag uk-tag-vn-blank">Next Intake: —</span>';
-  const deferTag=s.defer==='Y'?'<span class="uk-tag uk-tag-defer">Deferred</span>':'';
+  const deferTag=s.defer==='Y'?`<span class="uk-tag uk-tag-defer">${resolved?'&#10003; Deferral Requested':'Deferred'}</span>`:'';
   const linkHtml=a&&a.link?`<a class="uk-c-link" href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 Program page</a>`:(a?'<span class="uk-missing">No link</span>':'<span></span>');
-  const deferBtn=(alarm)?`<button class="uk-defer-btn" onclick="event.stopPropagation();requestDeferralPrompt(${idx})">Request Deferral</button>`:'';
-  return `<div class="glass2 uk-card${alarm?' uk-alarm':''}" onclick="showPage('p2');selectStudent(${idx});">
+  const deferBtn=alarm?`<button class="uk-defer-btn" onclick="event.stopPropagation();requestDeferralPrompt(${idx})">Request Deferral</button>`
+    :resolved?`<button class="uk-defer-btn" style="border-color:var(--ok,#059669);color:var(--ok,#059669);background:rgba(5,150,105,0.06)" onclick="event.stopPropagation();undoDeferralPrompt(${idx})">Undo</button>`:'';
+  return `<div class="glass2 uk-card${alarm?' uk-alarm':''}"${resolved?' style="opacity:0.8"':''} onclick="showPage('p2');selectStudent(${idx});">
     <div class="uk-c-top"><div class="uk-c-name">${esc(s.name)}</div><div class="uk-c-lock">${lockLbl}</div></div>
     ${a?`<div class="uk-c-uni">${esc(a.university)}${a.program?'<br>'+esc(a.program):''}</div>`:'<div class="uk-c-uni" style="font-style:italic">No applications logged yet</div>'}
     <div class="uk-c-meta">${a?`<span class="uk-tag uk-tag-agent">${esc(a.agent||'Direct/Self')}</span><span class="uk-tag uk-tag-country">${FLAGS[a.country]||''} ${esc(a.country||'')}</span>`:''}${c.col==='refused'||c.col==='lodged'?vnTag:''}${deferTag}</div>
@@ -2542,6 +2555,21 @@ function requestDeferralPrompt(idx){
   s.remarks=note;
   addLog('Deferral requested: '+s.name);
   persist('Deferral requested for '+s.name);
+  renderAll();
+  if(activePage==='p5')renderUniKanban();
+}
+function undoDeferralPrompt(idx){
+  const s=students[idx];
+  if(!s)return;
+  if(!confirm(`Undo the deferral request for ${s.name}? This will mark Defer back to No.`))return;
+  s.defer='N';
+  s.lastUpdated=Date.now();
+  if(!s.remarksHistory)s.remarksHistory=[];
+  const note='Deferral request undone — student still awaiting original visa decision.';
+  s.remarksHistory.unshift({ts:Date.now(),text:note});
+  s.remarks=note;
+  addLog('Deferral undone: '+s.name);
+  persist('Deferral undone for '+s.name);
   renderAll();
   if(activePage==='p5')renderUniKanban();
 }

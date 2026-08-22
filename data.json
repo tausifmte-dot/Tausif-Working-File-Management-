@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-22T04:03:46.464Z",
+    "saved": "2026-08-22T04:05:46.459Z",
     "version": 8,
     "count": 34
   },
@@ -9,7 +9,7 @@
       "id": 1786707888165.754,
       "name": "Akimul Islam",
       "country": "New Zealand",
-      "intake": "February 2027",
+      "intake": "August 2026",
       "status": "Active",
       "appStage": "Visa lodged",
       "counselor": "Rajib Hossain",
@@ -25,7 +25,7 @@
       "coe": "N",
       "visaPrep": "Ready",
       "visaNext": "",
-      "lastUpdated": 1787371414013,
+      "lastUpdated": 1787371498520,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1478,6 +1478,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787371544458,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787371424460,
       "msg": "Auto-saved"

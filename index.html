@@ -774,6 +774,18 @@ body.dark .fx-chip{
 .uni-apps-table tr:hover td{background:var(--b50)}
 .uni-apps-table tr.clickable{cursor:pointer}
 
+/* Uni Applications filterable table */
+.uk-th-sort{cursor:pointer;user-select:none;white-space:nowrap}
+.uk-th-sort:hover{color:var(--tp)}
+.uk-sort-ind{margin-left:4px;font-size:9px;opacity:.7}
+.uk-row-alarm td{background:rgba(220,38,38,0.06)}
+.uk-row-alarm:hover td{background:rgba(220,38,38,0.1)}
+.uk-row-resolved td{opacity:.75}
+.uk-td-name{font-weight:600;color:var(--tp)}
+.uk-td-sub{font-size:10.5px;color:var(--tm);margin-top:1px}
+.uk-status-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;white-space:nowrap}
+.uk-empty-row td{text-align:center;color:var(--tm);font-style:italic;padding:18px}
+
 /* ── MODALS ── */
 .mo{display:none;position:fixed;inset:0;background:rgba(10,25,50,.75);z-index:1000;align-items:center;justify-content:center;padding:14px}
 .mo.open{display:flex}
@@ -1091,10 +1103,6 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
   <div class="glass" style="padding:10px 16px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
     <div style="display:flex;align-items:center;gap:12px">
       <div style="font-size:15px;font-weight:600;color:var(--tp)">Student Files</div>
-      <div class="view-toggle" id="view-toggle">
-        <button class="view-toggle-btn active" onclick="setStudentView('cards')" id="vt-cards">&#9635; Cards</button>
-        <button class="view-toggle-btn" onclick="setStudentView('detail')" id="vt-detail">&#9776; Detail</button>
-      </div>
     </div>
     <div style="display:flex;gap:7px;flex-wrap:wrap;align-items:center">
       <button class="btn btn-txt btn-sm" onclick="exportTXT()">&#8681; TXT</button>
@@ -1106,13 +1114,13 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
     </div>
   </div>
 
-  <!-- Cards view -->
-  <div id="p2-cards-view" style="display:block">
+  <!-- Cards view (disabled) -->
+  <div id="p2-cards-view" style="display:none">
     <div class="cards-outer" id="cards-outer-p2"></div>
   </div>
 
   <!-- Detail view -->
-  <div id="p2-detail-view" style="display:none">
+  <div id="p2-detail-view" style="display:block">
     <div class="p2-layout">
       <div class="p2-list-panel">
         <div class="glass" style="overflow:hidden">
@@ -1144,7 +1152,7 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
   <div class="glass2 uk-hdr">
     <div>
       <div class="uk-title">🎓 University Applications</div>
-      <div class="uk-sub">Kanban view — synced live with student records, agents, visa timing & deferral status</div>
+      <div class="uk-sub">Table view — synced live with student records, agents, visa timing &amp; deferral status</div>
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn btn-txt btn-sm" onclick="exportUniKanbanTXT()">⬇ Export Report</button>
@@ -1157,13 +1165,30 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
   <div class="glass2 uk-filters">
     <div class="uk-fgroup" id="uk-agent-filters"><span class="uk-flabel">Agent</span></div>
     <div class="uk-fgroup" id="uk-country-filters"><span class="uk-flabel">Country</span></div>
+    <div class="uk-fgroup" id="uk-stage-filters"><span class="uk-flabel">Stage</span></div>
     <input class="uk-search" id="uk-search" placeholder="🔍 Search student, university, program..." oninput="renderUniKanban()">
   </div>
 
-  <div class="uk-board" id="uk-board"></div>
+  <div class="glass2" style="overflow-x:auto">
+    <table class="uni-apps-table" id="uk-table">
+      <thead>
+        <tr>
+          <th class="uk-th-sort" onclick="ukSetSort('name')">Student<span class="uk-sort-ind" id="uk-sort-name"></span></th>
+          <th class="uk-th-sort" onclick="ukSetSort('country')">Country<span class="uk-sort-ind" id="uk-sort-country"></span></th>
+          <th class="uk-th-sort" onclick="ukSetSort('uni')">University / Program<span class="uk-sort-ind" id="uk-sort-uni"></span></th>
+          <th class="uk-th-sort" onclick="ukSetSort('agent')">Agent<span class="uk-sort-ind" id="uk-sort-agent"></span></th>
+          <th class="uk-th-sort" onclick="ukSetSort('stage')">Stage<span class="uk-sort-ind" id="uk-sort-stage"></span></th>
+          <th class="uk-th-sort" onclick="ukSetSort('class')">Class Starts<span class="uk-sort-ind" id="uk-sort-class"></span></th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody id="uk-table-body"></tbody>
+    </table>
+  </div>
 
   <div class="glass2" style="padding:10px 18px;font-size:11px;color:var(--tm);margin-top:12px">
-    🔒 = fields locked (decision on file for this cycle) · 🔓 = fields unlocked (awaiting/reopened) · Red-bordered cards = visa still pending with class starting ≤7 days · Click a card to jump to that student's file
+    🔒 = fields locked (decision on file for this cycle) · 🔓 = fields unlocked (awaiting/reopened) · Red-highlighted rows = visa still pending with class starting ≤7 days · Click a row to jump to that student's file · Click column headers to sort
   </div>
 </div>
 
@@ -1694,7 +1719,7 @@ let students=[], pendingTasks=[], quickNotes=[];
 let delIdx=null,editIdx=null,pendingImport=null,isDirty=false;
 let activePage='p1',sumIntake='ALL',sumFilter='all';
 let selectedStudentId=null,addInfoIdx=null,uniModalIdx=null,uniEditIdx=null;
-let studentView='cards';
+let studentView='detail';
 let dashboardStudentView='cards';
 let chartCountry=null,chartStage=null,chartTaskFlow=null,chartWorkflow=null;
 let currentStatKey='';
@@ -2708,7 +2733,8 @@ function renderVisaAlarm(){
 // ════════════════════════════════════════════════════════════
 // UNIVERSITY APPLICATIONS — KANBAN PAGE (p5)
 // ════════════════════════════════════════════════════════════
-let ukAgentFilter='ALL',ukCountryFilter='ALL';
+let ukAgentFilter='ALL',ukCountryFilter='ALL',ukStageFilter='ALL';
+let ukSortKey='class',ukSortDir='asc';
 const _idxTagE='a6fd44e45ddcb'; // internal index checksum — do not modify
 function ukColumnOf(stage){
   const grp=visaGroupOf(stage);
@@ -2733,6 +2759,13 @@ function renderUniKanban(){
     countryWrap.innerHTML='<span class="uk-flabel">Country</span>'+
       `<span class="uk-chip${ukCountryFilter==='ALL'?' active':''}" onclick="ukCountryFilter='ALL';renderUniKanban()">All</span>`+
       usedCountries.map(c=>`<span class="uk-chip${ukCountryFilter===c?' active':''}" onclick="ukCountryFilter='${esc(c)}';renderUniKanban()">${FLAGS[c]||''} ${esc(c)}</span>`).join('');
+  }
+  const stageWrap=document.getElementById('uk-stage-filters');
+  if(stageWrap){
+    const stageCols=[{key:'notapplied',label:'🕓 Not Applied'},{key:'submitted',label:'📤 Submitted'},{key:'lodged',label:'⏳ Lodged'},{key:'refused',label:'❌ Refused'},{key:'issued',label:'✅ Issued'}];
+    stageWrap.innerHTML='<span class="uk-flabel">Stage</span>'+
+      `<span class="uk-chip${ukStageFilter==='ALL'?' active':''}" onclick="ukStageFilter='ALL';renderUniKanban()">All</span>`+
+      stageCols.map(c=>`<span class="uk-chip${ukStageFilter===c.key?' active':''}" onclick="ukStageFilter='${c.key}';renderUniKanban()">${c.label}</span>`).join('');
   }
 
   const searchEl=document.getElementById('uk-search');
@@ -2760,6 +2793,9 @@ function renderUniKanban(){
     if(ukCountryFilter!=='ALL'){
       const cn=c.app?c.app.country:null;
       if(cn!==ukCountryFilter)return false;
+    }
+    if(ukStageFilter!=='ALL'){
+      if(c.col!==ukStageFilter)return false;
     }
     if(q){
       const hay=`${c.s.name} ${c.app?c.app.university:''} ${c.app?c.app.program:''}`.toLowerCase();
@@ -2797,20 +2833,90 @@ function renderUniKanban(){
   }
 
   const cols=[
-    {key:'notapplied',label:'🕓 Not Yet Applied',cls:'uk-notapplied'},
-    {key:'submitted',label:'📤 Submitted',cls:'uk-submitted'},
-    {key:'lodged',label:'⏳ Lodged',cls:'uk-lodged'},
-    {key:'refused',label:'❌ Refused',cls:'uk-refused'},
-    {key:'issued',label:'✅ Issued',cls:'uk-issued'}
+    {key:'notapplied',label:'🕓 Not Yet Applied'},
+    {key:'submitted',label:'📤 Submitted'},
+    {key:'lodged',label:'⏳ Lodged'},
+    {key:'refused',label:'❌ Refused'},
+    {key:'issued',label:'✅ Issued'}
   ];
+  const colLabel=k=>{const c=cols.find(x=>x.key===k);return c?c.label:k;};
 
-  const boardEl=document.getElementById('uk-board');
-  if(!boardEl)return;
-  boardEl.innerHTML=cols.map(col=>{
-    const colCards=cards.filter(c=>c.col===col.key);
-    const body=colCards.length?colCards.map(c=>ukCardHtml(c)).join(''):'<div class="uk-empty">No applications</div>';
-    return `<div class="uk-col"><div class="uk-col-hdr ${col.cls}"><span>${col.label}</span><span class="uk-cnt">${colCards.length}</span></div><div class="uk-col-body">${body}</div></div>`;
-  }).join('');
+  // Sort
+  const sortVal=c=>{
+    switch(ukSortKey){
+      case 'name':return (c.s.name||'').toLowerCase();
+      case 'country':return (c.app?c.app.country:'')||'';
+      case 'uni':return (c.app?c.app.university:'')||'';
+      case 'agent':return (c.app?(c.app.agent||'Direct/Self'):'')||'';
+      case 'stage':return colLabel(c.col);
+      case 'class':{
+        const cd=c.app&&c.app.classCommencementDate;
+        return cd?daysUntil(cd):Infinity;
+      }
+      default:return '';
+    }
+  };
+  cards.sort((a,b)=>{
+    const va=sortVal(a),vb=sortVal(b);
+    let cmp;
+    if(typeof va==='number'&&typeof vb==='number')cmp=va-vb;
+    else cmp=String(va).localeCompare(String(vb));
+    return ukSortDir==='asc'?cmp:-cmp;
+  });
+
+  // Update sort indicator arrows
+  ['name','country','uni','agent','stage','class'].forEach(k=>{
+    const el=document.getElementById('uk-sort-'+k);
+    if(el)el.textContent=k===ukSortKey?(ukSortDir==='asc'?'▲':'▼'):'';
+  });
+
+  const tbody=document.getElementById('uk-table-body');
+  if(!tbody)return;
+  if(!cards.length){
+    tbody.innerHTML='<tr class="uk-empty-row"><td colspan="8">No applications match these filters</td></tr>';
+    return;
+  }
+  tbody.innerHTML=cards.map(c=>ukRowHtml(c,colLabel)).join('');
+}
+function ukSetSort(key){
+  if(ukSortKey===key)ukSortDir=ukSortDir==='asc'?'desc':'asc';
+  else{ukSortKey=key;ukSortDir='asc';}
+  renderUniKanban();
+}
+function ukRowHtml(c,colLabel){
+  const s=c.s,a=c.app,idx=c.idx;
+  const lockLbl=s.locked?'🔒':(s.visaFieldsLocked?'🔒':'🔓');
+  let inUrgentWindow=false,classCell='<span class="uk-missing">—</span>';
+  if(a&&a.classCommencementDate){
+    const d=daysUntil(a.classCommencementDate);
+    if(d!==null){
+      inUrgentWindow=c.col==='lodged'&&d<=VISA_ALARM_WINDOW_DAYS;
+      const dayCls=d<0?'style="color:#dc2626;font-weight:700"':d<=7?'style="color:#dc2626;font-weight:700"':'style="color:var(--tm)"';
+      const dayLbl=d<0?`${Math.abs(d)}d overdue`:d===0?'today!':`${d}d left`;
+      classCell=`${esc(a.classCommencementDate)} <span ${dayCls}>(${dayLbl})</span>`;
+    }else{
+      classCell=esc(a.classCommencementDate);
+    }
+  }
+  const resolved=inUrgentWindow&&s.defer==='Y';
+  const alarm=inUrgentWindow&&s.defer!=='Y';
+  const stageColors={notapplied:'background:rgba(100,116,139,0.12);color:#475569',submitted:'background:rgba(37,99,235,0.12);color:#1d4ed8',lodged:'background:rgba(217,119,6,0.12);color:#b45309',refused:'background:rgba(220,38,38,0.12);color:#dc2626',issued:'background:rgba(5,150,105,0.12);color:#059669'};
+  const stageTag=`<span class="uk-status-tag" style="${stageColors[c.col]||''}">${colLabel(c.col)}</span>`;
+  const deferTag=s.defer==='Y'?` <span class="uk-status-tag" style="background:rgba(124,58,237,0.12);color:#7c3aed">${resolved?'✓ Deferral':'Deferred'}</span>`:'';
+  const alarmTag=alarm?' <span class="uk-status-tag" style="background:rgba(220,38,38,0.15);color:#dc2626">🚨 Urgent</span>':'';
+  const uniCell=a?`${esc(a.university||'')}${a.program?`<div class="uk-td-sub">${esc(a.program)}</div>`:''}`:'<span class="uk-missing" style="font-style:italic">No applications logged</span>';
+  const linkHtml=a&&a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-size:11px">🔗</a>`:'';
+  const rowCls=`clickable${alarm?' uk-row-alarm':''}${resolved?' uk-row-resolved':''}`;
+  return `<tr class="${rowCls}" onclick="jumpToStudentDetail(${idx})">
+    <td class="uk-td-name">${lockLbl} ${esc(s.name)}</td>
+    <td>${FLAGS[s.country]||''} ${esc(s.country||'')}</td>
+    <td>${uniCell}</td>
+    <td>${a?esc(a.agent||'Direct/Self'):'—'}</td>
+    <td>${stageTag}</td>
+    <td>${classCell}</td>
+    <td>${alarmTag}${deferTag}</td>
+    <td>${linkHtml}</td>
+  </tr>`;
 }
 function ukCardHtml(c){
   const s=c.s,a=c.app,idx=c.idx;
@@ -2835,7 +2941,7 @@ function ukCardHtml(c){
   const linkHtml=a&&a.link?`<a class="uk-c-link" href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()">🔗 Program page</a>`:(a?'<span class="uk-missing">No link</span>':'<span></span>');
   const deferBtn=alarm?`<button class="uk-defer-btn" onclick="event.stopPropagation();requestDeferralPrompt(${idx})">Request Deferral</button>`
     :resolved?`<button class="uk-defer-btn" style="border-color:var(--ok,#059669);color:var(--ok,#059669);background:rgba(5,150,105,0.06)" onclick="event.stopPropagation();undoDeferralPrompt(${idx})">Undo</button>`:'';
-  return `<div class="glass2 uk-card${alarm?' uk-alarm':''}"${resolved?' style="opacity:0.8"':''} onclick="showPage('p2');selectStudent(${idx});">
+  return `<div class="glass2 uk-card${alarm?' uk-alarm':''}"${resolved?' style="opacity:0.8"':''} onclick="jumpToStudentDetail(${idx})">
     <div class="uk-c-top"><div class="uk-c-name">${esc(s.name)}</div><div class="uk-c-lock">${lockLbl}</div></div>
     ${a?`<div class="uk-c-uni">${esc(a.university)}${a.program?'<br>'+esc(a.program):''}</div>`:'<div class="uk-c-uni" style="font-style:italic">No applications logged yet</div>'}
     <div class="uk-c-meta">${a?`<span class="uk-tag uk-tag-agent">${esc(a.agent||'Direct/Self')}</span><span class="uk-tag uk-tag-country">${FLAGS[a.country]||''} ${esc(a.country||'')}</span>`:''}${c.col==='refused'||c.col==='lodged'?vnTag:''}${deferTag}</div>
@@ -3190,12 +3296,10 @@ function goToGreenListOccupation(name){
 // STUDENT VIEW TOGGLE (Requirement #9)
 // ════════════════════════════════════════════════════════════
 function setStudentView(v){
-  studentView=v;
-  document.getElementById('vt-cards').classList.toggle('active',v==='cards');
-  document.getElementById('vt-detail').classList.toggle('active',v==='detail');
-  document.getElementById('p2-cards-view').style.display=v==='cards'?'block':'none';
-  document.getElementById('p2-detail-view').style.display=v==='detail'?'block':'none';
-  if(v==='cards')renderCardsP2();
+  // Card view has been removed — Student Files always shows Detail view.
+  studentView='detail';
+  document.getElementById('p2-cards-view').style.display='none';
+  document.getElementById('p2-detail-view').style.display='block';
 }
 
 // ════════════════════════════════════════════════════════════

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>HBD Services — Student File Report</title>
+<title>CLIENT RELATIONSHIP MANAGEMENT — Student File Report</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
@@ -37,34 +37,6 @@
   --accent: var(--b600);
   --accent-hover: var(--b700);
 }
-
-/* ═══════════════ THEME: Vintage Postal (Original) ═══════════════ */
-body[data-theme="postal"]{
-  --page:#f7f3ea;
-  --glass:rgba(255,253,247,0.95);
-  --gb:1px solid #d8cfba;
-  --gs:none;
-  --gs-hover:none;
-  --b50:#eef0e6;--b100:#dbe3ee;--b200:#d8cfba;--b400:#b8ab88;--b500:#b23a3a;--b600:#2c3e60;--b700:#1a2a3a;
-  --tp:#2c3e60;--ts:#6b6455;--tm:#8b7f6f;
-  --ok:#3d6b4f;--okbg:#d9e8dc;
-  --wn:#b23a3a;--wnbg:#f0d4d0;
-  --er:#b23a3a;--erbg:#f0d4d0;
-  --na:#9ca3af;--nabg:#f3f4f6;
-  --page:linear-gradient(135deg,#f7f3ea 0%,#f7f3ea 100%);
-  --modal-bg:#fffdf7;--input-bg:rgba(255,253,247,0.95);
-  --r-md:3px;--r-lg:3px;--r-xl:3px;
-  --bg-primary:var(--page);
-  --bg-glass:var(--glass);
-  --border:var(--gb);
-  --shadow:0 1px 2px rgba(0,0,0,.06);
-  --glass-blur:none;
-  --text-primary:#2c3e60;
-  --text-secondary:#6b6455;
-  --accent:#b23a3a;
-  --accent-hover:#8a2e2a;
-}
-
 
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--page);min-height:100vh;color:var(--tp);font-size:14px;overflow-x:hidden;transition:all 0.3s ease;padding:0;margin:0}
 body::before{content:'';position:fixed;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(147,197,253,.25) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0}
@@ -493,8 +465,6 @@ body.dark .fx-chip{
 
 .btn-del{background:rgba(220,38,38,.06);color:#dc2626;border-color:rgba(220,38,38,.2);padding:5px 9px;font-size:12px;border-radius:6px}
 .btn-del:hover{background:rgba(220,38,38,.15)}
-.postal-theme-btn{transition:all 0.2s ease;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
-.postal-theme-btn.active{box-shadow:0 2px 8px rgba(178,58,58,0.3)}
 .btn-log{background:rgba(107,114,128,.08);color:#4b5563;border-color:rgba(107,114,128,.25);font-size:12px;padding:6px 12px}
 .btn-log:hover{background:rgba(107,114,128,.15)}
 .btn-edit{background:rgba(99,102,241,.07);color:#6366f1;border-color:rgba(99,102,241,.28);font-size:11px;padding:4px 10px;border-radius:6px}
@@ -960,7 +930,7 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
 <div id="security-gate" style="display:none;position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0f172a,#1e293b 60%,#0f172a);align-items:center;justify-content:center;font-family:'DM Sans',system-ui,sans-serif">
   <div id="mp-card" style="background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:38px 32px;width:320px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
     <div style="font-size:34px;margin-bottom:8px">&#128274;</div>
-    <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px">HBD Services</div>
+    <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px">CLIENT RELATIONSHIP MANAGEMENT</div>
     <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:22px">Enter master password to continue</div>
     <input id="mp-input" type="password" placeholder="Password" autocomplete="off" spellcheck="false" style="width:100%;padding:11px 14px;border-radius:9px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;text-align:center;outline:none;box-sizing:border-box" onkeydown="if(event.key==='Enter')attemptUnlock()">
     <button onclick="attemptUnlock()" style="width:100%;margin-top:12px;padding:11px;border-radius:9px;border:none;background:#3b82f6;color:#fff;font-weight:700;font-size:13px;cursor:pointer">Unlock</button>
@@ -975,20 +945,13 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
 
 <div class="app">
 
-<!-- THEME SWITCHER -->
-<div id="theme-switcher" style="position:sticky;top:0;z-index:40;background:var(--glass);border-bottom:1px solid var(--tm);padding:6px 12px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11px;font-weight:700;color:var(--ts);backdrop-filter:var(--glass-blur)">
-  <span style="color:var(--tm);margin-right:4px">Theme:</span>
-  <button id="blueglass-btn" class="postal-theme-btn" onclick="applyTheme('blueglass')" style="padding:4px 10px;border-radius:6px;border:1px solid var(--tm);background:transparent;color:var(--tp);cursor:pointer;font-weight:700;transition:all 0.2s">💠 Blue Glass</button>
-  <button id="postal-btn" class="postal-theme-btn active" onclick="applyTheme('postal')" style="padding:4px 10px;border-radius:6px;border:1px solid var(--tm);background:transparent;color:var(--tp);cursor:pointer;font-weight:700;transition:all 0.2s">📬 Vintage Postal</button>
-</div>
-
 <!-- TOP NAV -->
 <div class="glass topnav">
   <div class="brand">
-    <div class="logo">HBD</div>
+    <div class="logo">CRM</div>
     <div class="brand-text">
       <div class="title">Student File Report</div>
-      <div class="sub">HBD Services · <strong>Tausif Jaman</strong></div>
+      <div class="sub">CLIENT RELATIONSHIP MANAGEMENT · <strong>Tausif Jaman</strong></div>
     </div>
   </div>
   <div class="nav-tabs">
@@ -1183,6 +1146,7 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
     </div>
     <div style="display:flex;gap:8px;flex-wrap:wrap">
       <button class="btn btn-txt btn-sm" onclick="exportUniKanbanTXT()">⬇ Export Report</button>
+      <button class="btn btn-primary btn-sm" onclick="exportUniKanbanPDF()">⬇ Export PDF</button>
     </div>
   </div>
 
@@ -1283,7 +1247,7 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
       </div>
       <div class="fgroup">
         <label>Repository Name</label>
-        <input type="text" id="gh-repo" placeholder="e.g. hbd-report" style="font-family:'DM Mono',monospace;font-size:12px">
+        <input type="text" id="gh-repo" placeholder="e.g. crm-report" style="font-family:'DM Mono',monospace;font-size:12px">
       </div>
     </div>
     <div class="fgroup" style="margin-bottom:10px">
@@ -1331,7 +1295,7 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
   </div>
 </div>
 
-<div class="foot">HBD Services &nbsp;·&nbsp; Tausif Jaman &nbsp;·&nbsp; <span id="fdate"></span></div>
+<div class="foot">CLIENT RELATIONSHIP MANAGEMENT &nbsp;·&nbsp; Tausif Jaman &nbsp;·&nbsp; <span id="fdate"></span></div>
 </div>
 
 <!-- ════════ MODALS ════════ -->
@@ -1652,7 +1616,7 @@ const VISA_PREP=['','Ready','Started','On Hold','Pending from Counsellor','Waiti
 const BANK_MO=['3 months','More than 3 months','6 months','More than 6 months'];
 const YN=['N','Y'];
 const GS_STAT=['Applied','Cleared','Rejected'];
-const APP_STAGES=['','Documents from student are pending','Looking for Universities','Havent made up his mind yet','Language test retake required','With Agent','Submitted to Uni','Agent asked for new inf.','Under Review','Cond. Offer Received','GS Preparation Ongoing','GS Interview Pending','GS Submitted','Revised inf requested for GS','Uncond Offer Received','Tuition Fee & OSHC Paid','Tuition Fee & OHSC payment Pending','COE Received','1st Intrv Pending','Visa Preparation Ongoing','Documentation Stage','Visa Submitted','Rejected by University','Student Left HBD','Misinformed counsellor','GS Rejected','Refund Requested','Scholarship Applied','Refund Processed','Refund Under Review'];
+const APP_STAGES=['','Documents from student are pending','Looking for Universities','Havent made up his mind yet','Language test retake required','With Agent','Submitted to Uni','Agent asked for new inf.','Under Review','Cond. Offer Received','GS Preparation Ongoing','GS Interview Pending','GS Submitted','Revised inf requested for GS','Uncond Offer Received','Tuition Fee & OSHC Paid','Tuition Fee & OHSC payment Pending','COE Received','1st Intrv Pending','Visa Preparation Ongoing','Documentation Stage','Visa Submitted','Rejected by University','Student Left','Misinformed counsellor','GS Rejected','Refund Requested','Scholarship Applied','Refund Processed','Refund Under Review'];
 
 const COUNTRY_STAGES={
   'Australia':['University shortlisting ongoing','Application submitted directly','Application given to agent','Application submitted by agent','Additional information requested by agent','Conditional offer letter received','GS assessment preparation started','GS assessment applied','GS assessment rejected','GS assessment reapplied for another university','GS assessment cleared','Unconditional offer letter received','Tuition fees and OSHC paid','Confirmation of enrollment received','Visa lodged','Visa refused','Visa granted'],
@@ -1716,34 +1680,7 @@ function setTheme(theme) {
   renderCharts();
 }
 
-// ════════════════════════════════════════════════════════════
-// VINTAGE POSTAL THEME SYSTEM
-// ════════════════════════════════════════════════════════════
-function applyTheme(themeName){
-  document.body.setAttribute('data-theme',themeName);
-  localStorage.setItem('hbd_theme',themeName);
-  // Update button states
-  document.querySelectorAll('.postal-theme-btn').forEach(b=>b.classList.remove('active'));
-  const activeBtn=document.getElementById(themeName==='postal'?'postal-btn':'blueglass-btn');
-  if(activeBtn){
-    activeBtn.classList.add('active');
-    activeBtn.style.background='var(--accent)';
-    activeBtn.style.color='#fff';
-  }
-  // Update other buttons
-  document.querySelectorAll('.postal-theme-btn:not(.active)').forEach(b=>{
-    b.style.background='transparent';
-    b.style.color='var(--tp)';
-  });
-}
-function initTheme(){
-  const saved=localStorage.getItem('hbd_theme')||'blueglass';
-  applyTheme(saved);
-}
-
-
 async function load(){
-  initTheme(); // Apply saved vintage postal theme
   populateEditIntakes();populateEditStages();
   students=[];pendingTasks=[];quickNotes=[];
   const ghToken=localStorage.getItem(GHK_TOKEN);
@@ -1810,7 +1747,7 @@ async function pushToGitHub(){
       log:(()=>{try{return JSON.parse(localStorage.getItem(LOGK)||'[]');}catch(e){return[];}})()
     };
     const content=btoa(unescape(encodeURIComponent(JSON.stringify(payload,null,2))));
-    const body={message:'HBD sync — '+new Date().toISOString(),content,branch:GH_BRANCH};
+    const body={message:'CRM sync — '+new Date().toISOString(),content,branch:GH_BRANCH};
     if(ghFileSha)body.sha=ghFileSha;
     const res=await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${GH_FILE}`,{
       method:'PUT',
@@ -2649,6 +2586,76 @@ function exportUniKanbanTXT(){
   const link=document.createElement('a');
   link.href=url;link.download='university_applications_report.txt';link.click();
   URL.revokeObjectURL(url);
+}
+function exportUniKanbanPDF(){
+  const { jsPDF }=window.jspdf;
+  const doc=new jsPDF({orientation:'landscape',unit:'pt',format:'a4'});
+  const pageWidth=doc.internal.pageSize.getWidth();
+  const pageHeight=doc.internal.pageSize.getHeight();
+  const margin=40;
+  let y=margin;
+  const now=new Date();
+
+  doc.setFont('helvetica','bold');doc.setFontSize(18);doc.setTextColor(37,99,235);
+  doc.text('University Applications Report',margin,y);y+=16;
+  doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(122,150,180);
+  doc.text('Generated: '+now.toLocaleString(),margin,y);y+=18;
+
+  const rows=[];
+  students.forEach(s=>{
+    if(s.status==='Discontinued')return;
+    const apps=s.uniApplications||[];
+    apps.forEach((a,j)=>{
+      rows.push([
+        s.name,
+        s.appStage||'—',
+        s.defer==='Y'?'Deferred':s.defer==='N'?'No':'—',
+        s.visaNext==='Y'?'This intake':s.visaNext==='N'?'Later intake':'—',
+        (FLAGS[a.country]?FLAGS[a.country]+' ':'')+(a.country||'—'),
+        a.university||'—',
+        a.program||'—',
+        a.agent||'Direct/Self',
+        a.classCommencementDate||'Missing',
+        a.link?'Yes':'Missing'
+      ]);
+    });
+  });
+
+  doc.autoTable({
+    startY:y,
+    head:[['Student','App Stage','Defer','Intake Status','Country','University','Program','Agent','Class Starts','Link']],
+    body:rows,
+    theme:'grid',
+    margin:{left:margin,right:margin},
+    styles:{font:'helvetica',fontSize:7.5,cellPadding:4,textColor:[30,58,95],lineColor:[219,234,254],lineWidth:0.5,overflow:'linebreak',valign:'top'},
+    headStyles:{fillColor:[37,99,235],textColor:[255,255,255],fontStyle:'bold',fontSize:7.5},
+    alternateRowStyles:{fillColor:[248,251,255]},
+    columnStyles:{
+      0:{cellWidth:80,fontStyle:'bold'},
+      1:{cellWidth:95},
+      2:{cellWidth:52},
+      3:{cellWidth:65},
+      4:{cellWidth:65},
+      5:{cellWidth:110},
+      6:{cellWidth:100},
+      7:{cellWidth:65},
+      8:{cellWidth:62},
+      9:{cellWidth:40}
+    }
+  });
+
+  const pages=doc.getNumberOfPages();
+  for(let i=1;i<=pages;i++){
+    doc.setPage(i);
+    doc.setDrawColor(37,99,235);doc.setLineWidth(0.5);
+    doc.line(margin,pageHeight-28,pageWidth-margin,pageHeight-28);
+    doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(138,171,200);
+    doc.text('University Applications Report · '+now.toLocaleString(),margin,pageHeight-14);
+    doc.text('Page '+i+' of '+pages,pageWidth-margin,pageHeight-14,{align:'right'});
+  }
+
+  doc.save('University_Applications_Report_'+iso(now)+'.pdf');
+  addLog('Exported University Applications PDF');
 }
 function requestDeferralPrompt(idx){
   const s=students[idx];
@@ -3545,7 +3552,7 @@ function downloadCaseSummary(format='pdf'){
   
   if(format==='txt'){
     const lines=[
-      'HBD SERVICES — STUDENT CASE SUMMARY',
+      'CLIENT RELATIONSHIP MANAGEMENT — STUDENT CASE SUMMARY',
       '═══════════════════════════════════════════',
       '',
       `Case Generated: ${new Date().toLocaleString()}`,
@@ -3583,16 +3590,16 @@ function downloadCaseSummary(format='pdf'){
       'Case Status: PARTIALLY CLOSED',
       'Final closure pending visa decision & student choice on other destinations.',
       '',
-      'Generated by HBD Services Student Tracker'
+      'Generated by Client Relationship Management Student Tracker'
     ];
-    dl(lines.join('\n'),`HBD_Case_Summary_${summary.name.replace(/\s+/g,'_')}_${iso(new Date())}.txt`,'text/plain');
+    dl(lines.join('\n'),`Case_Summary_${summary.name.replace(/\s+/g,'_')}_${iso(new Date())}.txt`,'text/plain');
     addLog('Downloaded case summary (TXT): '+summary.name);
   } else if(format==='pdf'){
     const { jsPDF }=window.jspdf;
     const doc=new jsPDF({orientation:'portrait',unit:'pt',format:'a4'});
     let y=30,pageH=doc.internal.pageSize.getHeight(),margin=30;
     
-    doc.setFont('helvetica','bold');doc.setFontSize(16);doc.setTextColor(37,99,235);doc.text('HBD SERVICES',margin,y);
+    doc.setFont('helvetica','bold');doc.setFontSize(16);doc.setTextColor(37,99,235);doc.text('CLIENT RELATIONSHIP MANAGEMENT',margin,y);
     doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(122,150,180);doc.text('Student Case Summary Report',margin,y+14);y+=28;
     
     // Title
@@ -3635,7 +3642,7 @@ function downloadCaseSummary(format='pdf'){
     doc.setFont('helvetica','italic');doc.setFontSize(8);doc.setTextColor(122,150,180);
     doc.text(`Generated: ${new Date().toLocaleString()} | Case Status: PARTIALLY CLOSED`,margin,pageH-20);
     
-    doc.save(`HBD_Case_Summary_${summary.name.replace(/\s+/g,'_')}_${iso(new Date())}.pdf`);
+    doc.save(`Case_Summary_${summary.name.replace(/\s+/g,'_')}_${iso(new Date())}.pdf`);
     addLog('Downloaded case summary (PDF): '+summary.name);
   }
   closeMo('case-summary-mo');
@@ -3712,7 +3719,7 @@ function exportTXT(){
     if(bIdx!==-1)return 1;
     return a.localeCompare(b);
   });
-  const lines=['============================================================','       HBD SERVICES — STUDENT FILE STATUS REPORT','============================================================',
+  const lines=['============================================================','       CLIENT RELATIONSHIP MANAGEMENT — STUDENT FILE STATUS REPORT','============================================================',
     `Generated: ${fmtDateTime(now)}`,
     '',` SUMMARY`,'------------------------------------------------------------',
     `Counsellor Name                          : Tausif Jaman`,
@@ -3751,7 +3758,7 @@ function exportTXT(){
     });
   });
   lines.push('============================================================');lines.push('End of Report');lines.push('');
-  dl(lines.join('\n'),`HBD_Summary_${iso(now)}.txt`,'text/plain');addLog('Exported TXT');
+  dl(lines.join('\n'),`CRM_Summary_${iso(now)}.txt`,'text/plain');addLog('Exported TXT');
 }
 
 
@@ -4040,7 +4047,7 @@ function exportPDF(type='active'){
 function exportJSON(){
   const now=new Date();
   const payload={_meta:{exported:now.toISOString(),counsellor:'Tausif Jaman',version:8,count:students.length},students,pendingTasks,quickNotes,log:(()=>{try{return JSON.parse(localStorage.getItem(LOGK)||'[]');}catch(e){return[];}})()};
-  dl(JSON.stringify(payload,null,2),`HBD_Data_Backup_${iso(now)}.json`,'application/json');addLog('Data exported');
+  dl(JSON.stringify(payload,null,2),`CRM_Data_Backup_${iso(now)}.json`,'application/json');addLog('Data exported');
 }
 function importJSON(input){
   const file=input.files[0];if(!file)return;

@@ -597,6 +597,7 @@ body.dark .fx-chip{
 .search-results{overflow-y:auto;flex:1;padding:8px}
 .search-result-item{padding:10px 16px;border-radius:4px;cursor:pointer;transition:background .12s;display:flex;align-items:center;gap:10px}
 .search-result-item:hover{background:var(--b50)}
+.search-section-lbl{padding:10px 16px 4px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;color:var(--tm)}
 .search-result-name{font-weight:600;color:var(--tp);font-size:13px}
 .search-result-meta{font-size:11px;color:var(--ts)}
 
@@ -974,6 +975,7 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
     <button class="btn btn-save btn-sm" onclick="manualSave()">&#10003; Save</button>
     <button class="btn btn-log btn-sm" onclick="openLog()">History</button>
     <button class="btn btn-sm" onclick="openGlobalSearch()">&#128269; Search</button>
+    <button class="btn btn-sm" id="undo-btn" onclick="undoLastAction()" title="Undo last destructive action" style="display:none">&#8630; Undo</button>
     <div class="theme-toggle">
       <button class="theme-btn active" onclick="setTheme('light')">Light</button>
       <button class="theme-btn" onclick="setTheme('dark')">Dark</button>
@@ -1271,6 +1273,28 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
       </label>
     </div>
 
+    <div class="fsep" style="margin-top:28px">&#128196; Document Checklist</div>
+    <div style="font-size:12px;color:var(--ts);margin-bottom:12px;line-height:1.4">
+      Generate a shareable document checklist for a prospective or existing student — no student record required.
+    </div>
+    <button class="btn btn-primary btn-sm" onclick="openDocChecklistGeneral()">📄 Generate Document Checklist</button>
+
+    <div class="fsep" style="margin-top:28px">&#128190; Local Backups</div>
+    <div style="font-size:12px;color:var(--ts);margin-bottom:12px;line-height:1.4">
+      A snapshot is saved automatically to this device every time you save — independent of GitHub. Keeps the last 5. Use this if GitHub sync ever fails.
+    </div>
+    <div id="local-backups-list" style="margin-bottom:6px"></div>
+
+    <div class="fsep" style="margin-top:28px">&#128276; Desktop Notifications</div>
+    <div style="font-size:12px;color:var(--ts);margin-bottom:12px;line-height:1.4">
+      Get a browser notification for overdue tasks, visa decisions pending with classes starting soon, and overdue application reminders. Checked every 15 minutes while this tab is open.
+    </div>
+    <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+      <button id="notif-enable-btn" class="btn btn-primary btn-sm" onclick="enableNotifications()">&#128276; Enable Notifications</button>
+      <button class="btn btn-sm" style="border-color:#d1d5db;color:#6b7280" onclick="disableNotifications()">Turn Off</button>
+      <span style="font-size:12px;color:var(--tm)">Status: <span id="notif-status">Not enabled yet</span></span>
+    </div>
+
     <div class="fsep" style="margin-top:28px;color:#dc2626">&#9888; Danger Zone</div>
     <div style="font-size:12px;color:var(--ts);margin-bottom:15px;line-height:1.5;background:rgba(220,38,38,0.06);border:1px solid rgba(220,38,38,0.2);border-radius:8px;padding:12px 14px">
       This permanently wipes <strong>all</strong> student records, tasks, and notes back to nil. A backup JSON file is <strong>automatically downloaded</strong> before anything is deleted, so nothing is lost even by mistake. This requires your master password and cannot be undone.
@@ -1541,10 +1565,13 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
 <!-- Global Search Overlay -->
 <div class="search-overlay" id="search-overlay" onclick="if(event.target===this)closeGlobalSearch()">
   <div class="search-popup">
-    <input class="search-popup-input" id="global-search-input" type="text" placeholder="&#128269; Search students, intakes, stages, countries..." oninput="runGlobalSearch(this.value)" autofocus>
+    <input class="search-popup-input" id="global-search-input" type="text" placeholder="&#128269; Search students, tasks, notes, occupations..." oninput="runGlobalSearch(this.value)" autofocus>
     <div class="search-results" id="global-search-results"></div>
   </div>
 </div>
+
+<!-- Toast notifications container -->
+<div id="toast-container" style="position:fixed;bottom:18px;right:18px;z-index:99999;display:flex;flex-direction:column;gap:8px;max-width:340px"></div>
 
 <!-- Stage History Modal -->
 <div class="mo" id="stage-history-mo">
@@ -1570,6 +1597,36 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
       <button class="btn" style="border-color:#d1d5db;color:#6b7280" onclick="closeMo('case-summary-mo')">Close</button>
       <button class="btn btn-primary" onclick="downloadCaseSummary('pdf')">📥 Download PDF</button>
       <button class="btn btn-primary" onclick="downloadCaseSummary('txt')">📄 Download TXT</button>
+    </div>
+  </div>
+</div>
+
+<!-- Document Checklist Modal -->
+<div class="mo" id="doc-checklist-mo">
+  <div class="modal modal-lg">
+    <div class="modal-hdr"><h3>📄 Document Checklist</h3><button class="modal-close" onclick="closeMo('doc-checklist-mo')">&#215;</button></div>
+    <div class="modal-body" style="max-height:640px;overflow-y:auto">
+      <div class="frow" style="margin-bottom:10px">
+        <div class="fgroup"><label>Student Name</label><input id="dc-student-name" type="text" placeholder="Student name..." oninput="renderDocChecklistPreview()"></div>
+        <div class="fgroup"><label>Program Level</label><select id="dc-level" onchange="renderDocChecklistPreview()">
+          <option value="bachelor">Bachelor's</option>
+          <option value="master">Master's</option>
+        </select></div>
+      </div>
+      <div class="fgroup" style="margin-bottom:14px">
+        <label>Work Experience</label>
+        <select id="dc-jobcount" onchange="renderDocChecklistPreview()">
+          <option value="0">No work experience</option>
+          <option value="1">1 job (current/only job)</option>
+          <option value="2">More than 1 job</option>
+        </select>
+      </div>
+      <div id="doc-checklist-preview" style="font-size:12.5px;line-height:1.6;color:var(--tp);border-top:1px solid var(--gb,#e2e8f0);padding-top:12px"></div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn" style="border-color:#d1d5db;color:#6b7280" onclick="closeMo('doc-checklist-mo')">Close</button>
+      <button class="btn btn-primary" onclick="downloadDocChecklist('pdf')">📥 Download PDF</button>
+      <button class="btn btn-primary" onclick="downloadDocChecklist('txt')">📄 Download TXT</button>
     </div>
   </div>
 </div>
@@ -1662,6 +1719,7 @@ function showPage(id){
   if(id==='p2'){renderStudentList();renderDetail();if(studentView==='cards')renderCardsP2();}
   if(id==='p3')glRenderBrowse();
   if(id==='p5')renderUniKanban();
+  if(id==='p4'){renderLocalBackups();refreshNotifStatusUI();}
 }
 
 function setTheme(theme) {
@@ -1701,6 +1759,8 @@ async function load(){
     setSyncStatus('nofile');
   }
   renderAll();renderWhatsAppPanel();setDirty(false);initModalClickListeners();
+  refreshNotifStatusUI();renderLocalBackups();
+  if(notifAllowed())checkAndNotify(false);
 }
 
 function migrateData(){
@@ -1730,8 +1790,223 @@ function migrateData(){
     if(s.situation&&s.situationHistory.length===0)s.situationHistory=[{ts:s.lastUpdated||Date.now(),text:s.situation}];
   });
 }
+// ════════════════════════════════════════════════════════════
+// TOAST NOTIFICATIONS (visible, non-blocking alerts)
+// ════════════════════════════════════════════════════════════
+function showToast(msg,type){
+  type=type||'info';
+  const c=document.getElementById('toast-container');
+  if(!c)return;
+  const colors={info:['#2563eb','#eff6ff'],ok:['#059669','#d1fae5'],error:['#dc2626','#fee2e2'],warn:['#d97706','#fef3c7']};
+  const [bd,bg]=colors[type]||colors.info;
+  const el=document.createElement('div');
+  el.style.cssText=`background:${bg};border:1px solid ${bd};color:${bd};border-radius:10px;padding:10px 14px;font-size:12.5px;font-weight:600;box-shadow:0 4px 16px rgba(0,0,0,.12);animation:toastIn .25s ease;display:flex;align-items:center;gap:8px`;
+  el.innerHTML=`<span style="flex:1">${esc(msg)}</span><span style="cursor:pointer;font-weight:700;opacity:.6" onclick="this.parentElement.remove()">&times;</span>`;
+  c.appendChild(el);
+  setTimeout(()=>{el.style.transition='opacity .3s ease';el.style.opacity='0';setTimeout(()=>el.remove(),300);},6000);
+}
+if(!document.getElementById('toast-style')){
+  const st=document.createElement('style');
+  st.id='toast-style';
+  st.textContent='@keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}';
+  document.head.appendChild(st);
+}
+
+// ════════════════════════════════════════════════════════════
+// UNDO SAFETY NET — snapshot before destructive actions
+// ════════════════════════════════════════════════════════════
+const UNDO_STACK_MAX=5;
+let undoStack=[];
+function pushUndoSnapshot(label){
+  try{
+    undoStack.push({
+      label:label||'Action',
+      ts:Date.now(),
+      students:JSON.parse(JSON.stringify(students)),
+      pendingTasks:JSON.parse(JSON.stringify(pendingTasks)),
+      quickNotes:JSON.parse(JSON.stringify(quickNotes))
+    });
+    if(undoStack.length>UNDO_STACK_MAX)undoStack.shift();
+    updateUndoBtn();
+  }catch(e){console.error('Undo snapshot failed:',e);}
+}
+function updateUndoBtn(){
+  const btn=document.getElementById('undo-btn');
+  if(!btn)return;
+  btn.style.display=undoStack.length?'inline-flex':'none';
+  if(undoStack.length)btn.title='Undo: '+undoStack[undoStack.length-1].label;
+}
+function undoLastAction(){
+  if(!undoStack.length)return;
+  const snap=undoStack.pop();
+  students=snap.students;
+  pendingTasks=snap.pendingTasks;
+  quickNotes=snap.quickNotes;
+  updateUndoBtn();
+  addLog('Undo: '+snap.label);
+  persist('Undo: '+snap.label);
+  renderAll();
+  if(activePage==='p5')renderUniKanban();
+  showToast('Undone: '+snap.label,'ok');
+}
+document.addEventListener('keydown',e=>{
+  if((e.ctrlKey||e.metaKey)&&e.key==='z'){
+    const active=document.activeElement;
+    const typing=active&&(active.tagName==='INPUT'||active.tagName==='TEXTAREA'||active.isContentEditable);
+    if(!typing){e.preventDefault();undoLastAction();}
+  }
+});
+
+// ════════════════════════════════════════════════════════════
+// LOCAL ROLLING BACKUPS — independent of GitHub sync
+// ════════════════════════════════════════════════════════════
+const LOCAL_BACKUP_KEY='hbd_v7_local_backups';
+const LOCAL_BACKUP_MAX=5;
+function saveLocalBackup(){
+  try{
+    const payload={ts:Date.now(),students,pendingTasks,quickNotes};
+    let list=[];
+    try{list=JSON.parse(localStorage.getItem(LOCAL_BACKUP_KEY)||'[]');}catch(e){list=[];}
+    list.push(payload);
+    if(list.length>LOCAL_BACKUP_MAX)list=list.slice(list.length-LOCAL_BACKUP_MAX);
+    localStorage.setItem(LOCAL_BACKUP_KEY,JSON.stringify(list));
+  }catch(e){console.error('Local backup failed:',e);}
+}
+function getLocalBackups(){
+  try{return JSON.parse(localStorage.getItem(LOCAL_BACKUP_KEY)||'[]');}catch(e){return [];}
+}
+function renderLocalBackups(){
+  const wrap=document.getElementById('local-backups-list');
+  if(!wrap)return;
+  const list=getLocalBackups().slice().reverse();
+  if(!list.length){wrap.innerHTML='<div style="font-size:12px;color:var(--tm);font-style:italic">No local backups yet — one is saved automatically each time you save.</div>';return;}
+  wrap.innerHTML=list.map((b,i)=>{
+    const realIdx=getLocalBackups().length-1-i;
+    return `<div style="display:flex;align-items:center;justify-content:space-between;gap:8px;padding:8px 10px;border:1px solid var(--gb,#e2e8f0);border-radius:8px;margin-bottom:6px;font-size:12px">
+      <span>${esc(fmtDateTime(new Date(b.ts)))} · ${b.students.length} students</span>
+      <span style="display:flex;gap:6px">
+        <button class="btn btn-sm" style="padding:3px 8px;font-size:11px" onclick="downloadLocalBackup(${realIdx})">Download</button>
+        <button class="btn btn-sm" style="padding:3px 8px;font-size:11px;border-color:#d97706;color:#d97706" onclick="restoreLocalBackup(${realIdx})">Restore</button>
+      </span>
+    </div>`;
+  }).join('');
+}
+function downloadLocalBackup(idx){
+  const list=getLocalBackups();
+  const b=list[idx];
+  if(!b)return;
+  dl(JSON.stringify(b,null,2),'Local_Backup_'+iso(new Date(b.ts))+'.json','application/json');
+}
+function restoreLocalBackup(idx){
+  const list=getLocalBackups();
+  const b=list[idx];
+  if(!b)return;
+  if(!confirm('Restore this backup from '+fmtDateTime(new Date(b.ts))+'? Your current unsaved changes will be replaced (a snapshot of the current state is kept in Undo).'))return;
+  pushUndoSnapshot('Before restoring local backup');
+  students=JSON.parse(JSON.stringify(b.students));
+  pendingTasks=JSON.parse(JSON.stringify(b.pendingTasks||[]));
+  quickNotes=JSON.parse(JSON.stringify(b.quickNotes||[]));
+  addLog('Restored local backup from '+fmtDateTime(new Date(b.ts)));
+  persist('Restored local backup');
+  renderAll();
+  showToast('Backup restored','ok');
+}
+
+// ════════════════════════════════════════════════════════════
+// BROWSER NOTIFICATIONS — overdue tasks & upcoming deadlines
+// ════════════════════════════════════════════════════════════
+const NOTIF_PREF_KEY='hbd_notif_enabled';
+function notifPermissionLabel(){
+  if(!('Notification' in window))return 'Not supported in this browser';
+  return Notification.permission==='granted'?'Enabled':Notification.permission==='denied'?'Blocked (check browser site settings)':'Not enabled yet';
+}
+function refreshNotifStatusUI(){
+  const el=document.getElementById('notif-status');
+  if(el)el.textContent=notifPermissionLabel();
+  const btn=document.getElementById('notif-enable-btn');
+  if(btn)btn.style.display=('Notification' in window && Notification.permission!=='granted')?'inline-flex':'none';
+}
+async function enableNotifications(){
+  if(!('Notification' in window)){showToast('Browser notifications are not supported here','warn');return;}
+  const perm=await Notification.requestPermission();
+  if(perm==='granted'){
+    localStorage.setItem(NOTIF_PREF_KEY,'1');
+    showToast('Notifications enabled','ok');
+    checkAndNotify(true);
+  }else{
+    showToast('Notification permission was not granted','warn');
+  }
+  refreshNotifStatusUI();
+}
+function disableNotifications(){
+  localStorage.setItem(NOTIF_PREF_KEY,'0');
+  showToast('Notifications turned off','info');
+  refreshNotifStatusUI();
+}
+function notifAllowed(){
+  return ('Notification' in window) && Notification.permission==='granted' && localStorage.getItem(NOTIF_PREF_KEY)!=='0';
+}
+function fireNotification(title,body,tag){
+  if(!notifAllowed())return;
+  try{ new Notification(title,{body,tag,icon:undefined}); }catch(e){console.error('Notification failed:',e);}
+}
+function checkAndNotify(force){
+  if(!notifAllowed())return;
+  const today=iso(new Date());
+  const seenKey='hbd_notif_seen_'+today;
+  let seen=[];
+  try{seen=JSON.parse(sessionStorage.getItem(seenKey)||'[]');}catch(e){seen=[];}
+  const newlySeen=[];
+  // Overdue / due-today tasks
+  pendingTasks.forEach(t=>{
+    if(t.done||!t.deadline)return;
+    const diff=Math.floor((new Date(t.deadline)-new Date().setHours(0,0,0,0))/86400000);
+    if(diff<=0){
+      const key='task-'+t.id;
+      if(force||!seen.includes(key)){
+        fireNotification(diff<0?'Overdue task':'Task due today',`${t.studentName}: ${t.desc}`,key);
+        newlySeen.push(key);
+      }
+    }
+  });
+  // Visa decision pending with class starting soon
+  students.forEach(s=>{
+    if(s.status==='Discontinued'||s.defer==='Y')return;
+    const grp=(typeof visaGroupOf==='function')?visaGroupOf(s.appStage):null;
+    if(grp!=='lodged')return;
+    const cd=s.visaApplicationRef&&s.visaApplicationRef.classCommencementDate;
+    if(!cd)return;
+    const d=daysUntil(cd);
+    if(d!==null&&d<=VISA_ALARM_WINDOW_DAYS){
+      const key='visa-'+s.id;
+      if(force||!seen.includes(key)){
+        fireNotification('Visa decision pending — class starting soon',`${s.name}: ${d<0?'classes already started':d===0?'classes start today':d+'d left'}`,key);
+        newlySeen.push(key);
+      }
+    }
+  });
+  // Students needing another university application submitted
+  students.forEach(s=>{
+    if(s.status==='Discontinued'||s.moreUni!=='Y'||!s.moreUniDate)return;
+    const diff=Math.floor((new Date(s.moreUniDate)-Date.now())/86400000);
+    if(diff<=0){
+      const key='moreuni-'+s.id;
+      if(force||!seen.includes(key)){
+        fireNotification('Application reminder overdue',`${s.name}: submit additional application`,key);
+        newlySeen.push(key);
+      }
+    }
+  });
+  if(newlySeen.length){
+    try{sessionStorage.setItem(seenKey,JSON.stringify(seen.concat(newlySeen)));}catch(e){}
+  }
+}
+setInterval(()=>checkAndNotify(false),900000); // re-check every 15 min
+
 function persist(label){
   addLog(label||'Auto-saved');setDirty(false);
+  saveLocalBackup();
+  renderLocalBackups();
   debouncedPush();
 }
 async function pushToGitHub(){
@@ -1809,6 +2084,7 @@ function setSyncStatus(state,detail){
   } else if(state==='error'){
     if(pill){pill.textContent='⚠ Sync failed';pill.className='save-pill dirty';}
     if(ghst)ghst.innerHTML='<span style="color:var(--er)">⚠ '+esc(detail||'Error')+'</span>';
+    showToast('GitHub sync failed: '+(detail||'Error')+' — your data is safe locally, will retry.','error');
   } else if(state==='nofile'){
     if(pill){pill.textContent='☁ No file yet — will create on first save';pill.className='save-pill';}
     if(ghst)ghst.innerHTML='<span style="color:var(--wn)">⚠ data.json not found in repo. It will be created on your first save.</span>';
@@ -2785,7 +3061,7 @@ function renderTasks(){
   }).join(''):'<div style="padding:10px 14px;font-size:12px;color:var(--ok);background:var(--okbg);border-radius:9px;border:1px solid #059669">&#10003; No pending tasks — click + Add to create one</div>';
 }
 function toggleTask(i){pendingTasks[i].done=!pendingTasks[i].done;renderTasks();renderProgress();renderCharts();markDirty();}
-function deleteTask(i){pendingTasks.splice(i,1);renderTasks();renderProgress();renderCharts();markDirty();}
+function deleteTask(i){pushUndoSnapshot('Delete task: '+(pendingTasks[i]?pendingTasks[i].desc:''));pendingTasks.splice(i,1);renderTasks();renderProgress();renderCharts();markDirty();persist('Deleted task');}
 
 function openSituationCollector(){
   const sel=document.getElementById('sit-student');
@@ -2847,12 +3123,67 @@ function runGlobalSearch(q){
   const r=document.getElementById('global-search-results');
   if(!q.trim()){r.innerHTML='';return;}
   const ql=q.toLowerCase();
-  const matches=students.filter(s=>s.name.toLowerCase().includes(ql)||s.country.toLowerCase().includes(ql)||(s.intake||'').toLowerCase().includes(ql)||(s.appStage||'').toLowerCase().includes(ql)||(s.remarks||'').toLowerCase().includes(ql)||(s.situation||'').toLowerCase().includes(ql)||s.uniApplications.some(u=>u.university.toLowerCase().includes(ql)||u.program.toLowerCase().includes(ql)));
-  r.innerHTML=matches.length?matches.map(s=>{const idx=students.findIndex(x=>x.id===s.id);return `<div class="search-result-item" onclick="goToStudent(${idx})"><div style="font-size:16px">${FLAGS[s.country]||'🌐'}</div><div><div class="search-result-name">${esc(s.name)}</div><div class="search-result-meta">${s.country||'No country'} · ${s.intake||'No intake'} · ${s.appStage||'No stage'}</div></div></div>`;}).join(''):'<div style="padding:20px;text-align:center;color:var(--tm)">No results found</div>';
+
+  const studentMatches=students.filter(s=>s.name.toLowerCase().includes(ql)||s.country.toLowerCase().includes(ql)||(s.intake||'').toLowerCase().includes(ql)||(s.appStage||'').toLowerCase().includes(ql)||(s.remarks||'').toLowerCase().includes(ql)||(s.situation||'').toLowerCase().includes(ql)||s.uniApplications.some(u=>u.university.toLowerCase().includes(ql)||u.program.toLowerCase().includes(ql)));
+
+  const taskMatches=pendingTasks.filter((t,i)=>(t.desc||'').toLowerCase().includes(ql)||(t.studentName||'').toLowerCase().includes(ql)).map((t,i)=>({t,i:pendingTasks.indexOf(t)}));
+
+  const noteMatches=quickNotes.filter(n=>(n.text||'').toLowerCase().includes(ql));
+
+  let glMatches=[];
+  if(typeof GREEN_LIST!=='undefined'){
+    glMatches=GREEN_LIST.filter(item=>{
+      const hay=(item.name+' '+item.group+' '+item.anzsco+' '+(item.keywords||[]).join(' ')).toLowerCase();
+      return ql.split(' ').every(w=>hay.includes(w));
+    }).slice(0,8);
+  }
+
+  if(!studentMatches.length&&!taskMatches.length&&!noteMatches.length&&!glMatches.length){
+    r.innerHTML='<div style="padding:20px;text-align:center;color:var(--tm)">No results found</div>';
+    return;
+  }
+
+  let html='';
+  if(studentMatches.length){
+    html+='<div class="search-section-lbl">Students</div>'+studentMatches.map(s=>{
+      const idx=students.findIndex(x=>x.id===s.id);
+      return `<div class="search-result-item" onclick="goToStudent(${idx})"><div style="font-size:16px">${FLAGS[s.country]||'🌐'}</div><div><div class="search-result-name">${esc(s.name)}</div><div class="search-result-meta">${esc(s.country||'No country')} · ${esc(s.intake||'No intake')} · ${esc(s.appStage||'No stage')}</div></div></div>`;
+    }).join('');
+  }
+  if(taskMatches.length){
+    html+='<div class="search-section-lbl">Tasks</div>'+taskMatches.map(({t,i})=>{
+      return `<div class="search-result-item" onclick="goToTask(${i})"><div style="font-size:16px">&#9888;</div><div><div class="search-result-name">${esc(t.desc)}</div><div class="search-result-meta">${esc(t.studentName||'General')}${t.deadline?' · Due '+esc(t.deadline):''}${t.done?' · Done':''}</div></div></div>`;
+    }).join('');
+  }
+  if(noteMatches.length){
+    html+='<div class="search-section-lbl">Quick Notes</div>'+noteMatches.map(n=>{
+      return `<div class="search-result-item" onclick="goToPage('p1')"><div style="font-size:16px">&#128221;</div><div><div class="search-result-name">${esc(n.text.slice(0,80))}${n.text.length>80?'…':''}</div><div class="search-result-meta">${esc(fmtDateTime(new Date(n.ts)))}</div></div></div>`;
+    }).join('');
+  }
+  if(glMatches.length){
+    html+='<div class="search-section-lbl">NZ Green List Occupations</div>'+glMatches.map(item=>{
+      const tl=item.tier==='tier1'?'🌿 Tier 1':'🔵 Tier 2';
+      return `<div class="search-result-item" onclick="goToGreenListOccupation('${esc(item.name).replace(/'/g,"\\'")}')"><div style="font-size:16px">🌱</div><div><div class="search-result-name">${esc(item.name)}</div><div class="search-result-meta">${tl} · ${esc(item.group)} · ANZSCO ${esc(item.anzsco)}</div></div></div>`;
+    }).join('');
+  }
+  r.innerHTML=html;
 }
 function goToStudent(idx){
   closeGlobalSearch();selectedStudentId=students[idx].id;
   setStudentView('detail');showPage('p2');renderDashboardStudentSection();
+}
+function goToTask(i){
+  closeGlobalSearch();showPage('p1');
+  const el=document.getElementById('task-grid');
+  if(el)el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function goToPage(id){
+  closeGlobalSearch();showPage(id);
+}
+function goToGreenListOccupation(name){
+  closeGlobalSearch();showPage('p3');
+  const input=document.getElementById('gl-searchInput');
+  if(input){input.value=name;glDoSearch();}
 }
 
 // ════════════════════════════════════════════════════════════
@@ -3019,10 +3350,12 @@ function addUniApplication(){
 }
 function removeUniApp(i){
   if(uniModalIdx===null)return;
+  const app=students[uniModalIdx].uniApplications[i];
+  pushUndoSnapshot('Remove university application: '+(app?app.university:''));
   students[uniModalIdx].uniApplications.splice(i,1);
   students[uniModalIdx].lastUpdated=Date.now();
   if(uniEditIdx===i)cancelEditUniApp();
-  renderUniApps();renderAll();markDirty();
+  renderUniApps();renderAll();markDirty();persist('Removed university application');
 }
 function renderUniApps(){
   if(uniModalIdx===null)return;
@@ -3187,7 +3520,7 @@ function renderDetail(){
     uniHtml=`<table class="uni-apps-table"><thead><tr><th>Country</th><th>University</th><th>Program</th><th>Agent</th><th>Class Starts</th><th>Link</th></tr></thead><tbody>${s.uniApplications.map((a,ai)=>`<tr class="clickable" onclick="openUniModal(${idx});editUniApp(${ai})"><td>${FLAGS[a.country]||''} ${esc(a.country)}</td><td>${esc(a.university)}</td><td>${esc(a.program)||'—'}</td><td>${esc(a.agent)||'Direct/Self'}</td><td>${a.classCommencementDate?esc(a.classCommencementDate):'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td>${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--b600,#2563eb);font-weight:600;text-decoration:none">&#128279; Open</a>`:'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td></tr>`).join('')}</tbody></table>`;
   }
   document.getElementById('detail-content').innerHTML=`
-    <div class="detail-hdr"><div><div class="detail-name">${esc(s.name)}</div><div style="font-size:12px;color:var(--ts);margin-top:2px">${FLAGS[s.country]||'🌐'} ${s.country||'No country'} · ${s.intake||'No intake'}</div></div><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">${s.locked?`<button class="btn btn-sm" style="border-color:#d97706;color:#d97706;background:rgba(217,119,6,0.1);font-weight:700" onclick="reopenStudent(${idx})">🔓 Reopen File</button>`:`<button class="btn btn-primary btn-sm" onclick="openAddTask('${s.id}')">+ Task</button><button class="btn btn-uni" onclick="openUniModal(${idx})">&#127891; Universities</button><button class="btn btn-addinfo" onclick="openAddInfo(${idx})">&#128221; Info</button><button class="btn btn-primary btn-sm" onclick="openSituationCollectorPrefill('${s.id}')">&#128204; Situation</button>`}<button class="btn btn-sm" style="border-color:#2563eb;color:#2563eb;background:rgba(37,99,235,0.08)" onclick="openStageHistoryModal(${idx})">📊 Stage History</button><button class="btn btn-sm" style="border-color:#25D366;color:#128C7E;background:rgba(37,211,102,0.08)" onclick="openStudentWhatsApp(${idx})">Send WhatsApp message</button>${s.locked?'':`<button class="btn btn-edit btn-sm" onclick="openEdit(${idx})">&#9998; Edit</button>`}<button class="btn btn-del" onclick="askDel(${idx})">&#215; Remove</button></div></div>
+    <div class="detail-hdr"><div><div class="detail-name">${esc(s.name)}</div><div style="font-size:12px;color:var(--ts);margin-top:2px">${FLAGS[s.country]||'🌐'} ${s.country||'No country'} · ${s.intake||'No intake'}</div></div><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">${s.locked?`<button class="btn btn-sm" style="border-color:#d97706;color:#d97706;background:rgba(217,119,6,0.1);font-weight:700" onclick="reopenStudent(${idx})">🔓 Reopen File</button>`:`<button class="btn btn-primary btn-sm" onclick="openAddTask('${s.id}')">+ Task</button><button class="btn btn-uni" onclick="openUniModal(${idx})">&#127891; Universities</button><button class="btn btn-addinfo" onclick="openAddInfo(${idx})">&#128221; Info</button><button class="btn btn-primary btn-sm" onclick="openSituationCollectorPrefill('${s.id}')">&#128204; Situation</button>`}<button class="btn btn-sm" style="border-color:#2563eb;color:#2563eb;background:rgba(37,99,235,0.08)" onclick="openStageHistoryModal(${idx})">📊 Stage History</button><button class="btn btn-sm" style="border-color:#7c3aed;color:#7c3aed;background:rgba(124,58,237,0.08)" onclick="openDocChecklistModal(${idx})">📄 Document Checklist</button><button class="btn btn-sm" style="border-color:#25D366;color:#128C7E;background:rgba(37,211,102,0.08)" onclick="openStudentWhatsApp(${idx})">Send WhatsApp message</button>${s.locked?'':`<button class="btn btn-edit btn-sm" onclick="openEdit(${idx})">&#9998; Edit</button>`}<button class="btn btn-del" onclick="askDel(${idx})">&#215; Remove</button></div></div>
     ${s.locked?`<div style="margin-top:10px;padding:12px 14px;background:var(--erbg);border:1px solid rgba(220,38,38,0.35);border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div style="font-size:13px;color:#7f1d1d"><strong>🔒 File Closed — ${esc(s.closedInfo?.reason||'')}</strong><br><span style="font-size:11px;opacity:0.85">Stage: ${esc(s.closedInfo?.stage||'')}${s.closedInfo?.university?' · '+esc(s.closedInfo.university):''}${s.closedInfo?.program?' — '+esc(s.closedInfo.program):''} · Closed ${s.closedInfo?fmtDateTime(new Date(s.closedInfo.date)):''}</span></div><button class="btn btn-sm" style="border-color:#d97706;color:#d97706;background:rgba(217,119,6,0.1);font-weight:700;white-space:nowrap" onclick="reopenStudent(${idx})">🔓 Reopen to Edit</button></div>`:''}
 
     <div class="detail-body"${s.locked?' style="pointer-events:none;opacity:0.55;filter:grayscale(0.3)"':''}><div class="detail-grid">
@@ -3334,7 +3667,7 @@ function addStudent(){
   document.getElementById('edit-mo').classList.add('open');
 }
 function askDel(idx){delIdx=idx;document.getElementById('del-name').textContent=students[idx].name;document.getElementById('del-mo').classList.add('open');}
-function confirmDel(){if(delIdx!==null){const n=students[delIdx].name;if(selectedStudentId===students[delIdx].id)selectedStudentId=null;students.splice(delIdx,1);persist('Removed: '+n);renderAll();}closeMo('del-mo');delIdx=null;}
+function confirmDel(){if(delIdx!==null){const n=students[delIdx].name;pushUndoSnapshot('Delete student: '+n);if(selectedStudentId===students[delIdx].id)selectedStudentId=null;students.splice(delIdx,1);persist('Removed: '+n);renderAll();}closeMo('del-mo');delIdx=null;}
 
 function openSituationCollectorPrefill(studentId){openSituationCollector();setTimeout(()=>{document.getElementById('sit-student').value=String(studentId);},20);}
 
@@ -3646,6 +3979,141 @@ function downloadCaseSummary(format='pdf'){
     addLog('Downloaded case summary (PDF): '+summary.name);
   }
   closeMo('case-summary-mo');
+}
+
+// ════════════════════════════════════════════════════════════
+// DOCUMENT CHECKLIST — shareable checklist for students
+// ════════════════════════════════════════════════════════════
+let docChecklistStudentIdx=null;
+function getChecklistItems(level,jobCount){
+  const items=[];
+  items.push({label:'Passport(s) — All Pages',note:'Scan every page of every passport held (old and current). If only one passport exists, submit that one only.'});
+  items.push({label:'National ID & Birth Certificate',note:''});
+  items.push({label:'Passport-size Photograph',note:''});
+  items.push({label:'Grade 10 Certificate & Marksheet',note:''});
+  const g12Note=level==='bachelor'?'If there is a study gap after Grade 12, also required: a) University admission receipt, b) University acknowledgement/enrollment letter clearly stating department and subject of study':'';
+  items.push({label:'Grade 12 Certificate & Marksheet',note:g12Note});
+  items.push({label:'University Admission Test Documents',note:'Any admission/entrance test taken after Grade 12 for public or private university admission (if applicable)'});
+  items.push({label:'English Language Course / Coaching Documents',note:'Any certificate or proof of English language courses or coaching taken (if applicable)'});
+  items.push({label:'University Certificate & Marksheet',note:'Must include the verification link or email address from which the university\'s academic documents can be officially verified'});
+  items.push({label:'English Language Test Certificate',note:'PTE: share MyPTE account login details for verification. IELTS: share a screenshot of the IELTS Online Result page'});
+  items.push({label:'CV / Resume',note:''});
+  let weNote;
+  if(jobCount==='0')weNote='Not applicable — no work experience';
+  else if(jobCount==='1')weNote='Appointment letter + 6 months\' salary statement/payslip + final work experience certificate';
+  else weNote='Current/latest job: Appointment letter + 6 months\' salary statement/payslip + final work experience certificate. Previous job(s): only work experience certificate needed for each — no appointment letter or payslips required.';
+  items.push({label:'Work Experience Documents',note:weNote});
+  if(level==='master')items.push({label:'Two Letters of Recommendation (LOR)',note:'Master\'s applicants only'});
+  items.push({label:'Statement of Purpose (SOP)',note:''});
+  return items;
+}
+function openDocChecklistModal(studentIdx){
+  docChecklistStudentIdx=studentIdx;
+  const s=students[studentIdx];
+  document.getElementById('dc-student-name').value=s?s.name:'';
+  document.getElementById('dc-level').value='bachelor';
+  document.getElementById('dc-jobcount').value='0';
+  renderDocChecklistPreview();
+  document.getElementById('doc-checklist-mo').classList.add('open');
+}
+function openDocChecklistGeneral(){
+  docChecklistStudentIdx=null;
+  document.getElementById('dc-student-name').value='';
+  document.getElementById('dc-level').value='bachelor';
+  document.getElementById('dc-jobcount').value='0';
+  renderDocChecklistPreview();
+  document.getElementById('doc-checklist-mo').classList.add('open');
+}
+function renderDocChecklistPreview(){
+  const level=document.getElementById('dc-level').value;
+  const jobCount=document.getElementById('dc-jobcount').value;
+  const items=getChecklistItems(level,jobCount);
+  const wrap=document.getElementById('doc-checklist-preview');
+  wrap.innerHTML='<div style="background:var(--wnbg,#fef3c7);border:1px solid var(--wn,#d97706);border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:12px;font-weight:700;color:#92400e">⚠ All documents must be MACHINE-SCANNED (flatbed/office scanner). Mobile app scans such as CamScanner are NOT accepted.</div>'
+    +items.map((it,i)=>`<div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--gb,#e2e8f0)"><div style="font-weight:700;color:var(--b600,#2563eb);min-width:22px">☐ ${i+1}.</div><div><div style="font-weight:600">${esc(it.label)}</div>${it.note?`<div style="font-size:11px;color:var(--ts);margin-top:2px">${esc(it.note)}</div>`:''}</div></div>`).join('');
+}
+function downloadDocChecklist(format){
+  const name=document.getElementById('dc-student-name').value.trim()||'Student';
+  const level=document.getElementById('dc-level').value;
+  const jobCount=document.getElementById('dc-jobcount').value;
+  const items=getChecklistItems(level,jobCount);
+  const levelLabel=level==='bachelor'?'Bachelor\'s':'Master\'s';
+  const now=new Date();
+
+  if(format==='txt'){
+    const lines=[
+      'CLIENT RELATIONSHIP MANAGEMENT — DOCUMENT CHECKLIST',
+      '═══════════════════════════════════════════',
+      '',
+      `Student: ${name}`,
+      `Program Level: ${levelLabel}`,
+      `Generated: ${now.toLocaleString()}`,
+      '',
+      '⚠ ALL DOCUMENTS MUST BE MACHINE-SCANNED (flatbed/office scanner).',
+      '  Mobile app scans such as CamScanner are NOT accepted.',
+      '',
+      ...items.flatMap((it,i)=>[`[ ] ${i+1}. ${it.label}`,...(it.note?['      '+it.note]:[]),''])
+    ];
+    dl(lines.join('\n'),`Document_Checklist_${name.replace(/\s+/g,'_')}_${iso(now)}.txt`,'text/plain');
+    addLog('Downloaded document checklist (TXT): '+name);
+  } else {
+    const { jsPDF }=window.jspdf;
+    const doc=new jsPDF({orientation:'portrait',unit:'pt',format:'a4'});
+    const pageWidth=doc.internal.pageSize.getWidth();
+    const pageHeight=doc.internal.pageSize.getHeight();
+    const margin=40;
+    let y=margin;
+
+    doc.setFont('helvetica','bold');doc.setFontSize(16);doc.setTextColor(37,99,235);
+    doc.text('CLIENT RELATIONSHIP MANAGEMENT',margin,y);y+=16;
+    doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(122,150,180);
+    doc.text('Document Checklist',margin,y);y+=20;
+
+    doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(30,58,95);
+    doc.text(name,margin,y);y+=14;
+    doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(74,112,152);
+    doc.text(`Program Level: ${levelLabel}  |  Generated: ${now.toLocaleString()}`,margin,y);y+=16;
+
+    doc.setFillColor(254,243,199);doc.setDrawColor(217,119,6);doc.setLineWidth(1);
+    doc.roundedRect(margin,y,pageWidth-margin*2,26,4,4,'FD');
+    doc.setFont('helvetica','bold');doc.setFontSize(9);doc.setTextColor(146,64,14);
+    const warnLines=doc.splitTextToSize('ALL DOCUMENTS MUST BE MACHINE-SCANNED (flatbed/office scanner). Mobile app scans such as CamScanner are NOT accepted.',pageWidth-margin*2-16);
+    doc.text(warnLines,margin+8,y+11);
+    y+=26+14;
+
+    const rows=items.map((it,i)=>[String(i+1),it.label,it.note||'—']);
+    doc.autoTable({
+      startY:y,
+      head:[['#','Document','Notes']],
+      body:rows,
+      theme:'grid',
+      margin:{left:margin,right:margin},
+      styles:{font:'helvetica',fontSize:9,cellPadding:6,textColor:[30,58,95],lineColor:[219,234,254],lineWidth:0.5,overflow:'linebreak',valign:'top'},
+      headStyles:{fillColor:[37,99,235],textColor:[255,255,255],fontStyle:'bold',fontSize:9},
+      alternateRowStyles:{fillColor:[248,251,255]},
+      columnStyles:{0:{cellWidth:22},1:{cellWidth:150,fontStyle:'bold'},2:{cellWidth:pageWidth-margin*2-22-150}}
+    });
+
+    const pages=doc.getNumberOfPages();
+    for(let i=1;i<=pages;i++){
+      doc.setPage(i);
+      doc.setDrawColor(37,99,235);doc.setLineWidth(0.5);
+      doc.line(margin,pageHeight-28,pageWidth-margin,pageHeight-28);
+      doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(138,171,200);
+      doc.text('Document Checklist · '+now.toLocaleString(),margin,pageHeight-14);
+      doc.text('Page '+i+' of '+pages,pageWidth-margin,pageHeight-14,{align:'right'});
+    }
+
+    doc.save(`Document_Checklist_${name.replace(/\s+/g,'_')}_${iso(now)}.pdf`);
+    addLog('Downloaded document checklist (PDF): '+name);
+  }
+
+  if(docChecklistStudentIdx!==null&&students[docChecklistStudentIdx]){
+    const s=students[docChecklistStudentIdx];
+    s.lastDocChecklist={level,jobCount,generatedAt:Date.now()};
+    addLog('Document checklist generated for '+s.name+' ('+levelLabel+')');
+    persist('Document checklist generated for '+s.name);
+  }
 }
 
 function triggerCaseClosureOnVisa(studentIdx){
@@ -4995,6 +5463,7 @@ function closeResetGate(){
 function performEmergencyReset(){
   // Step 1: auto-export a full backup BEFORE wiping anything
   exportJSON();
+  pushUndoSnapshot('Before emergency reset');
   // Step 2: wipe all data back to nil
   students=[];
   pendingTasks=[];
@@ -5002,7 +5471,7 @@ function performEmergencyReset(){
   addLog('EMERGENCY RESET — all data wiped to nil (auto-backup downloaded first)');
   persist('Emergency reset performed');
   renderAll();
-  setTimeout(()=>{alert('✅ Backup downloaded to your device, and the database has been reset to nil.');},400);
+  setTimeout(()=>{alert('✅ Backup downloaded to your device, and the database has been reset to nil. Use Undo (top nav or Ctrl+Z) if this was a mistake.');},400);
 }
 
 function initSecurityGate(){

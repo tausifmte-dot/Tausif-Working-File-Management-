@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-23T09:24:14.203Z",
+    "saved": "2026-08-23T09:25:25.366Z",
     "version": 8,
     "count": 34
   },
@@ -876,13 +876,13 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Visa lodged",
+      "appStage": "Waiting for documents from student side to submit application",
       "counselor": "",
       "phone": "",
       "email": "",
       "uniCount": 0,
-      "moreUni": "N",
-      "moreUniDate": "",
+      "moreUni": "Y",
+      "moreUniDate": "2026-08-25",
       "bankMatured": "havent opened yet",
       "bankMonths": "",
       "bankExpectedDate": "2026-11-01",
@@ -891,8 +891,8 @@
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "",
-      "visaNext": "Y",
-      "lastUpdated": 1787477052178,
+      "visaNext": "",
+      "lastUpdated": 1787476968518,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -918,27 +918,11 @@
           "classCommencementDate": "2027-02-15"
         }
       ],
-      "stageHistory": [
-        {
-          "stage": "Visa lodged",
-          "enteredDate": 1787477052178,
-          "duration": 0
-        },
-        {
-          "stage": "Application submitted",
-          "enteredDate": 1787477035185,
-          "duration": 0
-        }
-      ],
+      "stageHistory": [],
       "locked": false,
       "closedInfo": null,
-      "visaApplicationRef": {
-        "country": "New Zealand",
-        "university": "Southern Institute of Technology",
-        "program": "Bachelor of Information Technology",
-        "classCommencementDate": "2027-02-15"
-      },
-      "visaFieldsLocked": true
+      "visaApplicationRef": null,
+      "visaFieldsLocked": false
     },
     {
       "id": 1786707888166.244,
@@ -1556,6 +1540,14 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787477123330,
+      "msg": "Restored local backup"
+    },
+    {
+      "ts": 1787477123329,
+      "msg": "Restored local backup from Sun, 23 Aug 2026 03:23 PM"
+    },
     {
       "ts": 1787477052179,
       "msg": "Visa lodged: MMH Niloy Chowdhury"

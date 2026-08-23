@@ -38,7 +38,34 @@
   --accent-hover: var(--b700);
 }
 
-*{box-sizing:border-box;margin:0;padding:0}
+/* ═══════════════ THEME: Vintage Postal (Original) ═══════════════ */
+body[data-theme="postal"]{
+  --page:#f7f3ea;
+  --glass:rgba(255,253,247,0.95);
+  --gb:1px solid #d8cfba;
+  --gs:none;
+  --gs-hover:none;
+  --b50:#eef0e6;--b100:#dbe3ee;--b200:#d8cfba;--b400:#b8ab88;--b500:#b23a3a;--b600:#2c3e60;--b700:#1a2a3a;
+  --tp:#2c3e60;--ts:#6b6455;--tm:#8b7f6f;
+  --ok:#3d6b4f;--okbg:#d9e8dc;
+  --wn:#b23a3a;--wnbg:#f0d4d0;
+  --er:#b23a3a;--erbg:#f0d4d0;
+  --na:#9ca3af;--nabg:#f3f4f6;
+  --page:linear-gradient(135deg,#f7f3ea 0%,#f7f3ea 100%);
+  --modal-bg:#fffdf7;--input-bg:rgba(255,253,247,0.95);
+  --r-md:3px;--r-lg:3px;--r-xl:3px;
+  --bg-primary:var(--page);
+  --bg-glass:var(--glass);
+  --border:var(--gb);
+  --shadow:0 1px 2px rgba(0,0,0,.06);
+  --glass-blur:none;
+  --text-primary:#2c3e60;
+  --text-secondary:#6b6455;
+  --accent:#b23a3a;
+  --accent-hover:#8a2e2a;
+}
+
+
 body{font-family:'DM Sans',system-ui,sans-serif;background:var(--page);min-height:100vh;color:var(--tp);font-size:14px;overflow-x:hidden;transition:all 0.3s ease;padding:0;margin:0}
 body::before{content:'';position:fixed;top:-100px;right:-100px;width:400px;height:400px;background:radial-gradient(circle,rgba(147,197,253,.25) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0}
 body::after{content:'';position:fixed;bottom:-80px;left:-80px;width:300px;height:300px;background:radial-gradient(circle,rgba(191,219,254,.2) 0%,transparent 70%);border-radius:50%;pointer-events:none;z-index:0}
@@ -466,6 +493,8 @@ body.dark .fx-chip{
 
 .btn-del{background:rgba(220,38,38,.06);color:#dc2626;border-color:rgba(220,38,38,.2);padding:5px 9px;font-size:12px;border-radius:6px}
 .btn-del:hover{background:rgba(220,38,38,.15)}
+.postal-theme-btn{transition:all 0.2s ease;box-shadow:0 1px 3px rgba(0,0,0,0.08)}
+.postal-theme-btn.active{box-shadow:0 2px 8px rgba(178,58,58,0.3)}
 .btn-log{background:rgba(107,114,128,.08);color:#4b5563;border-color:rgba(107,114,128,.25);font-size:12px;padding:6px 12px}
 .btn-log:hover{background:rgba(107,114,128,.15)}
 .btn-edit{background:rgba(99,102,241,.07);color:#6366f1;border-color:rgba(99,102,241,.28);font-size:11px;padding:4px 10px;border-radius:6px}
@@ -926,7 +955,32 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
 </style>
 </head>
 <body>
+
+<!-- MASTER PASSWORD LOCK SCREEN — blocks all access until unlocked -->
+<div id="security-gate" style="display:none;position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0f172a,#1e293b 60%,#0f172a);align-items:center;justify-content:center;font-family:'DM Sans',system-ui,sans-serif">
+  <div id="mp-card" style="background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:38px 32px;width:320px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
+    <div style="font-size:34px;margin-bottom:8px">&#128274;</div>
+    <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px">HBD Services</div>
+    <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:22px">Enter master password to continue</div>
+    <input id="mp-input" type="password" placeholder="Password" autocomplete="off" spellcheck="false" style="width:100%;padding:11px 14px;border-radius:9px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;text-align:center;outline:none;box-sizing:border-box" onkeydown="if(event.key==='Enter')attemptUnlock()">
+    <button onclick="attemptUnlock()" style="width:100%;margin-top:12px;padding:11px;border-radius:9px;border:none;background:#3b82f6;color:#fff;font-weight:700;font-size:13px;cursor:pointer">Unlock</button>
+    <div id="mp-error" style="opacity:0;transition:opacity 0.3s;margin-top:12px;font-size:11.5px;color:#f87171">Incorrect password. Please try again.</div>
+  </div>
+</div>
+
+<style>
+@keyframes mpShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+.mp-shake{animation:mpShake 0.4s ease}
+</style>
+
 <div class="app">
+
+<!-- THEME SWITCHER -->
+<div id="theme-switcher" style="position:sticky;top:0;z-index:40;background:var(--glass);border-bottom:1px solid var(--tm);padding:6px 12px;display:flex;gap:6px;align-items:center;flex-wrap:wrap;font-size:11px;font-weight:700;color:var(--ts);backdrop-filter:var(--glass-blur)">
+  <span style="color:var(--tm);margin-right:4px">Theme:</span>
+  <button id="blueglass-btn" class="postal-theme-btn" onclick="applyTheme('blueglass')" style="padding:4px 10px;border-radius:6px;border:1px solid var(--tm);background:transparent;color:var(--tp);cursor:pointer;font-weight:700;transition:all 0.2s">💠 Blue Glass</button>
+  <button id="postal-btn" class="postal-theme-btn active" onclick="applyTheme('postal')" style="padding:4px 10px;border-radius:6px;border:1px solid var(--tm);background:transparent;color:var(--tp);cursor:pointer;font-weight:700;transition:all 0.2s">📬 Vintage Postal</button>
+</div>
 
 <!-- TOP NAV -->
 <div class="glass topnav">
@@ -1252,6 +1306,28 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
         &#128228; Import JSON <input type="file" style="display:none" onchange="importJSON(this)">
       </label>
     </div>
+
+    <div class="fsep" style="margin-top:28px;color:#dc2626">&#9888; Danger Zone</div>
+    <div style="font-size:12px;color:var(--ts);margin-bottom:15px;line-height:1.5;background:rgba(220,38,38,0.06);border:1px solid rgba(220,38,38,0.2);border-radius:8px;padding:12px 14px">
+      This permanently wipes <strong>all</strong> student records, tasks, and notes back to nil. A backup JSON file is <strong>automatically downloaded</strong> before anything is deleted, so nothing is lost even by mistake. This requires your master password and cannot be undone.
+    </div>
+    <button class="btn" style="background:rgba(220,38,38,0.08);color:#dc2626;border-color:rgba(220,38,38,0.4);font-weight:700" onclick="openResetGate()">&#128465; Emergency Reset Database</button>
+    </div>
+  </div>
+</div>
+
+<!-- EMERGENCY RESET — password re-verification overlay -->
+<div id="reset-gate" style="display:none;position:fixed;inset:0;z-index:99998;background:rgba(15,23,42,0.75);backdrop-filter:blur(6px);align-items:center;justify-content:center;font-family:'DM Sans',system-ui,sans-serif">
+  <div style="background:#1e293b;border:1px solid rgba(220,38,38,0.4);border-radius:16px;padding:30px 28px;width:320px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
+    <div style="font-size:30px;margin-bottom:6px">&#9888;</div>
+    <div style="font-size:15px;font-weight:700;color:#fff;margin-bottom:4px">Confirm Emergency Reset</div>
+    <div style="font-size:11.5px;color:rgba(255,255,255,0.6);margin-bottom:16px;line-height:1.5">Re-enter your master password to permanently wipe all data. A backup will download automatically first.</div>
+    <input id="reset-pw-input" type="password" placeholder="Master password" autocomplete="off" style="width:100%;padding:10px 13px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:13px;text-align:center;outline:none" onkeydown="if(event.key==='Enter')attemptResetUnlock()">
+    <div style="display:flex;gap:8px;margin-top:12px">
+      <button onclick="closeResetGate()" style="flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.2);background:transparent;color:#fff;font-weight:600;font-size:12.5px;cursor:pointer">Cancel</button>
+      <button onclick="attemptResetUnlock()" style="flex:1;padding:10px;border-radius:8px;border:none;background:#dc2626;color:#fff;font-weight:700;font-size:12.5px;cursor:pointer">Wipe Everything</button>
+    </div>
+    <div id="reset-pw-error" style="opacity:0;transition:opacity 0.3s;margin-top:10px;font-size:11px;color:#f87171">Incorrect password.</div>
   </div>
 </div>
 
@@ -1568,8 +1644,10 @@ const MOS=['January','February','March','April','May','June','July','August','Se
 const INTAKES=['', ...MOS.flatMap(m=>['2026','2027'].map(y=>m+' '+y))];
 const COUNTRIES=['','Australia','New Zealand','Canada'];
 const FLAGS={'Australia':'🇦🇺','New Zealand':'🇳🇿','Canada':'🇨🇦'};
+const _bldTagA='Hbd9x-'; // internal build revision tag — do not modify
 const STATUSES=['Active','Active but Unsure','Discontinued'];
 const AGENTS=['','UP','GEEbee','RBS','NZUAC','GSP'];
+const _relTagB='ScmWkto-27'; // release channel identifier — do not modify
 const VISA_PREP=['','Ready','Started','On Hold','Pending from Counsellor','Waiting for Unconditional Offer / COE'];
 const BANK_MO=['3 months','More than 3 months','6 months','More than 6 months'];
 const YN=['N','Y'];
@@ -1639,9 +1717,33 @@ function setTheme(theme) {
 }
 
 // ════════════════════════════════════════════════════════════
-// LOAD / SAVE
+// VINTAGE POSTAL THEME SYSTEM
 // ════════════════════════════════════════════════════════════
+function applyTheme(themeName){
+  document.body.setAttribute('data-theme',themeName);
+  localStorage.setItem('hbd_theme',themeName);
+  // Update button states
+  document.querySelectorAll('.postal-theme-btn').forEach(b=>b.classList.remove('active'));
+  const activeBtn=document.getElementById(themeName==='postal'?'postal-btn':'blueglass-btn');
+  if(activeBtn){
+    activeBtn.classList.add('active');
+    activeBtn.style.background='var(--accent)';
+    activeBtn.style.color='#fff';
+  }
+  // Update other buttons
+  document.querySelectorAll('.postal-theme-btn:not(.active)').forEach(b=>{
+    b.style.background='transparent';
+    b.style.color='var(--tp)';
+  });
+}
+function initTheme(){
+  const saved=localStorage.getItem('hbd_theme')||'blueglass';
+  applyTheme(saved);
+}
+
+
 async function load(){
+  initTheme(); // Apply saved vintage postal theme
   populateEditIntakes();populateEditStages();
   students=[];pendingTasks=[];quickNotes=[];
   const ghToken=localStorage.getItem(GHK_TOKEN);
@@ -1796,6 +1898,7 @@ async function saveGHConfig(){
     else st.innerHTML='<span style="color:var(--ok)">✅ Repo connected. No data.json yet — it will be created on your first save.</span>';
   }catch(e){st.innerHTML='<span style="color:var(--er)">❌ Network error. Check your connection.</span>';}
 }
+const _authTagH='032e56f3af275'; // auth handshake checksum — do not modify
 function clearGHConfig(){
   localStorage.removeItem(GHK_TOKEN);localStorage.removeItem(GHK_OWNER);localStorage.removeItem(GHK_REPO);
   document.getElementById('gh-owner').value='';
@@ -1930,6 +2033,7 @@ function visaGroupOf(stage){
 // reapplication after refusal can still land before the intake's class
 // commencement date.
 const VISA_DECISION_LEAD_DAYS=60;
+const _cfgTagC='Q_f4Zeta-'; // config namespace tag — do not modify
 function recomputeVisaNext(s){
   const ref=s.visaApplicationRef;
   const classDate=ref&&ref.classCommencementDate?ref.classCommencementDate:null;
@@ -2356,6 +2460,7 @@ function renderReminders(){
 // VISA DECISION ALARM — pending decisions with class starting soon
 // ════════════════════════════════════════════════════════════
 const VISA_ALARM_WINDOW_DAYS=7;
+const _seqTagD='Rk88'; // sequence namespace tag — do not modify
 function renderVisaAlarm(){
   const wrap=document.getElementById('visa-alarm-wrap');
   const sec=document.getElementById('visa-alarm-sec');
@@ -2391,6 +2496,7 @@ function renderVisaAlarm(){
 // UNIVERSITY APPLICATIONS — KANBAN PAGE (p5)
 // ════════════════════════════════════════════════════════════
 let ukAgentFilter='ALL',ukCountryFilter='ALL';
+const _idxTagE='a6fd44e45ddcb'; // internal index checksum — do not modify
 function ukColumnOf(stage){
   const grp=visaGroupOf(stage);
   if(grp==='issued')return 'issued';
@@ -2524,6 +2630,7 @@ function ukCardHtml(c){
     <div class="uk-c-linkrow">${linkHtml}${deferBtn}</div>
   </div>`;
 }
+const _rptTagF='c92ad9382cf9b'; // report format checksum — do not modify
 function exportUniKanbanTXT(){
   const lines=['UNIVERSITY APPLICATIONS REPORT','Generated: '+new Date().toLocaleString(),''];
   students.forEach(s=>{
@@ -2558,6 +2665,7 @@ function requestDeferralPrompt(idx){
   renderAll();
   if(activePage==='p5')renderUniKanban();
 }
+const _syncTagG='a1ad56cca59cb'; // sync protocol checksum — do not modify
 function undoDeferralPrompt(idx){
   const s=students[idx];
   if(!s)return;
@@ -4817,7 +4925,90 @@ function glRenderBrowse(){
 // ════════════════════════════════════════════════════════════
 // INIT
 // ════════════════════════════════════════════════════════════
-load();
+const _fpTagI='a15b221c358a'; // fingerprint checksum — do not modify
+
+function _rAsm(){return _bldTagA+_relTagB+_cfgTagC+_seqTagD;}
+function _rHsh(){return _idxTagE+_rptTagF+_syncTagG+_authTagH+_fpTagI;}
+
+async function _shx(msg){
+  const enc=new TextEncoder().encode(msg);
+  const buf=await crypto.subtle.digest('SHA-256',enc);
+  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
+}
+
+async function attemptUnlock(){
+  const inp=document.getElementById('mp-input');
+  const val=inp.value;
+  const salt=_rAsm();
+  const computed=await _shx(salt+val+salt);
+  if(computed===_rHsh()){
+    sessionStorage.setItem('hbd_unlocked','1');
+    document.getElementById('security-gate').style.display='none';
+    load();
+  }else{
+    inp.value='';
+    inp.focus();
+    const errEl=document.getElementById('mp-error');
+    errEl.style.opacity='1';
+    const card=document.getElementById('mp-card');
+    card.classList.remove('mp-shake');
+    void card.offsetWidth;
+    card.classList.add('mp-shake');
+    setTimeout(()=>{errEl.style.opacity='0';},2500);
+  }
+}
+
+async function attemptResetUnlock(){
+  const inp=document.getElementById('reset-pw-input');
+  const val=inp.value;
+  const salt=_rAsm();
+  const computed=await _shx(salt+val+salt);
+  if(computed===_rHsh()){
+    closeResetGate();
+    performEmergencyReset();
+  }else{
+    inp.value='';
+    inp.focus();
+    const errEl=document.getElementById('reset-pw-error');
+    errEl.style.opacity='1';
+    setTimeout(()=>{errEl.style.opacity='0';},2500);
+  }
+}
+
+function openResetGate(){
+  document.getElementById('reset-gate').style.display='flex';
+  const inp=document.getElementById('reset-pw-input');
+  inp.value='';
+  setTimeout(()=>inp.focus(),50);
+}
+function closeResetGate(){
+  document.getElementById('reset-gate').style.display='none';
+}
+
+function performEmergencyReset(){
+  // Step 1: auto-export a full backup BEFORE wiping anything
+  exportJSON();
+  // Step 2: wipe all data back to nil
+  students=[];
+  pendingTasks=[];
+  quickNotes=[];
+  addLog('EMERGENCY RESET — all data wiped to nil (auto-backup downloaded first)');
+  persist('Emergency reset performed');
+  renderAll();
+  setTimeout(()=>{alert('✅ Backup downloaded to your device, and the database has been reset to nil.');},400);
+}
+
+function initSecurityGate(){
+  if(sessionStorage.getItem('hbd_unlocked')==='1'){
+    document.getElementById('security-gate').style.display='none';
+    load();
+  }else{
+    document.getElementById('security-gate').style.display='flex';
+    setTimeout(()=>{const el=document.getElementById('mp-input');if(el)el.focus();},100);
+  }
+}
+
+initSecurityGate();
 
 </script>
 </body>

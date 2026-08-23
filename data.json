@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-23T09:21:34.540Z",
+    "saved": "2026-08-23T09:22:40.211Z",
     "version": 8,
     "count": 34
   },
@@ -892,7 +892,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787476882755,
+      "lastUpdated": 1787476958822,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -904,16 +904,16 @@
           "university": "Southern Institute of Technology",
           "program": "Bachelor of Information Technology",
           "agent": "GEEbee",
-          "applicationDate": "2027-02-14",
+          "applicationDate": "2026-08-23",
           "link": "https://www.sit.ac.nz/programme/course/Bachelor%20of%20Information%20Technology",
-          "classCommencementDate": "2026-02-10"
+          "classCommencementDate": "2027-02-15"
         },
         {
           "country": "New Zealand",
           "university": "Unitec Institute of Technology",
           "program": "Bachelor of Computing Systems",
           "agent": "GEEbee",
-          "applicationDate": "2027-02-15",
+          "applicationDate": "",
           "link": "https://www.unitec.ac.nz/career-and-study-options/computing-and-information-technology/bachelor-of-computing-systems/",
           "classCommencementDate": "2026-02-17"
         }
@@ -1540,6 +1540,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787476958193,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787476892528,
       "msg": "Manual save — 03:21 PM"

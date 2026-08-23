@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-23T09:20:08.054Z",
+    "saved": "2026-08-23T09:21:08.079Z",
     "version": 8,
     "count": 34
   },
@@ -883,16 +883,16 @@
       "uniCount": 0,
       "moreUni": "Y",
       "moreUniDate": "2026-08-25",
-      "bankMatured": "",
+      "bankMatured": "havent opened yet",
       "bankMonths": "",
-      "bankExpectedDate": "",
+      "bankExpectedDate": "2026-11-01",
       "defer": "N",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787476749854,
+      "lastUpdated": 1787476834202,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1540,6 +1540,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787476866058,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787476806046,
       "msg": "Auto-saved"

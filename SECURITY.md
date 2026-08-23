@@ -1,4 +1,4 @@
-# HBD Services — Security Implementation Checklist
+# CRM System — Security Implementation Checklist
 
 ## Phase 1: IMMEDIATE (Week 1)
 
@@ -9,15 +9,18 @@
 - [ ] Each team member has unique master password
 - [ ] Session timeout configured (30 minutes)
 - [ ] Test auto-logout on browser close
+- [ ] Verify `sessionStorage` unlock flag (`crm_unlocked`) is cleared on tab close
+- [ ] Confirm SHA-256 password hash (`_shx` + salt) is NOT committed to any public repo
 
 ### GitHub Configuration
 - [ ] GitHub account created with 2FA enabled
-- [ ] Private repository created (`hbd-student-data`)
+- [ ] Private repository created (`crm-data`)
 - [ ] Personal Access Token generated (repo scope ONLY)
-- [ ] GitHub PAT stored in system Settings
-- [ ] Branch protection enabled
+- [ ] GitHub PAT stored in system Settings (localStorage key: `crm_gh_token`)
+- [ ] Branch protection enabled on `main`
 - [ ] Require signed commits configured
-- [ ] Test sync (Settings → GitHub Sync → Test Connection)
+- [ ] Test sync (Settings → GitHub Sync → Save & Test Connection)
+- [ ] Verify sync file target is `crm-data.json` on branch `main`
 
 ### Device Security
 - [ ] Full disk encryption enabled (BitLocker/FileVault/LUKS)
@@ -38,19 +41,20 @@
 ## Phase 2: SHORT-TERM (Weeks 2-4)
 
 ### Audit Logging
-- [ ] Audit log functionality tested
+- [ ] Audit log functionality tested (localStorage key: `crm_log`)
 - [ ] Failed login attempts logged
 - [ ] Data modifications logged with timestamp
-- [ ] Export actions logged
+- [ ] Export actions logged (PDF / JSON / DOCX)
 - [ ] Review audit logs for first week of operation
 - [ ] Document any unusual activity
 
 ### Data Protection
-- [ ] Sensitive fields identified (phone, email, bank info)
+- [ ] Sensitive client fields identified (phone, email, financial info, contact history)
 - [ ] Data classification completed
-- [ ] Student PII masking in UI configured
+- [ ] Client PII masking in UI configured
 - [ ] Phone numbers verified format
-- [ ] Test WhatsApp integration safety
+- [ ] Test any external integrations (email, messaging) for data-leak safety
+- [ ] Confirm client data (localStorage key: `crm_data`) is only stored locally + private GitHub repo
 
 ### Backup & Recovery
 - [ ] Initial automated GitHub sync working
@@ -90,10 +94,11 @@
 - [ ] Run antivirus full scan
 - [ ] Verify device encryption status
 - [ ] Update password manager
+- [ ] Review third-party CDN libraries used by the app (jsPDF, Chart.js, docx) for known CVEs
 
 ### Compliance
 - [ ] Verify data retention policies followed
-- [ ] Check for data older than retention period
+- [ ] Check for client records older than retention period
 - [ ] Confirm backups still accessible
 - [ ] Review any privacy policy changes
 - [ ] Document compliance check
@@ -103,16 +108,16 @@
 ## Phase 4: QUARTERLY (Every 3 Months)
 
 ### Password Rotation
-- [ ] Master password changed (if no recent change)
+- [ ] Master password changed (if no recent change) — regenerate SHA-256 hash + salt in `_rAsm()` / `_rHsh()`
 - [ ] GitHub PAT rotated (every 6 months)
 - [ ] Other service passwords updated
 - [ ] Old passwords documented in secure location
 - [ ] Update security contacts
 
 ### Disaster Recovery Testing
-- [ ] Test restore from GitHub backup
+- [ ] Test restore from GitHub backup (`crm-data.json`)
 - [ ] Test restore from external backup
-- [ ] Verify all data restored correctly
+- [ ] Verify all client data restored correctly
 - [ ] Document restore time
 - [ ] Update recovery procedure if needed
 
@@ -138,12 +143,12 @@
 - [ ] All users complete security training
 - [ ] Phishing simulation testing
 - [ ] Password security refresh
-- [ ] Data protection training
+- [ ] Client data protection training
 - [ ] Incident response drill
 
 ### Vulnerability Assessment
-- [ ] Check for known vulnerabilities in dependencies
-- [ ] Review code for security issues
+- [ ] Check for known vulnerabilities in dependencies (jsPDF, jspdf-autotable, Chart.js, docx.js)
+- [ ] Review code for security issues (XSS via client name/notes fields, localStorage handling)
 - [ ] Penetration testing (if budget allows)
 - [ ] Document findings
 - [ ] Create remediation plan
@@ -171,17 +176,17 @@
 **IMMEDIATE (First Hour)**
 - [ ] Stop further access to the system
 - [ ] Notify Security Officer immediately
-- [ ] Preserve all logs and evidence
-- [ ] Assess scope: How many students affected?
+- [ ] Preserve all logs and evidence (export `crm_log` before wiping)
+- [ ] Assess scope: How many client records affected?
 - [ ] Assess severity: Critical/High/Medium/Low?
 
 **URGENT (Next 24 Hours)**
 - [ ] Take system offline if critical breach
 - [ ] Backup all current data
-- [ ] Reset master password for all users
+- [ ] Reset master password for all users (rotate `_rHsh()` hash value)
 - [ ] Revoke GitHub PAT
 - [ ] Review audit logs for unauthorized access
-- [ ] Notify affected students
+- [ ] Notify affected clients
 - [ ] Document incident details
 - [ ] Begin root cause analysis
 
@@ -199,7 +204,7 @@
 ## GitHub Security Hardening
 
 ### Essential Setup
-- [ ] Repository visibility: PRIVATE ✓
+- [ ] Repository visibility: PRIVATE ✓ (`crm-data`)
 - [ ] Require pull request reviews: YES ✓
 - [ ] Minimum number of approvals: 1 ✓
 - [ ] Require status checks: YES ✓
@@ -240,9 +245,9 @@
 
 **First Day**
 - [ ] Master password verified
-- [ ] System orientation completed
+- [ ] System orientation completed (Dashboard, Clients, Analytics, Settings)
 - [ ] Practice logout/login
-- [ ] Review data classification
+- [ ] Review client data classification
 - [ ] Understand incident reporting
 - [ ] Know security contacts
 
@@ -284,76 +289,3 @@
 
 Keep this information accessible but SECURE:
 
-```
-SECURITY OFFICER
-Name: _______________
-Email: security@hbd-services.com
-Phone: +880-2-XXXX-XXXX
-Available: 24/7 Emergencies
-
-SYSTEM ADMINISTRATOR
-Name: _______________
-Email: admin@hbd-services.com
-Phone: +880-2-XXXX-XXXX
-Available: Business Hours
-
-BACKUP CONTACT
-Name: _______________
-Email: _______________
-Phone: _______________
-Available: On-call
-
-LEGAL/PRIVACY
-Name: _______________
-Email: _______________
-Phone: _______________
-```
-
----
-
-## Security Metrics & KPIs
-
-Track these metrics monthly:
-
-| Metric | Target | Actual | Trend |
-|--------|--------|--------|-------|
-| Failed Login Attempts | <5 per month | ___ | ↑/↓/- |
-| Successful Backups | 100% | ___% | ↑/↓/- |
-| Security Training Completion | 100% | ___% | ↑/↓/- |
-| Policy Violations | 0 | ___ | ↑/↓/- |
-| Incident Response Time | <4 hours | ___ hrs | ↑/↓/- |
-| Patch Update Compliance | 100% | ___% | ↑/↓/- |
-| Access Review Completion | 100% | ___% | ↑/↓/- |
-| GitHub Security Alerts Resolved | 100% | ___% | ↑/↓/- |
-
----
-
-## Digital Assets Inventory
-
-Document all security-related assets:
-
-| Asset | Location | Owner | Last Updated | Expires |
-|-------|----------|-------|--------------|---------|
-| Master Password | Password Manager | Admin | MM/DD/YYYY | MM/DD/YYYY |
-| GitHub PAT | Settings | Admin | MM/DD/YYYY | MM/DD/YYYY |
-| GitHub SSH Key | Device | User | MM/DD/YYYY | MM/DD/YYYY |
-| Device Encryption Key | Secure Location | User | MM/DD/YYYY | N/A |
-| Backup Location | External Drive | Admin | MM/DD/YYYY | Ongoing |
-| Security Policy | Document Store | Admin | MM/DD/YYYY | Quarterly |
-
----
-
-## Sign-Off
-
-**Checklist Prepared By**: _______________  
-**Date**: _______________  
-**Reviewed By**: _______________  
-**Date**: _______________  
-**Approved By**: _______________  
-**Date**: _______________
-
----
-
-**This checklist should be reviewed monthly and updated quarterly.**
-
-For questions: security@hbd-services.com

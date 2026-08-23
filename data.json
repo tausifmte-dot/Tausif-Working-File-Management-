@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-23T09:22:40.211Z",
+    "saved": "2026-08-23T09:23:40.228Z",
     "version": 8,
     "count": 34
   },
@@ -892,7 +892,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787476958822,
+      "lastUpdated": 1787476968518,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -913,9 +913,9 @@
           "university": "Unitec Institute of Technology",
           "program": "Bachelor of Computing Systems",
           "agent": "GEEbee",
-          "applicationDate": "",
+          "applicationDate": "2026-08-23",
           "link": "https://www.unitec.ac.nz/career-and-study-options/computing-and-information-technology/bachelor-of-computing-systems/",
-          "classCommencementDate": "2026-02-17"
+          "classCommencementDate": "2027-02-15"
         }
       ],
       "stageHistory": [],
@@ -1540,6 +1540,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787477018207,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787476958193,
       "msg": "Auto-saved"

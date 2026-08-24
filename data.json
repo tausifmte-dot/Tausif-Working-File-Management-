@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:21:20.322Z",
+    "saved": "2026-08-24T11:21:32.832Z",
     "version": 8,
     "count": 34
   },
@@ -75,13 +75,13 @@
       "bankMatured": "Y",
       "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
-      "defer": "N",
+      "defer": "Y",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
-      "visaPrep": "Ready",
-      "visaNext": "",
-      "lastUpdated": 1787570474791,
+      "visaPrep": "",
+      "visaNext": "N",
+      "lastUpdated": 1787570490810,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -101,8 +101,18 @@
       "stageHistory": [
         {
           "stage": "Visa lodged",
-          "enteredDate": 1787290609387,
+          "enteredDate": 1787570490810,
           "duration": 0
+        },
+        {
+          "stage": "Waiting for bank solvency to get matured",
+          "enteredDate": 1787570486538,
+          "duration": 0
+        },
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1787290609387,
+          "duration": 3
         },
         {
           "stage": "Processing for Application",
@@ -120,10 +130,10 @@
         "country": "New Zealand",
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Business L7",
-        "classCommencementDate": ""
+        "classCommencementDate": "2026-09-14"
       },
       "email": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": true
     },
     {
       "id": 1786707888165.7642,
@@ -1551,6 +1561,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570490810,
+      "msg": "Visa lodged: Ali Akbar Ishrak"
+    },
     {
       "ts": 1787570478305,
       "msg": "Auto-saved"

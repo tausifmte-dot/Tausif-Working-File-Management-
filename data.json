@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:21:32.832Z",
+    "saved": "2026-08-24T11:22:50.713Z",
     "version": 8,
     "count": 34
   },
@@ -67,7 +67,7 @@
       "country": "New Zealand",
       "intake": "September 2026",
       "status": "Active",
-      "appStage": "Visa lodged",
+      "appStage": "Waiting for documents from student side to submit application",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -75,13 +75,13 @@
       "bankMatured": "Y",
       "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
-      "defer": "Y",
+      "defer": "N",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1787570490810,
+      "lastUpdated": 1787570568681,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1561,6 +1561,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570568682,
+      "msg": "Updated: Ali Akbar Ishrak"
+    },
     {
       "ts": 1787570490810,
       "msg": "Visa lodged: Ali Akbar Ishrak"

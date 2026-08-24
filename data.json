@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-23T09:25:25.366Z",
+    "saved": "2026-08-24T06:48:49.141Z",
     "version": 8,
     "count": 34
   },
@@ -1266,7 +1266,7 @@
       "country": "New Zealand",
       "intake": "June 2026",
       "status": "Active",
-      "appStage": "Visa lodged",
+      "appStage": "Visa Refused",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -1280,22 +1280,51 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1787554127122,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "New Zealand Tertiary College",
+          "program": "Bachelor of Education in Early Childhood Education",
+          "agent": "UP",
+          "applicationDate": "2026-06-01",
+          "link": "https://www.nztertiarycollege.ac.nz/early-childhood-education/undergraduate-qualifications/bachelor-education-early-childhood-education",
+          "classCommencementDate": "2026-09-28"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1787554127122,
+          "duration": 0
+        },
         {
           "stage": "Visa lodged",
           "enteredDate": 1772668800000,
-          "duration": 0
+          "duration": 172
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": true,
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "New Zealand Tertiary College",
+        "program": "Bachelor of Education in Early Childhood Education",
+        "classCommencementDate": "2026-09-28"
+      },
+      "locked": true,
+      "closedInfo": {
+        "reason": "Visa Refused — No Resubmission (Final)",
+        "stage": "Visa Refused",
+        "date": 1787554127122,
+        "university": "New Zealand Tertiary College",
+        "program": "Bachelor of Education in Early Childhood Education"
+      }
     },
     {
       "id": 1786707888166.6946,
@@ -1540,6 +1569,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787554127122,
+      "msg": "Visa refused, decision recorded: Saira Sadia"
+    },
     {
       "ts": 1787477123330,
       "msg": "Restored local backup"

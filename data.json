@@ -1,10 +1,45 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:15:36.777Z",
+    "saved": "2026-08-24T11:16:24.559Z",
     "version": 8,
-    "count": 33
+    "count": 34
   },
   "students": [
+    {
+      "id": 1787570182531.1702,
+      "name": "AKIMUL ISLAM TAZIM",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Waiting for documents from student side to submit application",
+      "counselor": "",
+      "phone": "",
+      "email": "",
+      "uniCount": 1,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "Y",
+      "bankMonths": "More than 6 months",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "Ready",
+      "visaNext": "",
+      "lastUpdated": 1787570182531,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "locked": false,
+      "visaFieldsLocked": false,
+      "closedInfo": null,
+      "visaApplicationRef": null
+    },
     {
       "id": 1786707888167.0344,
       "name": "Ali Akbar Ishrak",
@@ -1493,6 +1528,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570182531,
+      "msg": "Added: AKIMUL ISLAM TAZIM"
+    },
     {
       "ts": 1787570134748,
       "msg": "Removed: Akimul Islam"

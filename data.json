@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T07:04:20.325Z",
+    "saved": "2026-08-24T07:53:20.321Z",
     "version": 8,
     "count": 34
   },
@@ -897,11 +897,21 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787476968518,
-      "remarks": "",
-      "situation": "",
-      "remarksHistory": [],
-      "situationHistory": [],
+      "lastUpdated": 1787557969949,
+      "remarks": "STUDENT FINANCE IS POOR - STUDENT IS CURRENTLY ARRANGING FUNDS - 35 L THEIR OWN AND THE REST IS PARKING FUND. BANK TRANSFER HAS BEEN ASKED TO MAINTAIN",
+      "situation": "NEED TO WRITE SOP (GIVEN TO STUDENT TO WRITE) \n\nNEED TO RECEIVE STUDY CONTINUATION DOCUMENTS FROM HIM",
+      "remarksHistory": [
+        {
+          "ts": 1787557969949,
+          "text": "STUDENT FINANCE IS POOR - STUDENT IS CURRENTLY ARRANGING FUNDS - 35 L THEIR OWN AND THE REST IS PARKING FUND. BANK TRANSFER HAS BEEN ASKED TO MAINTAIN"
+        }
+      ],
+      "situationHistory": [
+        {
+          "ts": 1787557969248,
+          "text": "NEED TO WRITE SOP (GIVEN TO STUDENT TO WRITE) \n\nNEED TO RECEIVE STUDY CONTINUATION DOCUMENTS FROM HIM"
+        }
+      ],
       "applicationCompletions": [],
       "uniApplications": [
         {
@@ -1574,6 +1584,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787557998304,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787555058298,
       "msg": "Auto-saved"

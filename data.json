@@ -1,82 +1,10 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:15:29.130Z",
+    "saved": "2026-08-24T11:15:36.777Z",
     "version": 8,
-    "count": 34
+    "count": 33
   },
   "students": [
-    {
-      "id": 1786707888165.754,
-      "name": "Akimul Islam",
-      "country": "New Zealand",
-      "intake": "August 2026",
-      "status": "Active",
-      "appStage": "Waiting for documents from student side to submit application",
-      "counselor": "Rajib Hossain",
-      "uniCount": 0,
-      "moreUni": "N",
-      "moreUniDate": "",
-      "bankMatured": "Y",
-      "bankMonths": "More than 6 months",
-      "bankExpectedDate": "",
-      "defer": "Y",
-      "gsApplied": "N",
-      "gsStatus": "",
-      "coe": "N",
-      "visaPrep": "",
-      "visaNext": "N",
-      "lastUpdated": 1787570127071,
-      "remarks": "Deferral requested — visa decision pending with class commencement imminent (2026-08-26).",
-      "situation": "",
-      "remarksHistory": [
-        {
-          "ts": 1787386081518,
-          "text": "Deferral requested — visa decision pending with class commencement imminent (2026-08-26)."
-        },
-        {
-          "ts": 1787385701564,
-          "text": "Deferral requested — visa decision pending with class commencement imminent (2026-08-26)."
-        },
-        {
-          "ts": 1787385693034,
-          "text": "Deferral requested — visa decision pending with class commencement imminent (2026-08-26)."
-        }
-      ],
-      "situationHistory": [],
-      "applicationCompletions": [],
-      "uniApplications": [],
-      "stageHistory": [
-        {
-          "stage": "Visa lodged",
-          "enteredDate": 1787371568826,
-          "duration": 0
-        },
-        {
-          "stage": "New information requested by the visa officer",
-          "enteredDate": 1787371561151,
-          "duration": 0
-        },
-        {
-          "stage": "Visa lodged",
-          "enteredDate": 1787290515330,
-          "duration": 0
-        },
-        {
-          "stage": "Unconditional offer letter issued",
-          "enteredDate": 1779321600000,
-          "duration": 92
-        }
-      ],
-      "phone": "",
-      "visaApplicationRef": {
-        "country": "New Zealand",
-        "university": "University of Waikato (Waikato)",
-        "program": "Ii",
-        "classCommencementDate": "2026-08-26"
-      },
-      "visaFieldsLocked": true,
-      "email": ""
-    },
     {
       "id": 1786707888167.0344,
       "name": "Ali Akbar Ishrak",
@@ -1565,6 +1493,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570134748,
+      "msg": "Removed: Akimul Islam"
+    },
     {
       "ts": 1787570127101,
       "msg": "Removed university application"

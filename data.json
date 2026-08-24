@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:24:38.552Z",
+    "saved": "2026-08-24T11:25:20.334Z",
     "version": 8,
     "count": 34
   },
@@ -67,7 +67,7 @@
       "country": "New Zealand",
       "intake": "September 2026",
       "status": "Active",
-      "appStage": "Waiting for documents from student side to submit application",
+      "appStage": "Application submitted",
       "counselor": "",
       "phone": "",
       "email": "",
@@ -83,14 +83,30 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787570676528,
+      "lastUpdated": 1787570716793,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
-      "stageHistory": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Auckland Institute of Studies (AIS)",
+          "program": "Bachelor of Business L7",
+          "agent": "UP",
+          "applicationDate": "2026-07-15",
+          "link": "https://www.ais.ac.nz/bbus",
+          "classCommencementDate": "2026-09-14"
+        }
+      ],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1787570684666,
+          "duration": 0
+        }
+      ],
       "locked": false,
       "visaFieldsLocked": false,
       "closedInfo": null,
@@ -1522,6 +1538,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570718291,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787570676528,
       "msg": "Added: Ali Akbar Ishrak"

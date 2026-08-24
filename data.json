@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:16:24.559Z",
+    "saved": "2026-08-24T11:17:20.322Z",
     "version": 8,
     "count": 34
   },
@@ -27,13 +27,23 @@
       "coe": "N",
       "visaPrep": "Ready",
       "visaNext": "",
-      "lastUpdated": 1787570182531,
+      "lastUpdated": 1787570237591,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "White cliff College",
+          "program": "Bachelor of Applied Computing L 7",
+          "agent": "NZUAC",
+          "applicationDate": "2026-08-01",
+          "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
+          "classCommencementDate": "2027-02-22"
+        }
+      ],
       "stageHistory": [],
       "locked": false,
       "visaFieldsLocked": false,
@@ -1528,6 +1538,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570238295,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787570182531,
       "msg": "Added: AKIMUL ISLAM TAZIM"

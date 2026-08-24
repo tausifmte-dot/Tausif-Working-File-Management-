@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:13:26.931Z",
+    "saved": "2026-08-24T11:15:20.321Z",
     "version": 8,
     "count": 34
   },
@@ -25,7 +25,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1787570004867,
+      "lastUpdated": 1787570064431,
       "remarks": "Deferral requested — visa decision pending with class commencement imminent (2026-08-26).",
       "situation": "",
       "remarksHistory": [
@@ -52,7 +52,7 @@
           "agent": "NZUAC",
           "applicationDate": "2026-01-08",
           "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
-          "classCommencementDate": "2026-08-26"
+          "classCommencementDate": "2027-02-22"
         }
       ],
       "stageHistory": [
@@ -1575,6 +1575,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570118301,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787570004910,
       "msg": "Removed university application"

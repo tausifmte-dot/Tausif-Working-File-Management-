@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T06:48:49.141Z",
+    "saved": "2026-08-24T07:04:20.325Z",
     "version": 8,
     "count": 34
   },
@@ -547,7 +547,7 @@
       "country": "New Zealand",
       "intake": "June 2026",
       "status": "Active",
-      "appStage": "Visa Refused",
+      "appStage": "Unconditional offer letter issued",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -561,7 +561,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1787555057767,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -570,9 +570,14 @@
       "uniApplications": [],
       "stageHistory": [
         {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1787555057767,
+          "duration": 0
+        },
+        {
           "stage": "Visa Refused",
           "enteredDate": 1764633600000,
-          "duration": 0
+          "duration": 265
         }
       ],
       "phone": "",
@@ -1569,6 +1574,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787555058298,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787554127122,
       "msg": "Visa refused, decision recorded: Saira Sadia"

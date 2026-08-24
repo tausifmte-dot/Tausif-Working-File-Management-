@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T07:53:20.321Z",
+    "saved": "2026-08-24T11:13:26.931Z",
     "version": 8,
     "count": 34
   },
@@ -25,7 +25,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1787404350068,
+      "lastUpdated": 1787570004867,
       "remarks": "Deferral requested — visa decision pending with class commencement imminent (2026-08-26).",
       "situation": "",
       "remarksHistory": [
@@ -51,15 +51,6 @@
           "program": "Bachelor of Applied Computing L 7",
           "agent": "NZUAC",
           "applicationDate": "2026-01-08",
-          "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
-          "classCommencementDate": "2026-08-26"
-        },
-        {
-          "country": "New Zealand",
-          "university": "University of Waikato (Waikato)",
-          "program": "Ii",
-          "agent": "NZUAC",
-          "applicationDate": "2026-08-22",
           "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
           "classCommencementDate": "2026-08-26"
         }
@@ -1584,6 +1575,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570004910,
+      "msg": "Removed university application"
+    },
     {
       "ts": 1787557998304,
       "msg": "Auto-saved"

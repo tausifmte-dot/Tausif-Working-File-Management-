@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:22:50.713Z",
+    "saved": "2026-08-24T11:24:00.463Z",
     "version": 8,
-    "count": 34
+    "count": 33
   },
   "students": [
     {
@@ -60,80 +60,6 @@
         "program": "Bachelor of Applied Computing L 7",
         "classCommencementDate": "2027-02-22"
       }
-    },
-    {
-      "id": 1786707888167.0344,
-      "name": "Ali Akbar Ishrak",
-      "country": "New Zealand",
-      "intake": "September 2026",
-      "status": "Active",
-      "appStage": "Waiting for documents from student side to submit application",
-      "counselor": "Tausif Jaman",
-      "uniCount": 0,
-      "moreUni": "N",
-      "moreUniDate": "",
-      "bankMatured": "Y",
-      "bankMonths": "More than 6 months",
-      "bankExpectedDate": "",
-      "defer": "N",
-      "gsApplied": "N",
-      "gsStatus": "",
-      "coe": "N",
-      "visaPrep": "",
-      "visaNext": "N",
-      "lastUpdated": 1787570568681,
-      "remarks": "",
-      "situation": "",
-      "remarksHistory": [],
-      "situationHistory": [],
-      "applicationCompletions": [],
-      "uniApplications": [
-        {
-          "country": "New Zealand",
-          "university": "Auckland Institute of Studies (AIS)",
-          "program": "Bachelor of Business L7",
-          "agent": "UP",
-          "applicationDate": "2026-01-06",
-          "link": "https://www.ais.ac.nz/bbus",
-          "classCommencementDate": "2026-09-14"
-        }
-      ],
-      "stageHistory": [
-        {
-          "stage": "Visa lodged",
-          "enteredDate": 1787570490810,
-          "duration": 0
-        },
-        {
-          "stage": "Waiting for bank solvency to get matured",
-          "enteredDate": 1787570486538,
-          "duration": 0
-        },
-        {
-          "stage": "Visa lodged",
-          "enteredDate": 1787290609387,
-          "duration": 3
-        },
-        {
-          "stage": "Processing for Application",
-          "enteredDate": 1759795200000,
-          "duration": 318
-        },
-        {
-          "stage": "Visa Refused",
-          "enteredDate": 1759795200000,
-          "duration": 0
-        }
-      ],
-      "phone": "",
-      "visaApplicationRef": {
-        "country": "New Zealand",
-        "university": "Auckland Institute of Studies (AIS)",
-        "program": "Bachelor of Business L7",
-        "classCommencementDate": "2026-09-14"
-      },
-      "email": "",
-      "visaFieldsLocked": true
     },
     {
       "id": 1786707888165.7642,
@@ -1561,6 +1487,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570638440,
+      "msg": "Removed: Ali Akbar Ishrak"
+    },
     {
       "ts": 1787570568682,
       "msg": "Updated: Ali Akbar Ishrak"

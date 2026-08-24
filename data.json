@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:17:20.322Z",
+    "saved": "2026-08-24T11:17:56.293Z",
     "version": 8,
     "count": 34
   },
@@ -11,7 +11,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Waiting for documents from student side to submit application",
+      "appStage": "Visa lodged",
       "counselor": "",
       "phone": "",
       "email": "",
@@ -25,9 +25,9 @@
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
-      "visaPrep": "Ready",
-      "visaNext": "",
-      "lastUpdated": 1787570237591,
+      "visaPrep": "",
+      "visaNext": "Y",
+      "lastUpdated": 1787570274272,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -44,11 +44,22 @@
           "classCommencementDate": "2027-02-22"
         }
       ],
-      "stageHistory": [],
+      "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1787570274272,
+          "duration": 0
+        }
+      ],
       "locked": false,
-      "visaFieldsLocked": false,
+      "visaFieldsLocked": true,
       "closedInfo": null,
-      "visaApplicationRef": null
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "White cliff College",
+        "program": "Bachelor of Applied Computing L 7",
+        "classCommencementDate": "2027-02-22"
+      }
     },
     {
       "id": 1786707888167.0344,
@@ -1538,6 +1549,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570274273,
+      "msg": "Visa lodged: AKIMUL ISLAM TAZIM"
+    },
     {
       "ts": 1787570238295,
       "msg": "Auto-saved"

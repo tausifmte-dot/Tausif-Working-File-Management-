@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:24:00.463Z",
+    "saved": "2026-08-24T11:24:38.552Z",
     "version": 8,
-    "count": 33
+    "count": 34
   },
   "students": [
     {
@@ -60,6 +60,41 @@
         "program": "Bachelor of Applied Computing L 7",
         "classCommencementDate": "2027-02-22"
       }
+    },
+    {
+      "id": 1787570676528.4294,
+      "name": "Ali Akbar Ishrak",
+      "country": "New Zealand",
+      "intake": "September 2026",
+      "status": "Active",
+      "appStage": "Waiting for documents from student side to submit application",
+      "counselor": "",
+      "phone": "",
+      "email": "",
+      "uniCount": 1,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "Y",
+      "bankMonths": "More than 6 months",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1787570676528,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "locked": false,
+      "visaFieldsLocked": false,
+      "closedInfo": null,
+      "visaApplicationRef": null
     },
     {
       "id": 1786707888165.7642,
@@ -1487,6 +1522,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570676528,
+      "msg": "Added: Ali Akbar Ishrak"
+    },
     {
       "ts": 1787570638440,
       "msg": "Removed: Ali Akbar Ishrak"

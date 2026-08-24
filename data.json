@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:17:56.293Z",
+    "saved": "2026-08-24T11:21:20.322Z",
     "version": 8,
     "count": 34
   },
@@ -80,8 +80,8 @@
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "Ready",
-      "visaNext": "Y",
-      "lastUpdated": 1787368073185,
+      "visaNext": "",
+      "lastUpdated": 1787570474791,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -93,7 +93,9 @@
           "university": "Auckland Institute of Studies (AIS)",
           "program": "Bachelor of Business L7",
           "agent": "UP",
-          "applicationDate": "2026-01-06"
+          "applicationDate": "2026-01-06",
+          "link": "https://www.ais.ac.nz/bbus",
+          "classCommencementDate": "2026-09-14"
         }
       ],
       "stageHistory": [
@@ -1549,6 +1551,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787570478305,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787570274273,
       "msg": "Visa lodged: AKIMUL ISLAM TAZIM"

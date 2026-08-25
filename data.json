@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-24T11:25:37.050Z",
+    "saved": "2026-08-25T03:12:57.943Z",
     "version": 8,
     "count": 34
   },
@@ -128,7 +128,7 @@
       "country": "New Zealand",
       "intake": "October 2026",
       "status": "Active",
-      "appStage": "Visa lodged",
+      "appStage": "Need to look for universities",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -142,7 +142,7 @@
       "coe": "N",
       "visaPrep": "Ready",
       "visaNext": "Y",
-      "lastUpdated": 1787290799362,
+      "lastUpdated": 1787627543147,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -159,9 +159,14 @@
       ],
       "stageHistory": [
         {
+          "stage": "Need to look for universities",
+          "enteredDate": 1787627543147,
+          "duration": 0
+        },
+        {
           "stage": "Visa lodged",
           "enteredDate": 1787290742275,
-          "duration": 0
+          "duration": 3
         },
         {
           "stage": "Unconditional offer letter issued",
@@ -1548,6 +1553,14 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787627575923,
+      "msg": "Auto-saved"
+    },
+    {
+      "ts": 1787627229609,
+      "msg": "Exported University Applications PDF"
+    },
     {
       "ts": 1787570735021,
       "msg": "Visa lodged: Ali Akbar Ishrak"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-25T09:52:35.299Z",
+    "saved": "2026-08-25T09:53:37.230Z",
     "version": 8,
     "count": 35
   },
@@ -1672,7 +1672,7 @@
       "id": 1786707888165.9783,
       "name": "Tabassum Raisy",
       "country": "New Zealand",
-      "intake": "October 2026",
+      "intake": "February 2027",
       "status": "Active",
       "appStage": "Conditional offer letter issued",
       "counselor": "Tausif Jaman",
@@ -1688,7 +1688,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787651550884,
+      "lastUpdated": 1787651562676,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1835,6 +1835,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787651614232,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1787651553262,
       "msg": "Auto-saved"

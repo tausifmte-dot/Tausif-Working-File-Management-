@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "saved": "2026-08-25T03:22:59.231Z",
+    "saved": "2026-08-25T09:50:38.040Z",
     "version": 8,
-    "count": 34
+    "count": 35
   },
   "students": [
     {
@@ -59,7 +59,13 @@
         "university": "White cliff College",
         "program": "Bachelor of Applied Computing L 7",
         "classCommencementDate": "2027-02-22"
-      }
+      },
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1787570676528.4294,
@@ -120,7 +126,13 @@
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Business L7",
         "classCommencementDate": "2026-09-14"
-      }
+      },
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888165.7642,
@@ -188,7 +200,13 @@
         "program": "Bachelor of information technology L7",
         "classCommencementDate": "2026-10-05"
       },
-      "visaFieldsLocked": true
+      "visaFieldsLocked": true,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888165.7734,
@@ -235,7 +253,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.1926,
@@ -266,7 +290,13 @@
       "uniApplications": [],
       "stageHistory": [],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888159.537,
@@ -297,7 +327,13 @@
       "uniApplications": [],
       "stageHistory": [],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888167.429,
@@ -347,7 +383,13 @@
         "program": ""
       },
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888167.1072,
@@ -389,7 +431,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888167.4526,
@@ -431,7 +479,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.3389,
@@ -468,7 +522,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888167.485,
@@ -520,7 +580,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888167.6492,
@@ -562,7 +628,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.386,
@@ -609,7 +681,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888165.96,
@@ -646,7 +724,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.878,
@@ -683,7 +767,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888167.5527,
@@ -735,7 +825,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1787288403083.617,
@@ -770,7 +866,13 @@
       "locked": false,
       "closedInfo": null,
       "visaApplicationRef": null,
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.9294,
@@ -817,7 +919,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888165.9988,
@@ -854,7 +962,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1787288335155.9739,
@@ -918,7 +1032,13 @@
       "locked": false,
       "closedInfo": null,
       "visaApplicationRef": null,
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.244,
@@ -949,7 +1069,13 @@
       "uniApplications": [],
       "stageHistory": [],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888167.5266,
@@ -991,7 +1117,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1723894400031,
@@ -1059,7 +1191,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.4446,
@@ -1096,7 +1234,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888165.7935,
@@ -1133,7 +1277,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.7832,
@@ -1170,7 +1320,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.2905,
@@ -1207,7 +1363,64 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
+    },
+    {
+      "id": 1787651436012.668,
+      "name": "S.M._MAINUL_HASAN",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Need to look for universities",
+      "counselor": "",
+      "phone": "",
+      "email": "",
+      "uniCount": 0,
+      "moreUni": "Y",
+      "moreUniDate": "2026-08-26",
+      "bankMatured": "Y",
+      "bankMonths": "More than 6 months",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1787651436012,
+      "remarks": "HAS new Zealand refusal",
+      "situation": "Student need to send me gap documents, few i have received in WhatsApp",
+      "remarksHistory": [
+        {
+          "ts": 1787651436012,
+          "text": "HAS new Zealand refusal"
+        }
+      ],
+      "situationHistory": [
+        {
+          "ts": 1787651436012,
+          "text": "Student need to send me gap documents, few i have received in WhatsApp"
+        }
+      ],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "locked": false,
+      "visaFieldsLocked": false,
+      "closedInfo": null,
+      "visaApplicationRef": null,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.9136,
@@ -1254,7 +1467,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888167.329,
@@ -1320,7 +1539,13 @@
         "date": 1787554127122,
         "university": "New Zealand Tertiary College",
         "program": "Bachelor of Education in Early Childhood Education"
-      }
+      },
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.6946,
@@ -1362,7 +1587,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.8071,
@@ -1429,7 +1660,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888165.9783,
@@ -1466,7 +1703,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888167.1116,
@@ -1528,7 +1771,13 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": true
+      "visaFieldsLocked": true,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888166.6794,
@@ -1559,12 +1808,22 @@
       "uniApplications": [],
       "stageHistory": [],
       "phone": "",
-      "visaFieldsLocked": false
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     }
   ],
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787651436012,
+      "msg": "Added: S.M._MAINUL_HASAN"
+    },
     {
       "ts": 1787628176221,
       "msg": "Auto-saved"

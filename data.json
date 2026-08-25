@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-25T09:50:38.040Z",
+    "saved": "2026-08-25T09:52:35.299Z",
     "version": 8,
     "count": 35
   },
@@ -1674,7 +1674,7 @@
       "country": "New Zealand",
       "intake": "October 2026",
       "status": "Active",
-      "appStage": "Application submitted",
+      "appStage": "Conditional offer letter issued",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -1688,7 +1688,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888165,
+      "lastUpdated": 1787651550884,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1697,9 +1697,24 @@
       "uniApplications": [],
       "stageHistory": [
         {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1787651550884,
+          "duration": 0
+        },
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1787651548651,
+          "duration": 0
+        },
+        {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1787651544311,
+          "duration": 0
+        },
+        {
           "stage": "Application submitted",
           "enteredDate": 1777507200000,
-          "duration": 0
+          "duration": 117
         }
       ],
       "phone": "",
@@ -1820,6 +1835,18 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787651553262,
+      "msg": "Auto-saved"
+    },
+    {
+      "ts": 1787651505151,
+      "msg": "Exported University Applications PDF"
+    },
+    {
+      "ts": 1787651473880,
+      "msg": "CRM export — 1 application(s)"
+    },
     {
       "ts": 1787651436012,
       "msg": "Added: S.M._MAINUL_HASAN"

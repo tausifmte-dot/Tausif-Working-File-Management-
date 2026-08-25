@@ -3068,7 +3068,7 @@ function exportUniKanbanPDF(){
         s.appStage||'—',
         s.defer==='Y'?'Deferred':s.defer==='N'?'No':'—',
         s.visaNext==='Y'?'This intake':s.visaNext==='N'?'Later intake':'—',
-        (FLAGS[a.country]?FLAGS[a.country]+' ':'')+(countryCode(a.country)||'—'),
+        countryCode(a.country)||a.country||'—',
         a.university||'—',
         a.program||'—',
         a.agent||'Direct/Self',

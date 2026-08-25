@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-25T03:12:57.943Z",
+    "saved": "2026-08-25T03:14:52.696Z",
     "version": 8,
     "count": 34
   },
@@ -128,7 +128,7 @@
       "country": "New Zealand",
       "intake": "October 2026",
       "status": "Active",
-      "appStage": "Need to look for universities",
+      "appStage": "Visa lodged",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -136,13 +136,13 @@
       "bankMatured": "Y",
       "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
-      "defer": "N",
+      "defer": "Y",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
-      "visaPrep": "Ready",
-      "visaNext": "Y",
-      "lastUpdated": 1787627543147,
+      "visaPrep": "",
+      "visaNext": "N",
+      "lastUpdated": 1787627690654,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -154,10 +154,17 @@
           "university": "Otago Polytechnic (Otago Poly)",
           "program": "Bachelor of information technology L7",
           "agent": "GEEbee",
-          "applicationDate": ""
+          "applicationDate": "2026-06-16",
+          "link": "https://auckland.op.ac.nz/our-programmes/information-technology/bachelor-of-information-technology",
+          "classCommencementDate": "2026-10-05"
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1787627690654,
+          "duration": 0
+        },
         {
           "stage": "Need to look for universities",
           "enteredDate": 1787627543147,
@@ -179,9 +186,9 @@
         "country": "New Zealand",
         "university": "Otago Polytechnic (Otago Poly)",
         "program": "Bachelor of information technology L7",
-        "classCommencementDate": ""
+        "classCommencementDate": "2026-10-05"
       },
-      "visaFieldsLocked": false
+      "visaFieldsLocked": true
     },
     {
       "id": 1786707888165.7734,
@@ -1553,6 +1560,10 @@
   "pendingTasks": [],
   "quickNotes": [],
   "log": [
+    {
+      "ts": 1787627690655,
+      "msg": "Visa lodged: Amrito Gain"
+    },
     {
       "ts": 1787627575923,
       "msg": "Auto-saved"

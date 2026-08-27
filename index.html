@@ -678,7 +678,6 @@ body.dark .fx-chip{
 .scard-latest .item{font-size:11px;color:var(--ts);line-height:1.45;margin-bottom:5px}
 .scard-latest .item:last-child{margin-bottom:0}
 .scard-latest strong{color:var(--tp)}
-.mobile-dbl-hint{display:none;font-size:10px;color:var(--tm);margin-top:3px}
 .workflow-summary-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:8px;margin:0 0 12px 0}
 .workflow-chip{padding:10px 12px;border-radius:10px;background:var(--glass);border:1px solid var(--gb)}
 .workflow-chip .v{font-size:22px;font-weight:700;color:var(--tp);line-height:1}
@@ -743,7 +742,7 @@ body.dark .fx-chip{
 .p2-list-hdr{padding:12px 16px;border-bottom:1px solid var(--b100);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;position:sticky;top:0;background:var(--glass);z-index:2}
 .p2-search{font-family:'DM Sans',sans-serif;font-size:13px;color:var(--tp);background:var(--b50);border:1.5px solid var(--b200);border-radius:8px;padding:6px 10px;width:100%;outline:none;margin-top:6px}
 .p2-search:focus{border-color:var(--b500)}
-.stu-list-item{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--b100);cursor:pointer;transition:background .12s}
+.stu-list-item{display:flex;align-items:center;gap:10px;padding:10px 16px;border:none;border-bottom:1px solid var(--b100);cursor:pointer;transition:background .12s;background:none;width:100%;font-family:inherit;text-align:left}
 .stu-list-item:hover{background:var(--b50)}
 .stu-list-item.selected{background:var(--b100);border-left:3px solid var(--b600)}
 .stu-list-name{font-size:13px;font-weight:500;color:var(--tp);flex:1}
@@ -899,7 +898,7 @@ body.dark .fx-chip{
 @media(max-width:1100px){.p2-layout{grid-template-columns:1fr}.p2-list-panel,.p2-detail-panel{max-height:none}}
 @media(max-width:900px){.cards-grid{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}.frow,.frow3{grid-template-columns:1fr}.detail-grid{grid-template-columns:1fr}.charts-row{grid-template-columns:1fr}.dashboard-header-grid{grid-template-columns:1fr 1fr}.dash-center-3col{grid-template-columns:1fr}}
 @media(max-width:700px){.dashboard-header-grid{grid-template-columns:1fr}}
-@media(max-width:600px){.app{padding:0 8px 20px}.topnav{padding:10px 12px}.brand-text .title{font-size:14px}.nav-tab{padding:6px 10px;font-size:11px}.cards-grid{grid-template-columns:1fr}.p2-layout{grid-template-columns:1fr}.dash-layout{grid-template-columns:1fr}.mobile-dbl-hint{display:block}}
+@media(max-width:600px){.app{padding:0 8px 20px}.topnav{padding:10px 12px}.brand-text .title{font-size:14px}.nav-tab{padding:6px 10px;font-size:11px}.cards-grid{grid-template-columns:1fr}.p2-layout{grid-template-columns:1fr}.dash-layout{grid-template-columns:1fr}}
 
 /* ══════════ DARK MODE ══════════ */
 body.dark{
@@ -935,6 +934,187 @@ body.dark .gl-header{background:linear-gradient(135deg,#064e3b 0%,#065f46 100%)}
 body.dark .gl-card-header:hover{background:rgba(52,211,153,0.1)}
 body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
 
+/* ══════════════════════════════════════════════════════════════
+   MOBILE OVERHAUL — sophisticated, app-like layout for phones.
+   Scoped entirely to max-width:768px so desktop is never touched.
+   Global rule: nothing may exceed 100vw — no horizontal page scroll.
+   ══════════════════════════════════════════════════════════════ */
+html,body{overflow-x:hidden;max-width:100vw}
+.mobile-bottom-nav{display:none}
+.mobile-topbar{display:none}
+.mobile-more-panel{display:none}
+.mobile-scroll-hint{display:none}
+
+@media(max-width:768px){
+  html,body{-webkit-text-size-adjust:100%}
+  *{box-sizing:border-box}
+  .app{max-width:100vw;overflow-x:hidden;padding:0 0 76px 0}
+
+  /* ── Desktop topnav fully hidden on mobile; replaced by compact topbar + bottom nav ── */
+  .topnav{display:none !important}
+
+  .mobile-topbar{
+    display:flex;align-items:center;justify-content:space-between;gap:10px;
+    padding:10px 12px;position:sticky;top:0;z-index:400;
+    background:var(--bg-glass);backdrop-filter:var(--glass-blur);
+    border-bottom:1px solid var(--border);box-shadow:var(--shadow);
+  }
+  .mobile-topbar .brand{display:flex;align-items:center;gap:9px;min-width:0}
+  .mobile-topbar .logo{width:32px;height:32px;font-size:11px;border-radius:8px;flex-shrink:0}
+  .mobile-topbar .brand-text .title{font-size:13.5px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .mobile-topbar .brand-text .sub{font-size:9.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw}
+  .mobile-topbar-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}
+  .mobile-icon-btn{
+    width:38px;height:38px;min-width:38px;border-radius:10px;border:1px solid var(--border);
+    background:var(--glass);display:flex;align-items:center;justify-content:center;
+    font-size:16px;cursor:pointer;color:var(--tp);position:relative;
+  }
+  .mobile-icon-btn.unsaved::after{
+    content:'';position:absolute;top:5px;right:5px;width:8px;height:8px;border-radius:50%;
+    background:var(--wn);border:2px solid var(--modal-bg);
+  }
+
+  /* ── Slide-down "more" panel: houses everything that used to live in .nav-right ── */
+  .mobile-more-panel{
+    display:block;position:fixed;top:0;right:0;bottom:0;width:min(84vw,340px);z-index:9500;
+    background:var(--modal-bg);box-shadow:-12px 0 40px rgba(0,0,0,0.25);
+    transform:translateX(100%);transition:transform 0.28s ease;overflow-y:auto;
+    padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px));
+  }
+  .mobile-more-panel.open{transform:translateX(0)}
+  .mobile-more-backdrop{
+    display:none;position:fixed;inset:0;z-index:9400;background:rgba(10,25,50,0.45);
+  }
+  .mobile-more-backdrop.open{display:block}
+  .mobile-more-panel h4{font-size:11px;text-transform:uppercase;letter-spacing:0.06em;color:var(--tm);margin:16px 0 8px;font-weight:700}
+  .mobile-more-panel h4:first-child{margin-top:0}
+  .mobile-more-row{display:flex;flex-direction:column;gap:8px}
+  .mobile-more-row .btn{width:100%;justify-content:center;min-height:44px;font-size:13.5px}
+  .mobile-more-close{
+    position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:9px;border:1px solid var(--border);
+    background:var(--glass);font-size:15px;cursor:pointer;color:var(--tp);
+  }
+
+  /* ── Fixed bottom tab bar: 5 primary destinations, thumb-reachable ── */
+  .mobile-bottom-nav{
+    display:flex;position:fixed;left:0;right:0;bottom:0;z-index:500;
+    background:var(--modal-bg);border-top:1px solid var(--border);
+    box-shadow:0 -6px 24px rgba(15,40,80,0.12);
+    padding:6px 2px calc(6px + env(safe-area-inset-bottom,0px));
+  }
+  .mobile-nav-item{
+    flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;
+    padding:6px 2px;min-height:52px;border:none;background:none;cursor:pointer;
+    color:var(--tm);font-family:inherit;border-radius:10px;
+  }
+  .mobile-nav-item .mni-icon{font-size:19px;line-height:1}
+  .mobile-nav-item .mni-label{font-size:9.5px;font-weight:600;letter-spacing:0.01em;white-space:nowrap}
+  .mobile-nav-item.active{color:var(--b600)}
+  .mobile-nav-item.active .mni-icon{transform:translateY(-1px)}
+  body.dark .mobile-nav-item.active{color:var(--b400)}
+
+  /* ── Touch targets: raise every interactive control to a 44px minimum ── */
+  button,.btn,select,input[type="text"],input[type="email"],input[type="url"],input[type="date"],
+  input[type="password"],input[type="search"],textarea,.nav-tab,.clickable{min-height:44px}
+  .btn,button{font-size:13.5px}
+  input,select,textarea{font-size:15px !important} /* prevents iOS auto-zoom-on-focus */
+
+  /* ── Forms: force every multi-column row to stack ── */
+  .frow,.frow3,.detail-grid,.dashboard-header-grid,.charts-row,.dash-center-3col,
+  .cards-grid,.p2-layout,.dash-layout,.uk-summary,.uk-board{grid-template-columns:1fr !important}
+  .frow,.frow3{display:flex;flex-direction:column;gap:10px}
+
+  /* ── Modals: full-screen sheets instead of floating centered cards ── */
+  .mo{padding:0 !important}
+  .modal{
+    max-width:100vw !important;width:100vw !important;height:100vh !important;height:100dvh !important;
+    max-height:100vh !important;max-height:100dvh !important;border-radius:0 !important;
+  }
+  .modal-hdr{position:sticky;top:0;z-index:5;background:var(--modal-bg)}
+  .modal-body{padding:14px 14px calc(14px + env(safe-area-inset-bottom,0px))}
+  .modal-foot{position:sticky;bottom:0;background:var(--modal-bg);flex-wrap:wrap}
+  .modal-foot .btn{flex:1;min-width:120px}
+
+  /* ── Wide data tables: horizontal-scroll pattern with a visible fade hint ──
+     Used for Green List browse, PDF-style report previews, and any table
+     not explicitly converted to a stacked-card layout below.
+     IMPORTANT: the <table> itself must stay display:table — forcing it to
+     display:block breaks the browser's table layout engine (thead/tbody/tr
+     lose their table-context and can render as invisible/zero-height).
+     Scrolling is applied to a wrapper div instead. ── */
+  table{font-size:12.5px;width:100%}
+  .table-scroll-wrap{overflow-x:auto;overflow-y:visible;-webkit-overflow-scrolling:touch;max-width:100%;flex-shrink:0;min-height:min-content}
+  .mobile-scroll-hint{
+    display:flex;align-items:center;gap:6px;font-size:10.5px;color:var(--tm);
+    padding:4px 2px 8px;
+  }
+
+  /* ── Stacked-card pattern: Uni Applications table rows become mini cards ── */
+  .uni-apps-table.as-cards{display:block;white-space:normal;overflow-x:visible}
+  .uni-apps-table.as-cards thead{display:none}
+  .uni-apps-table.as-cards,.uni-apps-table.as-cards tbody{display:block;width:100%}
+  .uni-apps-table.as-cards tr{
+    display:block;width:100%;border:1px solid var(--border);border-radius:12px;
+    margin-bottom:10px;padding:10px 12px;background:var(--glass);box-shadow:var(--gs)
+  }
+  .uni-apps-table.as-cards td{
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+    padding:5px 0;border:none;text-align:right;white-space:normal;
+  }
+  .uni-apps-table.as-cards td::before{
+    content:attr(data-label);font-size:10.5px;font-weight:700;color:var(--tm);
+    text-transform:uppercase;letter-spacing:0.03em;text-align:left;flex-shrink:0;
+  }
+
+  /* ── Student list: card layout already responsive via .cards-grid above;
+     ensure single column and comfortable tap area ── */
+  .stu-list-item{min-height:56px}
+
+  /* ── Dashboard stat tiles / summary grids: force to 2-up minimum for readability ── */
+  .uk-summary{grid-template-columns:repeat(2,1fr) !important;gap:8px}
+
+  /* ── Typography floor: never let body copy go below legibility threshold ── */
+  body{font-size:14px}
+  h1{font-size:20px}h2{font-size:17px}h3{font-size:15px}
+
+  /* ── Hide desktop-only decorative/heavy widgets that don't earn their space on phones ── */
+  .clock-widget,.fx-strip{display:none}
+
+  /* ── Student list scroll container: let it flow naturally instead of a
+     fixed calc() that doesn't know about the new mobile topbar+bottom nav ── */
+  .p2-student-list-scroll{max-height:none !important;overflow-y:visible !important}
+
+  /* ── Student Files: list and detail become separate full-width "screens" on
+     mobile, switched via data-mobile-view, instead of both stacking at once ── */
+  .p2-back-btn{display:none}
+  #p2-layout[data-mobile-view="list"] .p2-detail-panel{display:none}
+  #p2-layout[data-mobile-view="detail"] .p2-list-panel{display:none}
+  #p2-layout[data-mobile-view="detail"] .p2-back-btn{
+    display:flex;align-items:center;gap:6px;width:100%;
+    padding:12px 14px;margin-bottom:10px;min-height:44px;
+    border:1px solid var(--border);border-radius:12px;
+    background:var(--glass);color:var(--b600);font-weight:700;font-size:13.5px;
+    cursor:pointer;font-family:inherit;
+  }
+  body.dark #p2-layout[data-mobile-view="detail"] .p2-back-btn{color:var(--b400)}
+
+  /* ── Green List cards: already card-based, just tighten header wrapping on narrow phones ── */
+  .gl-card-header{flex-wrap:wrap;row-gap:4px}
+  .gl-occ-title{flex-basis:100%;order:1}
+  .gl-anzsco{order:2}
+  .gl-tier-badge{order:0}
+  .gl-expand-icon{order:3;margin-left:auto}
+  .gl-detail-row{flex-direction:column;gap:2px}
+  .gl-badge-row .gl-badge{font-size:10.5px;padding:.25rem .7rem}
+}
+
+@media(max-width:420px){
+  .mobile-topbar .brand-text .sub{display:none}
+  .mobile-nav-item .mni-label{font-size:9px}
+  .modal-body{padding:12px}
+  .cs-info-grid{grid-template-columns:1fr !important}
+}
+
 </style>
 </head>
 <body>
@@ -956,7 +1136,61 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
 .mp-shake{animation:mpShake 0.4s ease}
 </style>
 
+
 <div class="app">
+
+<!-- ══════════ MOBILE TOPBAR (visible only on phones; desktop uses .topnav below) ══════════ -->
+<div class="mobile-topbar">
+  <div class="brand">
+    <div class="logo">CRM</div>
+    <div class="brand-text">
+      <div class="title">Student File Report</div>
+      <div class="sub">Tausif Jaman</div>
+    </div>
+  </div>
+  <div class="mobile-topbar-actions">
+    <button class="mobile-icon-btn" id="mobile-save-icon" onclick="manualSave()" title="Save" aria-label="Save">&#10003;</button>
+    <button class="mobile-icon-btn" onclick="openGlobalSearch()" title="Search" aria-label="Search">&#128269;</button>
+    <button class="mobile-icon-btn" onclick="openMobileMorePanel()" title="More" aria-label="More options">&#9776;</button>
+  </div>
+</div>
+
+<!-- Slide-out panel: everything from the desktop nav-right that doesn't fit a phone topbar -->
+<div class="mobile-more-backdrop" id="mobile-more-backdrop" onclick="closeMobileMorePanel()"></div>
+<div class="mobile-more-panel" id="mobile-more-panel">
+  <button class="mobile-more-close" onclick="closeMobileMorePanel()" aria-label="Close">&#215;</button>
+  <h4>Status</h4>
+  <div class="mobile-more-row">
+    <span class="save-pill saved" id="save-pill-mobile">Saved</span>
+  </div>
+  <h4>Actions</h4>
+  <div class="mobile-more-row">
+    <button class="btn btn-primary btn-sm" onclick="openCRMExport()">📤 Export to CRM</button>
+    <button class="btn btn-primary btn-sm" onclick="openWhatsAppModal()">WhatsApp</button>
+    <button class="btn btn-log btn-sm" onclick="openLog()">History</button>
+    <button class="btn btn-sm" id="undo-btn-mobile" onclick="undoLastAction()" style="display:none">&#8630; Undo Last Action</button>
+  </div>
+  <h4>Appearance</h4>
+  <div class="mobile-more-row">
+    <div class="theme-toggle">
+      <button class="theme-btn active" id="theme-btn-light-mobile" onclick="setTheme('light')">Light</button>
+      <button class="theme-btn" id="theme-btn-dark-mobile" onclick="setTheme('dark')">Dark</button>
+    </div>
+  </div>
+  <h4>Exchange Rates</h4>
+  <div class="mobile-more-row">
+    <div class="fx-strip" id="fx-strip-mobile" style="display:flex;flex-wrap:wrap"><span class="fx-loading">💱 Loading rates...</span></div>
+  </div>
+</div>
+
+<!-- Fixed bottom tab bar: 5 primary destinations, thumb-reachable -->
+<div class="mobile-bottom-nav">
+  <button class="mobile-nav-item active" id="mnav-p1" onclick="showPage('p1')"><span class="mni-icon">&#9635;</span><span class="mni-label">Dashboard</span></button>
+  <button class="mobile-nav-item" id="mnav-p2" onclick="showPage('p2')"><span class="mni-icon">&#9776;</span><span class="mni-label">Students</span></button>
+  <button class="mobile-nav-item" id="mnav-p5" onclick="showPage('p5')"><span class="mni-icon">&#127891;</span><span class="mni-label">Uni Apps</span></button>
+  <button class="mobile-nav-item" id="mnav-p3" onclick="showPage('p3')"><span class="mni-icon">&#127807;</span><span class="mni-label">Green List</span></button>
+  <button class="mobile-nav-item" id="mnav-p4" onclick="showPage('p4')"><span class="mni-icon">&#9881;</span><span class="mni-label">Settings</span></button>
+</div>
 
 <!-- TOP NAV -->
 <div class="glass topnav">
@@ -1122,17 +1356,18 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
 
   <!-- Detail view -->
   <div id="p2-detail-view" style="display:block">
-    <div class="p2-layout">
-      <div class="p2-list-panel">
+    <div class="p2-layout" id="p2-layout" data-mobile-view="list">
+      <div class="p2-list-panel" id="p2-list-panel-wrap">
         <div class="glass" style="overflow:hidden">
           <div class="p2-list-hdr">
-            <div><div style="font-size:13px;font-weight:600;color:var(--tp)">Students <span id="p2-count" style="font-weight:400;color:var(--tm)"></span></div><div class="mobile-dbl-hint">Double tap a student name on mobile to jump to details</div></div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--tp)">Students <span id="p2-count" style="font-weight:400;color:var(--tm)"></span></div></div>
             <input class="p2-search" id="p2-search" type="text" placeholder="&#128269; Search students..." oninput="renderStudentList()">
           </div>
-          <div id="p2-student-list" style="max-height:calc(100vh - 260px);overflow-y:auto"></div>
+          <div id="p2-student-list" class="p2-student-list-scroll" style="max-height:calc(100vh - 260px);overflow-y:auto"></div>
         </div>
       </div>
-      <div class="p2-detail-panel">
+      <div class="p2-detail-panel" id="p2-detail-panel-wrap">
+        <button class="p2-back-btn" onclick="showStudentListView()">&#8592; Back to Students List</button>
         <div class="glass" id="p2-detail" style="min-height:300px">
           <div class="detail-empty" id="detail-empty">
             <div style="text-align:center">
@@ -1170,7 +1405,8 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
     <input class="uk-search" id="uk-search" placeholder="🔍 Search student, university, program..." oninput="renderUniKanban()">
   </div>
 
-  <div class="glass2" style="overflow-x:auto">
+  <div class="mobile-scroll-hint">&#8592; Swipe to see all columns &#8594;</div>
+  <div class="glass2 table-scroll-wrap">
     <table class="uni-apps-table" id="uk-table">
       <thead>
         <tr>
@@ -1545,8 +1781,14 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
         <div class="fsep" id="uni-form-title">Add New Application</div>
         <div class="frow3">
           <div class="fgroup"><label>Country</label><select id="uni-add-country" onchange="updateUniAddList();autoSaveUniAppField()"><option value="">-- Select --</option><option>Australia</option><option>New Zealand</option><option>United Kingdom</option><option>Canada</option><option>Malaysia</option></select></div>
-          <div class="fgroup"><label>University</label><select id="uni-add-uni" onchange="autoSaveUniAppField()"><option value="">-- Select --</option></select><input type="text" id="uni-add-uni-text" placeholder="Or type manually..." style="margin-top:4px" onchange="autoSaveUniAppField()"></div>
-          <div class="fgroup"><label>Program</label><input id="uni-add-program" type="text" placeholder="Program name..." onchange="autoSaveUniAppField()"></div>
+          <div class="fgroup"><label>University</label><input type="text" id="uni-add-uni" list="uni-add-uni-datalist" placeholder="Type to search, or select from list..." autocomplete="off" onchange="autoSaveUniAppField();updateSavedBundleList()"><datalist id="uni-add-uni-datalist"></datalist></div>
+          <div class="fgroup"><label>Program</label><input id="uni-add-program" type="text" list="uni-add-program-datalist" placeholder="Program name..." autocomplete="off" onchange="autoSaveUniAppField()"><datalist id="uni-add-program-datalist"></datalist></div>
+        </div>
+        <div class="frow" id="uni-bundle-row" style="display:none">
+          <div class="fgroup" style="flex:1">
+            <label>Previously used for this University <span style="font-weight:400;color:var(--tm);font-size:10.5px">(select to auto-fill Program, Link &amp; Class Date — double check the date/link are still current)</span></label>
+            <select id="uni-add-bundle" onchange="applySavedBundle()"><option value="">-- None: enter fresh details below --</option></select>
+          </div>
         </div>
         <div class="frow">
           <div class="fgroup"><label>Agent (if any)</label><select id="uni-add-agent" onchange="autoSaveUniAppField()"><option value="">-- Direct/Self --</option><option>UP</option><option>GEEbee</option><option>RBS</option><option>NZUAC</option><option>GSP</option><option>Other</option></select></div>
@@ -1557,6 +1799,9 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
         </div>
         <div class="frow">
           <div class="fgroup" style="flex:1"><label>Class Commencement Date <span style="color:var(--er,#dc2626);font-weight:700">*</span> <span style="font-weight:400;color:var(--tm);font-size:10.5px">(required — from the offer letter; drives visa-timing calculations)</span></label><input id="uni-add-classdate" type="date" onchange="autoSaveUniAppField()" required></div>
+        </div>
+        <div class="frow">
+          <div class="fgroup" style="flex:1"><label>Application Stage <span style="font-weight:400;color:var(--tm);font-size:10.5px">(for this specific application only — visa stages are tracked on the student's main profile)</span></label><select id="uni-add-stage" onchange="autoSaveUniAppField()"><option value="">-- Select --</option></select></div>
         </div>
         <div style="display:flex;align-items:center;gap:8px">
           <button class="btn btn-primary btn-sm" id="uni-form-submit-btn" onclick="addUniApplication()">+ Add Application</button>
@@ -1624,16 +1869,46 @@ body.dark .gl-group-item:hover{background:rgba(52,211,153,0.08)}
 
 <!-- Quick Situation Collector -->
 <div class="mo" id="situation-mo">
-  <div class="modal">
+  <div class="modal modal-lg">
     <div class="modal-hdr"><h3>Update Present Situation</h3><button class="modal-close" onclick="closeMo('situation-mo')">&#215;</button></div>
     <div class="modal-body">
-      <div class="fgroup"><label>Student</label><select id="sit-student"></select></div>
+      <div class="fgroup"><label>Student</label><select id="sit-student" onchange="sitSyncUniCountry()"></select></div>
       <div class="fgroup"><label>Present Situation</label><textarea id="sit-text" placeholder="Write the latest present situation..." style="min-height:90px"></textarea></div>
       <div class="fsep">Optional Task</div>
       <div class="fgroup"><label>Task Description</label><textarea id="sit-task-desc" placeholder="Create a follow-up task (optional)..." style="min-height:70px"></textarea></div>
       <div class="frow">
         <div class="fgroup"><label>Priority</label><select id="sit-task-priority"><option value="blue">Normal</option><option value="amber">Medium</option><option value="red">Urgent</option></select></div>
         <div class="fgroup"><label>Deadline</label><input id="sit-task-deadline" type="date"></div>
+      </div>
+      <div class="fsep" style="display:flex;align-items:center;justify-content:space-between;cursor:pointer" onclick="toggleSitUniSection()">
+        <span>Optional University Application</span>
+        <button type="button" class="btn btn-sm" id="sit-uni-toggle-btn" onclick="event.stopPropagation();toggleSitUniSection()">&#127891; + Add University Application</button>
+      </div>
+      <div id="sit-uni-section" style="display:none">
+        <div class="frow3">
+          <div class="fgroup"><label>Country</label><select id="sit-uni-country" onchange="sitUpdateUniAddList();autoSaveSitUniField()"><option value="">-- Select --</option><option>Australia</option><option>New Zealand</option><option>United Kingdom</option><option>Canada</option><option>Malaysia</option></select></div>
+          <div class="fgroup"><label>University</label><input type="text" id="sit-uni-uni" list="sit-uni-uni-datalist" placeholder="Type to search, or select from list..." autocomplete="off" onchange="autoSaveSitUniField();sitUpdateSavedBundleList()"><datalist id="sit-uni-uni-datalist"></datalist></div>
+          <div class="fgroup"><label>Program</label><input id="sit-uni-program" type="text" list="sit-uni-program-datalist" placeholder="Program name..." autocomplete="off" onchange="autoSaveSitUniField()"><datalist id="sit-uni-program-datalist"></datalist></div>
+        </div>
+        <div class="frow" id="sit-uni-bundle-row" style="display:none">
+          <div class="fgroup" style="flex:1">
+            <label>Previously used for this University <span style="font-weight:400;color:var(--tm);font-size:10.5px">(select to auto-fill Program, Link &amp; Class Date — double check the date/link are still current)</span></label>
+            <select id="sit-uni-bundle" onchange="applySitSavedBundle()"><option value="">-- None: enter fresh details below --</option></select>
+          </div>
+        </div>
+        <div class="frow">
+          <div class="fgroup"><label>Agent (if any)</label><select id="sit-uni-agent" onchange="autoSaveSitUniField()"><option value="">-- Direct/Self --</option><option>UP</option><option>GEEbee</option><option>RBS</option><option>NZUAC</option><option>GSP</option><option>Other</option></select></div>
+          <div class="fgroup"><label>Application Date</label><input id="sit-uni-date" type="date" onchange="autoSaveSitUniField()"></div>
+        </div>
+        <div class="frow">
+          <div class="fgroup" style="flex:1"><label>Program Webpage Link <span style="font-weight:400;color:var(--tm);font-size:10.5px">(official program/course page)</span></label><input id="sit-uni-link" type="url" placeholder="https://www.university.edu/program-page" onchange="autoSaveSitUniField()"></div>
+        </div>
+        <div class="frow">
+          <div class="fgroup" style="flex:1"><label>Class Commencement Date <span style="font-weight:400;color:var(--tm);font-size:10.5px">(from the offer letter; drives visa-timing calculations)</span></label><input id="sit-uni-classdate" type="date" onchange="autoSaveSitUniField()"></div>
+        </div>
+        <div class="frow">
+          <div class="fgroup" style="flex:1"><label>Application Stage <span style="font-weight:400;color:var(--tm);font-size:10.5px">(for this specific application only — visa stages are tracked on the student's main profile)</span></label><select id="sit-uni-stage" onchange="autoSaveSitUniField()"><option value="">-- Select --</option></select></div>
+        </div>
       </div>
     </div>
     <div class="modal-foot"><button class="btn" style="border-color:#d1d5db;color:#6b7280" onclick="closeMo('situation-mo')">Cancel</button><button class="btn btn-primary" onclick="saveSituationCollector()">Save Update</button></div>
@@ -1772,10 +2047,58 @@ const COUNTRY_STAGES={
   'Canada':['Looking for university','Waiting for student to provide documents','Writing admission statement of purpose','Receiving conditional offer letter','Tuition deposit paid','Received LOA','Preparing documentations for visa submission','Visa Lodged','Biometrics Done','Received passport Request','Visa rejected','Visa Granted'],
   'New Zealand':['Waiting for documents from student side to submit application','Need to look for universities','Applications are with agents for review','New information requested by the agent','Application submitted','Conditional offer letter issued','Unconditional offer letter issued','Waiting for bank solvency to get matured','Preparing required visa documents','Visa lodged','New information requested by the visa officer','Visa Interview Schedule','Visa Refused','Approve in principle has been issued','Need to make tuition deposit','Tuition fee paid','Electronic visa document received','Visa issued']
 };
+// ── Per-application stages (Unified Master Stage 3–8: With Agent/Review through Unconditional Offer) ──
+// These are the ONLY stages relevant to a single university application (pre-visa). Visa-related
+// stages (Stage 9-15 in the unified model) belong to the student overall, not to one application,
+// since a visa is lodged once per student/cycle, not once per application.
+const APP_LEVEL_STAGES={
+  'Australia':['Application given to agent','Application submitted directly','Application submitted by agent','Additional information requested by agent','Conditional offer letter received','GS assessment preparation started','GS assessment applied','GS assessment rejected','GS assessment reapplied for another university','GS assessment cleared','Unconditional offer letter received'],
+  'Canada':['Writing admission statement of purpose','Receiving conditional offer letter'],
+  'New Zealand':['Applications are with agents for review','Application submitted','Conditional offer letter issued','Unconditional offer letter issued']
+};
+function getAppLevelStages(country){
+  return APP_LEVEL_STAGES[country]||[];
+}
+// Rank of a stage = its index within that country's FULL COUNTRY_STAGES pipeline.
+// Higher rank = more advanced. Used to find the most-advanced application, and to
+// decide whether recomputing the overall student stage would be a step forward.
+function stageRank(country,stage){
+  if(!stage)return -1;
+  const list=COUNTRY_STAGES[country]||[];
+  const idx=list.findIndex(s=>s.trim().toLowerCase()===stage.trim().toLowerCase());
+  return idx;
+}
+// Recomputes the student's overall appStage by finding the most-advanced stage among
+// their uniApplications[]. Only moves the stage FORWARD — never overwrites a more
+// advanced stage the student is already at (e.g. once visa is lodged, adding another
+// application shouldn't drag the overall stage backward to "Conditional offer").
+function recomputeOverallStageFromApps(student){
+  const apps=student.uniApplications||[];
+  if(!apps.length)return; // nothing to derive from
+  const country=student.country;
+  if(!country||!COUNTRY_STAGES[country])return; // unknown country pipeline, leave manual
+  let best=null,bestRank=-1;
+  apps.forEach(a=>{
+    if(!a.stage)return;
+    const r=stageRank(country,a.stage);
+    if(r>bestRank){bestRank=r;best=a.stage;}
+  });
+  if(!best)return; // no application has a stage set yet
+  const currentRank=stageRank(country,student.appStage);
+  if(bestRank>currentRank){
+    if(!student.stageHistory)student.stageHistory=[];
+    student.stageHistory.unshift({stage:best,enteredDate:Date.now(),duration:0});
+    if(student.stageHistory.length>1){
+      const prev=student.stageHistory[1];
+      prev.duration=Math.floor((Date.now()-prev.enteredDate)/86400000);
+    }
+    student.appStage=best;
+  }
+}
 
 const UNIS={
 'Australia':['Australian Catholic University (ACU)','Australian National University (ANU)','Bond University (Bond)','Central Queensland University (CQU)','Charles Darwin University (CDU)','Charles Sturt University (CSU)','Curtin University (Curtin)','Deakin University (Deakin)','Edith Cowan University (ECU)','Federation University Australia (FedUni)','Flinders University (Flinders)','Griffith University (Griffith)','James Cook University (JCU)','La Trobe University (La Trobe)','Macquarie University (Macquarie)','Monash University (Monash)','Murdoch University (Murdoch)','Queensland University of Technology (QUT)','RMIT University (RMIT)','Southern Cross University (SCU)','Swinburne University of Technology (Swinburne)','Torrens University Australia (Torrens)','University of Adelaide (Adelaide)','University of Canberra (UC)','University of Melbourne (UniMelb)','University of New South Wales (UNSW)','University of Newcastle (UON)','University of Queensland (UQ)','University of South Australia (UniSA)','University of Southern Queensland (USQ)','University of Sydney (USyd)','University of Tasmania (UTAS)','University of Technology Sydney (UTS)','University of Western Australia (UWA)','Western Sydney University (WSU)','University of Wollongong (UOW)','Victoria University (VU)','SIBT Foundation Program (SIBT)','TAFE NSW (TAFE NSW)','Sydney Metropolitan Institute of Technology (Sydney Met)'],
-'New Zealand':['University of Auckland (UoA)','Auckland University of Technology (AUT)','University of Waikato (Waikato)','Massey University (Massey)','Victoria University of Wellington (VUW)','University of Canterbury (UC)','Lincoln University (Lincoln)','University of Otago (Otago)','Yoobee College of Creative Innovation (Yoobee)','Auckland Institute of Studies (AIS)','Ara Institute of Canterbury (Ara)','Otago Polytechnic (Otago Poly)','Southern Institute of Technology (SIT)','Unitec Institute of Technology (Unitec)'],
+'New Zealand':['University of Auckland (UoA)','Auckland University of Technology (AUT)','University of Waikato (Waikato)','Massey University (Massey)','Victoria University of Wellington (VUW)','University of Canterbury (UC)','University of Otago (Otago)','Lincoln University (Lincoln)','Ara Institute of Canterbury (Ara)','Unitec Institute of Technology (Unitec)','Otago Polytechnic (Otago Poly)','Southern Institute of Technology (SIT)','Eastern Institute of Technology (EIT)','Toi Ohomai Institute of Technology (Toi Ohomai)','Wintec – Waikato Institute of Technology (Wintec)','Nelson Marlborough Institute of Technology (NMIT)','Universal College of Learning (UCOL)','The Open Polytechnic of New Zealand (Open Poly)','Auckland Institute of Studies (AIS)','Yoobee College of Creative Innovation (Yoobee)'],
 'Canada':['University of Toronto','University of British Columbia','McGill University','University of Alberta','McMaster University','University of Waterloo','University of Ottawa','University of Calgary','Simon Fraser University','York University','Dalhousie University','Carleton University','Concordia University','Ryerson University','Western University']
 };
 
@@ -1783,6 +2106,8 @@ const UNIS={
 // STATE
 // ════════════════════════════════════════════════════════════
 let students=[], pendingTasks=[], quickNotes=[];
+let learnedUnis={}; // { 'New Zealand': ['Some College Name', ...], 'Australia': [...], ... } — user-typed universities not in the UNIS{} preset, synced via GitHub
+let learnedPrograms=[]; // [{ id, country, university, program, link, classDate, lastUsed }] — reusable Program+Link+ClassDate bundles (Option B), synced via GitHub
 let delIdx=null,editIdx=null,pendingImport=null,isDirty=false;
 let activePage='p1',sumIntake='ALL',sumFilter='all';
 let selectedStudentId=null,addInfoIdx=null,uniModalIdx=null,uniEditIdx=null;
@@ -1808,10 +2133,26 @@ function showPage(id){
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   const navIdx={p1:0,p2:1,p5:2,p3:3,p4:4}[id]||0;
   document.querySelectorAll('.nav-tab')[navIdx].classList.add('active');
-  if(id==='p2'){renderStudentList();renderDetail();if(studentView==='cards')renderCardsP2();}
+  document.querySelectorAll('.mobile-nav-item').forEach(t=>t.classList.remove('active'));
+  const mnavBtn=document.getElementById('mnav-'+id);
+  if(mnavBtn)mnavBtn.classList.add('active');
+  closeMobileMorePanel();
+  if(id==='p2'){showStudentListView();renderStudentList();renderDetail();if(studentView==='cards')renderCardsP2();}
   if(id==='p3')glRenderBrowse();
   if(id==='p5')renderUniKanban();
   if(id==='p4'){renderLocalBackups();refreshNotifStatusUI();}
+}
+function openMobileMorePanel(){
+  const panel=document.getElementById('mobile-more-panel');
+  const backdrop=document.getElementById('mobile-more-backdrop');
+  if(panel)panel.classList.add('open');
+  if(backdrop)backdrop.classList.add('open');
+}
+function closeMobileMorePanel(){
+  const panel=document.getElementById('mobile-more-panel');
+  const backdrop=document.getElementById('mobile-more-backdrop');
+  if(panel)panel.classList.remove('open');
+  if(backdrop)backdrop.classList.remove('open');
 }
 
 function setTheme(theme) {
@@ -1928,9 +2269,12 @@ function pushUndoSnapshot(label){
 }
 function updateUndoBtn(){
   const btn=document.getElementById('undo-btn');
-  if(!btn)return;
-  btn.style.display=undoStack.length?'inline-flex':'none';
-  if(undoStack.length)btn.title='Undo: '+undoStack[undoStack.length-1].label;
+  const btnMobile=document.getElementById('undo-btn-mobile');
+  const show=undoStack.length?'inline-flex':'none';
+  const showMobile=undoStack.length?'block':'none';
+  const label=undoStack.length?'Undo: '+undoStack[undoStack.length-1].label:'';
+  if(btn){btn.style.display=show;if(label)btn.title=label;}
+  if(btnMobile){btnMobile.style.display=showMobile;if(label)btnMobile.title=label;}
 }
 function undoLastAction(){
   if(!undoStack.length)return;
@@ -2114,7 +2458,7 @@ async function pushToGitHub(){
   try{
     const payload={
       _meta:{saved:new Date().toISOString(),version:8,count:students.length},
-      students,pendingTasks,quickNotes,
+      students,pendingTasks,quickNotes,learnedUnis,learnedPrograms,
       log:(()=>{try{return JSON.parse(localStorage.getItem(LOGK)||'[]');}catch(e){return[];}})()
     };
     const content=btoa(unescape(encodeURIComponent(JSON.stringify(payload,null,2))));
@@ -2154,6 +2498,8 @@ async function fetchFromGitHub(token,owner,repo){
       students=data.students;
       if(data.pendingTasks)pendingTasks=data.pendingTasks;
       if(data.quickNotes)quickNotes=data.quickNotes;
+      if(data.learnedUnis&&typeof data.learnedUnis==='object')learnedUnis=data.learnedUnis;
+      if(data.learnedPrograms&&Array.isArray(data.learnedPrograms))learnedPrograms=data.learnedPrograms;
       if(data.log)localStorage.setItem(LOGK,JSON.stringify(data.log));
       migrateData();students.sort((a,b)=>a.name.localeCompare(b.name));
       setSyncStatus('ok');
@@ -2217,7 +2563,24 @@ function clearGHConfig(){
   ghFileSha=null;
 }
 function manualSave(){persist('Manual save — '+fmtTime(new Date()));}
-function setDirty(v){isDirty=v;const el=document.getElementById('save-pill');if(v){el.textContent='Unsaved changes';el.className='save-pill dirty';}else if(!localStorage.getItem(GHK_TOKEN)){el.textContent='All saved';el.className='save-pill saved';}}
+function setDirty(v){
+  isDirty=v;
+  const el=document.getElementById('save-pill');
+  const elMobile=document.getElementById('save-pill-mobile');
+  const saveIcon=document.getElementById('mobile-save-icon');
+  const saved=!localStorage.getItem(GHK_TOKEN);
+  if(v){
+    if(el){el.textContent='Unsaved changes';el.className='save-pill dirty';}
+    if(elMobile){elMobile.textContent='Unsaved changes';elMobile.className='save-pill dirty';}
+    if(saveIcon)saveIcon.classList.add('unsaved');
+  }else{
+    if(saved){
+      if(el){el.textContent='All saved';el.className='save-pill saved';}
+      if(elMobile){elMobile.textContent='All saved';elMobile.className='save-pill saved';}
+    }
+    if(saveIcon)saveIcon.classList.remove('unsaved');
+  }
+}
 function markDirty(){setDirty(true);}
 debouncedPush=debounce(()=>pushToGitHub(),2000);
 setInterval(()=>{if(isDirty)persist('Auto-saved');},60000);
@@ -3254,8 +3617,99 @@ function openSituationCollector(){
   document.getElementById('sit-task-desc').value='';
   document.getElementById('sit-task-priority').value='blue';
   document.getElementById('sit-task-deadline').value='';
+  resetSitUniSection();
   document.getElementById('situation-mo').classList.add('open');
+  sitSyncUniCountry();
 }
+function resetSitUniSection(){
+  const section=document.getElementById('sit-uni-section');
+  const btn=document.getElementById('sit-uni-toggle-btn');
+  if(section)section.style.display='none';
+  if(btn)btn.textContent='🎓 + Add University Application';
+  document.getElementById('sit-uni-country').value='';
+  document.getElementById('sit-uni-uni').value='';
+  document.getElementById('sit-uni-uni-datalist').innerHTML='';
+  document.getElementById('sit-uni-program').value='';
+  const progDl=document.getElementById('sit-uni-program-datalist');
+  if(progDl)progDl.innerHTML='';
+  const bundleRow=document.getElementById('sit-uni-bundle-row');
+  if(bundleRow)bundleRow.style.display='none';
+  const bundleSel=document.getElementById('sit-uni-bundle');
+  if(bundleSel){bundleSel.innerHTML='<option value="">-- None: enter fresh details below --</option>';bundleSel._matches=null;}
+  document.getElementById('sit-uni-agent').value='';
+  document.getElementById('sit-uni-date').value='';
+  document.getElementById('sit-uni-link').value='';
+  document.getElementById('sit-uni-classdate').value='';
+  const stageSel=document.getElementById('sit-uni-stage');
+  if(stageSel)stageSel.innerHTML='<option value="">-- Select --</option>';
+}
+function toggleSitUniSection(){
+  const section=document.getElementById('sit-uni-section');
+  const btn=document.getElementById('sit-uni-toggle-btn');
+  const isOpen=section.style.display!=='none';
+  section.style.display=isOpen?'none':'block';
+  btn.textContent=isOpen?'🎓 + Add University Application':'🎓 − Remove University Application';
+  if(!isOpen)sitSyncUniCountry();
+}
+// Pre-fill the Country field to match the selected student's own country, since
+// most new applications for a student stay within their existing destination country.
+function sitSyncUniCountry(){
+  const studentId=document.getElementById('sit-student').value;
+  const s=students.find(x=>String(x.id)===String(studentId));
+  const countrySel=document.getElementById('sit-uni-country');
+  if(!s||!countrySel)return;
+  if(!countrySel.value&&s.country&&[...countrySel.options].some(o=>o.value===s.country)){
+    countrySel.value=s.country;
+  }
+  sitUpdateUniAddList();
+}
+function sitUpdateUniAddList(){
+  const c=document.getElementById('sit-uni-country').value;
+  const dl=document.getElementById('sit-uni-uni-datalist');
+  const list=getUniListForCountry(c);
+  dl.innerHTML=list.map(u=>`<option value="${esc(u)}"></option>`).join('');
+  const progDl=document.getElementById('sit-uni-program-datalist');
+  if(progDl){
+    const names=getProgramNamesForCountry(c);
+    progDl.innerHTML=names.map(n=>`<option value="${esc(n)}"></option>`).join('');
+  }
+  sitUpdateSavedBundleList();
+  const stageSel=document.getElementById('sit-uni-stage');
+  if(stageSel){
+    const stages=getAppLevelStages(c);
+    const current=stageSel.value;
+    stageSel.innerHTML='<option value="">-- Select --</option>'+stages.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('');
+    if(stages.includes(current))stageSel.value=current;
+  }
+}
+function sitUpdateSavedBundleList(){
+  const row=document.getElementById('sit-uni-bundle-row');
+  const sel=document.getElementById('sit-uni-bundle');
+  if(!row||!sel)return;
+  const country=document.getElementById('sit-uni-country').value;
+  const university=document.getElementById('sit-uni-uni').value.trim();
+  const matches=learnedPrograms.filter(p=>p.country===country&&p.university.trim().toLowerCase()===university.toLowerCase());
+  if(!university||!matches.length){row.style.display='none';sel.innerHTML='<option value="">-- None: enter fresh details below --</option>';return;}
+  matches.sort((a,b)=>(b.lastUsed||0)-(a.lastUsed||0));
+  sel.innerHTML='<option value="">-- None: enter fresh details below --</option>'+matches.map((p,i)=>{
+    const when=p.lastUsed?new Date(p.lastUsed).toLocaleDateString():'unknown date';
+    return `<option value="${i}">${esc(p.program)||'(no program name)'} — last used ${when}</option>`;
+  }).join('');
+  row.style.display='';
+  sel._matches=matches;
+}
+function applySitSavedBundle(){
+  const sel=document.getElementById('sit-uni-bundle');
+  if(!sel||!sel._matches)return;
+  const idx=sel.value;
+  if(idx==='')return;
+  const bundle=sel._matches[Number(idx)];
+  if(!bundle)return;
+  document.getElementById('sit-uni-program').value=bundle.program||'';
+  document.getElementById('sit-uni-link').value=bundle.link||'';
+  document.getElementById('sit-uni-classdate').value=bundle.classCommencementDate||'';
+}
+function autoSaveSitUniField(){/* fields are read directly at save time; this hook exists for symmetry with the main modal's onchange wiring and future live-preview use */}
 function saveSituationCollector(){
   const studentId=document.getElementById('sit-student').value;
   const textVal=document.getElementById('sit-text').value.trim();
@@ -3267,6 +3721,33 @@ function saveSituationCollector(){
   const idx=students.findIndex(s=>String(s.id)===String(studentId));
   if(idx===-1)return;
   const s=students[idx];
+
+  // Optional university application section
+  const uniSectionOpen=document.getElementById('sit-uni-section').style.display!=='none';
+  if(uniSectionOpen){
+    const country=document.getElementById('sit-uni-country').value;
+    const university=document.getElementById('sit-uni-uni').value.trim();
+    const program=document.getElementById('sit-uni-program').value.trim();
+    const agent=document.getElementById('sit-uni-agent').value;
+    const applicationDate=document.getElementById('sit-uni-date').value;
+    const link=document.getElementById('sit-uni-link').value.trim();
+    const classCommencementDate=document.getElementById('sit-uni-classdate').value;
+    const stage=document.getElementById('sit-uni-stage').value;
+    // Only require Country + University to save an application here — mirrors the
+    // main modal's minimum bar; Link/Class Date are strongly recommended but a
+    // counsellor logging a quick note shouldn't be blocked if those aren't in hand yet.
+    if(country&&university){
+      if(!s.uniApplications)s.uniApplications=[];
+      s.uniApplications.push({country,university,program,agent,applicationDate,link,classCommencementDate,stage});
+      learnUniversityIfNew(country,university);
+      learnProgramBundle(country,university,program,link,classCommencementDate);
+      recomputeOverallStageFromApps(s);
+      recomputeVisaNext(s);
+    }else if(country||university){
+      return alert('To record a university application, please provide at least the Country and University — or collapse the "Optional University Application" section if you don\'t want to add one right now.');
+    }
+  }
+
   if(!s.situationHistory)s.situationHistory=[];
   s.situationHistory.unshift({ts:Date.now(),text:textVal});
   s.situation=textVal;
@@ -3274,7 +3755,7 @@ function saveSituationCollector(){
   if(taskDesc){
     pendingTasks.unshift({id:Date.now()+Math.random(),studentName:s.name,studentId:String(s.id),desc:taskDesc,priority:taskPriority,deadline:taskDeadline,done:false,ts:Date.now()});
   }
-  addLog('Present situation updated: '+s.name);
+  addLog('Present situation updated: '+s.name+(uniSectionOpen&&document.getElementById('sit-uni-uni').value.trim()?' (+ university application added)':''));
   closeMo('situation-mo');
   renderAll();
   markDirty();
@@ -3355,6 +3836,7 @@ function runGlobalSearch(q){
 function goToStudent(idx){
   closeGlobalSearch();selectedStudentId=students[idx].id;
   setStudentView('detail');showPage('p2');renderDashboardStudentSection();
+  if(window.innerWidth<=768)showStudentDetailView();
 }
 function goToTask(i){
   closeGlobalSearch();showPage('p1');
@@ -3424,11 +3906,96 @@ function openUniModal(idx){
   cancelEditUniApp();
   renderUniApps();document.getElementById('uni-mo').classList.add('open');
 }
+function getProgramNamesForCountry(c){
+  const names=learnedPrograms.filter(p=>p.country===c).map(p=>p.program);
+  return [...new Set(names.filter(Boolean))];
+}
+function updateProgramDatalist(){
+  const c=document.getElementById('uni-add-country').value;
+  const dl=document.getElementById('uni-add-program-datalist');
+  if(!dl)return;
+  const names=getProgramNamesForCountry(c);
+  dl.innerHTML=names.map(n=>`<option value="${esc(n)}"></option>`).join('');
+}
+function updateSavedBundleList(){
+  const row=document.getElementById('uni-bundle-row');
+  const sel=document.getElementById('uni-add-bundle');
+  if(!row||!sel)return;
+  const country=document.getElementById('uni-add-country').value;
+  const university=document.getElementById('uni-add-uni').value.trim();
+  const matches=learnedPrograms.filter(p=>p.country===country&&p.university.trim().toLowerCase()===university.toLowerCase());
+  if(!university||!matches.length){row.style.display='none';sel.innerHTML='<option value="">-- None: enter fresh details below --</option>';return;}
+  matches.sort((a,b)=>(b.lastUsed||0)-(a.lastUsed||0));
+  sel.innerHTML='<option value="">-- None: enter fresh details below --</option>'+matches.map((p,i)=>{
+    const when=p.lastUsed?new Date(p.lastUsed).toLocaleDateString():'unknown date';
+    return `<option value="${i}">${esc(p.program)||'(no program name)'} — last used ${when}</option>`;
+  }).join('');
+  row.style.display='';
+  // stash the matches on the element for applySavedBundle to read
+  sel._matches=matches;
+}
+function applySavedBundle(){
+  const sel=document.getElementById('uni-add-bundle');
+  if(!sel||!sel._matches)return;
+  const idx=sel.value;
+  if(idx===''){return;}
+  const bundle=sel._matches[Number(idx)];
+  if(!bundle)return;
+  document.getElementById('uni-add-program').value=bundle.program||'';
+  document.getElementById('uni-add-link').value=bundle.link||'';
+  document.getElementById('uni-add-classdate').value=bundle.classCommencementDate||'';
+  autoSaveUniAppField();
+}
+function learnProgramBundle(country,university,program,link,classCommencementDate){
+  if(!country||!university||!program)return; // program name required to be worth saving as a bundle
+  const key=u=>(u||'').trim().toLowerCase();
+  const existing=learnedPrograms.find(p=>p.country===country&&key(p.university)===key(university)&&key(p.program)===key(program));
+  if(existing){
+    existing.link=link;existing.classCommencementDate=classCommencementDate;existing.lastUsed=Date.now();
+  }else{
+    learnedPrograms.push({id:'pb_'+Date.now()+'_'+Math.random().toString(36).slice(2,7),country,university:university.trim(),program:program.trim(),link,classCommencementDate,lastUsed:Date.now()});
+  }
+}
+function getUniListForCountry(c){
+  const preset=UNIS[c]||[];
+  const learned=learnedUnis[c]||[];
+  // Merge, de-duplicated case-insensitively, presets first
+  const seen=new Set(preset.map(u=>u.trim().toLowerCase()));
+  const extra=learned.filter(u=>{
+    const k=(u||'').trim().toLowerCase();
+    if(!k||seen.has(k))return false;
+    seen.add(k);return true;
+  });
+  return preset.concat(extra);
+}
+function learnUniversityIfNew(country,university){
+  if(!country||!university)return;
+  const uni=university.trim();
+  if(!uni)return;
+  const presetMatch=(UNIS[country]||[]).some(u=>u.trim().toLowerCase()===uni.toLowerCase());
+  if(presetMatch)return; // already a preset, nothing to learn
+  if(!learnedUnis[country])learnedUnis[country]=[];
+  const already=learnedUnis[country].some(u=>u.trim().toLowerCase()===uni.toLowerCase());
+  if(already)return; // already learned, avoid duplicate
+  learnedUnis[country].push(uni);
+}
 function updateUniAddList(){
   const c=document.getElementById('uni-add-country').value;
-  const sel=document.getElementById('uni-add-uni');
-  const list=UNIS[c]||[];
-  sel.innerHTML='<option value="">-- Select --</option>'+list.map(u=>`<option value="${esc(u)}">${esc(u)}</option>`).join('');
+  const dl=document.getElementById('uni-add-uni-datalist');
+  const list=getUniListForCountry(c);
+  dl.innerHTML=list.map(u=>`<option value="${esc(u)}"></option>`).join('');
+  updateProgramDatalist();
+  updateSavedBundleList();
+  updateAppStageDropdown();
+}
+function updateAppStageDropdown(){
+  const c=document.getElementById('uni-add-country').value;
+  const sel=document.getElementById('uni-add-stage');
+  if(!sel)return;
+  const stages=getAppLevelStages(c);
+  const current=sel.value;
+  sel.innerHTML='<option value="">-- Select --</option>'+stages.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`).join('');
+  if(stages.includes(current))sel.value=current;
 }
 function editUniApp(i){
   if(uniModalIdx===null)return;
@@ -3438,14 +4005,15 @@ function editUniApp(i){
   const country=a.country||students[uniModalIdx].country||'';
   document.getElementById('uni-add-country').value=country;
   updateUniAddList();
-  const uniSel=document.getElementById('uni-add-uni');
-  uniSel.value=a.university||'';
-  document.getElementById('uni-add-uni-text').value=(uniSel.value===a.university&&a.university)?'':(a.university||'');
+  document.getElementById('uni-add-uni').value=a.university||'';
   document.getElementById('uni-add-program').value=a.program||'';
   document.getElementById('uni-add-agent').value=a.agent||'';
   document.getElementById('uni-add-date').value=a.applicationDate||'';
   document.getElementById('uni-add-link').value=a.link||'';
   document.getElementById('uni-add-classdate').value=a.classCommencementDate||'';
+  const stageSel=document.getElementById('uni-add-stage');
+  if(stageSel)stageSel.value=a.stage||'';
+  updateSavedBundleList();
   document.getElementById('uni-form-title').textContent='Edit Application (changes save automatically)';
   document.getElementById('uni-form-submit-btn').style.display='none';
   document.getElementById('uni-form-cancel-btn').style.display='inline-block';
@@ -3459,13 +4027,21 @@ function editUniApp(i){
 function cancelEditUniApp(){
   uniEditIdx=null;
   document.getElementById('uni-add-country').value='';
-  document.getElementById('uni-add-uni').innerHTML='<option value="">-- Select --</option>';
-  document.getElementById('uni-add-uni-text').value='';
+  document.getElementById('uni-add-uni').value='';
+  document.getElementById('uni-add-uni-datalist').innerHTML='';
   document.getElementById('uni-add-program').value='';
+  const progDl=document.getElementById('uni-add-program-datalist');
+  if(progDl)progDl.innerHTML='';
+  const bundleRow=document.getElementById('uni-bundle-row');
+  if(bundleRow)bundleRow.style.display='none';
+  const bundleSel=document.getElementById('uni-add-bundle');
+  if(bundleSel){bundleSel.innerHTML='<option value="">-- None: enter fresh details below --</option>';bundleSel._matches=null;}
   document.getElementById('uni-add-agent').value='';
   document.getElementById('uni-add-date').value='';
   document.getElementById('uni-add-link').value='';
   document.getElementById('uni-add-classdate').value='';
+  const stageSel=document.getElementById('uni-add-stage');
+  if(stageSel)stageSel.innerHTML='<option value="">-- Select --</option>';
   document.getElementById('uni-form-title').textContent='Add New Application';
   document.getElementById('uni-form-submit-btn').textContent='+ Add Application';
   document.getElementById('uni-form-submit-btn').style.display='inline-block';
@@ -3475,14 +4051,14 @@ function cancelEditUniApp(){
 function autoSaveUniAppField(){
   if(uniModalIdx===null||uniEditIdx===null)return;
   const country=document.getElementById('uni-add-country').value;
-  const uniSel=document.getElementById('uni-add-uni').value;
-  const uniText=document.getElementById('uni-add-uni-text').value.trim();
   const program=document.getElementById('uni-add-program').value.trim();
   const agent=document.getElementById('uni-add-agent').value;
   const applicationDate=document.getElementById('uni-add-date').value;
   const link=document.getElementById('uni-add-link').value.trim();
   const classCommencementDate=document.getElementById('uni-add-classdate').value;
-  const university=uniSel||uniText;
+  const university=document.getElementById('uni-add-uni').value.trim();
+  const stageSel=document.getElementById('uni-add-stage');
+  const stage=stageSel?stageSel.value:'';
   if(!country||!university)return;
   if(!link||!isValidUrl(link)){
     const linkField=document.getElementById('uni-add-link');
@@ -3494,8 +4070,11 @@ function autoSaveUniAppField(){
     if(cdField){cdField.style.boxShadow='0 0 0 3px rgba(220,38,38,0.35)';setTimeout(()=>{cdField.style.boxShadow='';},1200);}
     return;
   }
-  students[uniModalIdx].uniApplications[uniEditIdx]={country,university,program,agent,applicationDate,link,classCommencementDate};
+  students[uniModalIdx].uniApplications[uniEditIdx]={country,university,program,agent,applicationDate,link,classCommencementDate,stage};
   students[uniModalIdx].lastUpdated=Date.now();
+  learnUniversityIfNew(country,university);
+  learnProgramBundle(country,university,program,link,classCommencementDate);
+  recomputeOverallStageFromApps(students[uniModalIdx]);
   recomputeVisaNext(students[uniModalIdx]);
   renderUniApps();renderAll();markDirty();
   const msg=document.getElementById('uni-autosave-msg');
@@ -3507,25 +4086,28 @@ function isValidUrl(v){
 function addUniApplication(){
   if(uniModalIdx===null)return;
   const country=document.getElementById('uni-add-country').value;
-  const uniSel=document.getElementById('uni-add-uni').value;
-  const uniText=document.getElementById('uni-add-uni-text').value.trim();
   const program=document.getElementById('uni-add-program').value.trim();
   const agent=document.getElementById('uni-add-agent').value;
   const applicationDate=document.getElementById('uni-add-date').value;
   const link=document.getElementById('uni-add-link').value.trim();
   const classCommencementDate=document.getElementById('uni-add-classdate').value;
-  const university=uniSel||uniText;
+  const university=document.getElementById('uni-add-uni').value.trim();
+  const stageSel=document.getElementById('uni-add-stage');
+  const stage=stageSel?stageSel.value:'';
   if(!country||!university){return alert('Please select a country and university.');}
   if(!link){return alert('Program Webpage Link is required. Please paste the official program/course page URL before adding this application.');}
   if(!isValidUrl(link)){return alert('That doesn\'t look like a valid link. Please enter a full URL, e.g. https://www.university.edu/program-page');}
   if(!classCommencementDate){return alert('Class Commencement Date is required (from the offer letter). This is needed to calculate visa-timing for the intake.');}
-  const entry={country,university,program,agent,applicationDate,link,classCommencementDate};
+  const entry={country,university,program,agent,applicationDate,link,classCommencementDate,stage};
   if(uniEditIdx!==null){
     students[uniModalIdx].uniApplications[uniEditIdx]=entry;
   }else{
     students[uniModalIdx].uniApplications.push(entry);
   }
   students[uniModalIdx].lastUpdated=Date.now();
+  learnUniversityIfNew(country,university);
+  learnProgramBundle(country,university,program,link,classCommencementDate);
+  recomputeOverallStageFromApps(students[uniModalIdx]);
   recomputeVisaNext(students[uniModalIdx]);
   cancelEditUniApp();
   renderAll();markDirty();
@@ -3544,7 +4126,7 @@ function renderUniApps(){
   const apps=students[uniModalIdx].uniApplications||[];
   const el=document.getElementById('uni-apps-list');
   if(!apps.length){el.innerHTML='<div style="padding:12px;text-align:center;color:var(--tm);font-size:12px;font-style:italic">No university applications yet</div>';return;}
-  el.innerHTML=`<table class="uni-apps-table"><thead><tr><th>#</th><th>Country</th><th>University</th><th>Program</th><th>Agent</th><th>Class Starts</th><th>Link</th><th></th></tr></thead><tbody>${apps.map((a,i)=>`<tr class="clickable"${uniEditIdx===i?' style="background:rgba(37,99,235,0.1)"':''} onclick="editUniApp(${i})"><td>${i+1}</td><td>${FLAGS[a.country]||''} ${esc(a.country)}</td><td>${esc(a.university)}</td><td>${esc(a.program)||'—'}</td><td>${esc(a.agent)||'Direct/Self'}</td><td>${a.classCommencementDate?esc(a.classCommencementDate):'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td>${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--b600,#2563eb);font-weight:600;text-decoration:none">&#128279; Open</a>`:'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td><button class="btn-del" onclick="event.stopPropagation();removeUniApp(${i})">&#215;</button></td></tr>`).join('')}</tbody></table>`;
+  el.innerHTML=`<table class="uni-apps-table as-cards"><thead><tr><th>#</th><th>Country</th><th>University</th><th>Program</th><th>Stage</th><th>Agent</th><th>Class Starts</th><th>Link</th><th></th></tr></thead><tbody>${apps.map((a,i)=>`<tr class="clickable"${uniEditIdx===i?' style="background:rgba(37,99,235,0.1)"':''} onclick="editUniApp(${i})"><td data-label="#">${i+1}</td><td data-label="Country">${FLAGS[a.country]||''} ${esc(a.country)}</td><td data-label="University">${esc(a.university)}</td><td data-label="Program">${esc(a.program)||'—'}</td><td data-label="Stage">${a.stage?esc(a.stage):'<span style="color:var(--tm);font-size:11px;font-style:italic">Not set</span>'}</td><td data-label="Agent">${esc(a.agent)||'Direct/Self'}</td><td data-label="Class Starts">${a.classCommencementDate?esc(a.classCommencementDate):'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td data-label="Link">${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--b600,#2563eb);font-weight:600;text-decoration:none">&#128279; Open</a>`:'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td data-label=""><button class="btn-del" onclick="event.stopPropagation();removeUniApp(${i})">&#215;</button></td></tr>`).join('')}</tbody></table>`;
 }
 
 function setDashboardStudentView(v){
@@ -3671,15 +4253,23 @@ function renderStudentList(){
   document.getElementById('p2-count').textContent=`(${filtered.length})`;
   list.innerHTML=filtered.map(s=>{
     const origIdx=students.findIndex(x=>x.id===s.id);const sel=selectedStudentId===s.id;
-    return `<div class="stu-list-item${sel?' selected':''}" onclick="selectStudent(${origIdx})"><div style="font-size:14px">${FLAGS[s.country]||'🌐'}</div><div style="flex:1;min-width:0"><div class="stu-list-name" ondblclick="jumpToStudentDetail(${origIdx})" ontouchend="handleStudentNameTouch(event,${origIdx})">${esc(s.name)}</div><div class="stu-list-country">${s.country||'No country'} · ${s.intake||'No intake'}</div></div>${s.appStage?`<div class="stu-list-stage">${esc(s.appStage)}</div>`:''}</div>`;
+    return `<button type="button" class="stu-list-item${sel?' selected':''}" onclick="selectStudent(${origIdx})"><div style="font-size:14px">${FLAGS[s.country]||'🌐'}</div><div style="flex:1;min-width:0;text-align:left"><div class="stu-list-name">${esc(s.name)}</div><div class="stu-list-country">${s.country||'No country'} · ${s.intake||'No intake'}</div></div>${s.appStage?`<div class="stu-list-stage">${esc(s.appStage)}</div>`:''}</button>`;
   }).join('')||'<div style="padding:20px;text-align:center;color:var(--tm);font-size:13px">No students found</div>';
 }
-function selectStudent(idx){selectedStudentId=students[idx].id;renderStudentList();renderDetail();renderDashboardStudentSection();}
-function jumpToStudentDetail(idx){selectStudent(idx);showPage('p2');setStudentView('detail');setTimeout(()=>{const panel=document.getElementById('p2-detail');if(panel)panel.scrollIntoView({behavior:'smooth',block:'start'});},80);}
-function handleStudentNameTouch(event,idx){
-  if(window.innerWidth>768)return;
-  if(studentTapTimer){clearTimeout(studentTapTimer);studentTapTimer=null;event.preventDefault();jumpToStudentDetail(idx);return;}
-  studentTapTimer=setTimeout(()=>{studentTapTimer=null;},320);
+function selectStudent(idx){
+  selectedStudentId=students[idx].id;
+  renderStudentList();renderDetail();renderDashboardStudentSection();
+  if(window.innerWidth<=768)showStudentDetailView();
+}
+function jumpToStudentDetail(idx){selectStudent(idx);showPage('p2');setStudentView('detail');if(window.innerWidth<=768)showStudentDetailView();setTimeout(()=>{const panel=document.getElementById('p2-detail');if(panel)panel.scrollIntoView({behavior:'smooth',block:'start'});},80);}
+function showStudentDetailView(){
+  const layout=document.getElementById('p2-layout');
+  if(layout)layout.dataset.mobileView='detail';
+  window.scrollTo({top:0,behavior:'instant'});
+}
+function showStudentListView(){
+  const layout=document.getElementById('p2-layout');
+  if(layout)layout.dataset.mobileView='list';
 }
 
 // ════════════════════════════════════════════════════════════
@@ -3699,7 +4289,7 @@ function renderDetail(){
   // University apps display
   let uniHtml='<div style="padding:8px;text-align:center;color:var(--tm);font-size:12px;font-style:italic">No university applications</div>';
   if(s.uniApplications&&s.uniApplications.length){
-    uniHtml=`<table class="uni-apps-table"><thead><tr><th>Country</th><th>University</th><th>Program</th><th>Agent</th><th>Class Starts</th><th>Link</th></tr></thead><tbody>${s.uniApplications.map((a,ai)=>`<tr class="clickable" onclick="openUniModal(${idx});editUniApp(${ai})"><td>${FLAGS[a.country]||''} ${esc(a.country)}</td><td>${esc(a.university)}</td><td>${esc(a.program)||'—'}</td><td>${esc(a.agent)||'Direct/Self'}</td><td>${a.classCommencementDate?esc(a.classCommencementDate):'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td>${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--b600,#2563eb);font-weight:600;text-decoration:none">&#128279; Open</a>`:'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td></tr>`).join('')}</tbody></table>`;
+    uniHtml=`<div class="table-scroll-wrap"><table class="uni-apps-table"><thead><tr><th>Country</th><th>University</th><th>Program</th><th>Agent</th><th>Class Starts</th><th>Link</th></tr></thead><tbody>${s.uniApplications.map((a,ai)=>`<tr class="clickable" onclick="openUniModal(${idx});editUniApp(${ai})"><td>${FLAGS[a.country]||''} ${esc(a.country)}</td><td>${esc(a.university)}</td><td>${esc(a.program)||'—'}</td><td>${esc(a.agent)||'Direct/Self'}</td><td>${a.classCommencementDate?esc(a.classCommencementDate):'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td>${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--b600,#2563eb);font-weight:600;text-decoration:none">&#128279; Open</a>`:'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td></tr>`).join('')}</tbody></table></div>`;
   }
   document.getElementById('detail-content').innerHTML=`
     <div class="detail-hdr"><div><div class="detail-name">${esc(s.name)}</div><div style="font-size:12px;color:var(--ts);margin-top:2px">${FLAGS[s.country]||'🌐'} ${s.country||'No country'} · ${s.intake||'No intake'}</div></div><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">${s.locked?`<button class="btn btn-sm" style="border-color:#d97706;color:#d97706;background:rgba(217,119,6,0.1);font-weight:700" onclick="reopenStudent(${idx})">🔓 Reopen File</button>`:`<button class="btn btn-primary btn-sm" onclick="openAddTask('${s.id}')">+ Task</button><button class="btn btn-uni" onclick="openUniModal(${idx})">&#127891; Universities</button><button class="btn btn-addinfo" onclick="openAddInfo(${idx})">&#128221; Info</button><button class="btn btn-primary btn-sm" onclick="openSituationCollectorPrefill('${s.id}')">&#128204; Situation</button>`}<button class="btn btn-sm" style="border-color:#2563eb;color:#2563eb;background:rgba(37,99,235,0.08)" onclick="openStageHistoryModal(${idx})">📊 Stage History</button>${isVisaLodgedStage(s.appStage)?`<button class="btn btn-sm" style="border-color:#0d9484;color:#0f766e;background:rgba(13,148,136,0.08)" onclick="openVisaLodgedModal(${idx})">📅 Update Visa Date</button>`:''}${s.status!=='Discontinued'?`<button class="btn btn-sm" style="border-color:#dc2626;color:#dc2626;background:rgba(220,38,38,0.08)" onclick="openDiscontinuedModal(${idx})">⚠️ Mark Discontinued</button>`:`<button class="btn btn-sm" style="border-color:#059669;color:#059669;background:rgba(5,150,105,0.08)" onclick="openReactivateModal(${idx})">♻️ Reactivate</button>`}<button class="btn btn-sm" style="border-color:#7c3aed;color:#7c3aed;background:rgba(124,58,237,0.08)" onclick="openDocChecklistModal(${idx})">📄 Document Checklist</button><button class="btn btn-sm" style="border-color:#25D366;color:#128C7E;background:rgba(37,211,102,0.08)" onclick="openStudentWhatsApp(${idx})">Send WhatsApp message</button>${s.locked?'':`<button class="btn btn-edit btn-sm" onclick="openEdit(${idx})">&#9998; Edit</button>`}<button class="btn btn-del" onclick="askDel(${idx})">&#215; Remove</button></div></div>
@@ -3871,7 +4461,7 @@ function addStudent(){
 function askDel(idx){delIdx=idx;document.getElementById('del-name').textContent=students[idx].name;document.getElementById('del-mo').classList.add('open');}
 function confirmDel(){if(delIdx!==null){const n=students[delIdx].name;pushUndoSnapshot('Delete student: '+n);if(selectedStudentId===students[delIdx].id)selectedStudentId=null;students.splice(delIdx,1);persist('Removed: '+n);renderAll();}closeMo('del-mo');delIdx=null;}
 
-function openSituationCollectorPrefill(studentId){openSituationCollector();setTimeout(()=>{document.getElementById('sit-student').value=String(studentId);},20);}
+function openSituationCollectorPrefill(studentId){openSituationCollector();setTimeout(()=>{document.getElementById('sit-student').value=String(studentId);sitSyncUniCountry();},20);}
 
 function openAddInfo(idx){
   addInfoIdx=idx;const s=students[idx];
@@ -4015,7 +4605,7 @@ function openCaseSummaryModal(studentIdx){
   
   const content=`
     <div style="background:rgba(37,99,235,0.08);padding:14px;border-radius:8px;margin-bottom:16px">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px">
+      <div class="cs-info-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px">
         <div><span style="color:var(--tm);font-size:11px;text-transform:uppercase">Student Name</span><br><strong>${esc(summary.name)}</strong></div>
         <div><span style="color:var(--tm);font-size:11px;text-transform:uppercase">Country</span><br><strong>${esc(summary.country)}</strong></div>
         <div><span style="color:var(--tm);font-size:11px;text-transform:uppercase">Intake</span><br><strong>${esc(summary.intake)}</strong></div>
@@ -4855,7 +5445,7 @@ function exportPDF(type='active'){
 
 function exportJSON(){
   const now=new Date();
-  const payload={_meta:{exported:now.toISOString(),counsellor:'Tausif Jaman',version:8,count:students.length},students,pendingTasks,quickNotes,log:(()=>{try{return JSON.parse(localStorage.getItem(LOGK)||'[]');}catch(e){return[];}})()};
+  const payload={_meta:{exported:now.toISOString(),counsellor:'Tausif Jaman',version:8,count:students.length},students,pendingTasks,quickNotes,learnedUnis,learnedPrograms,log:(()=>{try{return JSON.parse(localStorage.getItem(LOGK)||'[]');}catch(e){return[];}})()};
   dl(JSON.stringify(payload,null,2),`CRM_Data_Backup_${iso(now)}.json`,'application/json');addLog('Data exported');
 }
 function importJSON(input){
@@ -4866,6 +5456,8 @@ function confirmImport(){
   if(!pendingImport)return;students=pendingImport.students;
   if(pendingImport.pendingTasks)pendingTasks=pendingImport.pendingTasks;
   if(pendingImport.quickNotes)quickNotes=pendingImport.quickNotes;
+  if(pendingImport.learnedUnis&&typeof pendingImport.learnedUnis==='object')learnedUnis=pendingImport.learnedUnis;
+  if(pendingImport.learnedPrograms&&Array.isArray(pendingImport.learnedPrograms))learnedPrograms=pendingImport.learnedPrograms;
   if(pendingImport.log)localStorage.setItem(LOGK,JSON.stringify(pendingImport.log));
   migrateData();students.sort((a,b)=>a.name.localeCompare(b.name));
   persist('Data imported');renderAll();closeMo('imp-mo');pendingImport=null;
@@ -5047,13 +5639,15 @@ async function fetchExchangeRates(){
   }
 }
 function renderFxStrip(rates){
-  const strip=document.getElementById('fx-strip');
-  if(!strip)return;
-  strip.innerHTML=FX_CURRENCIES.map(c=>{
+  const html=FX_CURRENCIES.map(c=>{
     const rate=rates[c.code];
     return rate?`<div class="fx-chip"><span class="fx-flag">${c.flag}</span><span>1 ${c.label} =</span><span class="fx-rate">${rate} ৳</span></div>`:
                 `<div class="fx-chip"><span class="fx-flag">${c.flag}</span><span class="fx-loading">${c.label} N/A</span></div>`;
   }).join('')+'<span style="font-size:9px;color:var(--tm);align-self:center">Live BDT</span>';
+  const strip=document.getElementById('fx-strip');
+  if(strip)strip.innerHTML=html;
+  const stripMobile=document.getElementById('fx-strip-mobile');
+  if(stripMobile)stripMobile.innerHTML=html;
 }
 // Fetch on load, then every 15 min
 fetchExchangeRates();

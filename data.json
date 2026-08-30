@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:19:35.783Z",
+    "saved": "2026-08-30T13:25:35.800Z",
     "version": 8,
     "count": 35
   },
@@ -771,7 +771,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Processing for Application",
+      "appStage": "Conditional offer letter issued",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -785,18 +785,34 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888165,
+      "lastUpdated": 1788096315657,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "University of Waikato (Waikato)",
+          "program": "Master of Teaching and Learning",
+          "agent": "GEEbee",
+          "applicationDate": "2027-08-01",
+          "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-teaching-and-learning/",
+          "classCommencementDate": "2027-11-01",
+          "stage": "Conditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1788096315658,
+          "duration": 0
+        },
         {
           "stage": "Processing for Application",
           "enteredDate": 1778630400000,
-          "duration": 0
+          "duration": 109
         }
       ],
       "phone": "",
@@ -2429,9 +2445,22 @@
       "link": "https://www.nztertiarycollege.ac.nz/early-childhood-education/undergraduate-qualifications/bachelor-education-early-childhood-education",
       "classCommencementDate": "2026-08-28",
       "lastUsed": 1788095806496
+    },
+    {
+      "id": "pb_1788096315657_f4g1n",
+      "country": "New Zealand",
+      "university": "University of Waikato (Waikato)",
+      "program": "Master of Teaching and Learning",
+      "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-teaching-and-learning/",
+      "classCommencementDate": "2027-11-01",
+      "lastUsed": 1788096315657
     }
   ],
   "log": [
+    {
+      "ts": 1788096333777,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788095973725,
       "msg": "Visa refused, decision recorded: MD Nafij Iqbal Sazid"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:18:40.758Z",
+    "saved": "2026-08-30T13:19:29.598Z",
     "version": 8,
     "count": 35
   },
@@ -812,9 +812,9 @@
       "id": 1786707888166.878,
       "name": "MD Nafij Iqbal Sazid",
       "country": "New Zealand",
-      "intake": "June 2026",
-      "status": "Active",
-      "appStage": "Visa Refused",
+      "intake": "September 2026",
+      "status": "Discontinued",
+      "appStage": "Electronic visa document received",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -828,14 +828,35 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1788095969248,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Auckland Institute of Studies (AIS)",
+          "program": "Bachelor of Information Technology",
+          "agent": "UP",
+          "applicationDate": "2026-04-01",
+          "link": "https://www.ais.ac.nz/study/information-technology/7-300-bachelor-of-information-technology",
+          "classCommencementDate": "2026-09-14",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Electronic visa document received",
+          "enteredDate": 1788095969248,
+          "duration": 0
+        },
+        {
+          "stage": "Discontinued (Visa Rejected)",
+          "enteredDate": 1788095967568,
+          "duration": 0
+        },
         {
           "stage": "Visa Refused",
           "enteredDate": 1764547200000,
@@ -846,8 +867,8 @@
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-08-30",
+      "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -2379,7 +2400,7 @@
       "program": "Bachelor of Information Technology",
       "link": "https://www.ais.ac.nz/study/information-technology/7-300-bachelor-of-information-technology",
       "classCommencementDate": "2026-09-14",
-      "lastUsed": 1788095741231
+      "lastUsed": 1788095954214
     },
     {
       "id": "pb_1788095491659_p5sph",
@@ -2392,6 +2413,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095967568,
+      "msg": "Marked discontinued: MD Nafij Iqbal Sazid — Visa Rejected (2026-08-30)"
+    },
     {
       "ts": 1788095918718,
       "msg": "Added: MD RAKIBUL ISLAM"

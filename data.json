@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T06:36:16.595Z",
+    "saved": "2026-08-30T06:37:52.480Z",
     "version": 8,
     "count": 34
   },
@@ -27,7 +27,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "Y",
-      "lastUpdated": 1788071774547,
+      "lastUpdated": 1788071870418,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -46,6 +46,16 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1788071870418,
+          "duration": 0
+        },
+        {
+          "stage": "Visa Interview Schedule",
+          "enteredDate": 1788071865254,
+          "duration": 0
+        },
         {
           "stage": "Visa lodged",
           "enteredDate": 1788071774547,
@@ -1811,6 +1821,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788071870419,
+      "msg": "Visa lodged: AKIMUL ISLAM TAZIM"
+    },
     {
       "ts": 1788071774547,
       "msg": "Visa lodged: AKIMUL ISLAM TAZIM"

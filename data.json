@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:49:42.404Z",
+    "saved": "2026-08-30T08:50:09.560Z",
     "version": 8,
     "count": 36
   },
@@ -528,7 +528,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788079780374,
+      "lastUpdated": 1788079807533,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -565,8 +565,8 @@
       ],
       "phone": "",
       "visaFieldsLocked": true,
-      "visaLodgedDate": "",
-      "expectedResultDate": "",
+      "visaLodgedDate": "2026-08-03",
+      "expectedResultDate": "2026-09-17",
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
@@ -2056,6 +2056,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788079807534,
+      "msg": "Visa lodged date set for Lamia Akter: 2026-08-03 (expected result 2026-09-17)"
+    },
     {
       "ts": 1788079780374,
       "msg": "Visa lodged: Lamia Akter"

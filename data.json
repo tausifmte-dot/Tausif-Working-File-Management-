@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:28:56.325Z",
+    "saved": "2026-08-30T13:29:00.688Z",
     "version": 8,
     "count": 35
   },
@@ -362,7 +362,7 @@
       "name": "Hafsa Islam Oyshe",
       "country": "New Zealand",
       "intake": "June 2026",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Visa Refused",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
@@ -377,7 +377,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788096534274,
+      "lastUpdated": 1788096538620,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -385,6 +385,11 @@
       "applicationCompletions": [],
       "uniApplications": [],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Visa Rejected)",
+          "enteredDate": 1788096538620,
+          "duration": 0
+        },
         {
           "stage": "Visa Refused",
           "enteredDate": 1787223953881,
@@ -402,8 +407,8 @@
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-08-30",
+      "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -2516,6 +2521,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788096538621,
+      "msg": "Marked discontinued: Hafsa Islam Oyshe — Visa Rejected (2026-08-30)"
+    },
     {
       "ts": 1788096534274,
       "msg": "Reopened: Hafsa Islam Oyshe"

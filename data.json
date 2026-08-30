@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:15:35.793Z",
+    "saved": "2026-08-30T13:16:00.153Z",
     "version": 8,
     "count": 34
   },
@@ -1021,8 +1021,8 @@
       "name": "MD. NUR ULLAH RUPOM",
       "country": "New Zealand",
       "intake": "September 2026",
-      "status": "Active",
-      "appStage": "Conditional offer letter issued",
+      "status": "Discontinued",
+      "appStage": "Unconditional offer letter issued",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -1036,18 +1036,39 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788095718681,
+      "lastUpdated": 1788095758086,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Auckland Institute of Studies (AIS)",
+          "program": "Bachelor of Information Technology",
+          "agent": "UP",
+          "applicationDate": "12026-01-06",
+          "link": "https://www.ais.ac.nz/study/information-technology/7-300-bachelor-of-information-technology",
+          "classCommencementDate": "2026-09-14",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Other: visa succussed)",
+          "enteredDate": 1788095758086,
+          "duration": 0
+        },
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1788095741231,
+          "duration": 0
+        },
         {
           "stage": "Conditional offer letter issued",
           "enteredDate": 1766534400000,
-          "duration": 0
+          "duration": 249
         },
         {
           "stage": "Applied for GTE",
@@ -1064,8 +1085,8 @@
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-08-30",
+      "discontinuedReason": "Other: visa succussed",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -2253,7 +2274,7 @@
       "program": "Bachelor of Information Technology",
       "link": "https://www.ais.ac.nz/study/information-technology/7-300-bachelor-of-information-technology",
       "classCommencementDate": "2026-09-14",
-      "lastUsed": 1788095330653
+      "lastUsed": 1788095741231
     },
     {
       "id": "pb_1788095491659_p5sph",
@@ -2266,6 +2287,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095758086,
+      "msg": "Marked discontinued: MD. NUR ULLAH RUPOM — Other: visa succussed (2026-08-30)"
+    },
     {
       "ts": 1788095733770,
       "msg": "Auto-saved"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:39:30.100Z",
+    "saved": "2026-08-30T08:40:30.091Z",
     "version": 8,
     "count": 36
   },
@@ -1013,7 +1013,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788079163522,
+      "lastUpdated": 1788079219741,
       "remarks": "STUDENT FINANCE IS POOR - STUDENT IS CURRENTLY ARRANGING FUNDS - 35 L THEIR OWN AND THE REST IS PARKING FUND. BANK TRANSFER HAS BEEN ASKED TO MAINTAIN",
       "situation": "NEED TO WRITE SOP (GIVEN TO STUDENT TO WRITE) \n\nNEED TO RECEIVE STUDY CONTINUATION DOCUMENTS FROM HIM",
       "remarksHistory": [
@@ -1037,7 +1037,8 @@
           "agent": "GEEbee",
           "applicationDate": "2026-08-23",
           "link": "https://www.sit.ac.nz/programme/course/Bachelor%20of%20Information%20Technology",
-          "classCommencementDate": "2027-02-15"
+          "classCommencementDate": "2027-02-15",
+          "stage": "Applications are with agents for review"
         },
         {
           "country": "New Zealand",
@@ -1046,7 +1047,8 @@
           "agent": "GEEbee",
           "applicationDate": "2026-08-23",
           "link": "https://www.unitec.ac.nz/career-and-study-options/computing-and-information-technology/bachelor-of-computing-systems/",
-          "classCommencementDate": "2027-02-15"
+          "classCommencementDate": "2027-02-15",
+          "stage": "Applications are with agents for review"
         }
       ],
       "stageHistory": [
@@ -1953,7 +1955,9 @@
   "quickNotes": [],
   "learnedUnis": {
     "New Zealand": [
-      "White cliff College"
+      "White cliff College",
+      "Southern Institute of Technology",
+      "Unitec Institute of Technology"
     ],
     "Malaysia": [
       "University of Wollongong"
@@ -1995,9 +1999,31 @@
       "link": "https://www.ara.ac.nz/products/programme/tp4775-stru-bachelor-of-accounting/",
       "classCommencementDate": "2027-02-01",
       "lastUsed": 1788078975472
+    },
+    {
+      "id": "pb_1788079216327_gtnsh",
+      "country": "New Zealand",
+      "university": "Southern Institute of Technology",
+      "program": "Bachelor of Information Technology",
+      "link": "https://www.sit.ac.nz/programme/course/Bachelor%20of%20Information%20Technology",
+      "classCommencementDate": "2027-02-15",
+      "lastUsed": 1788079216327
+    },
+    {
+      "id": "pb_1788079219741_l0d28",
+      "country": "New Zealand",
+      "university": "Unitec Institute of Technology",
+      "program": "Bachelor of Computing Systems",
+      "link": "https://www.unitec.ac.nz/career-and-study-options/computing-and-information-technology/bachelor-of-computing-systems/",
+      "classCommencementDate": "2027-02-15",
+      "lastUsed": 1788079219741
     }
   ],
   "log": [
+    {
+      "ts": 1788079228067,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788079168075,
       "msg": "Auto-saved"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T06:33:02.540Z",
+    "saved": "2026-08-30T06:36:16.595Z",
     "version": 8,
     "count": 34
   },
@@ -27,7 +27,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "Y",
-      "lastUpdated": 1788071560967,
+      "lastUpdated": 1788071774547,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -48,8 +48,18 @@
       "stageHistory": [
         {
           "stage": "Visa lodged",
-          "enteredDate": 1787570274272,
+          "enteredDate": 1788071774547,
           "duration": 0
+        },
+        {
+          "stage": "Preparing required visa documents",
+          "enteredDate": 1788071768742,
+          "duration": 0
+        },
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1787570274272,
+          "duration": 5
         }
       ],
       "locked": false,
@@ -1801,6 +1811,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788071774547,
+      "msg": "Visa lodged: AKIMUL ISLAM TAZIM"
+    },
     {
       "ts": 1788071580519,
       "msg": "Auto-saved"

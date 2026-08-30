@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T09:13:32.945Z",
+    "saved": "2026-08-30T09:14:30.097Z",
     "version": 8,
     "count": 36
   },
@@ -1004,7 +1004,7 @@
     },
     {
       "id": 1786707888165.9988,
-      "name": "Md. Riad",
+      "name": "Nasib Ibne Nizam",
       "country": "New Zealand",
       "intake": "October 2026",
       "status": "Active",
@@ -1022,7 +1022,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788081210905,
+      "lastUpdated": 1788081246294,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -2114,6 +2114,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788081268065,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788081210905,
       "msg": "Visa lodged date set for Md. Riad: 2026-08-13 (expected result 2026-09-27)"

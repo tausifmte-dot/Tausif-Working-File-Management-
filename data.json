@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:31:56.735Z",
+    "saved": "2026-08-30T08:35:30.084Z",
     "version": 8,
     "count": 36
   },
@@ -1633,7 +1633,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "New information requested by the agent",
+      "appStage": "Application submitted",
       "counselor": "",
       "phone": "",
       "email": "",
@@ -1649,14 +1649,31 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788078714704,
+      "lastUpdated": 1788078911688,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
-      "stageHistory": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Unitec Institute of Technology (Unitec)",
+          "program": "BACHELOR OF ACCOUNTING",
+          "agent": "GEEbee",
+          "applicationDate": "2026-08-25",
+          "link": "https://www.unitec.ac.nz/career-and-study-options/business/accounting/bachelor-of-accounting/",
+          "classCommencementDate": "2026-02-01",
+          "stage": "Application submitted"
+        }
+      ],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1788078911688,
+          "duration": 0
+        }
+      ],
       "locked": false,
       "visaFieldsLocked": false,
       "closedInfo": null,
@@ -1933,9 +1950,22 @@
       "link": "https://www.uow.edu.my/dual-award-programs/#computing",
       "classCommencementDate": "2026-10-01",
       "lastUsed": 1788078576894
+    },
+    {
+      "id": "pb_1788078911688_1v8ib",
+      "country": "New Zealand",
+      "university": "Unitec Institute of Technology (Unitec)",
+      "program": "BACHELOR OF ACCOUNTING",
+      "link": "https://www.unitec.ac.nz/career-and-study-options/business/accounting/bachelor-of-accounting/",
+      "classCommencementDate": "2026-02-01",
+      "lastUsed": 1788078911688
     }
   ],
   "log": [
+    {
+      "ts": 1788078928063,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788078714704,
       "msg": "Added: SIAM AHMED"

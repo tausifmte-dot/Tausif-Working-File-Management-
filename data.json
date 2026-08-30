@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T09:01:47.204Z",
+    "saved": "2026-08-30T09:12:30.094Z",
     "version": 8,
     "count": 36
   },
@@ -1006,7 +1006,7 @@
       "id": 1786707888165.9988,
       "name": "Md. Riad",
       "country": "New Zealand",
-      "intake": "June 2026",
+      "intake": "October 2026",
       "status": "Active",
       "appStage": "Unconditional offer letter issued",
       "counselor": "Tausif Jaman",
@@ -1022,7 +1022,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888165,
+      "lastUpdated": 1788081092040,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -2092,6 +2092,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788081148069,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788080505165,
       "msg": "Visa lodged date set for Md Anaf Bin Hassan: 2026-07-29 (expected result 2026-09-12)"

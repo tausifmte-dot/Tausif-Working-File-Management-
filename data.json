@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:09:03.951Z",
+    "saved": "2026-08-30T13:09:57.905Z",
     "version": 8,
     "count": 36
   },
@@ -1424,7 +1424,7 @@
       "name": "Nusrat Jahan Eva",
       "country": "New Zealand",
       "intake": "June 2026",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Electronic visa document received",
       "counselor": "Tushar Abdullah",
       "uniCount": 0,
@@ -1439,7 +1439,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1788095395859,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1447,6 +1447,11 @@
       "applicationCompletions": [],
       "uniApplications": [],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Other: visa succussed)",
+          "enteredDate": 1788095395859,
+          "duration": 0
+        },
         {
           "stage": "Electronic visa document received",
           "enteredDate": 1770249600000,
@@ -1457,8 +1462,8 @@
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-08-30",
+      "discontinuedReason": "Other: visa succussed",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -2300,6 +2305,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095395859,
+      "msg": "Marked discontinued: Nusrat Jahan Eva — Other: visa succussed (2026-08-30)"
+    },
     {
       "ts": 1788095341927,
       "msg": "Visa refused, decision recorded: Sadek Mahbub Sunny"

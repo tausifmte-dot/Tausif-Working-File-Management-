@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:26:35.444Z",
+    "saved": "2026-08-30T13:27:37.222Z",
     "version": 8,
     "count": 35
   },
@@ -417,7 +417,7 @@
       "id": 1786707888167.1072,
       "name": "Iqbal Hossain Hasib",
       "country": "New Zealand",
-      "intake": "June 2026",
+      "intake": "October 2027",
       "status": "Active",
       "appStage": "Waiting for documents from student side to submit application",
       "counselor": "Md Meraj",
@@ -433,7 +433,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787223932950,
+      "lastUpdated": 1788096416338,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -465,7 +465,7 @@
       "id": 1786707888167.4526,
       "name": "Jannatul Fardhous",
       "country": "New Zealand",
-      "intake": "February 2026",
+      "intake": "February 2027",
       "status": "Active",
       "appStage": "GTE Rejected",
       "counselor": "Tushar Abdullah",
@@ -481,7 +481,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1788096407778,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -2497,6 +2497,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788096454229,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788096393412,
       "msg": "Visa refused, decision recorded: Mahin Prodhan"

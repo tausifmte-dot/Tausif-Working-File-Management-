@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:07:22.617Z",
+    "saved": "2026-08-30T13:07:38.717Z",
     "version": 8,
     "count": 36
   },
@@ -1572,7 +1572,7 @@
       "name": "Sadek Mahbub Sunny",
       "country": "New Zealand",
       "intake": "February 2027",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Processing for Application",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
@@ -1587,7 +1587,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1788095256687,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1595,6 +1595,11 @@
       "applicationCompletions": [],
       "uniApplications": [],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Visa Rejected)",
+          "enteredDate": 1788095256687,
+          "duration": 0
+        },
         {
           "stage": "Processing for Application",
           "enteredDate": 1771200000000,
@@ -1615,8 +1620,8 @@
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-08-30",
+      "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -2260,6 +2265,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095256687,
+      "msg": "Marked discontinued: Sadek Mahbub Sunny — Visa Rejected (2026-08-30)"
+    },
     {
       "ts": 1788095240582,
       "msg": "Visa refused, decision recorded: Saira Sadia"

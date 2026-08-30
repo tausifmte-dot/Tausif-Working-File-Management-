@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:06:55.543Z",
+    "saved": "2026-08-30T13:07:06.358Z",
     "version": 8,
     "count": 36
   },
@@ -1625,7 +1625,7 @@
       "name": "Saira Sadia",
       "country": "New Zealand",
       "intake": "June 2026",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Visa Refused",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
@@ -1640,7 +1640,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788095213511,
+      "lastUpdated": 1788095224327,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1658,6 +1658,11 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Visa Rejected)",
+          "enteredDate": 1788095224327,
+          "duration": 0
+        },
         {
           "stage": "Visa Refused",
           "enteredDate": 1788090790388,
@@ -1691,8 +1696,8 @@
       "closedInfo": null,
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-08-30",
+      "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -2239,6 +2244,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095224327,
+      "msg": "Marked discontinued: Saira Sadia — Visa Rejected (2026-08-30)"
+    },
     {
       "ts": 1788095213511,
       "msg": "Reopened: Saira Sadia"

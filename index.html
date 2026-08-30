@@ -13,8 +13,8 @@
 <style>
 /* Blue-themed Dashboard */
 :root{
-  --glass:rgba(255,255,255,0.78);
-  --gb:rgba(147,197,253,0.4);
+  --glass:rgba(255,255,255,0.22);
+  --gb:rgba(147,197,253,0.35);
   --gs:0 4px 24px rgba(59,130,246,0.09),0 1px 4px rgba(59,130,246,0.06);
   --gs-hover:0 8px 32px rgba(59,130,246,0.15),0 2px 8px rgba(59,130,246,0.1);
   --b50:#eff6ff;--b100:#dbeafe;--b200:#bfdbfe;--b400:#60a5fa;--b500:#3b82f6;--b600:#2563eb;--b700:#1d4ed8;
@@ -67,7 +67,8 @@ html {
   border: 1px solid var(--gb);
   border-radius: 16px;
   box-shadow: var(--gs);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(28px) saturate(150%);
+  -webkit-backdrop-filter: blur(28px) saturate(150%);
   position: relative;
   transition: all 0.3s ease;
 }
@@ -77,7 +78,8 @@ html {
   border: 1px solid var(--gb);
   border-radius: 11px;
   box-shadow: var(--gs);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(24px) saturate(150%);
+  -webkit-backdrop-filter: blur(24px) saturate(150%);
   position: relative;
   transition: all 0.3s ease;
 }
@@ -327,6 +329,34 @@ body.dark .fx-chip{
 .mo.mo-closing .addinfo-modal{
   animation:moSlideOut 0.2s ease both;
 }
+.search-overlay{transition:none;}
+.search-overlay.open{
+  animation:moBackdropIn 0.22s ease both;
+}
+.search-overlay.open .search-popup{
+  animation:moSlideIn 0.32s cubic-bezier(.22,.68,0,1.2) both;
+}
+.search-overlay.mo-closing{
+  animation:moBackdropOut 0.2s ease both;
+  pointer-events:none;
+}
+.search-overlay.mo-closing .search-popup{
+  animation:moSlideOut 0.2s ease both;
+}
+.addinfo-overlay{transition:none;}
+.addinfo-overlay.open{
+  animation:moBackdropIn 0.22s ease both;
+}
+.addinfo-overlay.open .addinfo-modal{
+  animation:moSlideIn 0.32s cubic-bezier(.22,.68,0,1.2) both;
+}
+.addinfo-overlay.mo-closing{
+  animation:moBackdropOut 0.2s ease both;
+  pointer-events:none;
+}
+.addinfo-overlay.mo-closing .addinfo-modal{
+  animation:moSlideOut 0.2s ease both;
+}
 
 /* ── PAGE TRANSITIONS ── */
 @keyframes pageSlideIn{
@@ -564,7 +594,7 @@ body.dark .fx-chip{
 /* Pending tasks */
 .slbl{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--tm);margin-bottom:6px}
 .task-grid{display:flex;flex-direction:column;gap:6px;max-height:500px;overflow-y:auto}
-.task-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;background:#ffffff;border:1px solid #e2e8f0;font-size:12px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+.task-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border-radius:8px;background:var(--glass);border:1px solid var(--gb);font-size:12px;box-shadow:0 2px 4px rgba(0,0,0,0.1);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%)}
 .task-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
 .task-dot.red{background:var(--er)}.task-dot.amber{background:var(--wn)}.task-dot.blue{background:var(--b500)}.task-dot.green{background:var(--ok)}
 .task-name{font-weight:500;color:var(--tp);flex:1;min-width:0}
@@ -575,7 +605,7 @@ body.dark .fx-chip{
 
 /* Remind */
 .remind-section{display:flex;flex-direction:column;gap:6px;max-height:500px;overflow-y:auto}
-.remind-item{display:flex;align-items:flex-start;gap:10px;padding:9px 14px;border-radius:8px;border-left:4px solid #d97706;background:#fffbeb;font-size:12px;color:#1a365d;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+.remind-item{display:flex;align-items:flex-start;gap:10px;padding:9px 14px;border-radius:8px;border-left:4px solid #d97706;background:rgba(254,243,199,0.28);font-size:12px;color:#1a365d;box-shadow:0 2px 4px rgba(0,0,0,0.1);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%)}
 .remind-item.urgent{border-color:var(--er);background:var(--erbg);color:var(--ts)}
 
 /* Quick notes */
@@ -584,7 +614,7 @@ body.dark .fx-chip{
 .note-input-row input{flex:1;font-family:'DM Sans',sans-serif;font-size:12px;padding:6px 10px;border:1px solid #cbd5e1;border-radius:6px;background:#ffffff;color:#1a365d;outline:none}
 .note-input-row input:focus{border-color:#2563eb;background:#ffffff}
 .note-list{max-height:200px;overflow-y:auto;display:flex;flex-direction:column;gap:4px}
-.note-entry{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;border-radius:6px;background:#f8fafc;font-size:11px;border-left:3px solid #cbd5e1;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+.note-entry{display:flex;align-items:flex-start;gap:8px;padding:6px 10px;border-radius:6px;background:var(--glass);font-size:11px;border-left:3px solid #cbd5e1;box-shadow:0 2px 4px rgba(0,0,0,0.1);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%)}
 .note-time{font-family:'DM Mono',monospace;font-size:9px;color:var(--tm);white-space:nowrap;flex-shrink:0}
 .note-text{color:var(--tp);flex:1;line-height:1.4;word-break:break-word}
 .note-del{cursor:pointer;color:var(--er);font-size:12px;border:none;background:none;padding:0 2px;flex-shrink:0}
@@ -608,7 +638,7 @@ body.dark .fx-chip{
 .filter-btn:hover{background:#ffffff;color:#1a365d}
 .filter-btn.active{background:#2563eb;color:#ffffff;border-color:#1d4ed8}
 .info-grid{display:flex;flex-direction:column;gap:8px}
-.sc{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r-md);box-shadow:var(--gs);padding:10px 14px;position:relative;overflow:hidden}
+.sc{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r-md);box-shadow:var(--gs);padding:10px 14px;position:relative;overflow:hidden;backdrop-filter:blur(20px) saturate(150%);-webkit-backdrop-filter:blur(20px) saturate(150%)}
 .sc::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;border-radius:var(--r-md) var(--r-md) 0 0}
 .sc.def::after{background:linear-gradient(90deg,var(--b400),var(--b600))}
 .sc.ok::after{background:linear-gradient(90deg,#34d399,#059669)}
@@ -706,7 +736,7 @@ body.dark .fx-chip{
 .country-section-name{font-size:15px;font-weight:600;color:var(--tp)}
 .country-section-count{font-size:12px;color:var(--tm);background:var(--b100);border-radius:10px;padding:2px 8px}
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:12px}
-.scard{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r-lg);box-shadow:var(--gs);overflow:hidden;transition:all .2s;cursor:pointer}
+.scard{background:var(--glass);border:1px solid var(--gb);border-radius:var(--r-lg);box-shadow:var(--gs);overflow:hidden;transition:all .2s;cursor:pointer;backdrop-filter:blur(24px) saturate(150%);-webkit-backdrop-filter:blur(24px) saturate(150%)}
 .scard:hover{box-shadow:var(--gs-hover);transform:translateY(-2px)}
 .scard-top{padding:14px 16px 10px;border-bottom:1px solid var(--b100)}
 .scard-namerow{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px}
@@ -902,8 +932,8 @@ body.dark .fx-chip{
 
 /* ══════════ DARK MODE ══════════ */
 body.dark{
-  --glass:rgba(30,41,59,0.85);
-  --gb:rgba(51,65,85,0.6);
+  --glass:rgba(30,41,59,0.32);
+  --gb:rgba(51,65,85,0.5);
   --gs:0 4px 24px rgba(0,0,0,0.3),0 1px 4px rgba(0,0,0,0.2);
   --gs-hover:0 8px 32px rgba(0,0,0,0.4),0 2px 8px rgba(0,0,0,0.25);
   --b50:#1e293b;--b100:#334155;--b200:#475569;--b400:#60a5fa;--b500:#3b82f6;--b600:#60a5fa;--b700:#93bbfc;
@@ -1415,6 +1445,7 @@ html,body{overflow-x:hidden;max-width:100vw}
           <th class="uk-th-sort" onclick="ukSetSort('uni')">University / Program<span class="uk-sort-ind" id="uk-sort-uni"></span></th>
           <th class="uk-th-sort" onclick="ukSetSort('agent')">Agent<span class="uk-sort-ind" id="uk-sort-agent"></span></th>
           <th class="uk-th-sort" onclick="ukSetSort('stage')">Stage<span class="uk-sort-ind" id="uk-sort-stage"></span></th>
+          <th class="uk-th-sort" onclick="ukSetSort('decision')">Visa Decision Expected<span class="uk-sort-ind" id="uk-sort-decision"></span></th>
           <th class="uk-th-sort" onclick="ukSetSort('class')">Class Starts<span class="uk-sort-ind" id="uk-sort-class"></span></th>
           <th>Status</th>
           <th></th>
@@ -2855,6 +2886,8 @@ function updateSummary(){
     {cls:'wn',val:pool.filter(s=>s.defer==='Y').length,lbl:'Deferrals',f:'visa',key:'visa::defer'},
     {cls:'ok',val:pool.filter(s=>s.visaPrep==='Ready').length,lbl:'Ready to Submit Visa',f:'visa',key:'visa::ready'},
     {cls:'ok',val:pool.filter(s=>s.appStage==='Visa lodged'||s.appStage==='Visa Lodged').length,lbl:'Total Visa Lodge',f:'visa',key:'visa::lodge'},
+    {cls:'wn',val:pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,0)).length,lbl:'Visa Decision Expected This Week',f:'visa',key:'visa::decision_this_week'},
+    {cls:'wn',val:pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,1)).length,lbl:'Visa Decision Expected Next Week',f:'visa',key:'visa::decision_next_week'},
     {cls:'ok',val:pool.filter(s=>['Visa granted','Visa Granted','Visa issued','Visa Issued'].includes(s.appStage)).length,lbl:'Total Visa Issued',f:'visa',key:'visa::issued_total'},
     {cls:'er',val:pool.filter(s=>['Visa refused','Visa Refused','Visa rejected','Visa Rejected'].includes(s.appStage)).length,lbl:'Total Visa Refused',f:'visa',key:'visa::refused_total'},
     {cls:'wn',val:discontinued.length,lbl:'Discontinued',f:'disc',key:'disc::all'}
@@ -3051,6 +3084,8 @@ function getStatEntries(key){
   if(key==='nz::app_submitted') return make(pool.filter(s=>s.country==='New Zealand' && s.appStage && !['Waiting for documents from student side to submit application','Need to look for universities','Applications are with agents for review','New information requested by the agent'].includes(s.appStage)), 'Applications Submitted (NZ)', s=>`Stage: ${s.appStage}`);
   if(key==='nz::prep_visa') return make(pool.filter(s=>s.appStage==='Preparing required visa documents'), 'Preparing Required Visa Documents', s=>`Country: ${s.country||'Not set'}`);
   if(key==='visa::lodge') return make(pool.filter(s=>s.appStage==='Visa lodged'||s.appStage==='Visa Lodged'), 'Total Visa Lodge', s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage}`);
+  if(key==='visa::decision_this_week') return make(pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,0)), 'Visa Decision Expected This Week', s=>`Country: ${s.country||'Not set'} · Expected: ${fmtDateShort(s.expectedResultDate)}`);
+  if(key==='visa::decision_next_week') return make(pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,1)), 'Visa Decision Expected Next Week', s=>`Country: ${s.country||'Not set'} · Expected: ${fmtDateShort(s.expectedResultDate)}`);
   if(key==='visa::issued_total') return make(pool.filter(s=>['Visa granted','Visa Granted','Visa issued','Visa Issued'].includes(s.appStage)), 'Total Visa Issued', s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage}`);
   if(key==='visa::refused_total') return make(pool.filter(s=>['Visa refused','Visa Refused','Visa rejected','Visa Rejected'].includes(s.appStage)), 'Total Visa Refused', s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage}`);
   if(key.indexOf('agent::')===0){
@@ -3287,6 +3322,10 @@ function renderUniKanban(){
       case 'uni':return (c.app?c.app.university:'')||'';
       case 'agent':return (c.app?(c.app.agent||'Direct/Self'):'')||'';
       case 'stage':return colLabel(c.col);
+      case 'decision':{
+        if(c.col!=='lodged'||!c.s.expectedResultDate)return Infinity;
+        return new Date(c.s.expectedResultDate+'T00:00:00').getTime();
+      }
       case 'class':{
         const cd=c.app&&c.app.classCommencementDate;
         return cd?daysUntil(cd):Infinity;
@@ -3303,7 +3342,7 @@ function renderUniKanban(){
   });
 
   // Update sort indicator arrows
-  ['name','country','uni','agent','stage','class'].forEach(k=>{
+  ['name','country','uni','agent','stage','decision','class'].forEach(k=>{
     const el=document.getElementById('uk-sort-'+k);
     if(el)el.textContent=k===ukSortKey?(ukSortDir==='asc'?'▲':'▼'):'';
   });
@@ -3311,7 +3350,7 @@ function renderUniKanban(){
   const tbody=document.getElementById('uk-table-body');
   if(!tbody)return;
   if(!cards.length){
-    tbody.innerHTML='<tr class="uk-empty-row"><td colspan="8">No applications match these filters</td></tr>';
+    tbody.innerHTML='<tr class="uk-empty-row"><td colspan="9">No applications match these filters</td></tr>';
     return;
   }
   tbody.innerHTML=cards.map(c=>ukRowHtml(c,colLabel)).join('');
@@ -3340,6 +3379,17 @@ function ukRowHtml(c,colLabel){
   const alarm=inUrgentWindow&&s.defer!=='Y';
   const stageColors={notapplied:'background:rgba(100,116,139,0.12);color:#475569',submitted:'background:rgba(37,99,235,0.12);color:#1d4ed8',lodged:'background:rgba(217,119,6,0.12);color:#b45309',refused:'background:rgba(220,38,38,0.12);color:#dc2626',issued:'background:rgba(5,150,105,0.12);color:#059669'};
   const stageTag=`<span class="uk-status-tag" style="${stageColors[c.col]||''}">${colLabel(c.col)}</span>`;
+  let decisionCell='<span class="uk-missing">—</span>';
+  if(c.col==='lodged'&&s.expectedResultDate){
+    const dTo=Math.floor((new Date(s.expectedResultDate+'T00:00:00')-new Date(new Date().toDateString()))/86400000);
+    const soon=isDateInWeek(s.expectedResultDate,0)||isDateInWeek(s.expectedResultDate,1);
+    const overdue=dTo<0;
+    const style=overdue?'style="color:#dc2626;font-weight:700"':soon?'style="color:#b45309;font-weight:700"':'style="color:var(--tm)"';
+    const sub=overdue?`${Math.abs(dTo)}d overdue`:dTo===0?'today!':`${dTo}d left`;
+    decisionCell=`${fmtDateShort(s.expectedResultDate)} <span ${style}>(${sub})</span>`;
+  }else if(c.col==='lodged'){
+    decisionCell='<span class="uk-missing" style="font-style:italic">Lodgement date not set</span>';
+  }
   const deferTag=s.defer==='Y'?` <span class="uk-status-tag" style="background:rgba(124,58,237,0.12);color:#7c3aed">${resolved?'✓ Deferral':'Deferred'}</span>`:'';
   const alarmTag=alarm?' <span class="uk-status-tag" style="background:rgba(220,38,38,0.15);color:#dc2626">🚨 Urgent</span>':'';
   const uniCell=a?`${esc(a.university||'')}${a.program?`<div class="uk-td-sub">${esc(a.program)}</div>`:''}`:'<span class="uk-missing" style="font-style:italic">No applications logged</span>';
@@ -3351,6 +3401,7 @@ function ukRowHtml(c,colLabel){
     <td>${uniCell}</td>
     <td>${a?esc(a.agent||'Direct/Self'):'—'}</td>
     <td>${stageTag}</td>
+    <td>${decisionCell}</td>
     <td>${classCell}</td>
     <td>${alarmTag}${deferTag}</td>
     <td>${linkHtml}</td>
@@ -3782,7 +3833,11 @@ function renderQuickNotes(){
 // GLOBAL SEARCH (Requirement #12)
 // ════════════════════════════════════════════════════════════
 function openGlobalSearch(){document.getElementById('search-overlay').classList.add('open');document.getElementById('global-search-input').value='';document.getElementById('global-search-input').focus();document.getElementById('global-search-results').innerHTML='';}
-function closeGlobalSearch(){document.getElementById('search-overlay').classList.remove('open');}
+function closeGlobalSearch(){
+  const el=document.getElementById('search-overlay');
+  el.classList.add('mo-closing');
+  setTimeout(()=>{el.classList.remove('open','mo-closing');},200);
+}
 document.addEventListener('keydown',e=>{if((e.ctrlKey||e.metaKey)&&e.key==='k'){e.preventDefault();openGlobalSearch();}if(e.key==='Escape')closeGlobalSearch();});
 function runGlobalSearch(q){
   const r=document.getElementById('global-search-results');
@@ -4469,7 +4524,11 @@ function openAddInfo(idx){
   document.getElementById('addinfo-remarks-input').value='';document.getElementById('addinfo-situation-input').value='';
   renderAddInfoHistories();document.getElementById('addinfo-mo').classList.add('open');
 }
-function closeAddInfo(){document.getElementById('addinfo-mo').classList.remove('open');addInfoIdx=null;}
+function closeAddInfo(){
+  const el=document.getElementById('addinfo-mo');
+  el.classList.add('mo-closing');
+  setTimeout(()=>{el.classList.remove('open','mo-closing');addInfoIdx=null;},200);
+}
 function renderAddInfoHistories(){
   if(addInfoIdx===null)return;const s=students[addInfoIdx];
   document.getElementById('remarks-history').innerHTML=(s.remarksHistory&&s.remarksHistory.length)?s.remarksHistory.map((e,i)=>`<div class="history-entry"><span class="history-time">${fmtDateTime(new Date(e.ts))}</span><span class="history-text">${esc(e.text)}</span><button class="history-del" onclick="delRemark(${i})">&#215;</button></div>`).join(''):'<div class="history-empty">No remarks yet</div>';
@@ -5040,6 +5099,23 @@ function addMonthsISO(isoStr,months){if(!isoStr)return'';const d=new Date(isoStr
 function fmtDateShort(isoStr){if(!isoStr)return'—';const d=new Date(isoStr+'T00:00:00');if(isNaN(d))return'—';return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});}
 function fmtDateLong(isoStr){if(!isoStr)return'—';const d=new Date(isoStr+'T00:00:00');if(isNaN(d))return'—';return d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});}
 function updateExpectedResult(s){if(s.visaLodgedDate)s.expectedResultDate=addDaysISO(s.visaLodgedDate,45);else if(!s.expectedResultDate)s.expectedResultDate='';}
+// Returns the Monday of the week that is `weekOffset` weeks from the current week (0 = this week, 1 = next week), as an ISO date string.
+function startOfWeekISO(weekOffset){
+  const now=new Date();now.setHours(0,0,0,0);
+  const day=now.getDay(); // 0=Sun..6=Sat
+  const diffToMonday=(day===0?-6:1-day); // shift back to Monday
+  const monday=new Date(now);monday.setDate(now.getDate()+diffToMonday+(weekOffset*7));
+  return monday.getFullYear()+'-'+String(monday.getMonth()+1).padStart(2,'0')+'-'+String(monday.getDate()).padStart(2,'0');
+}
+// Checks whether an ISO date string (YYYY-MM-DD) falls within the Mon–Sun week that is `weekOffset` weeks from now (0 = this week, 1 = next week).
+function isDateInWeek(isoStr,weekOffset){
+  if(!isoStr)return false;
+  const d=new Date(isoStr+'T00:00:00');
+  if(isNaN(d))return false;
+  const start=new Date(startOfWeekISO(weekOffset)+'T00:00:00');
+  const end=new Date(start);end.setDate(start.getDate()+7);
+  return d>=start&&d<end;
+}
 
 let visaDateIdx=null,discontinuedIdx=null,reactivateIdx=null;
 
@@ -5480,17 +5556,17 @@ function closeMo(id){
 function initModalClickListeners(){
   document.querySelectorAll('.mo').forEach(modal=>{
     modal.addEventListener('click',e=>{
-      if(e.target===modal){modal.classList.remove('open');if(modal.id==='remind-complete-mo')reminderCompleteIdx=null;}
+      if(e.target===modal)closeMo(modal.id);
     });
   });
   document.querySelectorAll('.addinfo-overlay').forEach(modal=>{
     modal.addEventListener('click',e=>{
-      if(e.target===modal)modal.classList.remove('open');
+      if(e.target===modal)closeAddInfo();
     });
   });
   document.querySelectorAll('.search-overlay').forEach(modal=>{
     modal.addEventListener('click',e=>{
-      if(e.target===modal)modal.classList.remove('open');
+      if(e.target===modal)closeGlobalSearch();
     });
   });
 }

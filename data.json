@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:26:58.934Z",
+    "saved": "2026-08-30T08:30:30.110Z",
     "version": 8,
     "count": 35
   },
@@ -1414,7 +1414,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788078416908,
+      "lastUpdated": 1788078576893,
       "remarks": "Has nz visa refusal",
       "situation": "submitted application has the wrong email address. Tushar vai has contacted them. I will contact them later",
       "remarksHistory": [
@@ -1430,7 +1430,18 @@
         }
       ],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "Malaysia",
+          "university": "University of Wollongong",
+          "program": "Bachelor of Computer Science (Hons)",
+          "agent": "Other",
+          "applicationDate": "2026-08-29",
+          "link": "https://www.uow.edu.my/dual-award-programs/#computing",
+          "classCommencementDate": "2026-10-01",
+          "stage": ""
+        }
+      ],
       "stageHistory": [],
       "locked": false,
       "visaFieldsLocked": false,
@@ -1858,6 +1869,9 @@
   "learnedUnis": {
     "New Zealand": [
       "White cliff College"
+    ],
+    "Malaysia": [
+      "University of Wollongong"
     ]
   },
   "learnedPrograms": [
@@ -1869,9 +1883,22 @@
       "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
       "classCommencementDate": "2027-02-22",
       "lastUsed": 1788071877277
+    },
+    {
+      "id": "pb_1788078576894_e96y7",
+      "country": "Malaysia",
+      "university": "University of Wollongong",
+      "program": "Bachelor of Computer Science (Hons)",
+      "link": "https://www.uow.edu.my/dual-award-programs/#computing",
+      "classCommencementDate": "2026-10-01",
+      "lastUsed": 1788078576894
     }
   ],
   "log": [
+    {
+      "ts": 1788078628063,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788078416909,
       "msg": "Added: S.M._MAINUL_HASAN"

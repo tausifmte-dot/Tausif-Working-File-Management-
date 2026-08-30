@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:13:01.699Z",
+    "saved": "2026-08-30T13:13:35.823Z",
     "version": 8,
     "count": 34
   },
@@ -1187,10 +1187,10 @@
     {
       "id": 1786707888167.5266,
       "name": "Moon Sarkar",
-      "country": "New Zealand",
-      "intake": "June 2026",
+      "country": "Malaysia",
+      "intake": "October 2026",
       "status": "Active",
-      "appStage": "Unconditional offer letter issued",
+      "appStage": "Submitting application",
       "counselor": "",
       "uniCount": 0,
       "moreUni": "N",
@@ -1204,7 +1204,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1788095611193,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1213,9 +1213,19 @@
       "uniApplications": [],
       "stageHistory": [
         {
+          "stage": "Submitting application",
+          "enteredDate": 1788095606530,
+          "duration": 0
+        },
+        {
+          "stage": "Need to look for universities",
+          "enteredDate": 1788095590739,
+          "duration": 0
+        },
+        {
           "stage": "Unconditional offer letter issued",
           "enteredDate": 1772150400000,
-          "duration": 0
+          "duration": 184
         },
         {
           "stage": "Unconditional offer letter issued",
@@ -2228,6 +2238,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095613772,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788095579656,
       "msg": "Removed: Nahid Hasan Sakib"

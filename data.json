@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T11:52:42.715Z",
+    "saved": "2026-08-30T11:53:12.426Z",
     "version": 8,
     "count": 36
   },
@@ -1640,7 +1640,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788090760683,
+      "lastUpdated": 1788090790388,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1660,8 +1660,18 @@
       "stageHistory": [
         {
           "stage": "Visa Refused",
-          "enteredDate": 1787554127122,
+          "enteredDate": 1788090790388,
           "duration": 0
+        },
+        {
+          "stage": "Approve in principle has been issued",
+          "enteredDate": 1788090785164,
+          "duration": 0
+        },
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1787554127122,
+          "duration": 6
         },
         {
           "stage": "Visa lodged",
@@ -1677,8 +1687,14 @@
         "program": "Bachelor of Education in Early Childhood Education",
         "classCommencementDate": "2026-09-28"
       },
-      "locked": false,
-      "closedInfo": null,
+      "locked": true,
+      "closedInfo": {
+        "reason": "Visa Refused — No Resubmission (Final)",
+        "stage": "Visa Refused",
+        "date": 1788090790388,
+        "university": "New Zealand Tertiary College",
+        "program": "Bachelor of Education in Early Childhood Education"
+      },
       "visaLodgedDate": "",
       "expectedResultDate": "",
       "discontinuedDate": "",
@@ -2155,6 +2171,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788090790388,
+      "msg": "Visa refused, decision recorded: Saira Sadia"
+    },
     {
       "ts": 1788090760684,
       "msg": "Reopened: Saira Sadia"

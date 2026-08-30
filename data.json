@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:27:37.222Z",
+    "saved": "2026-08-30T13:28:56.325Z",
     "version": 8,
     "count": 35
   },
@@ -377,7 +377,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787223953881,
+      "lastUpdated": 1788096534274,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -396,14 +396,8 @@
           "duration": 169
         }
       ],
-      "locked": true,
-      "closedInfo": {
-        "reason": "Visa Refused — No Resubmission (Final)",
-        "stage": "Visa Refused",
-        "date": 1787223953882,
-        "university": "",
-        "program": ""
-      },
+      "locked": false,
+      "closedInfo": null,
       "phone": "",
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
@@ -419,32 +413,48 @@
       "country": "New Zealand",
       "intake": "October 2027",
       "status": "Active",
-      "appStage": "Waiting for documents from student side to submit application",
+      "appStage": "Unconditional offer letter issued",
       "counselor": "Md Meraj",
       "uniCount": 0,
       "moreUni": "N",
       "moreUniDate": "",
-      "bankMatured": "",
-      "bankMonths": "",
+      "bankMatured": "Y",
+      "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
       "defer": "N",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
-      "visaPrep": "",
+      "visaPrep": "Started",
       "visaNext": "",
-      "lastUpdated": 1788096416338,
+      "lastUpdated": 1788096528474,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Unitec Institute of Technology (Unitec)",
+          "program": "Master of Professional Accounting",
+          "agent": "GEEbee",
+          "applicationDate": "2026-07-01",
+          "link": "https://www.unitec.ac.nz/career-and-study-options/business/accounting/master-of-professional-accounting/",
+          "classCommencementDate": "2027-02-01",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1788096517979,
+          "duration": 0
+        },
         {
           "stage": "Waiting for documents from student side to submit application",
           "enteredDate": 1787223932950,
-          "duration": 0
+          "duration": 10
         },
         {
           "stage": "Visa Refused",
@@ -2494,9 +2504,22 @@
       "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-teaching-and-learning/",
       "classCommencementDate": "2027-11-01",
       "lastUsed": 1788096315657
+    },
+    {
+      "id": "pb_1788096517979_za3wm",
+      "country": "New Zealand",
+      "university": "Unitec Institute of Technology (Unitec)",
+      "program": "Master of Professional Accounting",
+      "link": "https://www.unitec.ac.nz/career-and-study-options/business/accounting/master-of-professional-accounting/",
+      "classCommencementDate": "2027-02-01",
+      "lastUsed": 1788096517979
     }
   ],
   "log": [
+    {
+      "ts": 1788096534274,
+      "msg": "Reopened: Hafsa Islam Oyshe"
+    },
     {
       "ts": 1788096454229,
       "msg": "Auto-saved"

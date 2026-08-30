@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:05:21.151Z",
+    "saved": "2026-08-30T13:06:55.543Z",
     "version": 8,
     "count": 36
   },
@@ -1640,7 +1640,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788090790388,
+      "lastUpdated": 1788095213511,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1687,14 +1687,8 @@
         "program": "Bachelor of Education in Early Childhood Education",
         "classCommencementDate": "2026-09-28"
       },
-      "locked": true,
-      "closedInfo": {
-        "reason": "Visa Refused — No Resubmission (Final)",
-        "stage": "Visa Refused",
-        "date": 1788090790388,
-        "university": "New Zealand Tertiary College",
-        "program": "Bachelor of Education in Early Childhood Education"
-      },
+      "locked": false,
+      "closedInfo": null,
       "visaLodgedDate": "",
       "expectedResultDate": "",
       "discontinuedDate": "",
@@ -1897,32 +1891,48 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Conditional offer letter issued",
+      "appStage": "Unconditional offer letter issued",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
       "moreUniDate": "",
-      "bankMatured": "",
-      "bankMonths": "",
+      "bankMatured": "Y",
+      "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
       "defer": "N",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
-      "visaPrep": "",
+      "visaPrep": "Started",
       "visaNext": "",
-      "lastUpdated": 1787651562676,
+      "lastUpdated": 1788095178064,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Auckland Institute of Studies (AIS)",
+          "program": "Bachelor of Information Technology",
+          "agent": "UP",
+          "applicationDate": "2026-08-01",
+          "link": "https://www.ais.ac.nz/study/information-technology/7-300-bachelor-of-information-technology",
+          "classCommencementDate": "2026-09-14",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1788095164514,
+          "duration": 0
+        },
         {
           "stage": "Conditional offer letter issued",
           "enteredDate": 1787651550884,
-          "duration": 0
+          "duration": 5
         },
         {
           "stage": "Application submitted",
@@ -2225,10 +2235,14 @@
       "program": "Bachelor of Information Technology",
       "link": "https://www.ais.ac.nz/study/information-technology/7-300-bachelor-of-information-technology",
       "classCommencementDate": "2026-09-14",
-      "lastUsed": 1788095090054
+      "lastUsed": 1788095164514
     }
   ],
   "log": [
+    {
+      "ts": 1788095213511,
+      "msg": "Reopened: Saira Sadia"
+    },
     {
       "ts": 1788095119108,
       "msg": "Visa lodged date set for Tanjedul Sarker: 2026-08-07 (expected result 2026-09-21)"

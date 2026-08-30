@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T12:23:58.226Z",
+    "saved": "2026-08-30T13:05:00.325Z",
     "version": 8,
     "count": 36
   },
@@ -910,6 +910,72 @@
       "applicationDeadline": ""
     },
     {
+      "id": 1786707888165.9988,
+      "name": "MD RIAD",
+      "country": "New Zealand",
+      "intake": "October 2026",
+      "status": "Active",
+      "appStage": "Waiting for documents from student side to submit application",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "",
+      "bankMonths": "",
+      "bankExpectedDate": "",
+      "defer": "Y",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "N",
+      "lastUpdated": 1788081453146,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Otago Polytechnic (Otago Poly)",
+          "program": "Bachelor of Information Technology",
+          "agent": "RBS",
+          "applicationDate": "2026-06-01",
+          "link": "https://auckland.op.ac.nz/our-programmes/information-technology/bachelor-of-information-technology",
+          "classCommencementDate": "2026-10-05",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
+      "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1788081202905,
+          "duration": 0
+        },
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1777507200000,
+          "duration": 122
+        }
+      ],
+      "phone": "",
+      "visaFieldsLocked": true,
+      "visaLodgedDate": "2026-08-13",
+      "expectedResultDate": "2026-09-27",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": "",
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "Otago Polytechnic (Otago Poly)",
+        "program": "Bachelor of Information Technology",
+        "classCommencementDate": "2026-10-05"
+      },
+      "email": ""
+    },
+    {
       "id": 1787288403083.617,
       "name": "Md. Mahmudul Haque",
       "country": "New Zealand",
@@ -1239,72 +1305,6 @@
       "discontinuedReason": "",
       "nextIntakeDate": "",
       "applicationDeadline": ""
-    },
-    {
-      "id": 1786707888165.9988,
-      "name": "MD RIAD",
-      "country": "New Zealand",
-      "intake": "October 2026",
-      "status": "Active",
-      "appStage": "Waiting for documents from student side to submit application",
-      "counselor": "Tausif Jaman",
-      "uniCount": 0,
-      "moreUni": "N",
-      "moreUniDate": "",
-      "bankMatured": "",
-      "bankMonths": "",
-      "bankExpectedDate": "",
-      "defer": "Y",
-      "gsApplied": "N",
-      "gsStatus": "",
-      "coe": "N",
-      "visaPrep": "",
-      "visaNext": "N",
-      "lastUpdated": 1788081453146,
-      "remarks": "",
-      "situation": "",
-      "remarksHistory": [],
-      "situationHistory": [],
-      "applicationCompletions": [],
-      "uniApplications": [
-        {
-          "country": "New Zealand",
-          "university": "Otago Polytechnic (Otago Poly)",
-          "program": "Bachelor of Information Technology",
-          "agent": "RBS",
-          "applicationDate": "2026-06-01",
-          "link": "https://auckland.op.ac.nz/our-programmes/information-technology/bachelor-of-information-technology",
-          "classCommencementDate": "2026-10-05",
-          "stage": "Unconditional offer letter issued"
-        }
-      ],
-      "stageHistory": [
-        {
-          "stage": "Visa lodged",
-          "enteredDate": 1788081202905,
-          "duration": 0
-        },
-        {
-          "stage": "Unconditional offer letter issued",
-          "enteredDate": 1777507200000,
-          "duration": 122
-        }
-      ],
-      "phone": "",
-      "visaFieldsLocked": true,
-      "visaLodgedDate": "2026-08-13",
-      "expectedResultDate": "2026-09-27",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
-      "nextIntakeDate": "",
-      "applicationDeadline": "",
-      "visaApplicationRef": {
-        "country": "New Zealand",
-        "university": "Otago Polytechnic (Otago Poly)",
-        "program": "Bachelor of Information Technology",
-        "classCommencementDate": "2026-10-05"
-      },
-      "email": ""
     },
     {
       "id": 1786707888166.4446,
@@ -1955,7 +1955,7 @@
       "country": "New Zealand",
       "intake": "June 2026",
       "status": "Active",
-      "appStage": "Tuition fee paid",
+      "appStage": "Visa lodged",
       "counselor": "Edris Ali Emon",
       "uniCount": 0,
       "moreUni": "N",
@@ -1963,24 +1963,40 @@
       "bankMatured": "",
       "bankMonths": "",
       "bankExpectedDate": "",
-      "defer": "N",
+      "defer": "Y",
       "gsApplied": "Y",
       "gsStatus": "Applied",
       "coe": "N",
       "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1787385283736,
+      "visaNext": "N",
+      "lastUpdated": 1788095098295,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Auckland Institute of Studies (AIS)",
+          "program": "Bachelor of Information Technology",
+          "agent": "UP",
+          "applicationDate": "2026-06-10",
+          "link": "https://www.ais.ac.nz/study/information-technology/7-300-bachelor-of-information-technology",
+          "classCommencementDate": "2026-09-14",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1788095098295,
+          "duration": 0
+        },
         {
           "stage": "Tuition fee paid",
           "enteredDate": 1787385283736,
-          "duration": 0
+          "duration": 8
         },
         {
           "stage": "Visa lodged",
@@ -2015,7 +2031,13 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "Auckland Institute of Studies (AIS)",
+        "program": "Bachelor of Information Technology",
+        "classCommencementDate": "2026-09-14"
+      }
     },
     {
       "id": 1786707888166.6794,
@@ -2195,9 +2217,22 @@
       "link": "https://auckland.op.ac.nz/our-programmes/information-technology/bachelor-of-information-technology",
       "classCommencementDate": "2026-10-05",
       "lastUsed": 1788083617157
+    },
+    {
+      "id": "pb_1788095090054_t4wch",
+      "country": "New Zealand",
+      "university": "Auckland Institute of Studies (AIS)",
+      "program": "Bachelor of Information Technology",
+      "link": "https://www.ais.ac.nz/study/information-technology/7-300-bachelor-of-information-technology",
+      "classCommencementDate": "2026-09-14",
+      "lastUsed": 1788095090054
     }
   ],
   "log": [
+    {
+      "ts": 1788095098296,
+      "msg": "Visa lodged: Tanjedul Sarker"
+    },
     {
       "ts": 1788092635231,
       "msg": "Auto-saved"

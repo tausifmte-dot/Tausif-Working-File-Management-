@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T09:17:35.191Z",
+    "saved": "2026-08-30T09:20:24.374Z",
     "version": 8,
     "count": 36
   },
@@ -1311,7 +1311,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Processing for Application",
+      "appStage": "Visa lodged",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -1324,29 +1324,56 @@
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1786707888165,
+      "visaNext": "Y",
+      "lastUpdated": 1788081622326,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "University of Waikato (Waikato)",
+          "program": "PRE MASTERS TO MASTERS IN SUBPPLY CHAIN",
+          "agent": "Other",
+          "applicationDate": "2026-07-01",
+          "link": "https://college.waikato.ac.nz/international-programmes/postgraduate/dippp/",
+          "classCommencementDate": "2026-11-09",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1788081622326,
+          "duration": 0
+        },
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1788081614970,
+          "duration": 0
+        },
         {
           "stage": "Processing for Application",
           "enteredDate": 1777334400000,
-          "duration": 0
+          "duration": 124
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false,
+      "visaFieldsLocked": true,
       "visaLodgedDate": "",
       "expectedResultDate": "",
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "University of Waikato (Waikato)",
+        "program": "PRE MASTERS TO MASTERS IN SUBPPLY CHAIN",
+        "classCommencementDate": "2026-11-09"
+      }
     },
     {
       "id": 1786707888165.7935,
@@ -2112,9 +2139,22 @@
       "link": "https://www.ais.ac.nz/bbus",
       "classCommencementDate": "2026-09-14",
       "lastUsed": 1788080483717
+    },
+    {
+      "id": "pb_1788081614969_cl7c5",
+      "country": "New Zealand",
+      "university": "University of Waikato (Waikato)",
+      "program": "PRE MASTERS TO MASTERS IN SUBPPLY CHAIN",
+      "link": "https://college.waikato.ac.nz/international-programmes/postgraduate/dippp/",
+      "classCommencementDate": "2026-11-09",
+      "lastUsed": 1788081614970
     }
   ],
   "log": [
+    {
+      "ts": 1788081622327,
+      "msg": "Visa lodged: Nasib Ibne Nizam"
+    },
     {
       "ts": 1788081453147,
       "msg": "Updated: MD RIAD"

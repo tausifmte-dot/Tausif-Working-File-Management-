@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T09:01:30.110Z",
+    "saved": "2026-08-30T09:01:33.034Z",
     "version": 8,
     "count": 36
   },
@@ -690,7 +690,7 @@
       "country": "New Zealand",
       "intake": "October 2026",
       "status": "Active",
-      "appStage": "Unconditional offer letter issued",
+      "appStage": "Visa lodged",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -698,13 +698,13 @@
       "bankMatured": "",
       "bankMonths": "",
       "bankExpectedDate": "",
-      "defer": "N",
+      "defer": "Y",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1788080483717,
+      "visaNext": "N",
+      "lastUpdated": 1788080490990,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -723,6 +723,11 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1788080490990,
+          "duration": 0
+        },
         {
           "stage": "Unconditional offer letter issued",
           "enteredDate": 1788080483718,
@@ -745,13 +750,19 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false,
+      "visaFieldsLocked": true,
       "visaLodgedDate": "",
       "expectedResultDate": "",
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "Auckland Institute of Studies (AIS)",
+        "program": "Bachelor of Business (BBus)",
+        "classCommencementDate": "2026-09-14"
+      }
     },
     {
       "id": 1786707888165.96,
@@ -2081,6 +2092,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788080490991,
+      "msg": "Visa lodged: Md Anaf Bin Hassan"
+    },
     {
       "ts": 1788080488075,
       "msg": "Auto-saved"

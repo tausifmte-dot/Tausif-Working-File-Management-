@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:50:09.560Z",
+    "saved": "2026-08-30T08:52:40.706Z",
     "version": 8,
     "count": 36
   },
@@ -27,7 +27,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "Y",
-      "lastUpdated": 1788071877277,
+      "lastUpdated": 1788079958669,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -81,8 +81,8 @@
         "program": "Bachelor of Applied Computing L 7",
         "classCommencementDate": "2027-02-22"
       },
-      "visaLodgedDate": "",
-      "expectedResultDate": "",
+      "visaLodgedDate": "2026-08-27",
+      "expectedResultDate": "2026-10-11",
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
@@ -2056,6 +2056,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788079958669,
+      "msg": "Visa lodged date set for AKIMUL ISLAM TAZIM: 2026-08-27 (expected result 2026-10-11)"
+    },
     {
       "ts": 1788079807534,
       "msg": "Visa lodged date set for Lamia Akter: 2026-08-03 (expected result 2026-09-17)"

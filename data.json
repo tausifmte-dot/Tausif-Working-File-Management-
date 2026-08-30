@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:36:30.099Z",
+    "saved": "2026-08-30T08:37:31.242Z",
     "version": 8,
     "count": 36
   },
@@ -1932,7 +1932,18 @@
       "applicationDeadline": ""
     }
   ],
-  "pendingTasks": [],
+  "pendingTasks": [
+    {
+      "id": 1788079023445,
+      "studentName": "SIAM AHMED",
+      "studentId": "1788078714704.3745",
+      "desc": "NEED TO RESUBMIT THE ARA FORM WITH VISIBLE SIGN",
+      "priority": "red",
+      "deadline": "2026-09-02",
+      "done": false,
+      "ts": 1788079023445
+    }
+  ],
   "quickNotes": [],
   "learnedUnis": {
     "New Zealand": [
@@ -1981,6 +1992,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788079048222,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788078988073,
       "msg": "Auto-saved"

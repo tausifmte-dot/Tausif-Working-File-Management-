@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:40:30.091Z",
+    "saved": "2026-08-30T08:49:30.085Z",
     "version": 8,
     "count": 36
   },
@@ -514,7 +514,7 @@
       "country": "New Zealand",
       "intake": "October 2026",
       "status": "Active",
-      "appStage": "Application submitted",
+      "appStage": "Unconditional offer letter issued",
       "counselor": "Rajib Hossain",
       "uniCount": 0,
       "moreUni": "N",
@@ -528,18 +528,34 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888165,
+      "lastUpdated": 1788079765903,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Otago Polytechnic (Otago Poly)",
+          "program": "Bachelor of Information Technology",
+          "agent": "GEEbee",
+          "applicationDate": "2026-07-10",
+          "link": "https://auckland.op.ac.nz/our-programmes/information-technology/bachelor-of-information-technology",
+          "classCommencementDate": "2026-10-05",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1788079765904,
+          "duration": 0
+        },
         {
           "stage": "Application submitted",
           "enteredDate": 1780272000000,
-          "duration": 0
+          "duration": 90
         }
       ],
       "phone": "",
@@ -2017,9 +2033,22 @@
       "link": "https://www.unitec.ac.nz/career-and-study-options/computing-and-information-technology/bachelor-of-computing-systems/",
       "classCommencementDate": "2027-02-15",
       "lastUsed": 1788079219741
+    },
+    {
+      "id": "pb_1788079765904_576b5",
+      "country": "New Zealand",
+      "university": "Otago Polytechnic (Otago Poly)",
+      "program": "Bachelor of Information Technology",
+      "link": "https://auckland.op.ac.nz/our-programmes/information-technology/bachelor-of-information-technology",
+      "classCommencementDate": "2026-10-05",
+      "lastUsed": 1788079765904
     }
   ],
   "log": [
+    {
+      "ts": 1788079768065,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788079228067,
       "msg": "Auto-saved"

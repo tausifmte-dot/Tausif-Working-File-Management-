@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:16:57.455Z",
+    "saved": "2026-08-30T13:17:12.635Z",
     "version": 8,
     "count": 34
   },
@@ -857,21 +857,21 @@
       "country": "New Zealand",
       "intake": "June 2026",
       "status": "Discontinued",
-      "appStage": "Unconditional offer letter issued",
+      "appStage": "Visa Refused",
       "counselor": "Md Meraj",
       "uniCount": 0,
-      "moreUni": "N",
+      "moreUni": "",
       "moreUniDate": "",
       "bankMatured": "",
       "bankMonths": "",
       "bankExpectedDate": "",
-      "defer": "N",
+      "defer": "Y",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1788095815415,
+      "visaNext": "N",
+      "lastUpdated": 1788095830593,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -890,6 +890,11 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1788095830593,
+          "duration": 0
+        },
         {
           "stage": "Discontinued (Visa Rejected)",
           "enteredDate": 1788095815415,
@@ -923,7 +928,15 @@
       "discontinuedDate": "2026-08-30",
       "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "NZTC",
+        "program": "Bachelor of Education (Early Childhood Education)",
+        "classCommencementDate": "2026-08-28"
+      },
+      "locked": false,
+      "closedInfo": null
     },
     {
       "id": 1786707888165.9988,
@@ -2322,6 +2335,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095830594,
+      "msg": "Visa refused, decision recorded: MD RAKIBUL ISLAM"
+    },
     {
       "ts": 1788095815416,
       "msg": "Marked discontinued: MD RAKIBUL ISLAM — Visa Rejected (2026-08-30)"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T09:53:51.810Z",
+    "saved": "2026-08-30T11:52:42.715Z",
     "version": 8,
     "count": 36
   },
@@ -1640,7 +1640,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787554127122,
+      "lastUpdated": 1788090760683,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1677,14 +1677,8 @@
         "program": "Bachelor of Education in Early Childhood Education",
         "classCommencementDate": "2026-09-28"
       },
-      "locked": true,
-      "closedInfo": {
-        "reason": "Visa Refused — No Resubmission (Final)",
-        "stage": "Visa Refused",
-        "date": 1787554127122,
-        "university": "New Zealand Tertiary College",
-        "program": "Bachelor of Education in Early Childhood Education"
-      },
+      "locked": false,
+      "closedInfo": null,
       "visaLodgedDate": "",
       "expectedResultDate": "",
       "discontinuedDate": "",
@@ -2161,6 +2155,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788090760684,
+      "msg": "Reopened: Saira Sadia"
+    },
     {
       "ts": 1788083629762,
       "msg": "Visa lodged date set for Amrito Gain: 2026-07-27 (expected result 2026-09-10)"

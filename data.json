@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:16:07.424Z",
+    "saved": "2026-08-30T13:16:57.455Z",
     "version": 8,
     "count": 34
   },
@@ -856,7 +856,7 @@
       "name": "MD RAKIBUL ISLAM",
       "country": "New Zealand",
       "intake": "June 2026",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Unconditional offer letter issued",
       "counselor": "Md Meraj",
       "uniCount": 0,
@@ -871,14 +871,30 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1788095815415,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "NZTC",
+          "program": "Bachelor of Education (Early Childhood Education)",
+          "agent": "UP",
+          "applicationDate": "2026-05-01",
+          "link": "https://www.nztertiarycollege.ac.nz/early-childhood-education/undergraduate-qualifications/bachelor-education-early-childhood-education",
+          "classCommencementDate": "2026-08-28",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Visa Rejected)",
+          "enteredDate": 1788095815415,
+          "duration": 0
+        },
         {
           "stage": "Unconditional offer letter issued",
           "enteredDate": 1764806400000,
@@ -904,8 +920,8 @@
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-08-30",
+      "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -2302,10 +2318,14 @@
       "program": "Bachelor of Education (Early Childhood Education)",
       "link": "https://www.nztertiarycollege.ac.nz/early-childhood-education/undergraduate-qualifications/bachelor-education-early-childhood-education",
       "classCommencementDate": "2026-08-28",
-      "lastUsed": 1788095491659
+      "lastUsed": 1788095806496
     }
   ],
   "log": [
+    {
+      "ts": 1788095815416,
+      "msg": "Marked discontinued: MD RAKIBUL ISLAM — Visa Rejected (2026-08-30)"
+    },
     {
       "ts": 1788095765381,
       "msg": "Visa issued & file closed: MD. NUR ULLAH RUPOM"

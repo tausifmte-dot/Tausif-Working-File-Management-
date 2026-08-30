@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:12:16.749Z",
+    "saved": "2026-08-30T13:13:01.699Z",
     "version": 8,
-    "count": 35
+    "count": 34
   },
   "students": [
     {
@@ -1233,85 +1233,6 @@
       "applicationDeadline": ""
     },
     {
-      "id": 1723894400031,
-      "name": "Nahid Hasan Sakib",
-      "country": "New Zealand",
-      "intake": "February 2027",
-      "status": "Discontinued",
-      "appStage": "Application submitted",
-      "counselor": "HBD Services Bangladesh",
-      "uniCount": 2,
-      "moreUni": "N",
-      "moreUniDate": "",
-      "bankMatured": "",
-      "bankMonths": "",
-      "bankExpectedDate": "",
-      "defer": "N",
-      "gsApplied": "N",
-      "gsStatus": "",
-      "coe": "N",
-      "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1788095534720,
-      "remarks": "NZUAC Student. Dual application: Wintec (Bachelor Applied Management Supply Chain) + Ara Institute (Bachelor Applied Management Supply Chain & Logistics). Both Feb 2027 intake. Documents submitted: Passport, Resume, PTE, Academic records. CRITICAL: Statement of Purpose required for both universities - OVERDUE as of Aug 17, 2026. Expected offers: Sept-Oct 2026.",
-      "situation": "Pending SOP submission",
-      "remarksHistory": [
-        {
-          "date": 1786966263727,
-          "remark": "Application submitted to both NZUAC universities. Documents sent. Awaiting SOP from student.",
-          "by": "HBD Services"
-        }
-      ],
-      "situationHistory": [
-        {
-          "situation": "Pending SOP submission",
-          "date": 1786966263727
-        }
-      ],
-      "applicationCompletions": [],
-      "uniApplications": [
-        {
-          "country": "New Zealand",
-          "university": "Waikato Institute of Technology (Wintec)",
-          "program": "Bachelor of Applied Management in Supply Chain Logistics",
-          "agent": "NZUAC",
-          "applicationDate": "2026-08-04"
-        },
-        {
-          "country": "New Zealand",
-          "university": "Ara Institute of Canterbury",
-          "program": "Bachelor of Applied Management (Supply Chain & Logistics)",
-          "agent": "NZUAC",
-          "applicationDate": "2026-08-04"
-        }
-      ],
-      "stageHistory": [
-        {
-          "stage": "Discontinued (Student Withdrew)",
-          "enteredDate": 1788095534720,
-          "duration": 0
-        },
-        {
-          "stage": "Application submitted",
-          "enteredDate": 1787328601269,
-          "duration": 0
-        },
-        {
-          "stage": "Application submitted",
-          "enteredDate": 1785801600000,
-          "duration": 17
-        }
-      ],
-      "phone": "",
-      "visaFieldsLocked": false,
-      "visaLodgedDate": "",
-      "expectedResultDate": "",
-      "discontinuedDate": "2026-08-30",
-      "discontinuedReason": "Student Withdrew",
-      "nextIntakeDate": "",
-      "applicationDeadline": ""
-    },
-    {
       "id": 1786707888166.4446,
       "name": "Nasib Ibne Nizam",
       "country": "New Zealand",
@@ -2307,6 +2228,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095579656,
+      "msg": "Removed: Nahid Hasan Sakib"
+    },
     {
       "ts": 1788095534720,
       "msg": "Marked discontinued: Nahid Hasan Sakib — Student Withdrew (2026-08-30)"

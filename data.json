@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:37:31.242Z",
+    "saved": "2026-08-30T08:39:30.100Z",
     "version": 8,
     "count": 36
   },
@@ -997,23 +997,23 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Waiting for documents from student side to submit application",
+      "appStage": "Applications are with agents for review",
       "counselor": "",
       "phone": "",
       "email": "",
       "uniCount": 0,
       "moreUni": "Y",
       "moreUniDate": "2026-08-25",
-      "bankMatured": "havent opened yet",
-      "bankMonths": "",
-      "bankExpectedDate": "2026-11-01",
+      "bankMatured": "N",
+      "bankMonths": "3 months",
+      "bankExpectedDate": "2026-08-30",
       "defer": "N",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787557969949,
+      "lastUpdated": 1788079163522,
       "remarks": "STUDENT FINANCE IS POOR - STUDENT IS CURRENTLY ARRANGING FUNDS - 35 L THEIR OWN AND THE REST IS PARKING FUND. BANK TRANSFER HAS BEEN ASKED TO MAINTAIN",
       "situation": "NEED TO WRITE SOP (GIVEN TO STUDENT TO WRITE) \n\nNEED TO RECEIVE STUDY CONTINUATION DOCUMENTS FROM HIM",
       "remarksHistory": [
@@ -1049,7 +1049,13 @@
           "classCommencementDate": "2027-02-15"
         }
       ],
-      "stageHistory": [],
+      "stageHistory": [
+        {
+          "stage": "Applications are with agents for review",
+          "enteredDate": 1788079133854,
+          "duration": 0
+        }
+      ],
       "locked": false,
       "closedInfo": null,
       "visaApplicationRef": null,
@@ -1992,6 +1998,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788079168075,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788079048222,
       "msg": "Auto-saved"

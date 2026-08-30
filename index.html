@@ -1317,6 +1317,7 @@ html,body{overflow-x:hidden;max-width:100vw}
       <div id="au-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
       <div id="ca-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
       <div id="nz-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
+      <div id="my-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
     </div>
   </div>
 
@@ -1681,7 +1682,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <!-- VISA LODGED DATE MODAL (Features 4 & 5) -->
 <div class="mo" id="visa-date-mo">
   <div class="modal modal-sm">
-    <div class="modal-hdr"><h3>📅 Visa Lodged Date</h3><button class="modal-close" onclick="closeMo('visa-date-mo')">&#215;</button></div>
+    <div class="modal-hdr"><h3>📅 Visa Lodgment Date</h3><button class="modal-close" onclick="closeMo('visa-date-mo')">&#215;</button></div>
     <div class="modal-body">
       <p style="color:var(--ts);font-size:13px;margin:0 0 12px">When was this visa application lodged for <strong id="vl-student"></strong>?</p>
       <div class="fgroup"><label>Lodgement Date</label><input type="date" id="vl-date" onchange="calcVisaResultPreview()"></div>
@@ -2061,8 +2062,8 @@ const GH_FILE='data.json', GH_BRANCH='main';
 let ghFileSha=null; // tracks current SHA of data.json in repo (required for updates)
 const MOS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 const INTAKES=['', ...MOS.flatMap(m=>['2026','2027'].map(y=>m+' '+y))];
-const COUNTRIES=['','Australia','New Zealand','Canada'];
-const FLAGS={'Australia':'🇦🇺','New Zealand':'🇳🇿','Canada':'🇨🇦'};
+const COUNTRIES=['','Australia','New Zealand','Canada','Malaysia'];
+const FLAGS={'Australia':'🇦🇺','New Zealand':'🇳🇿','Canada':'🇨🇦','Malaysia':'🇲🇾'};
 const _bldTagA='Hbd9x-'; // internal build revision tag — do not modify
 const STATUSES=['Active','Active but Unsure','Discontinued'];
 const AGENTS=['','UP','GEEbee','RBS','NZUAC','GSP'];
@@ -2076,7 +2077,8 @@ const APP_STAGES=['','Documents from student are pending','Looking for Universit
 const COUNTRY_STAGES={
   'Australia':['University shortlisting ongoing','Application submitted directly','Application given to agent','Application submitted by agent','Additional information requested by agent','Conditional offer letter received','GS assessment preparation started','GS assessment applied','GS assessment rejected','GS assessment reapplied for another university','GS assessment cleared','Unconditional offer letter received','Tuition fees and OSHC paid','Confirmation of enrollment received','Visa lodged','Visa refused','Visa granted'],
   'Canada':['Looking for university','Waiting for student to provide documents','Writing admission statement of purpose','Receiving conditional offer letter','Tuition deposit paid','Received LOA','Preparing documentations for visa submission','Visa Lodged','Biometrics Done','Received passport Request','Visa rejected','Visa Granted'],
-  'New Zealand':['Waiting for documents from student side to submit application','Need to look for universities','Applications are with agents for review','New information requested by the agent','Application submitted','Conditional offer letter issued','Unconditional offer letter issued','Waiting for bank solvency to get matured','Preparing required visa documents','Visa lodged','New information requested by the visa officer','Visa Interview Schedule','Visa Refused','Approve in principle has been issued','Need to make tuition deposit','Tuition fee paid','Electronic visa document received','Visa issued']
+  'New Zealand':['Waiting for documents from student side to submit application','Need to look for universities','Applications are with agents for review','New information requested by the agent','Application submitted','Conditional offer letter issued','Unconditional offer letter issued','Waiting for bank solvency to get matured','Preparing required visa documents','Visa lodged','New information requested by the visa officer','Visa Interview Schedule','Visa Refused','Approve in principle has been issued','Need to make tuition deposit','Tuition fee paid','Electronic visa document received','Visa issued'],
+  'Malaysia':['Selection of course','Submitting application','Getting conditional offer','Applying for EMGS','Receiving VAL & full offer letter','Applying for Single Entry Visa (SEV)','Visa lodged','Visa refused','Visa granted','Tuition fee payment','Booking accommodation','Booking air ticket','Completing airport pickup form','Submitting immigration clearance form to university','Applying for Malaysia Digital Arrival Card (MDAC)','Fly to Kuala Lumpur / Penang','Immigration cross with special pass','Visit international office of university','Medical exam','Attending orientation / classes']
 };
 // ── Per-application stages (Unified Master Stage 3–8: With Agent/Review through Unconditional Offer) ──
 // These are the ONLY stages relevant to a single university application (pre-visa). Visa-related
@@ -2900,24 +2902,29 @@ function updateSummary(){
   const auContainer=document.getElementById('au-stats-container');
   const caContainer=document.getElementById('ca-stats-container');
   const nzContainer=document.getElementById('nz-stats-container');
+  const myContainer=document.getElementById('my-stats-container');
   
   const auStats=buildAustraliaStats(pool);
   const caStats=buildCanadaStats(pool);
   const nzStats=buildNewZealandStats(pool);
+  const myStats=buildMalaysiaStats(pool);
   
   if(auStats) auContainer.innerHTML=auStats; else auContainer.innerHTML='<div style="color:var(--tm);padding:12px">No Australia students for selected intake.</div>';
   if(caStats) caContainer.innerHTML=caStats; else caContainer.innerHTML='<div style="color:var(--tm);padding:12px">No Canada students for selected intake.</div>';
   if(nzStats) nzContainer.innerHTML=nzStats; else nzContainer.innerHTML='<div style="color:var(--tm);padding:12px">No New Zealand students for selected intake.</div>';
+  if(myStats) myContainer.innerHTML=myStats; else myContainer.innerHTML='<div style="color:var(--tm);padding:12px">No Malaysia students for selected intake.</div>';
   
   // Make containers visible by default
   auContainer.style.display='block';
   caContainer.style.display='block';
   nzContainer.style.display='block';
+  myContainer.style.display='block';
   // Animate country stat counters after a short delay
   setTimeout(()=>{
     animateCounters(auContainer);
     animateCounters(caContainer);
     animateCounters(nzContainer);
+    animateCounters(myContainer);
   },120);
 }
 
@@ -2992,6 +2999,31 @@ function buildNewZealandStats(pool){
   return `<div style="margin:16px 0"><div style="font-weight:700;color:var(--tp);margin-bottom:12px;font-size:14px">🇳🇿 New Zealand — Destination Statistics</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">${stats.map((s,i)=>`<div class="sc def clickable anim-in" style="animation-delay:${i*50}ms;background:${s.bg||'rgba(217,119,6,0.08)'};border-left:3px solid ${s.bd||'var(--wn)'}" onclick="openStatModal('${s.key}')"><div class="sv" data-target="${s.val}">0</div><div class="sc-lbl">${s.lbl}</div></div>`).join('')}</div></div>`;
 }
 
+// MALAYSIA STATS BUILDER
+function buildMalaysiaStats(pool){
+  const myPool=pool.filter(s=>s.country==='Malaysia');
+  if(!myPool.length)return null;
+  
+  const stats=[
+    {lbl:'Total Active MY',val:myPool.length, key:'country::Malaysia'},
+    {lbl:'Applications Submitted',val:myPool.filter(s=>s.appStage && !['Selection of course'].includes(s.appStage)).length,cls:'def',key:'my::app_submitted'},
+    {lbl:'Conditional Offer Received',val:myPool.filter(s=>s.appStage==='Getting conditional offer').length, key:'my::stage::Getting conditional offer'},
+    {lbl:'Applied for EMGS',val:myPool.filter(s=>s.appStage==='Applying for EMGS').length, key:'my::stage::Applying for EMGS'},
+    {lbl:'VAL & Full Offer Received',val:myPool.filter(s=>s.appStage==='Receiving VAL & full offer letter').length, key:'my::stage::Receiving VAL & full offer letter'},
+    {lbl:'SEV Applied',val:myPool.filter(s=>s.appStage==='Applying for Single Entry Visa (SEV)').length, key:'my::stage::Applying for Single Entry Visa (SEV)'},
+    {lbl:'Visa Lodged',val:myPool.filter(s=>s.appStage==='Visa lodged').length, key:'my::stage::Visa lodged'},
+    {lbl:'Visa Refused',val:myPool.filter(s=>s.appStage==='Visa refused').length, key:'my::stage::Visa refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
+    {lbl:'Visa Granted',val:myPool.filter(s=>s.appStage==='Visa granted').length, key:'my::stage::Visa granted', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Tuition Fee Paid',val:myPool.filter(s=>s.appStage==='Tuition fee payment').length, key:'my::stage::Tuition fee payment'},
+    {lbl:'Accommodation Booked',val:myPool.filter(s=>s.appStage==='Booking accommodation').length, key:'my::stage::Booking accommodation'},
+    {lbl:'Air Ticket Booked',val:myPool.filter(s=>s.appStage==='Booking air ticket').length, key:'my::stage::Booking air ticket'},
+    {lbl:'Attending Orientation/Classes',val:myPool.filter(s=>s.appStage==='Attending orientation / classes').length, key:'my::stage::Attending orientation / classes', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Expecting Visa This Intake',val:myPool.filter(s=>s.visaNext==='Y').length, key:'my::visa_next', bg:'rgba(124,58,237,0.08)', bd:'#7c3aed'}
+  ];
+  
+  return `<div style="margin:16px 0"><div style="font-weight:700;color:var(--tp);margin-bottom:12px;font-size:14px">🇲🇾 Malaysia — Destination Statistics</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">${stats.map((s,i)=>`<div class="sc def clickable anim-in" style="animation-delay:${i*50}ms;background:${s.bg||'rgba(220,38,38,0.06)'};border-left:3px solid ${s.bd||'#dc2626'}" onclick="openStatModal('${s.key}')"><div class="sv" data-target="${s.val}">0</div><div class="sc-lbl">${s.lbl}</div></div>`).join('')}</div></div>`;
+}
+
 // ════════════════════════════════════════════════════════════
 // AGENT STATISTICS
 // ════════════════════════════════════════════════════════════
@@ -3052,10 +3084,12 @@ function toggleCountrySummary(){
   const auContainer=document.getElementById('au-stats-container');
   const caContainer=document.getElementById('ca-stats-container');
   const nzContainer=document.getElementById('nz-stats-container');
+  const myContainer=document.getElementById('my-stats-container');
   const isHidden=auContainer.style.display==='none';
   auContainer.style.display=isHidden?'block':'none';
   caContainer.style.display=isHidden?'block':'none';
   nzContainer.style.display=isHidden?'block':'none';
+  myContainer.style.display=isHidden?'block':'none';
 }
 
 function getStatEntries(key){
@@ -3083,6 +3117,8 @@ function getStatEntries(key){
   if(key==='ca::app_submitted') return make(pool.filter(s=>s.country==='Canada' && s.appStage && !['Looking for university','Waiting for student to provide documents'].includes(s.appStage)), 'Applications Submitted (CA)', s=>`Stage: ${s.appStage}`);
   if(key==='nz::app_submitted') return make(pool.filter(s=>s.country==='New Zealand' && s.appStage && !['Waiting for documents from student side to submit application','Need to look for universities','Applications are with agents for review','New information requested by the agent'].includes(s.appStage)), 'Applications Submitted (NZ)', s=>`Stage: ${s.appStage}`);
   if(key==='nz::prep_visa') return make(pool.filter(s=>s.appStage==='Preparing required visa documents'), 'Preparing Required Visa Documents', s=>`Country: ${s.country||'Not set'}`);
+  if(key==='my::app_submitted') return make(pool.filter(s=>s.country==='Malaysia' && s.appStage && !['Selection of course'].includes(s.appStage)), 'Applications Submitted (MY)', s=>`Stage: ${s.appStage}`);
+  if(key==='my::visa_next') return make(pool.filter(s=>s.country==='Malaysia'&&s.visaNext==='Y'),'Expecting Visa This Intake (MY)',s=>`Stage: ${s.appStage||'Not set'}`);
   if(key==='visa::lodge') return make(pool.filter(s=>s.appStage==='Visa lodged'||s.appStage==='Visa Lodged'), 'Total Visa Lodge', s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage}`);
   if(key==='visa::decision_this_week') return make(pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,0)), 'Visa Decision Expected This Week', s=>`Country: ${s.country||'Not set'} · Expected: ${fmtDateShort(s.expectedResultDate)}`);
   if(key==='visa::decision_next_week') return make(pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,1)), 'Visa Decision Expected Next Week', s=>`Country: ${s.country||'Not set'} · Expected: ${fmtDateShort(s.expectedResultDate)}`);
@@ -3386,9 +3422,9 @@ function ukRowHtml(c,colLabel){
     const overdue=dTo<0;
     const style=overdue?'style="color:#dc2626;font-weight:700"':soon?'style="color:#b45309;font-weight:700"':'style="color:var(--tm)"';
     const sub=overdue?`${Math.abs(dTo)}d overdue`:dTo===0?'today!':`${dTo}d left`;
-    decisionCell=`${fmtDateShort(s.expectedResultDate)} <span ${style}>(${sub})</span>`;
+    decisionCell=`${fmtDateShort(s.expectedResultDate)} <span ${style}>(${sub})</span> <button class="btn btn-sm" style="border-color:#0d9484;color:#0f766e;background:rgba(13,148,136,0.08);padding:2px 8px;font-size:10.5px" onclick="event.stopPropagation();openVisaLodgedModal(${idx})" title="Edit Visa Lodgment Date">✎</button>`;
   }else if(c.col==='lodged'){
-    decisionCell='<span class="uk-missing" style="font-style:italic">Lodgement date not set</span>';
+    decisionCell=`<span class="uk-missing" style="font-style:italic">Not set</span> <button class="btn btn-sm" style="border-color:#0d9484;color:#0f766e;background:rgba(13,148,136,0.08);padding:2px 8px;font-size:10.5px" onclick="event.stopPropagation();openVisaLodgedModal(${idx})" title="Set Visa Lodgment Date">📅 Set</button>`;
   }
   const deferTag=s.defer==='Y'?` <span class="uk-status-tag" style="background:rgba(124,58,237,0.12);color:#7c3aed">${resolved?'✓ Deferral':'Deferred'}</span>`:'';
   const alarmTag=alarm?' <span class="uk-status-tag" style="background:rgba(220,38,38,0.15);color:#dc2626">🚨 Urgent</span>':'';
@@ -4347,7 +4383,7 @@ function renderDetail(){
     uniHtml=`<div class="table-scroll-wrap"><table class="uni-apps-table"><thead><tr><th>Country</th><th>University</th><th>Program</th><th>Agent</th><th>Class Starts</th><th>Link</th></tr></thead><tbody>${s.uniApplications.map((a,ai)=>`<tr class="clickable" onclick="openUniModal(${idx});editUniApp(${ai})"><td>${FLAGS[a.country]||''} ${esc(a.country)}</td><td>${esc(a.university)}</td><td>${esc(a.program)||'—'}</td><td>${esc(a.agent)||'Direct/Self'}</td><td>${a.classCommencementDate?esc(a.classCommencementDate):'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td><td>${a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="color:var(--b600,#2563eb);font-weight:600;text-decoration:none">&#128279; Open</a>`:'<span style="color:var(--er,#dc2626);font-size:11px;font-weight:600">Missing</span>'}</td></tr>`).join('')}</tbody></table></div>`;
   }
   document.getElementById('detail-content').innerHTML=`
-    <div class="detail-hdr"><div><div class="detail-name">${esc(s.name)}</div><div style="font-size:12px;color:var(--ts);margin-top:2px">${FLAGS[s.country]||'🌐'} ${s.country||'No country'} · ${s.intake||'No intake'}</div></div><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">${s.locked?`<button class="btn btn-sm" style="border-color:#d97706;color:#d97706;background:rgba(217,119,6,0.1);font-weight:700" onclick="reopenStudent(${idx})">🔓 Reopen File</button>`:`<button class="btn btn-primary btn-sm" onclick="openAddTask('${s.id}')">+ Task</button><button class="btn btn-uni" onclick="openUniModal(${idx})">&#127891; Universities</button><button class="btn btn-addinfo" onclick="openAddInfo(${idx})">&#128221; Info</button><button class="btn btn-primary btn-sm" onclick="openSituationCollectorPrefill('${s.id}')">&#128204; Situation</button>`}<button class="btn btn-sm" style="border-color:#2563eb;color:#2563eb;background:rgba(37,99,235,0.08)" onclick="openStageHistoryModal(${idx})">📊 Stage History</button>${isVisaLodgedStage(s.appStage)?`<button class="btn btn-sm" style="border-color:#0d9484;color:#0f766e;background:rgba(13,148,136,0.08)" onclick="openVisaLodgedModal(${idx})">📅 Update Visa Date</button>`:''}${s.status!=='Discontinued'?`<button class="btn btn-sm" style="border-color:#dc2626;color:#dc2626;background:rgba(220,38,38,0.08)" onclick="openDiscontinuedModal(${idx})">⚠️ Mark Discontinued</button>`:`<button class="btn btn-sm" style="border-color:#059669;color:#059669;background:rgba(5,150,105,0.08)" onclick="openReactivateModal(${idx})">♻️ Reactivate</button>`}<button class="btn btn-sm" style="border-color:#7c3aed;color:#7c3aed;background:rgba(124,58,237,0.08)" onclick="openDocChecklistModal(${idx})">📄 Document Checklist</button><button class="btn btn-sm" style="border-color:#25D366;color:#128C7E;background:rgba(37,211,102,0.08)" onclick="openStudentWhatsApp(${idx})">Send WhatsApp message</button>${s.locked?'':`<button class="btn btn-edit btn-sm" onclick="openEdit(${idx})">&#9998; Edit</button>`}<button class="btn btn-del" onclick="askDel(${idx})">&#215; Remove</button></div></div>
+    <div class="detail-hdr"><div><div class="detail-name">${esc(s.name)}</div><div style="font-size:12px;color:var(--ts);margin-top:2px">${FLAGS[s.country]||'🌐'} ${s.country||'No country'} · ${s.intake||'No intake'}</div></div><div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap">${s.locked?`<button class="btn btn-sm" style="border-color:#d97706;color:#d97706;background:rgba(217,119,6,0.1);font-weight:700" onclick="reopenStudent(${idx})">🔓 Reopen File</button>`:`<button class="btn btn-primary btn-sm" onclick="openAddTask('${s.id}')">+ Task</button><button class="btn btn-uni" onclick="openUniModal(${idx})">&#127891; Universities</button><button class="btn btn-addinfo" onclick="openAddInfo(${idx})">&#128221; Info</button><button class="btn btn-primary btn-sm" onclick="openSituationCollectorPrefill('${s.id}')">&#128204; Situation</button>`}<button class="btn btn-sm" style="border-color:#2563eb;color:#2563eb;background:rgba(37,99,235,0.08)" onclick="openStageHistoryModal(${idx})">📊 Stage History</button>${s.status!=='Discontinued'?`<button class="btn btn-sm" style="border-color:#dc2626;color:#dc2626;background:rgba(220,38,38,0.08)" onclick="openDiscontinuedModal(${idx})">⚠️ Mark Discontinued</button>`:`<button class="btn btn-sm" style="border-color:#059669;color:#059669;background:rgba(5,150,105,0.08)" onclick="openReactivateModal(${idx})">♻️ Reactivate</button>`}<button class="btn btn-sm" style="border-color:#7c3aed;color:#7c3aed;background:rgba(124,58,237,0.08)" onclick="openDocChecklistModal(${idx})">📄 Document Checklist</button><button class="btn btn-sm" style="border-color:#25D366;color:#128C7E;background:rgba(37,211,102,0.08)" onclick="openStudentWhatsApp(${idx})">Send WhatsApp message</button>${s.locked?'':`<button class="btn btn-edit btn-sm" onclick="openEdit(${idx})">&#9998; Edit</button>`}<button class="btn btn-del" onclick="askDel(${idx})">&#215; Remove</button></div></div>
     ${s.locked?`<div style="margin-top:10px;padding:12px 14px;background:var(--erbg);border:1px solid rgba(220,38,38,0.35);border-radius:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap"><div style="font-size:13px;color:#7f1d1d"><strong>🔒 File Closed — ${esc(s.closedInfo?.reason||'')}</strong><br><span style="font-size:11px;opacity:0.85">Stage: ${esc(s.closedInfo?.stage||'')}${s.closedInfo?.university?' · '+esc(s.closedInfo.university):''}${s.closedInfo?.program?' — '+esc(s.closedInfo.program):''} · Closed ${s.closedInfo?fmtDateTime(new Date(s.closedInfo.date)):''}</span></div><button class="btn btn-sm" style="border-color:#d97706;color:#d97706;background:rgba(217,119,6,0.1);font-weight:700;white-space:nowrap" onclick="reopenStudent(${idx})">🔓 Reopen to Edit</button></div>`:''}
 
     <div class="detail-body"${s.locked?' style="pointer-events:none;opacity:0.55;filter:grayscale(0.3)"':''}><div class="detail-grid">
@@ -4356,6 +4392,7 @@ function renderDetail(){
       <div class="detail-field"><label>Phone</label><div class="detail-phone-wrap"><input type="text" value="${esc(s.phone)}" placeholder="+880..." onchange="uf(${idx},'phone',this.value)"><button class="btn btn-sm" style="border-color:#25D366;color:#128C7E;background:rgba(37,211,102,0.08)" onclick="openStudentWhatsApp(${idx})">Send WhatsApp message</button></div></div>
       <div class="detail-field"><label>Email</label><input type="email" value="${esc(s.email)}" placeholder="email@example.com" onchange="uf(${idx},'email',this.value)"></div>
       <div class="detail-field"><label>App Stage</label><select onchange="uf(${idx},'appStage',this.value)">${getStagesForCountry(s.country).map(o=>`<option value="${esc(o)}"${s.appStage===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
+      ${isVisaLodgedStage(s.appStage)?`<div class="detail-field"><label>Visa Lodgment Date</label><button class="btn btn-sm" style="border-color:#0d9484;color:#0f766e;background:rgba(13,148,136,0.08);width:100%;text-align:left" onclick="openVisaLodgedModal(${idx})">📅 ${s.visaLodgedDate?fmtDateShort(s.visaLodgedDate)+' (edit)':'Set Lodgment Date'}</button></div>`:''}
       <div class="detail-sep">Location & Intake</div>
       <div class="detail-field"><label>Country</label><select onchange="uf(${idx},'country',this.value);renderDetail()">${COUNTRIES.map(o=>`<option value="${o}"${s.country===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
       <div class="detail-field"><label>Intake</label><select onchange="uf(${idx},'intake',this.value)">${INTAKES.map(o=>`<option value="${o}"${s.intake===o?' selected':''}>${o||'-- Select --'}</option>`).join('')}</select></div>
@@ -4372,7 +4409,7 @@ function renderDetail(){
       <div class="detail-field"><label>Visa Next Intake? <span style="font-weight:400;font-size:10.5px;color:var(--tm)">(auto-calculated)</span></label><div style="padding:8px 10px;border:1px solid var(--b100);border-radius:8px;font-size:12.5px;font-weight:700;background:${s.visaNext==='Y'?'var(--okbg,#d1fae5)':s.visaNext==='N'?'var(--erbg,#fee2e2)':'var(--nabg,#f3f4f6)'};color:${s.visaNext==='Y'?'var(--ok,#059669)':s.visaNext==='N'?'var(--er,#dc2626)':'var(--tm)'}">${s.visaNext==='Y'?'✓ Yes — enough time before class starts':s.visaNext==='N'?'✕ No — pushed to next intake':'— Set a Class Commencement Date on the application to calculate'}</div></div>
       ${au?`<div class="detail-sep">GS & CoE (Australia)</div><div class="detail-field"><label>GS Applied?</label><select onchange="uf(${idx},'gsApplied',this.value);renderDetail()">${YN.map(o=>`<option${s.gsApplied===o?' selected':''}>${o}</option>`).join('')}</select></div>${s.gsApplied==='Y'?`<div class="detail-field"><label>GS Status</label><select onchange="uf(${idx},'gsStatus',this.value)">${GS_STAT.map(o=>`<option${s.gsStatus===o?' selected':''}>${o}</option>`).join('')}</select></div>`:''}<div class="detail-field"><label>CoE?</label><select onchange="uf(${idx},'coe',this.value)">${YN.map(o=>`<option${s.coe===o?' selected':''}>${o}</option>`).join('')}</select></div>`:`<div class="detail-sep">GS & CoE</div><div class="detail-field" style="grid-column:1/-1"><div class="na-cell">GS/CoE applicable for Australia only</div></div>`}
     </div>
-    ${s.visaLodgedDate?`<div style="margin-top:14px;padding:12px 14px;background:rgba(13,148,136,0.07);border:1px solid rgba(13,148,136,0.3);border-radius:10px;display:flex;gap:24px;flex-wrap:wrap;align-items:center"><div><span style="font-size:10.5px;font-weight:600;color:var(--tm);text-transform:uppercase">📅 Visa Lodged Date</span><div style="font-weight:700;color:#0f766e;font-size:13px">${fmtDateShort(s.visaLodgedDate)}</div></div><div><span style="font-size:10.5px;font-weight:600;color:var(--tm);text-transform:uppercase">✨ Expected Result Date</span><div style="font-weight:700;color:var(--b600,#2563eb);font-size:13px">${fmtDateShort(s.expectedResultDate)} <span style="font-weight:400;font-size:10.5px;color:var(--tm)">(lodged + 45 days)</span></div></div>${isVisaLodgedStage(s.appStage)?`<button class="btn btn-sm" style="border-color:#0d9484;color:#0f766e;background:rgba(13,148,136,0.08);margin-left:auto" onclick="openVisaLodgedModal(${idx})">Update</button>`:''}</div>`:''}
+    ${s.visaLodgedDate?`<div style="margin-top:14px;padding:12px 14px;background:rgba(13,148,136,0.07);border:1px solid rgba(13,148,136,0.3);border-radius:10px;display:flex;gap:24px;flex-wrap:wrap;align-items:center"><div><span style="font-size:10.5px;font-weight:600;color:var(--tm);text-transform:uppercase">📅 Visa Lodgment Date</span><div style="font-weight:700;color:#0f766e;font-size:13px">${fmtDateShort(s.visaLodgedDate)}</div></div><div><span style="font-size:10.5px;font-weight:600;color:var(--tm);text-transform:uppercase">✨ Expected Result Date</span><div style="font-weight:700;color:var(--b600,#2563eb);font-size:13px">${fmtDateShort(s.expectedResultDate)} <span style="font-weight:400;font-size:10.5px;color:var(--tm)">(lodged + 45 days)</span></div></div>${isVisaLodgedStage(s.appStage)?`<button class="btn btn-sm" style="border-color:#0d9484;color:#0f766e;background:rgba(13,148,136,0.08);margin-left:auto" onclick="openVisaLodgedModal(${idx})">Edit</button>`:''}</div>`:''}
     ${s.status==='Discontinued'?`<div style="margin-top:14px;padding:12px 14px;background:var(--erbg);border:1px solid rgba(220,38,38,0.35);border-radius:10px;font-size:13px;color:#7f1d1d"><strong>🚫 Discontinued</strong> — ${esc(s.discontinuedReason||'Reason not recorded')} · ${fmtDateShort(s.discontinuedDate)}<div style="font-size:11.5px;margin-top:4px;opacity:0.85">All data remains editable. Click "♻️ Reactivate" above to restore this student with a new intake.</div></div>`:''}
     ${s.nextIntakeDate&&s.status!=='Discontinued'?`<div style="margin-top:14px;padding:12px 14px;background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.3);border-radius:10px;font-size:12.5px;color:var(--tp)"><strong>📅 Next Intake Planning</strong><div style="margin-top:4px;display:grid;gap:2px"><div>Next Intake: <strong>${fmtDateShort(s.nextIntakeDate)}</strong></div><div>Application Deadline: <strong>${fmtDateShort(s.applicationDeadline)}</strong> <span style="color:var(--tm);font-size:11px">(3 months before intake)</span></div></div></div>`:''}
     <div style="margin-top:14px;padding-top:10px;border-top:1px solid var(--b100)"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px"><span style="font-size:11px;font-weight:600;color:var(--tm);text-transform:uppercase">Latest Info</span><span class="age-badge ${fmtAge(s.lastUpdated).cls}">${fmtAge(s.lastUpdated).label}</span></div><div style="font-size:12px;color:var(--ts);line-height:1.5">${s.remarks?`<strong>Remark:</strong> ${esc(s.remarks)}<br>`:''}${s.situation?`<strong>Situation:</strong> ${esc(s.situation)}`:''}${!s.remarks&&!s.situation?'<em style="color:var(--tm)">No info yet. Click "Additional Info" to add.</em>':''}</div></div></div>`;
@@ -5138,7 +5175,7 @@ function saveVisaLodgedDate(){
   if(!v){alert('Please select the lodgement date.');return;}
   s.visaLodgedDate=v;s.expectedResultDate=addDaysISO(v,45);s.lastUpdated=Date.now();
   persist('Visa lodged date set for '+s.name+': '+v+' (expected result '+s.expectedResultDate+')');
-  closeMo('visa-date-mo');renderAll();visaDateIdx=null;
+  closeMo('visa-date-mo');renderAll();if(typeof renderUniKanban==='function'&&document.getElementById('uk-table-body'))renderUniKanban();visaDateIdx=null;
   showToast('📅 Expected visa result: '+fmtDateShort(s.expectedResultDate));
 }
 

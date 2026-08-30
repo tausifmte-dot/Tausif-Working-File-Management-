@@ -197,19 +197,68 @@ html {
   margin-top: 2px;
 }
 
-.nav-tabs {
+.nav-tabs-container {
+  position: relative;
+}
+
+.nav-tabs-handle {
   display: flex;
-  gap: 6px;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  color: var(--text-primary);
   background: var(--bg-glass);
   backdrop-filter: var(--glass-blur);
-  border-radius: 10px;
-  padding: 6px;
   border: 1px solid var(--border);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-tabs-handle:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.nav-tabs-current {
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+.nav-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--modal-bg, #fff);
+  backdrop-filter: var(--glass-blur);
+  border-radius: 12px;
+  padding: 8px;
+  border: 1px solid var(--border);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 8px;
+  min-width: 230px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.22);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  z-index: 500;
+}
+
+.nav-tabs-container:hover .nav-tabs,
+.nav-tabs-container:focus-within .nav-tabs {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .nav-tab {
-  padding: 8px 16px;
+  padding: 10px 16px;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 600;
@@ -217,9 +266,11 @@ html {
   border: 1px solid transparent;
   background: transparent;
   color: var(--text-primary);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
   font-family: inherit;
+  text-align: left;
+  width: 100%;
 }
 
 .nav-tab:hover {
@@ -1150,21 +1201,110 @@ html,body{overflow-x:hidden;max-width:100vw}
 <body>
 
 <!-- MASTER PASSWORD LOCK SCREEN — blocks all access until unlocked -->
-<div id="security-gate" style="display:none;position:fixed;inset:0;z-index:99999;background:linear-gradient(135deg,#0f172a,#1e293b 60%,#0f172a);align-items:center;justify-content:center;font-family:'DM Sans',system-ui,sans-serif">
-  <div id="mp-card" style="background:rgba(255,255,255,0.06);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.15);border-radius:18px;padding:38px 32px;width:320px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,0.5)">
-    <div style="font-size:34px;margin-bottom:8px">&#128274;</div>
-    <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:4px">CLIENT RELATIONSHIP MANAGEMENT</div>
-    <div style="font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:22px">Enter master password to continue</div>
-    <input id="mp-input" type="password" placeholder="Password" autocomplete="off" spellcheck="false" style="width:100%;padding:11px 14px;border-radius:9px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:14px;text-align:center;outline:none;box-sizing:border-box" onkeydown="if(event.key==='Enter')attemptUnlock()">
-    <button onclick="attemptUnlock()" style="width:100%;margin-top:12px;padding:11px;border-radius:9px;border:none;background:#3b82f6;color:#fff;font-weight:700;font-size:13px;cursor:pointer">Unlock</button>
-    <div id="mp-error" style="opacity:0;transition:opacity 0.3s;margin-top:12px;font-size:11.5px;color:#f87171">Incorrect password. Please try again.</div>
+<div id="security-gate" style="display:none;position:fixed;inset:0;z-index:99999;background:#fff;overflow:hidden;font-family:'DM Sans',system-ui,sans-serif">
+  <div class="lg-split">
+    <div class="lg-left">
+      <div class="lg-illust-wrap">
+        <div class="lg-illust-glow"></div>
+        <svg class="lg-illust" viewBox="0 0 340 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <ellipse cx="170" cy="270" rx="120" ry="8" fill="#0f766e" opacity="0.08"/>
+          <rect x="70" y="120" width="60" height="80" rx="4" fill="#fff" stroke="#0f766e" stroke-width="1.5" transform="rotate(-8 100 160)"/>
+          <rect x="80" y="132" width="40" height="4" rx="2" fill="#5eead4" transform="rotate(-8 100 160)"/>
+          <rect x="78" y="142" width="40" height="4" rx="2" fill="#99f6e4" transform="rotate(-8 100 160)"/>
+          <rect x="76" y="152" width="40" height="4" rx="2" fill="#99f6e4" transform="rotate(-8 100 160)"/>
+          <rect x="55" y="135" width="60" height="80" rx="4" fill="#fff" stroke="#0f766e" stroke-width="1.5" transform="rotate(-3 85 175)"/>
+          <rect x="63" y="147" width="40" height="4" rx="2" fill="#5eead4" transform="rotate(-3 85 175)"/>
+          <rect x="61" y="157" width="40" height="4" rx="2" fill="#99f6e4" transform="rotate(-3 85 175)"/>
+          <circle cx="65" cy="80" r="14" fill="none" stroke="#0d9488" stroke-width="2"/>
+          <path d="M65 73v7l5 3" stroke="#0d9488" stroke-width="1.8" stroke-linecap="round"/>
+          <circle cx="255" cy="70" r="11" fill="none" stroke="#0d9488" stroke-width="2"/>
+          <path d="M255 65v5l4 2" stroke="#0d9488" stroke-width="1.6" stroke-linecap="round"/>
+          <text x="120" y="60" font-size="18" fill="#0d9488" font-family="serif" font-style="italic">f(x)</text>
+          <text x="215" y="105" font-size="16" fill="#0d9488" font-family="serif">√x</text>
+          <text x="90" y="115" font-size="15" fill="#0d9488" font-family="serif">π</text>
+          <rect x="150" y="60" width="34" height="30" rx="6" fill="#0d9488"/>
+          <circle cx="160" cy="72" r="3" fill="#fff"/><circle cx="174" cy="72" r="3" fill="#fff"/>
+          <path d="M158 82h18" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <rect x="130" y="150" width="80" height="90" rx="6" fill="#e6fffa" stroke="#0d9488" stroke-width="1.5"/>
+          <circle cx="190" cy="170" r="16" fill="#ffe4c4"/>
+          <path d="M182 165q8-6 16 0" stroke="#3f2d20" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <rect x="176" y="178" width="28" height="34" rx="6" fill="#0d9488"/>
+          <rect x="160" y="210" width="60" height="6" rx="3" fill="#0d9488" opacity="0.5"/>
+          <rect x="120" y="215" width="24" height="30" rx="4" fill="#22c55e"/>
+          <path d="M132 215v-14M124 205q8-8 16 0" stroke="#166534" stroke-width="1.6" fill="none"/>
+          <rect x="230" y="205" width="26" height="34" rx="4" fill="#0d9488"/>
+          <rect x="235" y="196" width="16" height="10" rx="3" fill="#0d9488"/>
+        </svg>
+      </div>
+      <div class="lg-left-text">
+        <div class="lg-left-title">Student File Report</div>
+        <div class="lg-left-sub">Track every application, visa, and deadline in one calm, organized place.</div>
+      </div>
+      <div class="lg-dots"><span></span><span class="on"></span><span></span><span></span></div>
+    </div>
+    <div class="lg-right">
+      <div id="mp-card" class="lg-card">
+        <div class="lg-logo">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5z" fill="#0d9488"/><path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5" stroke="#0d9488" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <span class="lg-logo-text">CRM<span>HUB</span></span>
+        </div>
+        <div class="lg-field-label">Master password</div>
+        <div class="lg-field">
+          <input id="mp-input" type="password" placeholder="Enter your password" autocomplete="off" spellcheck="false" onkeydown="if(event.key==='Enter')attemptUnlock()">
+          <button type="button" class="lg-eye" onclick="toggleMpVisibility()" aria-label="Show password">
+            <svg id="mp-eye-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+        </div>
+        <button class="lg-unlock-btn" onclick="attemptUnlock()">Sign in</button>
+        <div id="mp-error" style="opacity:0;transition:opacity 0.3s;margin-top:14px;font-size:11.5px;color:#dc2626;display:flex;align-items:center;justify-content:center;gap:6px">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#dc2626" stroke-width="1.6"/><path d="M12 8v5M12 16h.01" stroke="#dc2626" stroke-width="1.6" stroke-linecap="round"/></svg>
+          Incorrect password. Please try again.
+        </div>
+        <div class="lg-footnote">Client Relationship Management · Tausif Jaman</div>
+      </div>
+    </div>
   </div>
 </div>
 
 <style>
+@keyframes lgCardIn{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
+@keyframes lgFloatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.lg-split{display:flex;height:100vh;width:100vw}
+.lg-left{flex:1;background:linear-gradient(160deg,#e8fbf3,#f2fef9);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;position:relative;overflow:hidden}
+.lg-illust-wrap{position:relative;width:340px;height:280px;display:flex;align-items:center;justify-content:center;animation:lgFloatSlow 6s ease-in-out infinite}
+.lg-illust-glow{position:absolute;width:230px;height:230px;border-radius:50%;background:radial-gradient(circle,rgba(94,234,212,0.5),transparent 70%);filter:blur(10px)}
+.lg-illust{position:relative;width:100%;height:100%}
+.lg-left-text{text-align:center;margin-top:20px;max-width:360px}
+.lg-left-title{font-size:22px;font-weight:800;color:#0f172a;letter-spacing:-0.02em;margin-bottom:8px}
+.lg-left-sub{font-size:13px;color:#475569;line-height:1.6}
+.lg-dots{display:flex;gap:6px;margin-top:26px}
+.lg-dots span{width:6px;height:6px;border-radius:50%;background:#cbd5e1}
+.lg-dots span.on{width:20px;border-radius:4px;background:#0d9488}
+.lg-right{flex:1;display:flex;align-items:center;justify-content:center;background:#fff;padding:40px}
+.lg-card{width:100%;max-width:360px;animation:lgCardIn 0.5s cubic-bezier(.22,.68,0,1.1) both}
+.lg-logo{display:flex;align-items:center;gap:8px;margin-bottom:36px}
+.lg-logo-text{font-size:19px;font-weight:800;color:#0f172a;letter-spacing:-0.01em}
+.lg-logo-text span{color:#0d9488;font-weight:800}
+.lg-field-label{font-size:12.5px;font-weight:600;color:#334155;margin-bottom:8px}
+.lg-field{position:relative;display:flex;align-items:center;background:#fff;border:1.5px solid #e2e8f0;border-radius:10px;transition:border-color 0.2s ease,box-shadow 0.2s ease;margin-bottom:22px}
+.lg-field:focus-within{border-color:#0d9488;box-shadow:0 0 0 3px rgba(13,148,136,0.12)}
+.lg-field input{flex:1;background:transparent;border:none;outline:none;padding:13px 14px;color:#0f172a;font-size:14px;min-width:0}
+.lg-field input::placeholder{color:#94a3b8}
+.lg-eye{background:transparent;border:none;color:#94a3b8;cursor:pointer;padding:8px 12px;display:flex;align-items:center;transition:color 0.2s ease}
+.lg-eye:hover{color:#0d9488}
+.lg-unlock-btn{width:100%;padding:13px;border-radius:10px;border:none;background:#0f172a;color:#fff;font-weight:700;font-size:14px;cursor:pointer;transition:transform 0.15s ease,background 0.15s ease}
+.lg-unlock-btn:hover{background:#0d9488;transform:translateY(-1px)}
+.lg-unlock-btn:active{transform:translateY(0) scale(0.98)}
+.lg-footnote{text-align:center;font-size:11px;color:#94a3b8;margin-top:26px}
+@media(max-width:800px){.lg-split{flex-direction:column}.lg-left{flex:0 0 auto;min-height:38vh;padding:24px}.lg-illust-wrap{width:220px;height:180px}.lg-left-title{font-size:18px}.lg-left-sub{display:none}.lg-dots{display:none}.lg-right{flex:1;padding:28px}}
+</style>
+
+<style>
+
 @keyframes mpShake{0%,100%{transform:translateX(0)}20%{transform:translateX(-8px)}40%{transform:translateX(8px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
 .mp-shake{animation:mpShake 0.4s ease}
 </style>
+
 
 
 <div class="app">
@@ -1231,12 +1371,15 @@ html,body{overflow-x:hidden;max-width:100vw}
       <div class="sub">CLIENT RELATIONSHIP MANAGEMENT · <strong>Tausif Jaman</strong></div>
     </div>
   </div>
-  <div class="nav-tabs">
-    <button class="nav-tab active" onclick="showPage('p1')">&#9635; Dashboard</button>
-    <button class="nav-tab" onclick="showPage('p2')">&#9776; Student Files</button>
-    <button class="nav-tab" onclick="showPage('p5')">&#127891; Uni Applications</button>
-    <button class="nav-tab" onclick="showPage('p3')">&#127807; NZ Green List</button>
-    <button class="nav-tab" onclick="showPage('p4')">&#9881; Settings</button>
+  <div class="nav-tabs-container" tabindex="0">
+    <div class="nav-tabs-handle">&#9776; <span id="nav-current-label">Dashboard</span></div>
+    <div class="nav-tabs">
+      <button class="nav-tab active" onclick="showPage('p1')">&#9635; Dashboard</button>
+      <button class="nav-tab" onclick="showPage('p2')">&#9776; Student Files</button>
+      <button class="nav-tab" onclick="showPage('p5')">&#127891; Uni Applications</button>
+      <button class="nav-tab" onclick="showPage('p3')">&#127807; NZ Green List</button>
+      <button class="nav-tab" onclick="showPage('p4')">&#9881; Settings</button>
+    </div>
   </div>
   <div class="nav-right">
     <div class="fx-strip" id="fx-strip">
@@ -2012,13 +2155,22 @@ html,body{overflow-x:hidden;max-width:100vw}
           <option value="master">Master's</option>
         </select></div>
       </div>
-      <div class="fgroup" style="margin-bottom:14px">
-        <label>Work Experience</label>
-        <select id="dc-jobcount" onchange="renderDocChecklistPreview()">
-          <option value="0">No work experience</option>
-          <option value="1">1 job (current/only job)</option>
-          <option value="2">More than 1 job</option>
-        </select>
+      <div class="frow" style="margin-bottom:14px">
+        <div class="fgroup">
+          <label>Work Experience</label>
+          <select id="dc-jobcount" onchange="renderDocChecklistPreview()">
+            <option value="0">No work experience</option>
+            <option value="1">1 job (current/only job)</option>
+            <option value="2">More than 1 job</option>
+          </select>
+        </div>
+        <div class="fgroup" id="dc-gap-field">
+          <label>Study Gap After Grade 12</label>
+          <select id="dc-gap" onchange="renderDocChecklistPreview()">
+            <option value="none">No gap / less than 6 months</option>
+            <option value="over6">More than 6 months</option>
+          </select>
+        </div>
       </div>
       <div id="doc-checklist-preview" style="font-size:12.5px;line-height:1.6;color:var(--tp);border-top:1px solid var(--gb,#e2e8f0);padding-top:12px"></div>
     </div>
@@ -2166,10 +2318,15 @@ function showPage(id){
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
   const navIdx={p1:0,p2:1,p5:2,p3:3,p4:4}[id]||0;
   document.querySelectorAll('.nav-tab')[navIdx].classList.add('active');
+  const navLabels={p1:'Dashboard',p2:'Student Files',p5:'Uni Applications',p3:'NZ Green List',p4:'Settings'};
+  const navLabelEl=document.getElementById('nav-current-label');
+  if(navLabelEl)navLabelEl.textContent=navLabels[id]||'Dashboard';
   document.querySelectorAll('.mobile-nav-item').forEach(t=>t.classList.remove('active'));
   const mnavBtn=document.getElementById('mnav-'+id);
   if(mnavBtn)mnavBtn.classList.add('active');
   closeMobileMorePanel();
+  const navContainer=document.querySelector('.nav-tabs-container');
+  if(navContainer)navContainer.blur();
   if(id==='p2'){showStudentListView();renderStudentList();renderDetail();if(studentView==='cards')renderCardsP2();}
   if(id==='p3')glRenderBrowse();
   if(id==='p5')renderUniKanban();
@@ -2909,16 +3066,17 @@ function updateSummary(){
   const nzStats=buildNewZealandStats(pool);
   const myStats=buildMalaysiaStats(pool);
   
-  if(auStats) auContainer.innerHTML=auStats; else auContainer.innerHTML='<div style="color:var(--tm);padding:12px">No Australia students for selected intake.</div>';
-  if(caStats) caContainer.innerHTML=caStats; else caContainer.innerHTML='<div style="color:var(--tm);padding:12px">No Canada students for selected intake.</div>';
-  if(nzStats) nzContainer.innerHTML=nzStats; else nzContainer.innerHTML='<div style="color:var(--tm);padding:12px">No New Zealand students for selected intake.</div>';
-  if(myStats) myContainer.innerHTML=myStats; else myContainer.innerHTML='<div style="color:var(--tm);padding:12px">No Malaysia students for selected intake.</div>';
+  if(auStats) auContainer.innerHTML=auStats; else auContainer.innerHTML='';
+  if(caStats) caContainer.innerHTML=caStats; else caContainer.innerHTML='';
+  if(nzStats) nzContainer.innerHTML=nzStats; else nzContainer.innerHTML='';
+  if(myStats) myContainer.innerHTML=myStats; else myContainer.innerHTML='';
   
-  // Make containers visible by default
-  auContainer.style.display='block';
-  caContainer.style.display='block';
-  nzContainer.style.display='block';
-  myContainer.style.display='block';
+  // Only show a destination block if it actually has at least one student — no point
+  // showing an empty "No X students" placeholder for a country nobody is applying to.
+  auContainer.style.display=auStats?'block':'none';
+  caContainer.style.display=caStats?'block':'none';
+  nzContainer.style.display=nzStats?'block':'none';
+  myContainer.style.display=myStats?'block':'none';
   // Animate country stat counters after a short delay
   setTimeout(()=>{
     animateCounters(auContainer);
@@ -3081,15 +3239,15 @@ function toggleCountryStats(country){
 }
 
 function toggleCountrySummary(){
-  const auContainer=document.getElementById('au-stats-container');
-  const caContainer=document.getElementById('ca-stats-container');
-  const nzContainer=document.getElementById('nz-stats-container');
-  const myContainer=document.getElementById('my-stats-container');
-  const isHidden=auContainer.style.display==='none';
-  auContainer.style.display=isHidden?'block':'none';
-  caContainer.style.display=isHidden?'block':'none';
-  nzContainer.style.display=isHidden?'block':'none';
-  myContainer.style.display=isHidden?'block':'none';
+  const containers=[
+    document.getElementById('au-stats-container'),
+    document.getElementById('ca-stats-container'),
+    document.getElementById('nz-stats-container'),
+    document.getElementById('my-stats-container')
+  ].filter(c=>c&&c.innerHTML.trim()!==''); // only toggle destinations that actually have students
+  if(!containers.length)return;
+  const isHidden=containers[0].style.display==='none';
+  containers.forEach(c=>{c.style.display=isHidden?'block':'none';});
 }
 
 function getStatEntries(key){
@@ -4873,15 +5031,16 @@ function downloadCaseSummary(format='pdf'){
 // DOCUMENT CHECKLIST — shareable checklist for students
 // ════════════════════════════════════════════════════════════
 let docChecklistStudentIdx=null;
-function getChecklistItems(level,jobCount){
+function getChecklistItems(level,jobCount,gap){
   const items=[];
   items.push({label:'Passport(s) — All Pages',note:'Scan every page of every passport held (old and current). If only one passport exists, submit that one only.'});
   items.push({label:'National ID & Birth Certificate',note:''});
   items.push({label:'Passport-size Photograph',note:''});
   items.push({label:'Grade 10 Certificate & Marksheet',note:''});
-  const g12Note=level==='bachelor'?'If there is a study gap after Grade 12, also required: a) University admission receipt, b) University acknowledgement/enrollment letter clearly stating department and subject of study':'';
+  const hasGap=level==='bachelor'&&gap==='over6';
+  const g12Note=hasGap?'Study gap after Grade 12 is more than 6 months, so also required: a) University admission receipt, b) University acknowledgement/enrollment letter clearly stating department and subject of study':'';
   items.push({label:'Grade 12 Certificate & Marksheet',note:g12Note});
-  items.push({label:'University Admission Test Documents',note:'Any admission/entrance test taken after Grade 12 for public or private university admission (if applicable)'});
+  if(hasGap)items.push({label:'University Admission Test Documents',note:'Any admission/entrance test taken after Grade 12 for public or private university admission — required due to study gap of more than 6 months'});
   items.push({label:'English Language Course / Coaching Documents',note:'Any certificate or proof of English language courses or coaching taken (if applicable)'});
   items.push({label:'University Certificate & Marksheet',note:'Must include the verification link or email address from which the university\'s academic documents can be officially verified'});
   items.push({label:'English Language Test Certificate',note:'PTE: share MyPTE account login details for verification. IELTS: share a screenshot of the IELTS Online Result page'});
@@ -4901,6 +5060,7 @@ function openDocChecklistModal(studentIdx){
   document.getElementById('dc-student-name').value=s?s.name:'';
   document.getElementById('dc-level').value='bachelor';
   document.getElementById('dc-jobcount').value='0';
+  document.getElementById('dc-gap').value='none';
   renderDocChecklistPreview();
   document.getElementById('doc-checklist-mo').classList.add('open');
 }
@@ -4909,13 +5069,17 @@ function openDocChecklistGeneral(){
   document.getElementById('dc-student-name').value='';
   document.getElementById('dc-level').value='bachelor';
   document.getElementById('dc-jobcount').value='0';
+  document.getElementById('dc-gap').value='none';
   renderDocChecklistPreview();
   document.getElementById('doc-checklist-mo').classList.add('open');
 }
 function renderDocChecklistPreview(){
   const level=document.getElementById('dc-level').value;
   const jobCount=document.getElementById('dc-jobcount').value;
-  const items=getChecklistItems(level,jobCount);
+  const gapField=document.getElementById('dc-gap-field');
+  if(gapField)gapField.style.display=level==='bachelor'?'block':'none';
+  const gap=document.getElementById('dc-gap').value;
+  const items=getChecklistItems(level,jobCount,gap);
   const wrap=document.getElementById('doc-checklist-preview');
   wrap.innerHTML='<div style="background:var(--wnbg,#fef3c7);border:1px solid var(--wn,#d97706);border-radius:8px;padding:10px 12px;margin-bottom:12px;font-size:12px;font-weight:700;color:#92400e">⚠ All documents must be MACHINE-SCANNED (flatbed/office scanner). Mobile app scans such as CamScanner are NOT accepted.</div>'
     +items.map((it,i)=>`<div style="display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--gb,#e2e8f0)"><div style="font-weight:700;color:var(--b600,#2563eb);min-width:22px">☐ ${i+1}.</div><div><div style="font-weight:600">${esc(it.label)}</div>${it.note?`<div style="font-size:11px;color:var(--ts);margin-top:2px">${esc(it.note)}</div>`:''}</div></div>`).join('');
@@ -4924,13 +5088,14 @@ function downloadDocChecklist(format){
   const name=document.getElementById('dc-student-name').value.trim()||'Student';
   const level=document.getElementById('dc-level').value;
   const jobCount=document.getElementById('dc-jobcount').value;
-  const items=getChecklistItems(level,jobCount);
+  const gap=document.getElementById('dc-gap').value;
+  const items=getChecklistItems(level,jobCount,gap);
   const levelLabel=level==='bachelor'?'Bachelor\'s':'Master\'s';
   const now=new Date();
 
   if(format==='txt'){
     const lines=[
-      'CLIENT RELATIONSHIP MANAGEMENT — DOCUMENT CHECKLIST',
+      'DOCUMENT CHECKLIST',
       '═══════════════════════════════════════════',
       '',
       `Student: ${name}`,
@@ -4953,9 +5118,9 @@ function downloadDocChecklist(format){
     let y=margin;
 
     doc.setFont('helvetica','bold');doc.setFontSize(16);doc.setTextColor(37,99,235);
-    doc.text('CLIENT RELATIONSHIP MANAGEMENT',margin,y);y+=16;
+    doc.text('Document Checklist',margin,y);y+=16;
     doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(122,150,180);
-    doc.text('Document Checklist',margin,y);y+=20;
+    doc.text('Client Relationship Management',margin,y);y+=20;
 
     doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(30,58,95);
     doc.text(name,margin,y);y+=14;
@@ -6459,6 +6624,17 @@ async function _shx(msg){
   return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
 }
 
+function toggleMpVisibility(){
+  const inp=document.getElementById('mp-input');
+  const icon=document.getElementById('mp-eye-icon');
+  if(inp.type==='password'){
+    inp.type='text';
+    icon.innerHTML='<path d="M3 3l18 18M10.6 10.6a3 3 0 004.24 4.24M9.5 5.1A10.9 10.9 0 0112 5c7 0 10.5 7 10.5 7a17.6 17.6 0 01-3.1 4.2M6.5 6.7C3.8 8.4 1.5 12 1.5 12a17 17 0 004.8 5.3A10.9 10.9 0 0012 19c1 0 2-.15 2.9-.42" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>';
+  }else{
+    inp.type='password';
+    icon.innerHTML='<path d="M1.5 12S5 5 12 5s10.5 7 10.5 7-3.5 7-10.5 7S1.5 12 1.5 12z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.6"/>';
+  }
+}
 async function attemptUnlock(){
   const inp=document.getElementById('mp-input');
   const val=inp.value;

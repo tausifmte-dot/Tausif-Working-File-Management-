@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:16:00.153Z",
+    "saved": "2026-08-30T13:16:07.424Z",
     "version": 8,
     "count": 34
   },
@@ -1022,7 +1022,7 @@
       "country": "New Zealand",
       "intake": "September 2026",
       "status": "Discontinued",
-      "appStage": "Unconditional offer letter issued",
+      "appStage": "Visa issued",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -1030,13 +1030,13 @@
       "bankMatured": "",
       "bankMonths": "",
       "bankExpectedDate": "",
-      "defer": "N",
+      "defer": "Y",
       "gsApplied": "Y",
       "gsStatus": "Applied",
       "coe": "N",
       "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1788095758086,
+      "visaNext": "N",
+      "lastUpdated": 1788095765380,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1055,6 +1055,11 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa issued",
+          "enteredDate": 1788095765380,
+          "duration": 0
+        },
         {
           "stage": "Discontinued (Other: visa succussed)",
           "enteredDate": 1788095758086,
@@ -1082,13 +1087,27 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false,
+      "visaFieldsLocked": true,
       "visaLodgedDate": "",
       "expectedResultDate": "",
       "discontinuedDate": "2026-08-30",
       "discontinuedReason": "Other: visa succussed",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "Auckland Institute of Studies (AIS)",
+        "program": "Bachelor of Information Technology",
+        "classCommencementDate": "2026-09-14"
+      },
+      "locked": true,
+      "closedInfo": {
+        "reason": "Visa Issued — Application Closed",
+        "stage": "Visa issued",
+        "date": 1788095765380,
+        "university": "Auckland Institute of Studies (AIS)",
+        "program": "Bachelor of Information Technology"
+      }
     },
     {
       "id": 1787288335155.9739,
@@ -2287,6 +2306,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095765381,
+      "msg": "Visa issued & file closed: MD. NUR ULLAH RUPOM"
+    },
     {
       "ts": 1788095758086,
       "msg": "Marked discontinued: MD. NUR ULLAH RUPOM — Other: visa succussed (2026-08-30)"

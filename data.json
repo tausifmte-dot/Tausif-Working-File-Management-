@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T09:20:24.374Z",
+    "saved": "2026-08-30T09:20:36.552Z",
     "version": 8,
     "count": 36
   },
@@ -1325,7 +1325,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "Y",
-      "lastUpdated": 1788081622326,
+      "lastUpdated": 1788081634514,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1362,8 +1362,8 @@
       ],
       "phone": "",
       "visaFieldsLocked": true,
-      "visaLodgedDate": "",
-      "expectedResultDate": "",
+      "visaLodgedDate": "2026-08-21",
+      "expectedResultDate": "2026-10-05",
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
@@ -2151,6 +2151,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788081634515,
+      "msg": "Visa lodged date set for Nasib Ibne Nizam: 2026-08-21 (expected result 2026-10-05)"
+    },
     {
       "ts": 1788081622327,
       "msg": "Visa lodged: Nasib Ibne Nizam"

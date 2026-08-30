@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:09:57.905Z",
+    "saved": "2026-08-30T13:11:39.474Z",
     "version": 8,
     "count": 36
   },
@@ -1425,7 +1425,7 @@
       "country": "New Zealand",
       "intake": "June 2026",
       "status": "Discontinued",
-      "appStage": "Electronic visa document received",
+      "appStage": "Visa issued",
       "counselor": "Tushar Abdullah",
       "uniCount": 0,
       "moreUni": "N",
@@ -1433,20 +1433,36 @@
       "bankMatured": "",
       "bankMonths": "",
       "bankExpectedDate": "",
-      "defer": "N",
+      "defer": "Y",
       "gsApplied": "N",
       "gsStatus": "",
       "coe": "N",
       "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1788095395859,
+      "visaNext": "N",
+      "lastUpdated": 1788095497410,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "NZTC",
+          "program": "Bachelor of Education (Early Childhood Education)",
+          "agent": "UP",
+          "applicationDate": "",
+          "link": "https://www.nztertiarycollege.ac.nz/early-childhood-education/undergraduate-qualifications/bachelor-education-early-childhood-education",
+          "classCommencementDate": "2026-08-28",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Visa issued",
+          "enteredDate": 1788095497410,
+          "duration": 0
+        },
         {
           "stage": "Discontinued (Other: visa succussed)",
           "enteredDate": 1788095395859,
@@ -1459,13 +1475,27 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false,
+      "visaFieldsLocked": true,
       "visaLodgedDate": "",
       "expectedResultDate": "",
       "discontinuedDate": "2026-08-30",
       "discontinuedReason": "Other: visa succussed",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "visaApplicationRef": {
+        "country": "New Zealand",
+        "university": "NZTC",
+        "program": "Bachelor of Education (Early Childhood Education)",
+        "classCommencementDate": "2026-08-28"
+      },
+      "locked": true,
+      "closedInfo": {
+        "reason": "Visa Issued — Application Closed",
+        "stage": "Visa issued",
+        "date": 1788095497410,
+        "university": "NZTC",
+        "program": "Bachelor of Education (Early Childhood Education)"
+      }
     },
     {
       "id": 1786707888166.2905,
@@ -2197,7 +2227,8 @@
     "New Zealand": [
       "White cliff College",
       "Southern Institute of Technology",
-      "Unitec Institute of Technology"
+      "Unitec Institute of Technology",
+      "NZTC"
     ],
     "Malaysia": [
       "University of Wollongong"
@@ -2302,9 +2333,22 @@
       "link": "https://www.ais.ac.nz/study/information-technology/7-300-bachelor-of-information-technology",
       "classCommencementDate": "2026-09-14",
       "lastUsed": 1788095330653
+    },
+    {
+      "id": "pb_1788095491659_p5sph",
+      "country": "New Zealand",
+      "university": "NZTC",
+      "program": "Bachelor of Education (Early Childhood Education)",
+      "link": "https://www.nztertiarycollege.ac.nz/early-childhood-education/undergraduate-qualifications/bachelor-education-early-childhood-education",
+      "classCommencementDate": "2026-08-28",
+      "lastUsed": 1788095491659
     }
   ],
   "log": [
+    {
+      "ts": 1788095497411,
+      "msg": "Visa issued & file closed: Nusrat Jahan Eva"
+    },
     {
       "ts": 1788095395859,
       "msg": "Marked discontinued: Nusrat Jahan Eva — Other: visa succussed (2026-08-30)"

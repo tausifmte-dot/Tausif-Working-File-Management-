@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:52:40.706Z",
+    "saved": "2026-08-30T09:01:30.110Z",
     "version": 8,
     "count": 36
   },
@@ -690,7 +690,7 @@
       "country": "New Zealand",
       "intake": "October 2026",
       "status": "Active",
-      "appStage": "Visa documentation/Bank Maturity Pending",
+      "appStage": "Unconditional offer letter issued",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -704,18 +704,34 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888165,
+      "lastUpdated": 1788080483717,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Auckland Institute of Studies (AIS)",
+          "program": "Bachelor of Business (BBus)",
+          "agent": "UP",
+          "applicationDate": "2026-05-25",
+          "link": "https://www.ais.ac.nz/bbus",
+          "classCommencementDate": "2026-09-14",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
       "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1788080483718,
+          "duration": 0
+        },
         {
           "stage": "Visa documentation/Bank Maturity Pending",
           "enteredDate": 1777766400000,
-          "duration": 0
+          "duration": 119
         },
         {
           "stage": "Processing for Application",
@@ -2053,9 +2069,22 @@
       "link": "https://auckland.op.ac.nz/our-programmes/information-technology/bachelor-of-information-technology",
       "classCommencementDate": "2026-10-05",
       "lastUsed": 1788079765904
+    },
+    {
+      "id": "pb_1788080483717_bedgv",
+      "country": "New Zealand",
+      "university": "Auckland Institute of Studies (AIS)",
+      "program": "Bachelor of Business (BBus)",
+      "link": "https://www.ais.ac.nz/bbus",
+      "classCommencementDate": "2026-09-14",
+      "lastUsed": 1788080483717
     }
   ],
   "log": [
+    {
+      "ts": 1788080488075,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788079958669,
       "msg": "Visa lodged date set for AKIMUL ISLAM TAZIM: 2026-08-27 (expected result 2026-10-11)"

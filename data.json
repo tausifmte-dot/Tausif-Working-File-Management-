@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T08:35:30.084Z",
+    "saved": "2026-08-30T08:36:30.099Z",
     "version": 8,
     "count": 36
   },
@@ -1649,7 +1649,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788078911688,
+      "lastUpdated": 1788078985898,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1663,8 +1663,18 @@
           "agent": "GEEbee",
           "applicationDate": "2026-08-25",
           "link": "https://www.unitec.ac.nz/career-and-study-options/business/accounting/bachelor-of-accounting/",
-          "classCommencementDate": "2026-02-01",
+          "classCommencementDate": "2027-02-01",
           "stage": "Application submitted"
+        },
+        {
+          "country": "New Zealand",
+          "university": "Ara Institute of Canterbury (Ara)",
+          "program": "BACHELOR OF ACCOUNTING",
+          "agent": "GEEbee",
+          "applicationDate": "2026-08-25",
+          "link": "https://www.ara.ac.nz/products/programme/tp4775-stru-bachelor-of-accounting/",
+          "classCommencementDate": "2027-02-01",
+          "stage": "Applications are with agents for review"
         }
       ],
       "stageHistory": [
@@ -1957,11 +1967,24 @@
       "university": "Unitec Institute of Technology (Unitec)",
       "program": "BACHELOR OF ACCOUNTING",
       "link": "https://www.unitec.ac.nz/career-and-study-options/business/accounting/bachelor-of-accounting/",
-      "classCommencementDate": "2026-02-01",
-      "lastUsed": 1788078911688
+      "classCommencementDate": "2027-02-01",
+      "lastUsed": 1788078985898
+    },
+    {
+      "id": "pb_1788078975472_bjzar",
+      "country": "New Zealand",
+      "university": "Ara Institute of Canterbury (Ara)",
+      "program": "BACHELOR OF ACCOUNTING",
+      "link": "https://www.ara.ac.nz/products/programme/tp4775-stru-bachelor-of-accounting/",
+      "classCommencementDate": "2027-02-01",
+      "lastUsed": 1788078975472
     }
   ],
   "log": [
+    {
+      "ts": 1788078988073,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788078928063,
       "msg": "Auto-saved"

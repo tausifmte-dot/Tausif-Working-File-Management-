@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:25:35.800Z",
+    "saved": "2026-08-30T13:25:55.232Z",
     "version": 8,
     "count": 35
   },
@@ -584,7 +584,7 @@
       "name": "Mahin Prodhan",
       "country": "New Zealand",
       "intake": "October 2026",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Visa Refused",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
@@ -599,7 +599,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787221846891,
+      "lastUpdated": 1788096353208,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -607,6 +607,11 @@
       "applicationCompletions": [],
       "uniApplications": [],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Visa Rejected)",
+          "enteredDate": 1788096353208,
+          "duration": 0
+        },
         {
           "stage": "Visa Refused",
           "enteredDate": 1786966811614,
@@ -632,8 +637,8 @@
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-08-30",
+      "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -641,7 +646,7 @@
       "id": 1786707888167.6492,
       "name": "MD ABDULLAH AL SAIF",
       "country": "New Zealand",
-      "intake": "June 2026",
+      "intake": "February 2027",
       "status": "Active",
       "appStage": "Unconditional offer letter issued",
       "counselor": "Tausif Jaman",
@@ -657,7 +662,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787555057767,
+      "lastUpdated": 1788096339314,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -2457,6 +2462,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788096353208,
+      "msg": "Marked discontinued: Mahin Prodhan — Visa Rejected (2026-08-30)"
+    },
     {
       "ts": 1788096333777,
       "msg": "Auto-saved"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T09:01:33.034Z",
+    "saved": "2026-08-30T09:01:47.204Z",
     "version": 8,
     "count": 36
   },
@@ -704,7 +704,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788080490990,
+      "lastUpdated": 1788080505165,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -751,8 +751,8 @@
       ],
       "phone": "",
       "visaFieldsLocked": true,
-      "visaLodgedDate": "",
-      "expectedResultDate": "",
+      "visaLodgedDate": "2026-07-29",
+      "expectedResultDate": "2026-09-12",
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
@@ -2092,6 +2092,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788080505165,
+      "msg": "Visa lodged date set for Md Anaf Bin Hassan: 2026-07-29 (expected result 2026-09-12)"
+    },
     {
       "ts": 1788080490991,
       "msg": "Visa lodged: Md Anaf Bin Hassan"

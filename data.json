@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "saved": "2026-08-30T06:29:53.061Z",
+    "saved": "2026-08-30T06:30:33.398Z",
     "version": 8,
-    "count": 36
+    "count": 35
   },
   "students": [
     {
@@ -1372,57 +1372,6 @@
       "applicationDeadline": ""
     },
     {
-      "id": 1788071391023.4944,
-      "name": "S. M. MAINUL HASAN",
-      "country": "Malaysia",
-      "intake": "October 2026",
-      "status": "Active",
-      "appStage": "",
-      "counselor": "",
-      "phone": "",
-      "email": "",
-      "uniCount": 1,
-      "moreUni": "N",
-      "moreUniDate": "",
-      "bankMatured": "Y",
-      "bankMonths": "More than 6 months",
-      "bankExpectedDate": "",
-      "defer": "N",
-      "gsApplied": "N",
-      "gsStatus": "",
-      "coe": "N",
-      "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1788071391023,
-      "remarks": "HAS A NEW ZEALAND VISA REFUSAL",
-      "situation": "EMAIL ADDRESS VUL DISE EKHON ABAR NEW APPLY KORA LAGTE PARE - JOSHEPHINE K BOLA HOI TUSHAR BHAI K DIYE",
-      "remarksHistory": [
-        {
-          "ts": 1788071391023,
-          "text": "HAS A NEW ZEALAND VISA REFUSAL"
-        }
-      ],
-      "situationHistory": [
-        {
-          "ts": 1788071391023,
-          "text": "EMAIL ADDRESS VUL DISE EKHON ABAR NEW APPLY KORA LAGTE PARE - JOSHEPHINE K BOLA HOI TUSHAR BHAI K DIYE"
-        }
-      ],
-      "applicationCompletions": [],
-      "uniApplications": [],
-      "stageHistory": [],
-      "locked": false,
-      "visaFieldsLocked": false,
-      "closedInfo": null,
-      "visaApplicationRef": null,
-      "visaLodgedDate": "",
-      "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
-      "nextIntakeDate": "",
-      "applicationDeadline": ""
-    },
-    {
       "id": 1787651436012.668,
       "name": "S.M._MAINUL_HASAN",
       "country": "New Zealand",
@@ -1888,6 +1837,10 @@
   "learnedUnis": {},
   "learnedPrograms": [],
   "log": [
+    {
+      "ts": 1788071431372,
+      "msg": "Removed: S. M. MAINUL HASAN"
+    },
     {
       "ts": 1788071391023,
       "msg": "Added: S. M. MAINUL HASAN"

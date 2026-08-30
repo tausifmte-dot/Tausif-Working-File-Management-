@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:17:12.635Z",
+    "saved": "2026-08-30T13:17:55.115Z",
     "version": 8,
     "count": 34
   },
@@ -871,7 +871,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788095830593,
+      "lastUpdated": 1788095873074,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -890,6 +890,16 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1788095873074,
+          "duration": 0
+        },
+        {
+          "stage": "Approve in principle has been issued",
+          "enteredDate": 1788095868497,
+          "duration": 0
+        },
         {
           "stage": "Visa Refused",
           "enteredDate": 1788095830593,
@@ -922,7 +932,7 @@
         }
       ],
       "phone": "",
-      "visaFieldsLocked": false,
+      "visaFieldsLocked": true,
       "visaLodgedDate": "",
       "expectedResultDate": "",
       "discontinuedDate": "2026-08-30",
@@ -935,8 +945,14 @@
         "program": "Bachelor of Education (Early Childhood Education)",
         "classCommencementDate": "2026-08-28"
       },
-      "locked": false,
-      "closedInfo": null
+      "locked": true,
+      "closedInfo": {
+        "reason": "Visa Refused — No Resubmission (Final)",
+        "stage": "Visa Refused",
+        "date": 1788095873074,
+        "university": "NZTC",
+        "program": "Bachelor of Education (Early Childhood Education)"
+      }
     },
     {
       "id": 1786707888165.9988,
@@ -2335,6 +2351,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095873075,
+      "msg": "Visa refused, decision recorded: MD RAKIBUL ISLAM"
+    },
     {
       "ts": 1788095830594,
       "msg": "Visa refused, decision recorded: MD RAKIBUL ISLAM"

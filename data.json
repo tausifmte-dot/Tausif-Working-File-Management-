@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:13:35.823Z",
+    "saved": "2026-08-30T13:14:35.797Z",
     "version": 8,
     "count": 34
   },
@@ -1195,8 +1195,8 @@
       "uniCount": 0,
       "moreUni": "N",
       "moreUniDate": "",
-      "bankMatured": "",
-      "bankMonths": "",
+      "bankMatured": "Y",
+      "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
       "defer": "N",
       "gsApplied": "N",
@@ -1204,13 +1204,24 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788095611193,
+      "lastUpdated": 1788095644803,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
+      "uniApplications": [
+        {
+          "country": "Malaysia",
+          "university": "University of Wollongong",
+          "program": "Bachelor of Computer Science (Hons)",
+          "agent": "Other",
+          "applicationDate": "2026-08-28",
+          "link": "https://www.uow.edu.my/dual-award-programs/#computing",
+          "classCommencementDate": "2026-10-01",
+          "stage": ""
+        }
+      ],
       "stageHistory": [
         {
           "stage": "Submitting application",
@@ -2144,7 +2155,7 @@
       "program": "Bachelor of Computer Science (Hons)",
       "link": "https://www.uow.edu.my/dual-award-programs/#computing",
       "classCommencementDate": "2026-10-01",
-      "lastUsed": 1788078576894
+      "lastUsed": 1788095634218
     },
     {
       "id": "pb_1788078911688_1v8ib",
@@ -2238,6 +2249,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095673770,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788095613772,
       "msg": "Auto-saved"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T09:20:36.552Z",
+    "saved": "2026-08-30T09:53:51.810Z",
     "version": 8,
     "count": 36
   },
@@ -175,7 +175,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1787627750812,
+      "lastUpdated": 1788083629761,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -189,7 +189,8 @@
           "agent": "GEEbee",
           "applicationDate": "2026-06-16",
           "link": "https://auckland.op.ac.nz/our-programmes/information-technology/bachelor-of-information-technology",
-          "classCommencementDate": "2026-10-05"
+          "classCommencementDate": "2026-10-05",
+          "stage": "Unconditional offer letter issued"
         }
       ],
       "stageHistory": [
@@ -222,8 +223,8 @@
         "classCommencementDate": "2026-10-05"
       },
       "visaFieldsLocked": true,
-      "visaLodgedDate": "",
-      "expectedResultDate": "",
+      "visaLodgedDate": "2026-07-27",
+      "expectedResultDate": "2026-09-10",
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
@@ -2148,9 +2149,22 @@
       "link": "https://college.waikato.ac.nz/international-programmes/postgraduate/dippp/",
       "classCommencementDate": "2026-11-09",
       "lastUsed": 1788081614970
+    },
+    {
+      "id": "pb_1788083617157_9via2",
+      "country": "New Zealand",
+      "university": "Otago Polytechnic (Otago Poly)",
+      "program": "Bachelor of information technology L7",
+      "link": "https://auckland.op.ac.nz/our-programmes/information-technology/bachelor-of-information-technology",
+      "classCommencementDate": "2026-10-05",
+      "lastUsed": 1788083617157
     }
   ],
   "log": [
+    {
+      "ts": 1788083629762,
+      "msg": "Visa lodged date set for Amrito Gain: 2026-07-27 (expected result 2026-09-10)"
+    },
     {
       "ts": 1788081634515,
       "msg": "Visa lodged date set for Nasib Ibne Nizam: 2026-08-21 (expected result 2026-10-05)"

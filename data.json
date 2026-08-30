@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T12:21:58.227Z",
+    "saved": "2026-08-30T12:23:58.226Z",
     "version": 8,
     "count": 36
   },
@@ -2037,7 +2037,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788092463545,
+      "lastUpdated": 1788092581343,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -2053,6 +2053,16 @@
           "link": "https://college.waikato.ac.nz/international-programmes/postgraduate/dippp/",
           "classCommencementDate": "2026-11-01",
           "stage": "Unconditional offer letter issued"
+        },
+        {
+          "country": "New Zealand",
+          "university": "Massey University (Massey)",
+          "program": "",
+          "agent": "NZUAC",
+          "applicationDate": "2026-01-08",
+          "link": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-professional-accountancy-PMPRC/",
+          "classCommencementDate": "2026-08-30",
+          "stage": "Application submitted"
         }
       ],
       "stageHistory": [
@@ -2188,6 +2198,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788092635231,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788092515223,
       "msg": "Auto-saved"

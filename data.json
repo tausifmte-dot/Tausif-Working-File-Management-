@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T06:30:48.861Z",
+    "saved": "2026-08-30T06:33:02.540Z",
     "version": 8,
     "count": 34
   },
@@ -27,7 +27,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "Y",
-      "lastUpdated": 1787570274272,
+      "lastUpdated": 1788071560967,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -41,7 +41,8 @@
           "agent": "NZUAC",
           "applicationDate": "2026-08-01",
           "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
-          "classCommencementDate": "2027-02-22"
+          "classCommencementDate": "2027-02-22",
+          "stage": "Unconditional offer letter issued"
         }
       ],
       "stageHistory": [
@@ -1783,9 +1784,27 @@
   ],
   "pendingTasks": [],
   "quickNotes": [],
-  "learnedUnis": {},
-  "learnedPrograms": [],
+  "learnedUnis": {
+    "New Zealand": [
+      "White cliff College"
+    ]
+  },
+  "learnedPrograms": [
+    {
+      "id": "pb_1788071560967_lxb9x",
+      "country": "New Zealand",
+      "university": "White cliff College",
+      "program": "Bachelor of Applied Computing L 7",
+      "link": "https://www.whitecliffe.ac.nz/qualification/bachelor-of-applied-computing-technologies/",
+      "classCommencementDate": "2027-02-22",
+      "lastUsed": 1788071560967
+    }
+  ],
   "log": [
+    {
+      "ts": 1788071580519,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788071446835,
       "msg": "Removed: S.M._MAINUL_HASAN"

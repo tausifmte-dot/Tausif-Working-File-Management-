@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:11:48.193Z",
+    "saved": "2026-08-30T13:12:16.749Z",
     "version": 8,
     "count": 35
   },
@@ -1237,7 +1237,7 @@
       "name": "Nahid Hasan Sakib",
       "country": "New Zealand",
       "intake": "February 2027",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Application submitted",
       "counselor": "HBD Services Bangladesh",
       "uniCount": 2,
@@ -1252,7 +1252,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787328609305,
+      "lastUpdated": 1788095534720,
       "remarks": "NZUAC Student. Dual application: Wintec (Bachelor Applied Management Supply Chain) + Ara Institute (Bachelor Applied Management Supply Chain & Logistics). Both Feb 2027 intake. Documents submitted: Passport, Resume, PTE, Academic records. CRITICAL: Statement of Purpose required for both universities - OVERDUE as of Aug 17, 2026. Expected offers: Sept-Oct 2026.",
       "situation": "Pending SOP submission",
       "remarksHistory": [
@@ -1287,6 +1287,11 @@
       ],
       "stageHistory": [
         {
+          "stage": "Discontinued (Student Withdrew)",
+          "enteredDate": 1788095534720,
+          "duration": 0
+        },
+        {
           "stage": "Application submitted",
           "enteredDate": 1787328601269,
           "duration": 0
@@ -1301,8 +1306,8 @@
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-08-30",
+      "discontinuedReason": "Student Withdrew",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -2302,6 +2307,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788095534720,
+      "msg": "Marked discontinued: Nahid Hasan Sakib — Student Withdrew (2026-08-30)"
+    },
     {
       "ts": 1788095506161,
       "msg": "Removed: Nayeem Hasan"

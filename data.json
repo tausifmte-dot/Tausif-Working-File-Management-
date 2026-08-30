@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T11:53:12.426Z",
+    "saved": "2026-08-30T12:21:58.227Z",
     "version": 8,
     "count": 36
   },
@@ -2023,7 +2023,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "",
+      "appStage": "Unconditional offer letter issued",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -2037,14 +2037,31 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888166,
+      "lastUpdated": 1788092463545,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
-      "stageHistory": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "University of Waikato (Waikato)",
+          "program": "PRE MASTERS TO MASTERS IN SUBPPLY CHAIN",
+          "agent": "NZUAC",
+          "applicationDate": "2026-01-08",
+          "link": "https://college.waikato.ac.nz/international-programmes/postgraduate/dippp/",
+          "classCommencementDate": "2026-11-01",
+          "stage": "Unconditional offer letter issued"
+        }
+      ],
+      "stageHistory": [
+        {
+          "stage": "Unconditional offer letter issued",
+          "enteredDate": 1788092463546,
+          "duration": 0
+        }
+      ],
       "phone": "",
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
@@ -2157,8 +2174,8 @@
       "university": "University of Waikato (Waikato)",
       "program": "PRE MASTERS TO MASTERS IN SUBPPLY CHAIN",
       "link": "https://college.waikato.ac.nz/international-programmes/postgraduate/dippp/",
-      "classCommencementDate": "2026-11-09",
-      "lastUsed": 1788081614970
+      "classCommencementDate": "2026-11-01",
+      "lastUsed": 1788092463546
     },
     {
       "id": "pb_1788083617157_9via2",
@@ -2171,6 +2188,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788092515223,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788090790388,
       "msg": "Visa refused, decision recorded: Saira Sadia"

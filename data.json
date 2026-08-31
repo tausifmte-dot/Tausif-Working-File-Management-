@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-30T13:29:37.387Z",
+    "saved": "2026-08-31T03:46:12.701Z",
     "version": 8,
     "count": 35
   },
@@ -647,7 +647,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788096393411,
+      "lastUpdated": 1788147970654,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -716,14 +716,8 @@
         "program": "Bachelor of Information Technology",
         "classCommencementDate": "2026-09-14"
       },
-      "locked": true,
-      "closedInfo": {
-        "reason": "Visa Refused — No Resubmission (Final)",
-        "stage": "Visa Refused",
-        "date": 1788096393411,
-        "university": "Auckland Institute of Studies (AIS)",
-        "program": "Bachelor of Information Technology"
-      }
+      "locked": false,
+      "closedInfo": null
     },
     {
       "id": 1786707888167.6492,
@@ -2554,6 +2548,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788147970654,
+      "msg": "Reopened: Mahin Prodhan"
+    },
     {
       "ts": 1788096575336,
       "msg": "Visa refused, decision recorded: Hafsa Islam Oyshe"

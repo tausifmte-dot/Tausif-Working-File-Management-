@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-31T03:47:25.865Z",
+    "saved": "2026-08-31T05:38:51.791Z",
     "version": 8,
     "count": 35
   },
@@ -2366,7 +2366,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788092581343,
+      "lastUpdated": 1788154704703,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -2386,11 +2386,11 @@
         {
           "country": "New Zealand",
           "university": "Massey University (Massey)",
-          "program": "",
+          "program": "Master of Professional Accountancy – MPAcc",
           "agent": "NZUAC",
           "applicationDate": "2026-01-08",
           "link": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-professional-accountancy-PMPRC/",
-          "classCommencementDate": "2026-08-30",
+          "classCommencementDate": "2027-03-01",
           "stage": "Application submitted"
         }
       ],
@@ -2561,9 +2561,22 @@
       "link": "https://www.unitec.ac.nz/career-and-study-options/business/accounting/master-of-professional-accounting/",
       "classCommencementDate": "2027-02-01",
       "lastUsed": 1788096517979
+    },
+    {
+      "id": "pb_1788154698647_5eebi",
+      "country": "New Zealand",
+      "university": "Massey University (Massey)",
+      "program": "Master of Professional Accountancy – MPAcc",
+      "link": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-professional-accountancy-PMPRC/",
+      "classCommencementDate": "2027-03-01",
+      "lastUsed": 1788154704703
     }
   ],
   "log": [
+    {
+      "ts": 1788154729754,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1788148043836,
       "msg": "Visa refused, decision recorded: Mahin Prodhan"

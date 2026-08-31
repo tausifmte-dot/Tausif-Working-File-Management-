@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-08-31T03:46:12.701Z",
+    "saved": "2026-08-31T03:47:25.865Z",
     "version": 8,
     "count": 35
   },
@@ -647,7 +647,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788147970654,
+      "lastUpdated": 1788148043836,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -666,6 +666,16 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1788148043836,
+          "duration": 0
+        },
+        {
+          "stage": "Visa Interview Schedule",
+          "enteredDate": 1788148038502,
+          "duration": 0
+        },
         {
           "stage": "Visa Refused",
           "enteredDate": 1788096393411,
@@ -716,8 +726,14 @@
         "program": "Bachelor of Information Technology",
         "classCommencementDate": "2026-09-14"
       },
-      "locked": false,
-      "closedInfo": null
+      "locked": true,
+      "closedInfo": {
+        "reason": "Visa Refused — No Resubmission (Final)",
+        "stage": "Visa Refused",
+        "date": 1788148043836,
+        "university": "Auckland Institute of Studies (AIS)",
+        "program": "Bachelor of Information Technology"
+      }
     },
     {
       "id": 1786707888167.6492,
@@ -2548,6 +2564,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788148043836,
+      "msg": "Visa refused, decision recorded: Mahin Prodhan"
+    },
     {
       "ts": 1788147970654,
       "msg": "Reopened: Mahin Prodhan"

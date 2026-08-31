@@ -1427,6 +1427,16 @@ html,body{overflow-x:hidden;max-width:100vw}
       <div class="remind-section" id="visa-alarm-sec"></div>
     </div>
 
+    <div class="glass2" id="review-check-wrap" style="padding:14px 16px;margin-bottom:14px;display:none">
+      <div class="slbl" style="margin-bottom:6px;color:#1d4ed8">&#128269; Check Application Progress — Moved to Review?</div>
+      <div class="remind-section" id="review-check-sec"></div>
+    </div>
+
+    <div class="glass2" id="offer-alarm-wrap" style="padding:14px 16px;margin-bottom:14px;display:none;border:1px solid rgba(220,38,38,0.3)">
+      <div class="slbl" style="margin-bottom:6px;color:var(--er,#dc2626)">&#128231; No Offer Letter Yet — Follow Up With the Provider</div>
+      <div class="remind-section" id="offer-alarm-sec"></div>
+    </div>
+
     <div class="dash-center-3col">
       <div class="glass2" style="padding:14px 16px;display:flex;flex-direction:column">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
@@ -1781,6 +1791,26 @@ html,body{overflow-x:hidden;max-width:100vw}
       </div>
     </div>
     <div class="modal-foot"><button class="btn" style="border-color:#d1d5db;color:#6b7280" onclick="closeMo('visa-date-mo')">Cancel</button><button class="btn btn-primary" style="padding:7px 14px;font-size:13px" onclick="saveVisaLodgedDate()">Save Lodgement Date</button></div>
+  </div>
+</div>
+
+<!-- FOLLOW-UP EMAIL DRAFT MODAL — no snooze option; only closing (alarm stays active) or marking sent (quiets it for 3 days) -->
+<div class="mo" id="expedite-email-mo">
+  <div class="modal modal-sm" style="max-width:560px">
+    <div class="modal-hdr"><h3>✉️ Follow-up Email — Request Application Update</h3><button class="modal-close" onclick="closeMo('expedite-email-mo')">&#215;</button></div>
+    <div class="modal-body">
+      <div style="background:rgba(220,38,38,0.08);border:1px solid rgba(220,38,38,0.25);border-radius:10px;padding:9px 13px;margin-bottom:14px;font-size:12px;color:#991b1b">
+        This application has had no offer letter for over a week. Send this follow-up, then confirm below so the reminder can pause for 3 days — otherwise it will keep reappearing.
+      </div>
+      <div class="fgroup" style="margin-bottom:10px"><label>To</label><div id="exp-email-to" style="padding:9px 12px;border:1px solid var(--gb);border-radius:8px;background:var(--input-bg,#f8fafc);font-size:13px;font-weight:600"></div></div>
+      <div class="fgroup" style="margin-bottom:10px"><label>Subject</label><input type="text" id="exp-email-subject" style="width:100%"></div>
+      <div class="fgroup" style="margin-bottom:8px"><label>Body — Formal / Corporate Tone (editable)</label><textarea id="exp-email-body" rows="12" style="width:100%;font-family:inherit;font-size:12.5px;line-height:1.6;padding:10px 12px;box-sizing:border-box"></textarea></div>
+      <div id="exp-email-count-lbl" style="font-size:11.5px;color:var(--tm);font-style:italic"></div>
+    </div>
+    <div class="modal-foot" style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap">
+      <button class="btn" id="exp-email-copy-btn" style="border-color:#d1d5db;color:#6b7280" onclick="copyExpediteEmail()">📋 Copy Email</button>
+      <button class="btn btn-primary" style="background:var(--er,#dc2626);border-color:var(--er,#dc2626);padding:7px 14px;font-size:13px" onclick="markExpediteEmailSent()">✓ I've Sent This Email</button>
+    </div>
   </div>
 </div>
 
@@ -2957,7 +2987,7 @@ function reopenStudent(idx){
 // RENDER ALL — charts only on dashboard or explicit request
 // ════════════════════════════════════════════════════════════
 function renderAll(){
-  renderIntakeTabs();updateSummary();renderReminders();renderVisaAlarm();renderTasks();renderProgress();renderQuickNotes();renderActionHistory();renderStaleStudents();renderAgentOverview();
+  renderIntakeTabs();updateSummary();renderReminders();renderVisaAlarm();renderReviewCheckAlarm();renderOfferFollowupAlarm();renderTasks();renderProgress();renderQuickNotes();renderActionHistory();renderStaleStudents();renderAgentOverview();
   renderStudentList();renderDetail();if(studentView==='cards')renderCardsP2();
   renderDashboardStudentSection();renderWhatsAppPanel();
   if(activePage==='p1')renderCharts();
@@ -2976,6 +3006,9 @@ function setSumFilter(f){sumFilter=f;document.querySelectorAll('#sum-filter-bar 
 
 function updateSummary(){
   const pool=sumIntake==='ALL'?students.filter(s=>s.status!=='Discontinued'):students.filter(s=>s.status!=='Discontinued'&&s.intake===sumIntake);
+  // allPool includes Discontinued/closed students too — used only for Visa Issued/Refused counts,
+  // since a visa decision already on file must always be reflected in stats regardless of file status.
+  const allPool=sumIntake==='ALL'?students:students.filter(s=>s.intake===sumIntake);
   const discontinued=students.filter(s=>s.status==='Discontinued');
   
   // OVERALL STATISTICS (6 cards - always visible)
@@ -2988,8 +3021,8 @@ function updateSummary(){
     {cls:'ok',val:pool.filter(s=>s.appStage==='Visa lodged'||s.appStage==='Visa Lodged').length,lbl:'Total Visa Lodge',f:'visa',key:'visa::lodge'},
     {cls:'wn',val:pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,0)).length,lbl:'Visa Decision Expected This Week',f:'visa',key:'visa::decision_this_week'},
     {cls:'wn',val:pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,1)).length,lbl:'Visa Decision Expected Next Week',f:'visa',key:'visa::decision_next_week'},
-    {cls:'ok',val:pool.filter(s=>['Visa granted','Visa Granted','Visa issued','Visa Issued'].includes(s.appStage)).length,lbl:'Total Visa Issued',f:'visa',key:'visa::issued_total'},
-    {cls:'er',val:pool.filter(s=>['Visa refused','Visa Refused','Visa rejected','Visa Rejected'].includes(s.appStage)).length,lbl:'Total Visa Refused',f:'visa',key:'visa::refused_total'},
+    {cls:'ok',val:allPool.filter(s=>['Visa granted','Visa Granted','Visa issued','Visa Issued'].includes(s.appStage)).length,lbl:'Total Visa Issued',f:'visa',key:'visa::issued_total'},
+    {cls:'er',val:allPool.filter(s=>['Visa refused','Visa Refused','Visa rejected','Visa Rejected'].includes(s.appStage)).length,lbl:'Total Visa Refused',f:'visa',key:'visa::refused_total'},
     {cls:'wn',val:discontinued.length,lbl:'Discontinued',f:'disc',key:'disc::all'}
   ];
   
@@ -3002,10 +3035,10 @@ function updateSummary(){
   const nzContainer=document.getElementById('nz-stats-container');
   const myContainer=document.getElementById('my-stats-container');
   
-  const auStats=buildAustraliaStats(pool);
-  const caStats=buildCanadaStats(pool);
-  const nzStats=buildNewZealandStats(pool);
-  const myStats=buildMalaysiaStats(pool);
+  const auStats=buildAustraliaStats(pool,allPool);
+  const caStats=buildCanadaStats(pool,allPool);
+  const nzStats=buildNewZealandStats(pool,allPool);
+  const myStats=buildMalaysiaStats(pool,allPool);
   
   if(auStats) auContainer.innerHTML=auStats; else auContainer.innerHTML='';
   if(caStats) caContainer.innerHTML=caStats; else caContainer.innerHTML='';
@@ -3028,9 +3061,10 @@ function updateSummary(){
 }
 
 // AUSTRALIA STATS BUILDER
-function buildAustraliaStats(pool){
+function buildAustraliaStats(pool,allPool){
   const auPool=pool.filter(s=>s.country==='Australia');
-  if(!auPool.length)return null;
+  const auAllPool=(allPool||pool).filter(s=>s.country==='Australia');
+  if(!auPool.length&&!auAllPool.length)return null;
   
   const stats=[
     {lbl:'Total Active AU',val:auPool.length, key:'country::Australia'},
@@ -3042,8 +3076,8 @@ function buildAustraliaStats(pool){
     {lbl:'GS Rejected',val:auPool.filter(s=>s.appStage==='GS assessment rejected').length, key:'au::stage::GS assessment rejected', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
     {lbl:'CoE Received',val:auPool.filter(s=>s.appStage==='Confirmation of enrollment received').length, key:'au::stage::Confirmation of enrollment received'},
     {lbl:'Visa Lodged',val:auPool.filter(s=>s.appStage==='Visa lodged').length, key:'au::stage::Visa lodged'},
-    {lbl:'Visa Refused',val:auPool.filter(s=>s.appStage==='Visa refused').length, key:'au::stage::Visa refused'},
-    {lbl:'Visa Granted',val:auPool.filter(s=>s.appStage==='Visa granted').length, key:'au::stage::Visa granted'},
+    {lbl:'Visa Refused',val:auAllPool.filter(s=>s.appStage==='Visa refused').length, key:'au::stage::Visa refused'},
+    {lbl:'Visa Granted',val:auAllPool.filter(s=>s.appStage==='Visa granted').length, key:'au::stage::Visa granted'},
     {lbl:'Fund >3 Months Matured',val:auPool.filter(s=>s.bankMatured==='Y'&&s.bankMonths&&(s.bankMonths.includes('More than')||s.bankMonths.includes('6'))).length, key:'au::fund_matured', bg:'rgba(13,148,136,0.08)', bd:'#0d9488'},
     {lbl:'Expecting Visa This Intake',val:auPool.filter(s=>s.visaNext==='Y').length, key:'au::visa_next', bg:'rgba(124,58,237,0.08)', bd:'#7c3aed'}
   ];
@@ -3052,9 +3086,10 @@ function buildAustraliaStats(pool){
 }
 
 // CANADA STATS BUILDER
-function buildCanadaStats(pool){
+function buildCanadaStats(pool,allPool){
   const caPool=pool.filter(s=>s.country==='Canada');
-  if(!caPool.length)return null;
+  const caAllPool=(allPool||pool).filter(s=>s.country==='Canada');
+  if(!caPool.length&&!caAllPool.length)return null;
   
   const stats=[
     {lbl:'Total Active CA',val:caPool.length, key:'country::Canada'},
@@ -3066,8 +3101,8 @@ function buildCanadaStats(pool){
     {lbl:'Visa Lodged',val:caPool.filter(s=>s.appStage==='Visa Lodged').length, key:'ca::stage::Visa Lodged'},
     {lbl:'Biometrics Done',val:caPool.filter(s=>s.appStage==='Biometrics Done').length, key:'ca::stage::Biometrics Done'},
     {lbl:'Received Passport Request',val:caPool.filter(s=>s.appStage==='Received passport Request').length, key:'ca::stage::Received passport Request'},
-    {lbl:'Visa Refused',val:caPool.filter(s=>s.appStage==='Visa rejected').length, key:'ca::stage::Visa rejected', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
-    {lbl:'Visa Granted',val:caPool.filter(s=>s.appStage==='Visa Granted').length, key:'ca::stage::Visa Granted', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Visa Refused',val:caAllPool.filter(s=>s.appStage==='Visa rejected').length, key:'ca::stage::Visa rejected', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
+    {lbl:'Visa Granted',val:caAllPool.filter(s=>s.appStage==='Visa Granted').length, key:'ca::stage::Visa Granted', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
     {lbl:'Fund >6 Months Matured',val:caPool.filter(s=>s.bankMatured==='Y'&&s.bankMonths&&(s.bankMonths.includes('6')||s.bankMonths.includes('More than 6'))).length, key:'ca::fund_matured', bg:'rgba(13,148,136,0.08)', bd:'#0d9488'},
     {lbl:'Expecting Visa This Intake',val:caPool.filter(s=>s.visaNext==='Y').length, key:'ca::visa_next'}
   ];
@@ -3076,9 +3111,10 @@ function buildCanadaStats(pool){
 }
 
 // NEW ZEALAND STATS BUILDER
-function buildNewZealandStats(pool){
+function buildNewZealandStats(pool,allPool){
   const nzPool=pool.filter(s=>s.country==='New Zealand');
-  if(!nzPool.length)return null;
+  const nzAllPool=(allPool||pool).filter(s=>s.country==='New Zealand');
+  if(!nzPool.length&&!nzAllPool.length)return null;
   
   const stats=[
     {lbl:'Total Active NZ',val:nzPool.length, key:'country::New Zealand'},
@@ -3088,8 +3124,8 @@ function buildNewZealandStats(pool){
     {lbl:'Preparing Required Visa Documents',val:nzPool.filter(s=>s.appStage==='Preparing required visa documents').length, key:'nz::prep_visa'},
     {lbl:'Visa Lodged',val:nzPool.filter(s=>s.appStage==='Visa lodged').length, key:'nz::stage::Visa lodged'},
     {lbl:'Approve in Principle Issued',val:nzPool.filter(s=>s.appStage==='Approve in principle has been issued').length, key:'nz::stage::Approve in principle has been issued'},
-    {lbl:'Visa Refused',val:nzPool.filter(s=>s.appStage==='Visa Refused').length, key:'nz::stage::Visa Refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
-    {lbl:'Visa Issued',val:nzPool.filter(s=>s.appStage==='Visa issued').length, key:'nz::stage::Visa issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Visa Refused',val:nzAllPool.filter(s=>s.appStage==='Visa Refused').length, key:'nz::stage::Visa Refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
+    {lbl:'Visa Issued',val:nzAllPool.filter(s=>s.appStage==='Visa issued').length, key:'nz::stage::Visa issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
     {lbl:'Tuition Fee Paid',val:nzPool.filter(s=>s.appStage==='Tuition fee paid').length, key:'nz::stage::Tuition fee paid'},
     {lbl:'Fund >3 Months Matured',val:nzPool.filter(s=>s.bankMatured==='Y'&&s.bankMonths&&(s.bankMonths.includes('More than')||s.bankMonths.includes('6'))).length, key:'nz::fund_matured', bg:'rgba(13,148,136,0.08)', bd:'#0d9488'},
     {lbl:'Expecting Visa This Intake',val:nzPool.filter(s=>s.visaNext==='Y').length, key:'nz::visa_next', bg:'rgba(217,119,6,0.15)', bd:'#d97706'}
@@ -3099,9 +3135,10 @@ function buildNewZealandStats(pool){
 }
 
 // MALAYSIA STATS BUILDER
-function buildMalaysiaStats(pool){
+function buildMalaysiaStats(pool,allPool){
   const myPool=pool.filter(s=>s.country==='Malaysia');
-  if(!myPool.length)return null;
+  const myAllPool=(allPool||pool).filter(s=>s.country==='Malaysia');
+  if(!myPool.length&&!myAllPool.length)return null;
   
   const stats=[
     {lbl:'Total Active MY',val:myPool.length, key:'country::Malaysia'},
@@ -3111,8 +3148,8 @@ function buildMalaysiaStats(pool){
     {lbl:'VAL & Full Offer Received',val:myPool.filter(s=>s.appStage==='Receiving VAL & full offer letter').length, key:'my::stage::Receiving VAL & full offer letter'},
     {lbl:'SEV Applied',val:myPool.filter(s=>s.appStage==='Applying for Single Entry Visa (SEV)').length, key:'my::stage::Applying for Single Entry Visa (SEV)'},
     {lbl:'Visa Lodged',val:myPool.filter(s=>s.appStage==='Visa lodged').length, key:'my::stage::Visa lodged'},
-    {lbl:'Visa Refused',val:myPool.filter(s=>s.appStage==='Visa refused').length, key:'my::stage::Visa refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
-    {lbl:'Visa Granted',val:myPool.filter(s=>s.appStage==='Visa granted').length, key:'my::stage::Visa granted', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Visa Refused',val:myAllPool.filter(s=>s.appStage==='Visa refused').length, key:'my::stage::Visa refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
+    {lbl:'Visa Granted',val:myAllPool.filter(s=>s.appStage==='Visa granted').length, key:'my::stage::Visa granted', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
     {lbl:'Tuition Fee Paid',val:myPool.filter(s=>s.appStage==='Tuition fee payment').length, key:'my::stage::Tuition fee payment'},
     {lbl:'Accommodation Booked',val:myPool.filter(s=>s.appStage==='Booking accommodation').length, key:'my::stage::Booking accommodation'},
     {lbl:'Air Ticket Booked',val:myPool.filter(s=>s.appStage==='Booking air ticket').length, key:'my::stage::Booking air ticket'},
@@ -3194,6 +3231,9 @@ function toggleCountrySummary(){
 function getStatEntries(key){
   const pool=sumIntake==='ALL'?students.filter(s=>s.status!=='Discontinued'):students.filter(s=>s.status!=='Discontinued'&&s.intake===sumIntake);
   const all=students;
+  // allPool includes Discontinued/closed students, filtered only by intake — used for Visa Issued/Refused
+  // drill-downs so the list always matches the "always shown" stat counts, regardless of file status.
+  const allPool=sumIntake==='ALL'?students:students.filter(s=>s.intake===sumIntake);
   const make=(arr, title, getCondition)=>({title, items:arr.map(s=>({id:s.id, name:s.name, meta:[s.country||'No country', s.intake||'No intake', s.appStage||'No stage'].join(' · '), condition:getCondition(s)}))});
   if(key==='all::total') return make(pool,'Active Students',s=>`Current situation: ${s.situation||'Not updated'}`);
   if(key==='bank::matured') return make(pool.filter(s=>s.bankMatured==='Y'),'Bank Matured',s=>`Bank matured${s.bankMonths?` (${s.bankMonths})`:''}`);
@@ -3221,8 +3261,16 @@ function getStatEntries(key){
   if(key==='visa::lodge') return make(pool.filter(s=>s.appStage==='Visa lodged'||s.appStage==='Visa Lodged'), 'Total Visa Lodge', s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage}`);
   if(key==='visa::decision_this_week') return make(pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,0)), 'Visa Decision Expected This Week', s=>`Country: ${s.country||'Not set'} · Expected: ${fmtDateShort(s.expectedResultDate)}`);
   if(key==='visa::decision_next_week') return make(pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,1)), 'Visa Decision Expected Next Week', s=>`Country: ${s.country||'Not set'} · Expected: ${fmtDateShort(s.expectedResultDate)}`);
-  if(key==='visa::issued_total') return make(pool.filter(s=>['Visa granted','Visa Granted','Visa issued','Visa Issued'].includes(s.appStage)), 'Total Visa Issued', s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage}`);
-  if(key==='visa::refused_total') return make(pool.filter(s=>['Visa refused','Visa Refused','Visa rejected','Visa Rejected'].includes(s.appStage)), 'Total Visa Refused', s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage}`);
+  if(key==='visa::issued_total') return make(allPool.filter(s=>['Visa granted','Visa Granted','Visa issued','Visa Issued'].includes(s.appStage)), 'Total Visa Issued', s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+  if(key==='visa::refused_total') return make(allPool.filter(s=>['Visa refused','Visa Refused','Visa rejected','Visa Rejected'].includes(s.appStage)), 'Total Visa Refused', s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+  if(key==='au::stage::Visa refused') return make(allPool.filter(s=>s.country==='Australia'&&s.appStage==='Visa refused'), 'Visa Refused', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+  if(key==='au::stage::Visa granted') return make(allPool.filter(s=>s.country==='Australia'&&s.appStage==='Visa granted'), 'Visa Granted', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+  if(key==='ca::stage::Visa rejected') return make(allPool.filter(s=>s.country==='Canada'&&s.appStage==='Visa rejected'), 'Visa Refused', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+  if(key==='ca::stage::Visa Granted') return make(allPool.filter(s=>s.country==='Canada'&&s.appStage==='Visa Granted'), 'Visa Granted', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+  if(key==='nz::stage::Visa Refused') return make(allPool.filter(s=>s.country==='New Zealand'&&s.appStage==='Visa Refused'), 'Visa Refused', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+  if(key==='nz::stage::Visa issued') return make(allPool.filter(s=>s.country==='New Zealand'&&s.appStage==='Visa issued'), 'Visa Issued', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+  if(key==='my::stage::Visa refused') return make(allPool.filter(s=>s.country==='Malaysia'&&s.appStage==='Visa refused'), 'Visa Refused', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+  if(key==='my::stage::Visa granted') return make(allPool.filter(s=>s.country==='Malaysia'&&s.appStage==='Visa granted'), 'Visa Granted', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
   if(key.indexOf('agent::')===0){
     const agentName=decodeURIComponent(key.slice('agent::'.length));
     const isDirect=agentName==='Direct / Self';
@@ -3236,7 +3284,7 @@ function getStatEntries(key){
     const parts=key.split('::');
     const cCode=parts[0];
     const stage=parts[2];
-    const country=cCode==='au'?'Australia':cCode==='ca'?'Canada':cCode==='nz'?'New Zealand':'';
+    const country=cCode==='au'?'Australia':cCode==='ca'?'Canada':cCode==='nz'?'New Zealand':cCode==='my'?'Malaysia':'';
     return make(pool.filter(s=>s.country===country && s.appStage===stage), stage, s=>`Stage: ${s.appStage}`);
   }
   return {title:'Statistic Details', items:[]};
@@ -3339,6 +3387,106 @@ function renderVisaAlarm(){
   sec.innerHTML=pending.map(s=>rowHtml(s,false)).join('')+resolved.map(s=>rowHtml(s,true)).join('');
 }
 // ════════════════════════════════════════════════════════════
+// REVIEW-STAGE CHECK ALARM — has a submitted application moved to review yet?
+// ════════════════════════════════════════════════════════════
+function renderReviewCheckAlarm(){
+  const wrap=document.getElementById('review-check-wrap');
+  const sec=document.getElementById('review-check-sec');
+  if(!wrap||!sec)return;
+  const rows=[];
+  students.forEach((s,idx)=>{
+    if(s.status==='Discontinued')return;
+    (s.uniApplications||[]).forEach((a,ai)=>{
+      if(reviewCheckActive(a))rows.push({s,idx,a,ai});
+    });
+  });
+  if(!rows.length){wrap.style.display='none';sec.innerHTML='';return;}
+  wrap.style.display='block';
+  const titleEl=wrap.querySelector('.slbl');
+  if(titleEl)titleEl.innerHTML=`&#128269; Check Application Progress — Moved to Review? <span style="font-size:11px;font-weight:700;background:#2563eb;color:#fff;border-radius:10px;padding:1px 9px;margin-left:6px">${rows.length} to check</span>`;
+  sec.innerHTML=rows.map(r=>{
+    const daysSince=calendarDaysSince(r.a.applicationDate);
+    const dayLbl=daysSince===0?'submitted today':daysSince===1?'submitted 1 day ago':`submitted ${daysSince} days ago`;
+    return `<div class="remind-item"><div class="remind-main"><div><strong>${esc(r.s.name)}</strong> — ${esc(r.a.university||'application')} · ${dayLbl}</div><div style="font-size:11px;margin-top:4px">Has the application progressed to the review stage yet?</div></div><div class="remind-actions" style="display:flex;gap:6px;flex-wrap:wrap"><button class="btn-remind-done" style="background:#2563eb" onclick="confirmAppInReview(${r.idx},${r.ai})">✓ In Review</button><button class="btn-remind-done" style="background:#94a3b8" onclick="markAppReviewPending(${r.idx},${r.ai})">⏳ Still Pending</button></div></div>`;
+  }).join('');
+}
+function confirmAppInReview(idx,ai){
+  const a=students[idx].uniApplications[ai];
+  if(!a)return;
+  a.reviewConfirmed=true;
+  students[idx].lastUpdated=Date.now();
+  persist(students[idx].name+'\'s application at '+(a.university||'')+' confirmed in review stage');
+  renderAll();renderUniKanban();
+}
+function markAppReviewPending(idx,ai){
+  const a=students[idx].uniApplications[ai];
+  if(!a)return;
+  a.reviewDismissedDate=todayISO();
+  students[idx].lastUpdated=Date.now();
+  renderAll();
+}
+// ════════════════════════════════════════════════════════════
+// NO-OFFER-YET ALARM — persistent, non-snoozable follow-up reminder
+// ════════════════════════════════════════════════════════════
+let expediteEmailCtx=null; // {idx,ai}
+function renderOfferFollowupAlarm(){
+  const wrap=document.getElementById('offer-alarm-wrap');
+  const sec=document.getElementById('offer-alarm-sec');
+  if(!wrap||!sec)return;
+  const rows=[];
+  students.forEach((s,idx)=>{
+    if(s.status==='Discontinued')return;
+    (s.uniApplications||[]).forEach((a,ai)=>{
+      if(offerFollowupActive(a))rows.push({s,idx,a,ai});
+    });
+  });
+  if(!rows.length){wrap.style.display='none';sec.innerHTML='';return;}
+  wrap.style.display='block';
+  const titleEl=wrap.querySelector('.slbl');
+  if(titleEl)titleEl.innerHTML=`&#128231; No Offer Letter Yet — Follow Up With the Provider <span style="font-size:11px;font-weight:700;background:var(--er,#dc2626);color:#fff;border-radius:10px;padding:1px 9px;margin-left:6px">${rows.length} need action</span>`;
+  sec.innerHTML=rows.map(r=>{
+    const daysSince=calendarDaysSince(r.a.applicationDate);
+    const followupCount=r.a.expediteEmailCount||0;
+    const followupNote=followupCount>0?` · ${followupCount} follow-up${followupCount>1?'s':''} already sent`:'';
+    return `<div class="remind-item urgent"><div class="remind-main"><div><strong>${esc(r.s.name)}</strong> — ${esc(r.a.university||'application')} · no offer letter after ${daysSince} days${followupNote}</div><div style="font-size:11px;margin-top:4px">Country: ${esc(r.s.country||'Not set')}${r.a.program?' · '+esc(r.a.program):''} · Agent: ${esc(r.a.agent||'Direct/Self')}</div></div><div class="remind-actions"><button class="btn-remind-done" style="background:var(--er,#dc2626)" onclick="openExpediteEmailModal(${r.idx},${r.ai})">✉️ Draft Follow-up Email</button></div></div>`;
+  }).join('');
+}
+function openExpediteEmailModal(idx,ai){
+  const s=students[idx],a=s.uniApplications[ai];
+  if(!a)return;
+  expediteEmailCtx={idx,ai};
+  const draft=buildExpediteEmailDraft(s,a);
+  document.getElementById('exp-email-to').textContent=(a.agent&&a.agent!=='Direct/Self'?a.agent:'Admissions Team')+' — '+(a.university||'University');
+  document.getElementById('exp-email-subject').value=draft.subject;
+  document.getElementById('exp-email-body').value=draft.body;
+  const countLbl=document.getElementById('exp-email-count-lbl');
+  const cnt=a.expediteEmailCount||0;
+  countLbl.textContent=cnt>0?`This will be follow-up email #${cnt+1} for this application.`:'This will be the first follow-up email for this application.';
+  document.getElementById('expedite-email-mo').classList.add('open');
+}
+function copyExpediteEmail(){
+  const subject=document.getElementById('exp-email-subject').value;
+  const body=document.getElementById('exp-email-body').value;
+  const text='Subject: '+subject+'\n\n'+body;
+  navigator.clipboard.writeText(text).then(()=>{
+    const btn=document.getElementById('exp-email-copy-btn');
+    if(btn){const orig=btn.textContent;btn.textContent='✓ Copied';setTimeout(()=>{btn.textContent=orig;},1500);}
+  });
+}
+function markExpediteEmailSent(){
+  if(!expediteEmailCtx)return;
+  const {idx,ai}=expediteEmailCtx;
+  const a=students[idx].uniApplications[ai];
+  if(!a)return;
+  a.lastExpediteEmailAt=Date.now();
+  a.expediteEmailCount=(a.expediteEmailCount||0)+1;
+  students[idx].lastUpdated=Date.now();
+  persist('Follow-up email #'+a.expediteEmailCount+' logged for '+students[idx].name+'\'s application at '+(a.university||''));
+  closeMo('expedite-email-mo');
+  expediteEmailCtx=null;
+  renderAll();renderUniKanban();
+}
+// ════════════════════════════════════════════════════════════
 // UNIVERSITY APPLICATIONS — KANBAN PAGE (p5)
 // ════════════════════════════════════════════════════════════
 let ukAgentFilter='ALL',ukCountryFilter='ALL',ukStageFilter='ALL';
@@ -3426,7 +3574,7 @@ function renderUniKanban(){
     const d=daysUntil(cd);
     return d!==null&&d<=VISA_ALARM_WINDOW_DAYS;
   }).length;
-  const issuedCount=students.filter(s=>s.status!=='Discontinued'&&visaGroupOf(s.appStage)==='issued').length;
+  const issuedCount=students.filter(s=>visaGroupOf(s.appStage)==='issued').length;
   const deferredCount=students.filter(s=>s.status!=='Discontinued'&&s.defer==='Y').length;
 
   const summaryEl=document.getElementById('uk-summary');
@@ -3527,6 +3675,7 @@ function ukRowHtml(c,colLabel){
   }
   const deferTag=s.defer==='Y'?` <span class="uk-status-tag" style="background:rgba(124,58,237,0.12);color:#7c3aed">${resolved?'✓ Deferral':'Deferred'}</span>`:'';
   const alarmTag=alarm?' <span class="uk-status-tag" style="background:rgba(220,38,38,0.15);color:#dc2626">🚨 Urgent</span>':'';
+  const followupTag=a?' '+appReviewFollowupTag(a):'';
   const uniCell=a?`${esc(a.university||'')}${a.program?`<div class="uk-td-sub">${esc(a.program)}</div>`:''}`:'<span class="uk-missing" style="font-style:italic">No applications logged</span>';
   const linkHtml=a&&a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-size:11px">🔗</a>`:'';
   const rowCls=`clickable${alarm?' uk-row-alarm':''}${resolved?' uk-row-resolved':''}`;
@@ -3538,7 +3687,7 @@ function ukRowHtml(c,colLabel){
     <td>${stageTag}</td>
     <td>${decisionCell}</td>
     <td>${classCell}</td>
-    <td>${alarmTag}${deferTag}</td>
+    <td>${alarmTag}${deferTag}${followupTag}</td>
     <td>${linkHtml}</td>
   </tr>`;
 }
@@ -3568,7 +3717,7 @@ function ukCardHtml(c){
   return `<div class="glass2 uk-card${alarm?' uk-alarm':''}"${resolved?' style="opacity:0.8"':''} onclick="jumpToStudentDetail(${idx})">
     <div class="uk-c-top"><div class="uk-c-name">${esc(s.name)}</div><div class="uk-c-lock">${lockLbl}</div></div>
     ${a?`<div class="uk-c-uni">${esc(a.university)}${a.program?'<br>'+esc(a.program):''}</div>`:'<div class="uk-c-uni" style="font-style:italic">No applications logged yet</div>'}
-    <div class="uk-c-meta">${a?`<span class="uk-tag uk-tag-agent">${esc(a.agent||'Direct/Self')}</span><span class="uk-tag uk-tag-country">${FLAGS[a.country]||''} ${esc(a.country||'')}</span>`:''}${c.col==='refused'||c.col==='lodged'?vnTag:''}${deferTag}</div>
+    <div class="uk-c-meta">${a?`<span class="uk-tag uk-tag-agent">${esc(a.agent||'Direct/Self')}</span><span class="uk-tag uk-tag-country">${FLAGS[a.country]||''} ${esc(a.country||'')}</span>`:''}${c.col==='refused'||c.col==='lodged'?vnTag:''}${deferTag}${a?appReviewFollowupTag(a):''}</div>
     ${classRow}
     <div class="uk-c-linkrow">${linkHtml}${deferBtn}</div>
   </div>`;
@@ -5258,6 +5407,85 @@ function isDateInWeek(isoStr,weekOffset){
   const start=new Date(startOfWeekISO(weekOffset)+'T00:00:00');
   const end=new Date(start);end.setDate(start.getDate()+7);
   return d>=start&&d<end;
+}
+
+// ════════════════════════════════════════════════════════════
+// APPLICATION FOLLOW-UP ENGINE — "in review?" check + "no offer yet" alarm
+// ════════════════════════════════════════════════════════════
+function todayISO(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function isWeekdayDate(d){const day=d.getDay();return day!==0&&day!==6;}
+// Adds n *business* days (skipping Sat/Sun) to an ISO date string.
+function addBusinessDays(isoStr,n){
+  let d=new Date(isoStr+'T00:00:00');
+  let added=0;
+  while(added<n){
+    d.setDate(d.getDate()+1);
+    if(isWeekdayDate(d))added++;
+  }
+  return d;
+}
+function calendarDaysSince(isoStr){
+  if(!isoStr)return null;
+  const d=new Date(isoStr+'T00:00:00');
+  if(isNaN(d))return null;
+  const now=new Date();now.setHours(0,0,0,0);
+  return Math.floor((now-d)/86400000);
+}
+// An application is considered to have an offer once its per-application stage text
+// mentions "offer" (covers every country's stage wording: "Conditional offer letter
+// received/issued", "Receiving conditional offer letter", "Getting conditional offer", etc.)
+function appHasOffer(a){
+  return !!(a&&a.stage&&/offer/i.test(a.stage));
+}
+// Should the "check if moved to review" reminder show for this application right now?
+// Window: from the submission day through 2 *business* days after it, weekdays only,
+// and only until the student/agent has confirmed it's in review (or an offer has landed).
+function reviewCheckActive(a){
+  if(!a||!a.applicationDate||a.reviewConfirmed||appHasOffer(a))return false;
+  const today=new Date();today.setHours(0,0,0,0);
+  if(!isWeekdayDate(today))return false;
+  const start=new Date(a.applicationDate+'T00:00:00');
+  if(isNaN(start)||today<start)return false;
+  const deadline=addBusinessDays(a.applicationDate,2);
+  if(today>deadline)return false;
+  if(a.reviewDismissedDate===todayISO())return false;
+  return true;
+}
+// Should the "no offer yet — email the provider" alarm show for this application right now?
+// First fires 7 calendar days after submission if no offer is on file; once a follow-up
+// email is logged, goes quiet for exactly 3 days then fires again — repeating indefinitely
+// until an offer is recorded. There is no snooze/dismiss path other than logging an email.
+function offerFollowupActive(a){
+  if(!a||!a.applicationDate||appHasOffer(a))return false;
+  const daysSinceSubmit=calendarDaysSince(a.applicationDate);
+  if(daysSinceSubmit===null||daysSinceSubmit<7)return false;
+  if(!a.lastExpediteEmailAt)return true;
+  const daysSinceEmail=Math.floor((Date.now()-a.lastExpediteEmailAt)/86400000);
+  return daysSinceEmail>=3;
+}
+function buildExpediteEmailDraft(student,app){
+  const uni=app.university||'the university';
+  const programTxt=app.program?` for the ${app.program} program`:'';
+  const agentName=app.agent&&app.agent!=='Direct/Self'?app.agent:'Admissions Team';
+  const subject=`Follow-up on Application Status — ${student.name}${programTxt}`;
+  const body='Dear '+agentName+',\n\n'+
+    'I hope this email finds you well.\n\n'+
+    'I am writing to follow up on the application submitted on behalf of our student, '+student.name+', for admission'+programTxt+' at '+uni+'. '+
+    'The application was submitted on '+fmtDateLong(app.applicationDate)+', and to date we have not received any update regarding its status or an offer letter.\n\n'+
+    'Could you kindly advise on the current status of this application? We would greatly appreciate it if the review process could be expedited, given the student\'s intake timeline.\n\n'+
+    'Please do let us know if any further documents or information are required from our side to help move the application forward.\n\n'+
+    'Thank you for your continued support, and I look forward to your response.\n\n'+
+    'Best regards,\nTausif Jaman';
+  return {subject,body};
+}
+function appReviewFollowupTag(a){
+  if(!a)return '';
+  if(a.reviewConfirmed)return '<span class="uk-status-tag" style="background:rgba(37,99,235,0.12);color:#1d4ed8">🔍 In Review</span>';
+  if(a.lastExpediteEmailAt){
+    const daysAgo=Math.floor((Date.now()-a.lastExpediteEmailAt)/86400000);
+    return `<span class="uk-status-tag" style="background:rgba(220,38,38,0.12);color:#dc2626">✉️ Follow-up sent ${daysAgo===0?'today':daysAgo+'d ago'}</span>`;
+  }
+  return '';
 }
 
 let visaDateIdx=null,discontinuedIdx=null,reactivateIdx=null;

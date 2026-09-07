@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-07T20:05:24.703Z",
+    "saved": "2026-09-07T20:07:36.210Z",
     "version": 8,
     "count": 35
   },
@@ -1199,13 +1199,13 @@
       "country": "New Zealand",
       "intake": "October 2026",
       "status": "Active",
-      "appStage": "Waiting for documents from student side to submit application",
+      "appStage": "Visa lodged",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
       "moreUniDate": "",
-      "bankMatured": "",
-      "bankMonths": "",
+      "bankMatured": "Y",
+      "bankMonths": "More than 6 months",
       "bankExpectedDate": "",
       "defer": "Y",
       "gsApplied": "N",
@@ -1213,7 +1213,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788081453146,
+      "lastUpdated": 1788811654162,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1234,8 +1234,13 @@
       "stageHistory": [
         {
           "stage": "Visa lodged",
-          "enteredDate": 1788081202905,
+          "enteredDate": 1788811654162,
           "duration": 0
+        },
+        {
+          "stage": "Visa lodged",
+          "enteredDate": 1788081202905,
+          "duration": 8
         },
         {
           "stage": "Unconditional offer letter issued",
@@ -2617,6 +2622,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788811654162,
+      "msg": "Visa lodged: MD RIAD"
+    },
     {
       "ts": 1788811522667,
       "msg": "Visa refused, decision recorded: Ali Akbar Ishrak"

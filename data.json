@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-07T20:05:09.433Z",
+    "saved": "2026-09-07T20:05:24.703Z",
     "version": 8,
     "count": 35
   },
@@ -94,7 +94,7 @@
       "country": "New Zealand",
       "intake": "September 2026",
       "status": "Discontinued",
-      "appStage": "Visa lodged",
+      "appStage": "Visa Refused",
       "counselor": "",
       "phone": "",
       "email": "",
@@ -110,7 +110,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788811507400,
+      "lastUpdated": 1788811522667,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -129,6 +129,11 @@
       ],
       "stageHistory": [
         {
+          "stage": "Visa Refused",
+          "enteredDate": 1788811522667,
+          "duration": 0
+        },
+        {
           "stage": "Discontinued (Visa Rejected)",
           "enteredDate": 1788811507400,
           "duration": 0
@@ -144,9 +149,15 @@
           "duration": 0
         }
       ],
-      "locked": false,
+      "locked": true,
       "visaFieldsLocked": true,
-      "closedInfo": null,
+      "closedInfo": {
+        "reason": "Visa Refused — No Resubmission (Final)",
+        "stage": "Visa Refused",
+        "date": 1788811522667,
+        "university": "Auckland Institute of Studies (AIS)",
+        "program": "Bachelor of Business L7"
+      },
       "visaApplicationRef": {
         "country": "New Zealand",
         "university": "Auckland Institute of Studies (AIS)",
@@ -2606,6 +2617,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788811522667,
+      "msg": "Visa refused, decision recorded: Ali Akbar Ishrak"
+    },
     {
       "ts": 1788811507400,
       "msg": "Marked discontinued: Ali Akbar Ishrak — Visa Rejected (2026-09-07)"

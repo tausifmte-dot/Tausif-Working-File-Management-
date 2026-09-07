@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-07T20:04:54.661Z",
+    "saved": "2026-09-07T20:05:09.433Z",
     "version": 8,
     "count": 35
   },
@@ -93,7 +93,7 @@
       "name": "Ali Akbar Ishrak",
       "country": "New Zealand",
       "intake": "September 2026",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Visa lodged",
       "counselor": "",
       "phone": "",
@@ -110,7 +110,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1787570735020,
+      "lastUpdated": 1788811507400,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -128,6 +128,11 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Visa Rejected)",
+          "enteredDate": 1788811507400,
+          "duration": 0
+        },
         {
           "stage": "Visa lodged",
           "enteredDate": 1787570735020,
@@ -150,8 +155,8 @@
       },
       "visaLodgedDate": "",
       "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-09-07",
+      "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
       "applicationDeadline": ""
     },
@@ -2601,6 +2606,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788811507400,
+      "msg": "Marked discontinued: Ali Akbar Ishrak — Visa Rejected (2026-09-07)"
+    },
     {
       "ts": 1788811492637,
       "msg": "Marked discontinued: Amrito Gain — Visa Rejected (2026-09-07)"

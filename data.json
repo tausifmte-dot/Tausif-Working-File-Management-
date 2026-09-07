@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-07T20:03:28.327Z",
+    "saved": "2026-09-07T20:04:54.661Z",
     "version": 8,
     "count": 35
   },
@@ -160,7 +160,7 @@
       "name": "Amrito Gain",
       "country": "New Zealand",
       "intake": "October 2026",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Visa Refused",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
@@ -175,7 +175,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788811406309,
+      "lastUpdated": 1788811492637,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -194,6 +194,11 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Visa Rejected)",
+          "enteredDate": 1788811492637,
+          "duration": 0
+        },
         {
           "stage": "Visa Refused",
           "enteredDate": 1788811406309,
@@ -240,8 +245,8 @@
       "visaFieldsLocked": true,
       "visaLodgedDate": "2026-07-27",
       "expectedResultDate": "2026-09-10",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-09-07",
+      "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
       "applicationDeadline": "",
       "locked": true,
@@ -2596,6 +2601,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788811492637,
+      "msg": "Marked discontinued: Amrito Gain — Visa Rejected (2026-09-07)"
+    },
     {
       "ts": 1788811406310,
       "msg": "Visa refused, decision recorded: Amrito Gain"

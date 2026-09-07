@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-07T20:02:53.847Z",
+    "saved": "2026-09-07T20:03:28.327Z",
     "version": 8,
     "count": 35
   },
@@ -175,7 +175,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788811371839,
+      "lastUpdated": 1788811406309,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -194,6 +194,16 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1788811406309,
+          "duration": 0
+        },
+        {
+          "stage": "Approve in principle has been issued",
+          "enteredDate": 1788811399314,
+          "duration": 0
+        },
         {
           "stage": "Visa Refused",
           "enteredDate": 1788811371839,
@@ -227,15 +237,21 @@
         "program": "Bachelor of information technology L7",
         "classCommencementDate": "2026-10-05"
       },
-      "visaFieldsLocked": false,
+      "visaFieldsLocked": true,
       "visaLodgedDate": "2026-07-27",
       "expectedResultDate": "2026-09-10",
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
       "applicationDeadline": "",
-      "locked": false,
-      "closedInfo": null
+      "locked": true,
+      "closedInfo": {
+        "reason": "Visa Refused — No Resubmission (Final)",
+        "stage": "Visa Refused",
+        "date": 1788811406310,
+        "university": "Otago Polytechnic (Otago Poly)",
+        "program": "Bachelor of information technology L7"
+      }
     },
     {
       "id": 1786707888165.7734,
@@ -2580,6 +2596,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788811406310,
+      "msg": "Visa refused, decision recorded: Amrito Gain"
+    },
     {
       "ts": 1788811371840,
       "msg": "Visa refused, decision recorded: Amrito Gain"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-08T03:36:37.425Z",
+    "saved": "2026-09-08T03:36:46.954Z",
     "version": 8,
     "count": 35
   },
@@ -833,7 +833,7 @@
       "country": "New Zealand",
       "intake": "October 2026",
       "status": "Discontinued",
-      "appStage": "Visa lodged",
+      "appStage": "Visa Refused",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -847,7 +847,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788838595409,
+      "lastUpdated": 1788838604938,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -866,6 +866,11 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Visa Refused",
+          "enteredDate": 1788838604938,
+          "duration": 0
+        },
         {
           "stage": "Discontinued (Visa Rejected)",
           "enteredDate": 1788838595409,
@@ -910,6 +915,14 @@
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Business (BBus)",
         "classCommencementDate": "2026-09-14"
+      },
+      "locked": true,
+      "closedInfo": {
+        "reason": "Visa Refused — No Resubmission (Final)",
+        "stage": "Visa Refused",
+        "date": 1788838604939,
+        "university": "Auckland Institute of Studies (AIS)",
+        "program": "Bachelor of Business (BBus)"
       }
     },
     {
@@ -2627,6 +2640,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788838604939,
+      "msg": "Visa refused, decision recorded: Md Anaf Bin Hassan"
+    },
     {
       "ts": 1788838595410,
       "msg": "Marked discontinued: Md Anaf Bin Hassan — Visa Rejected (2026-09-08)"

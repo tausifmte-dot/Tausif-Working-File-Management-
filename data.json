@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-07T20:07:36.210Z",
+    "saved": "2026-09-08T03:36:37.425Z",
     "version": 8,
     "count": 35
   },
@@ -832,7 +832,7 @@
       "name": "Md Anaf Bin Hassan",
       "country": "New Zealand",
       "intake": "October 2026",
-      "status": "Active",
+      "status": "Discontinued",
       "appStage": "Visa lodged",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
@@ -847,7 +847,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "N",
-      "lastUpdated": 1788080505165,
+      "lastUpdated": 1788838595409,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -866,6 +866,11 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Discontinued (Visa Rejected)",
+          "enteredDate": 1788838595409,
+          "duration": 0
+        },
         {
           "stage": "Visa lodged",
           "enteredDate": 1788080490990,
@@ -896,8 +901,8 @@
       "visaFieldsLocked": true,
       "visaLodgedDate": "2026-07-29",
       "expectedResultDate": "2026-09-12",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
+      "discontinuedDate": "2026-09-08",
+      "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
       "applicationDeadline": "",
       "visaApplicationRef": {
@@ -2622,6 +2627,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1788838595410,
+      "msg": "Marked discontinued: Md Anaf Bin Hassan — Visa Rejected (2026-09-08)"
+    },
     {
       "ts": 1788811654162,
       "msg": "Visa lodged: MD RIAD"

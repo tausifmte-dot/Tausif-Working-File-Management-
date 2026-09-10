@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "saved": "2026-09-08T03:36:46.954Z",
+    "saved": "2026-09-10T09:08:46.176Z",
     "version": 8,
-    "count": 35
+    "count": 36
   },
   "students": [
     {
@@ -1618,6 +1618,52 @@
       "applicationDeadline": ""
     },
     {
+      "id": 1789031324140.4116,
+      "name": "Mostakim Khan",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Waiting for documents from student side to submit application",
+      "counselor": "",
+      "phone": "",
+      "email": "",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "Y",
+      "bankMonths": "3 months",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1789031324140,
+      "remarks": "have studies in the usa. was studying masters but due to some issue he had to leave before extnding his visa and reapplication for usa visa gets rejected",
+      "situation": "",
+      "remarksHistory": [
+        {
+          "ts": 1789031324140,
+          "text": "have studies in the usa. was studying masters but due to some issue he had to leave before extnding his visa and reapplication for usa visa gets rejected"
+        }
+      ],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "locked": false,
+      "visaFieldsLocked": false,
+      "closedInfo": null,
+      "visaApplicationRef": null,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
+    },
+    {
       "id": 1786707888166.4446,
       "name": "Nasib Ibne Nizam",
       "country": "New Zealand",
@@ -2640,6 +2686,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1789031324141,
+      "msg": "Added: Mostakim Khan"
+    },
     {
       "ts": 1788838604939,
       "msg": "Visa refused, decision recorded: Md Anaf Bin Hassan"

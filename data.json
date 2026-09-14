@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-14T10:12:20.708Z",
+    "saved": "2026-09-14T10:12:23.014Z",
     "version": 8,
     "count": 36
   },
@@ -1590,7 +1590,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788095644803,
+      "lastUpdated": 1789380740970,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -1605,7 +1605,9 @@
           "applicationDate": "2026-08-28",
           "link": "https://www.uow.edu.my/dual-award-programs/#computing",
           "classCommencementDate": "2026-10-01",
-          "stage": ""
+          "stage": "",
+          "lastExpediteEmailAt": 1789380740970,
+          "expediteEmailCount": 1
         }
       ],
       "stageHistory": [
@@ -2728,6 +2730,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1789380740970,
+      "msg": "Follow-up email #1 logged for Moon Sarkar's application at University of Wollongong"
+    },
     {
       "ts": 1789380738673,
       "msg": "Follow-up email #1 logged for S.M._MAINUL_HASAN's application at University of Wollongong"

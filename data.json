@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-14T10:12:26.907Z",
+    "saved": "2026-09-14T10:39:44.545Z",
     "version": 8,
     "count": 36
   },
@@ -1907,7 +1907,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1789380738673,
+      "lastUpdated": 1789382365921,
       "remarks": "Has nz visa refusal",
       "situation": "submitted application has the wrong email address. Tushar vai has contacted them. I will contact them later",
       "remarksHistory": [
@@ -1935,6 +1935,16 @@
           "stage": "",
           "lastExpediteEmailAt": 1789380738673,
           "expediteEmailCount": 1
+        },
+        {
+          "country": "Malaysia",
+          "university": "Asia Pacific University of Technology & Innovation (APU), Malaysia (LG)",
+          "program": "Bachelor of Science (Honours) in Computer Science (Cyber Security) - Digital Forensics",
+          "agent": "GEEbee",
+          "applicationDate": "2026-09-07",
+          "link": "https://www.apu.edu.my/course/bsc-hons-in-computer-science-digital-forensics",
+          "classCommencementDate": "2026-11-01",
+          "stage": ""
         }
       ],
       "stageHistory": [],
@@ -2593,7 +2603,8 @@
       "NZTC"
     ],
     "Malaysia": [
-      "University of Wollongong"
+      "University of Wollongong",
+      "Asia Pacific University of Technology & Innovation (APU), Malaysia (LG)"
     ]
   },
   "learnedPrograms": [
@@ -2731,9 +2742,22 @@
       "link": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-professional-accountancy-PMPRC/",
       "classCommencementDate": "2027-03-01",
       "lastUsed": 1788154704703
+    },
+    {
+      "id": "pb_1789382365921_p2erc",
+      "country": "Malaysia",
+      "university": "Asia Pacific University of Technology & Innovation (APU), Malaysia (LG)",
+      "program": "Bachelor of Science (Honours) in Computer Science (Cyber Security) - Digital Forensics",
+      "link": "https://www.apu.edu.my/course/bsc-hons-in-computer-science-digital-forensics",
+      "classCommencementDate": "2026-11-01",
+      "lastUsed": 1789382365921
     }
   ],
   "log": [
+    {
+      "ts": 1789382382496,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1789380744867,
       "msg": "Follow-up email #1 logged for Tasfia mim Mim's application at Massey University (Massey)"

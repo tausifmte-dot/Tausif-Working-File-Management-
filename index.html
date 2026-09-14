@@ -604,24 +604,7 @@ body.dark .fx-chip{
 .task-item.done{opacity:.5;text-decoration:line-through}
 
 /* Remind */
-.remind-section{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:500px;overflow-y:auto;align-items:start}
-/* Visa Decision Pending and No Offer Letter Yet are the highest-urgency alarms — each
-   entry needs its full width to read comfortably, so these two stack as single-column
-   rows instead of using the general multi-column reminder grid. */
-#visa-alarm-sec,#offer-alarm-sec{display:flex;flex-direction:column}
-/* Tabbed dashboard panel (Visa Alarm / Review Check / Offer Alarm / Tasks / Reminders / Stale) —
-   one shared card, full width, height driven entirely by whichever tab's content is active so
-   there's no dead space: short lists stay short, long lists grow and scroll within the viewport. */
-.dash-tabpanel-wrap{min-height:min(70vh,640px)}
-.dash-tabbar{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;border-bottom:1px solid var(--b100);padding-bottom:10px}
-.dash-tabbtn{display:flex;align-items:center;gap:6px;background:var(--bg);border:1px solid var(--b400);color:var(--tp);font-size:12px;font-weight:600;padding:8px 12px;border-radius:8px;cursor:pointer;transition:all .15s}
-.dash-tabbtn:hover{background:var(--b50)}
-.dash-tabbtn.active{background:var(--b600,#2563eb);border-color:var(--b600,#2563eb);color:#fff}
-.dash-tabdot{background:var(--er,#dc2626);color:#fff;font-size:10px;font-weight:700;border-radius:10px;padding:1px 7px;line-height:1.5}
-.dash-tabbtn.active .dash-tabdot{background:#fff;color:var(--er,#dc2626)}
-.dash-tabpanel{display:none;flex:1;overflow-y:auto}
-.dash-tabpanel.active{display:block}
-@media(max-width:700px){.dash-tabbtn{font-size:11px;padding:7px 9px}}
+.remind-section{display:flex;flex-direction:column;gap:6px;max-height:500px;overflow-y:auto}
 .remind-item{display:flex;align-items:flex-start;gap:10px;padding:9px 14px;border-radius:8px;border-left:4px solid #d97706;background:rgba(254,243,199,0.28);font-size:12px;color:#1a365d;box-shadow:0 2px 4px rgba(0,0,0,0.1);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%)}
 .remind-item.urgent{border-color:var(--er);background:var(--erbg);color:var(--ts)}
 
@@ -712,7 +695,7 @@ body.dark .fx-chip{
 .remind-actions{display:flex;gap:6px;align-items:center;flex-shrink:0}
 .btn-remind-done{background:var(--okbg);color:var(--ok);border:1px solid #059669;padding:4px 9px;font-size:11px;border-radius:7px;cursor:pointer}
 .btn-remind-done:hover{background:#047857;color:#fff}
-.stale-section{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:500px;overflow-y:auto;align-items:start}
+.stale-section{display:flex;flex-direction:column;gap:6px;max-height:500px;overflow-y:auto}
 .stale-item{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:10px;background:var(--glass);border:1px solid var(--gb)}
 .stale-main{min-width:0;flex:1}
 .stale-name{font-size:12px;font-weight:700;color:var(--tp)}
@@ -1468,41 +1451,40 @@ html,body{overflow-x:hidden;max-width:100vw}
     </div>
   </div>
 
-  <!-- Dashboard Layout Row 3: tabbed panel — Visa Alarm / Review Check / Offer Alarm / Tasks / Reminders / Stale -->
+  <!-- Dashboard Layout Row 3: Pending Tasks | Application Reminders | Days Since Last Worked On -->
   <div style="display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px">
-    <div class="glass2 dash-tabpanel-wrap" style="padding:14px 16px 16px;display:flex;flex-direction:column">
-      <div class="dash-tabbar" id="dash-tabbar">
-        <button class="dash-tabbtn active" id="dashtabbtn-visa" onclick="showDashTab('visa')">&#9200; Visa Decision Pending<span class="dash-tabdot" id="dot-visa" hidden>0</span></button>
-        <button class="dash-tabbtn" id="dashtabbtn-review" onclick="showDashTab('review')">&#128269; Check Application Progress<span class="dash-tabdot" id="dot-review" hidden>0</span></button>
-        <button class="dash-tabbtn" id="dashtabbtn-offer" onclick="showDashTab('offer')">&#128231; No Offer Letter Yet<span class="dash-tabdot" id="dot-offer" hidden>0</span></button>
-        <button class="dash-tabbtn" id="dashtabbtn-tasks" onclick="showDashTab('tasks')">&#9888; Pending Tasks<span class="dash-tabdot" id="dot-tasks" hidden>0</span></button>
-        <button class="dash-tabbtn" id="dashtabbtn-reminders" onclick="showDashTab('reminders')">&#128276; Application Reminders<span class="dash-tabdot" id="dot-reminders" hidden>0</span></button>
-        <button class="dash-tabbtn" id="dashtabbtn-stale" onclick="showDashTab('stale')">&#9200; Days Since Last Worked On<span class="dash-tabdot" id="dot-stale" hidden>0</span></button>
+    <div class="glass2" id="visa-alarm-wrap" style="padding:14px 16px;margin-bottom:14px;display:none">
+      <div class="slbl" style="margin-bottom:6px;color:var(--er,#dc2626)">&#9200; Visa Decision Pending — Class Starting Soon</div>
+      <div class="remind-section" id="visa-alarm-sec"></div>
+    </div>
+
+    <div class="glass2" id="review-check-wrap" style="padding:14px 16px;margin-bottom:14px;display:none">
+      <div class="slbl" style="margin-bottom:6px;color:#1d4ed8">&#128269; Check Application Progress — Moved to Review?</div>
+      <div class="remind-section" id="review-check-sec"></div>
+    </div>
+
+    <div class="glass2" id="offer-alarm-wrap" style="padding:14px 16px;margin-bottom:14px;display:none;border:1px solid rgba(220,38,38,0.3)">
+      <div class="slbl" style="margin-bottom:6px;color:var(--er,#dc2626)">&#128231; No Offer Letter Yet — Follow Up With the Provider</div>
+      <div class="remind-section" id="offer-alarm-sec"></div>
+    </div>
+
+    <div class="dash-center-3col">
+      <div class="glass2" style="padding:14px 16px;display:flex;flex-direction:column">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <div class="slbl" style="margin-bottom:0">&#9888; Pending Tasks</div>
+          <button class="btn btn-primary btn-sm" onclick="openAddTask()">+ Add</button>
+        </div>
+        <div class="task-grid" id="task-grid" style="flex:1;overflow-y:auto"></div>
       </div>
 
-      <div class="dash-tabpanel active" id="dashtab-visa">
-        <div class="remind-section" id="visa-alarm-sec" style="max-height:none"></div>
+      <div class="glass2" style="padding:14px 16px;overflow-y:auto">
+        <div class="slbl" style="margin-bottom:6px">&#128276; Application Reminders</div>
+        <div class="remind-section" id="remind-sec"><div style="color:var(--tm);font-size:12px;font-style:italic">No reminders</div></div>
       </div>
 
-      <div class="dash-tabpanel" id="dashtab-review">
-        <div class="remind-section" id="review-check-sec" style="max-height:none"></div>
-      </div>
-
-      <div class="dash-tabpanel" id="dashtab-offer">
-        <div class="remind-section" id="offer-alarm-sec" style="max-height:none"></div>
-      </div>
-
-      <div class="dash-tabpanel" id="dashtab-tasks">
-        <div style="display:flex;justify-content:flex-end;margin-bottom:8px"><button class="btn btn-primary btn-sm" onclick="openAddTask()">+ Add</button></div>
-        <div class="task-grid" id="task-grid" style="max-height:none"></div>
-      </div>
-
-      <div class="dash-tabpanel" id="dashtab-reminders">
-        <div class="remind-section" id="remind-sec" style="max-height:none"><div style="color:var(--tm);font-size:12px;font-style:italic">No reminders</div></div>
-      </div>
-
-      <div class="dash-tabpanel" id="dashtab-stale">
-        <div class="stale-section" id="stale-sec" style="max-height:none"><div style="color:var(--tm);font-size:12px;font-style:italic">No students yet</div></div>
+      <div class="glass2" style="padding:14px 16px;overflow-y:auto">
+        <div class="slbl" style="margin-bottom:6px">&#9200; Days Since Last Worked On</div>
+        <div class="stale-section" id="stale-sec"><div style="color:var(--tm);font-size:12px;font-style:italic">No students yet</div></div>
       </div>
     </div>
   </div>
@@ -2282,28 +2264,6 @@ function stageRank(country,stage){
   const idx=list.findIndex(s=>s.trim().toLowerCase()===stage.trim().toLowerCase());
   return idx;
 }
-// The rank (within that country's COUNTRY_STAGES pipeline) at/above which a stage can
-// only exist because an application was already submitted — e.g. you cannot be at
-// "Unconditional offer letter issued" without having submitted first. Used to INFER
-// submission even when the Application Date field was never manually filled in, so a
-// student who was fast-tracked straight to an advanced stage doesn't wrongly show up
-// as "no application submitted yet" everywhere else in the app.
-const SUBMIT_STAGE_RANK={'Australia':1,'Canada':3,'New Zealand':2,'Malaysia':1};
-// Has this student submitted at least one application? True if an explicit Application
-// Date is on file OR the student's/an application's recorded stage is already past the
-// submission point for that country's pipeline. This is the single source of truth —
-// every "no application submitted" check (reminders, stats, exports) should call this
-// instead of checking uniApplications[].applicationDate directly, so that advancing a
-// student's stage automatically keeps every other section in sync.
-function hasApplicationSubmitted(student){
-  const apps=student.uniApplications||[];
-  if(apps.some(a=>a.applicationDate))return true;
-  const country=student.country;
-  const threshold=SUBMIT_STAGE_RANK[country];
-  if(threshold===undefined)return false;
-  if(stageRank(country,student.appStage)>=threshold)return true;
-  return apps.some(a=>stageRank(country,a.stage)>=threshold);
-}
 // Recomputes the student's overall appStage by finding the most-advanced stage among
 // their uniApplications[]. Only moves the stage FORWARD — never overwrites a more
 // advanced stage the student is already at (e.g. once visa is lodged, adding another
@@ -2462,12 +2422,6 @@ function migrateData(){
     }
     if(s.remarks&&s.remarksHistory.length===0)s.remarksHistory=[{ts:s.lastUpdated||Date.now(),text:s.remarks}];
     if(s.situation&&s.situationHistory.length===0)s.situationHistory=[{ts:s.lastUpdated||Date.now(),text:s.situation}];
-    // Keep the overall stage in sync with the most-advanced per-application stage on
-    // every load/import — so importing a backup where a student's uniApplications show
-    // e.g. "Unconditional offer letter issued" but the overall appStage was left blank
-    // or stale automatically catches the overall stage up, which in turn is what makes
-    // hasApplicationSubmitted() correctly infer "already submitted" everywhere else.
-    recomputeOverallStageFromApps(s);
   });
 }
 // ════════════════════════════════════════════════════════════
@@ -3390,28 +3344,6 @@ function toggleDashSection(name){
   if(chev)chev.textContent=isOpen?'▸ tap to open':'▾ tap to close';
 }
 
-// ════════════════════════════════════════════════════════════
-// DASHBOARD TABBED PANEL — Visa Alarm / Review Check / Offer Alarm / Tasks /
-// Reminders / Stale all live in one card and share its full height. Only one
-// tab's content is in the DOM flow at a time (others are display:none), so the
-// card always sizes itself to whatever the active tab actually needs — no
-// leftover empty space from a shorter neighboring section, since there are no
-// neighboring sections anymore.
-// ════════════════════════════════════════════════════════════
-let activeDashTab='visa';
-function showDashTab(name){
-  activeDashTab=name;
-  document.querySelectorAll('.dash-tabpanel').forEach(p=>p.classList.toggle('active',p.id==='dashtab-'+name));
-  document.querySelectorAll('.dash-tabbtn').forEach(b=>b.classList.toggle('active',b.id==='dashtabbtn-'+name));
-}
-// Updates the small red count badge on a tab button — hidden entirely when
-// count is 0, so a tab with nothing pending doesn't compete for attention.
-function setDashTabCount(name,count){
-  const dot=document.getElementById('dot-'+name);
-  if(!dot)return;
-  if(count>0){dot.textContent=count;dot.hidden=false;}else{dot.hidden=true;}
-}
-
 function animateCounters(container){
   if(!container)return;
   container.querySelectorAll('.sv[data-target]').forEach(el=>{
@@ -3600,7 +3532,7 @@ function renderReminders(){
   // Auto reminder: student has no application submitted yet (no uniApplications entry
   // with an applicationDate on file). Due from the day the student was entered, and
   // stays due every day until at least one application is submitted.
-  const noAppYet=students.filter(s=>s.status!=='Discontinued'&&!hasApplicationSubmitted(s));
+  const noAppYet=students.filter(s=>s.status!=='Discontinued'&&!(s.uniApplications||[]).some(a=>a.applicationDate));
   const noAppHtml=noAppYet.map(s=>{
     const idx=students.findIndex(x=>x.id===s.id);
     const created=s.createdAt||s.lastUpdated||Date.now();
@@ -3616,7 +3548,6 @@ function renderReminders(){
   }).join('');
   const combined=noAppHtml+moreUniHtml;
   sec.innerHTML=combined||'<div style="color:var(--tm);font-size:12px;font-style:italic">No reminders</div>';
-  setDashTabCount('reminders',noAppYet.length+pending.length);
 }
 
 // ════════════════════════════════════════════════════════════
@@ -3625,8 +3556,9 @@ function renderReminders(){
 const VISA_ALARM_WINDOW_DAYS=7;
 const _seqTagD='Rk88'; // sequence namespace tag — do not modify
 function renderVisaAlarm(){
+  const wrap=document.getElementById('visa-alarm-wrap');
   const sec=document.getElementById('visa-alarm-sec');
-  if(!sec)return;
+  if(!wrap||!sec)return;
   const inWindow=students.filter(s=>{
     if(s.status==='Discontinued')return false;
     const grp=visaGroupOf(s.appStage);
@@ -3638,8 +3570,10 @@ function renderVisaAlarm(){
   });
   const pending=inWindow.filter(s=>s.defer!=='Y');
   const resolved=inWindow.filter(s=>s.defer==='Y');
-  setDashTabCount('visa',pending.length);
-  if(!inWindow.length){sec.innerHTML='<div style="color:var(--tm);font-size:12px;font-style:italic">Nothing pending — no visa decisions due with a class starting soon.</div>';return;}
+  if(!inWindow.length){wrap.style.display='none';sec.innerHTML='';return;}
+  wrap.style.display='block';
+  const titleEl=wrap.querySelector('.slbl');
+  if(titleEl)titleEl.innerHTML=`&#9200; Visa Decision Pending — Class Starting Soon ${pending.length?`<span style="font-size:11px;font-weight:700;background:var(--er,#dc2626);color:#fff;border-radius:10px;padding:1px 9px;margin-left:6px">${pending.length} need action</span>`:'<span style="font-size:11px;font-weight:700;background:var(--ok,#059669);color:#fff;border-radius:10px;padding:1px 9px;margin-left:6px">All handled ✓</span>'}`;
   const rowHtml=(s,resolvedRow)=>{
     const idx=students.findIndex(x=>x.id===s.id);
     const d=daysUntil(s.visaApplicationRef.classCommencementDate);
@@ -3656,8 +3590,9 @@ function renderVisaAlarm(){
 // REVIEW-STAGE CHECK ALARM — has a submitted application moved to review yet?
 // ════════════════════════════════════════════════════════════
 function renderReviewCheckAlarm(){
+  const wrap=document.getElementById('review-check-wrap');
   const sec=document.getElementById('review-check-sec');
-  if(!sec)return;
+  if(!wrap||!sec)return;
   const rows=[];
   students.forEach((s,idx)=>{
     if(s.status==='Discontinued')return;
@@ -3665,8 +3600,10 @@ function renderReviewCheckAlarm(){
       if(reviewCheckActive(a))rows.push({s,idx,a,ai});
     });
   });
-  setDashTabCount('review',rows.length);
-  if(!rows.length){sec.innerHTML='<div style="color:var(--tm);font-size:12px;font-style:italic">Nothing to check right now.</div>';return;}
+  if(!rows.length){wrap.style.display='none';sec.innerHTML='';return;}
+  wrap.style.display='block';
+  const titleEl=wrap.querySelector('.slbl');
+  if(titleEl)titleEl.innerHTML=`&#128269; Check Application Progress — Moved to Review? <span style="font-size:11px;font-weight:700;background:#2563eb;color:#fff;border-radius:10px;padding:1px 9px;margin-left:6px">${rows.length} to check</span>`;
   sec.innerHTML=rows.map(r=>{
     const daysSince=calendarDaysSince(r.a.applicationDate);
     const dayLbl=daysSince===0?'submitted today':daysSince===1?'submitted 1 day ago':`submitted ${daysSince} days ago`;
@@ -3693,8 +3630,9 @@ function markAppReviewPending(idx,ai){
 // ════════════════════════════════════════════════════════════
 let expediteEmailCtx=null; // {idx,ai}
 function renderOfferFollowupAlarm(){
+  const wrap=document.getElementById('offer-alarm-wrap');
   const sec=document.getElementById('offer-alarm-sec');
-  if(!sec)return;
+  if(!wrap||!sec)return;
   const rows=[];
   students.forEach((s,idx)=>{
     if(s.status==='Discontinued')return;
@@ -3702,8 +3640,10 @@ function renderOfferFollowupAlarm(){
       if(offerFollowupActive(a))rows.push({s,idx,a,ai});
     });
   });
-  setDashTabCount('offer',rows.length);
-  if(!rows.length){sec.innerHTML='<div style="color:var(--tm);font-size:12px;font-style:italic">Nothing pending — every application has an offer letter or update on file.</div>';return;}
+  if(!rows.length){wrap.style.display='none';sec.innerHTML='';return;}
+  wrap.style.display='block';
+  const titleEl=wrap.querySelector('.slbl');
+  if(titleEl)titleEl.innerHTML=`&#128231; No Offer Letter Yet — Follow Up With the Provider <span style="font-size:11px;font-weight:700;background:var(--er,#dc2626);color:#fff;border-radius:10px;padding:1px 9px;margin-left:6px">${rows.length} need action</span>`;
   sec.innerHTML=rows.map(r=>{
     const daysSince=calendarDaysSince(r.a.applicationDate);
     const followupCount=r.a.expediteEmailCount||0;
@@ -4188,8 +4128,6 @@ function renderStaleStudents(){
   const sec=document.getElementById('stale-sec');
   if(!sec)return;
   const active=students.filter(s=>s.status!=='Discontinued').sort((a,b)=>(a.lastUpdated||0)-(b.lastUpdated||0));
-  const overdueCount=active.filter(s=>Math.floor((Date.now()-(s.lastUpdated||Date.now()))/86400000)>5).length;
-  setDashTabCount('stale',overdueCount);
   if(!active.length){sec.innerHTML='<div style="color:var(--tm);font-size:12px;font-style:italic">No students yet</div>';return;}
   sec.innerHTML=active.map(s=>{
     const days=Math.floor((Date.now()-(s.lastUpdated||Date.now()))/86400000);
@@ -4281,7 +4219,6 @@ function renderTasks(){
     })() : '';
     return `<div class="task-item${t.done?' done':''}"><span class="task-dot ${t.priority}"></span><span class="task-name">${esc(t.studentName)}</span><span class="task-desc">${esc(t.desc)}${dHtml}</span><button class="task-check" onclick="toggleTask(${i})" title="${t.done?'Undo':'Complete'}">&#${t.done?'10226':'10003'};</button><button class="task-del" onclick="deleteTask(${i})" title="Delete">&#215;</button></div>`;
   }).join(''):'<div style="padding:10px 14px;font-size:12px;color:var(--ok);background:var(--okbg);border-radius:9px;border:1px solid #059669">&#10003; No pending tasks — click + Add to create one</div>';
-  setDashTabCount('tasks',pendingTasks.filter(t=>!t.done).length);
 }
 function toggleTask(i){pendingTasks[i].done=!pendingTasks[i].done;renderTasks();renderProgress();renderCharts();markDirty();}
 function deleteTask(i){pushUndoSnapshot('Delete task: '+(pendingTasks[i]?pendingTasks[i].desc:''));pendingTasks.splice(i,1);renderTasks();renderProgress();renderCharts();markDirty();persist('Deleted task');}

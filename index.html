@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>CLIENT RELATIONSHIP MANAGEMENT — Student File Report</title>
+<title>Student File Report</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
@@ -604,7 +604,7 @@ body.dark .fx-chip{
 .task-item.done{opacity:.5;text-decoration:line-through}
 
 /* Remind */
-.remind-section{display:flex;flex-direction:column;gap:6px;max-height:500px;overflow-y:auto}
+.remind-section{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:500px;overflow-y:auto;align-items:start}
 .remind-item{display:flex;align-items:flex-start;gap:10px;padding:9px 14px;border-radius:8px;border-left:4px solid #d97706;background:rgba(254,243,199,0.28);font-size:12px;color:#1a365d;box-shadow:0 2px 4px rgba(0,0,0,0.1);backdrop-filter:blur(18px) saturate(150%);-webkit-backdrop-filter:blur(18px) saturate(150%)}
 .remind-item.urgent{border-color:var(--er);background:var(--erbg);color:var(--ts)}
 
@@ -695,7 +695,7 @@ body.dark .fx-chip{
 .remind-actions{display:flex;gap:6px;align-items:center;flex-shrink:0}
 .btn-remind-done{background:var(--okbg);color:var(--ok);border:1px solid #059669;padding:4px 9px;font-size:11px;border-radius:7px;cursor:pointer}
 .btn-remind-done:hover{background:#047857;color:#fff}
-.stale-section{display:flex;flex-direction:column;gap:6px;max-height:500px;overflow-y:auto}
+.stale-section{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;max-height:500px;overflow-y:auto;align-items:start}
 .stale-item{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:10px 12px;border-radius:10px;background:var(--glass);border:1px solid var(--gb)}
 .stale-main{min-width:0;flex:1}
 .stale-name{font-size:12px;font-weight:700;color:var(--tp)}
@@ -814,6 +814,7 @@ body.dark .fx-chip{
 .uk-td-sub{font-size:10.5px;color:var(--tm);margin-top:1px}
 .uk-status-tag{display:inline-block;padding:2px 8px;border-radius:10px;font-size:10px;font-weight:600;white-space:nowrap}
 .uk-empty-row td{text-align:center;color:var(--tm);font-style:italic;padding:18px}
+.uk-acc{display:none}
 
 /* ── MODALS ── */
 .mo{display:none;position:fixed;inset:0;background:rgba(10,25,50,.75);z-index:1000;align-items:center;justify-content:center;padding:14px}
@@ -1096,6 +1097,32 @@ html,body{overflow-x:hidden;max-width:100vw}
     text-transform:uppercase;letter-spacing:0.03em;text-align:left;flex-shrink:0;
   }
 
+  /* ── Uni Applications table → expandable accordion rows on mobile ──
+     Swap the swipe-table for tap-to-expand cards instead. */
+  .table-scroll-wrap,.mobile-scroll-hint{display:none !important}
+  .uk-acc{display:flex !important;flex-direction:column;gap:8px;margin-top:8px}
+  .uk-acc-item{border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--glass)}
+  .uk-acc-hd{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:11px 12px;cursor:pointer;min-height:44px}
+  .uk-acc-hd-l{display:flex;flex-direction:column;gap:2px;min-width:0}
+  .uk-acc-name{font-weight:700;font-size:13px;color:var(--tp);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw}
+  .uk-acc-sub{font-size:10.5px;color:var(--tm);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:52vw}
+  .uk-acc-hd-r{display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .uk-acc-chev{font-size:11px;color:var(--tm);transition:transform .15s ease;display:inline-block}
+  .uk-acc-item.open .uk-acc-chev{transform:rotate(180deg)}
+  .uk-acc-body{max-height:0;overflow:hidden;transition:max-height .2s ease}
+  .uk-acc-item.open .uk-acc-body{max-height:480px}
+  .uk-acc-body-in{padding:0 12px 12px;border-top:1px dashed var(--border);margin-top:2px}
+  .uk-acc-row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;font-size:11.5px;color:var(--tp);border-top:1px dashed var(--border)}
+  .uk-acc-row:first-child{border-top:none}
+  .uk-acc-row>span:first-child{color:var(--tm);flex-shrink:0}
+  .uk-acc-row>strong{text-align:right;font-weight:600}
+  .uk-acc-openbtn{
+    margin-top:8px;width:100%;text-align:center;font-size:11.5px;font-weight:700;min-height:38px;
+    color:var(--b600,#2563eb);background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.25);
+    border-radius:8px;padding:8px;cursor:pointer;
+  }
+  body.dark .uk-acc-openbtn{color:var(--b400,#60a5fa);background:rgba(96,165,250,0.12);border-color:rgba(96,165,250,0.3)}
+
   /* ── Student list: card layout already responsive via .cards-grid above;
      ensure single column and comfortable tap area ── */
   .stu-list-item{min-height:56px}
@@ -1195,7 +1222,7 @@ html,body{overflow-x:hidden;max-width:100vw}
       <div id="mp-card" class="lg-card">
         <div class="lg-logo">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 7l10 5 10-5-10-5z" fill="#0d9488"/><path d="M6 10.5V16c0 1.5 3 3 6 3s6-1.5 6-3v-5.5" stroke="#0d9488" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          <span class="lg-logo-text">CRM<span>HUB</span></span>
+          <span class="lg-logo-text">SF<span>R</span></span>
         </div>
         <div class="lg-field-label">Master password</div>
         <div class="lg-field">
@@ -1209,7 +1236,7 @@ html,body{overflow-x:hidden;max-width:100vw}
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="9" stroke="#dc2626" stroke-width="1.6"/><path d="M12 8v5M12 16h.01" stroke="#dc2626" stroke-width="1.6" stroke-linecap="round"/></svg>
           Incorrect password. Please try again.
         </div>
-        <div class="lg-footnote">Client Relationship Management · Tausif Jaman</div>
+        <div class="lg-footnote">Student File Report · Tausif Jaman</div>
       </div>
     </div>
   </div>
@@ -1261,7 +1288,7 @@ html,body{overflow-x:hidden;max-width:100vw}
 <!-- ══════════ MOBILE TOPBAR (visible only on phones; desktop uses .topnav below) ══════════ -->
 <div class="mobile-topbar">
   <div class="brand">
-    <div class="logo">CRM</div>
+    <div class="logo">SFR</div>
     <div class="brand-text">
       <div class="title">Student File Report</div>
       <div class="sub">Tausif Jaman</div>
@@ -1284,7 +1311,7 @@ html,body{overflow-x:hidden;max-width:100vw}
   </div>
   <h4>Actions</h4>
   <div class="mobile-more-row">
-    <button class="btn btn-primary btn-sm" onclick="openCRMExport()">📤 Export to CRM</button>
+    <button class="btn btn-primary btn-sm" onclick="openExport()">📤 Export Summary</button>
     <button class="btn btn-primary btn-sm" onclick="openWhatsAppModal()">WhatsApp</button>
     <button class="btn btn-log btn-sm" onclick="openLog()">History</button>
     <button class="btn btn-sm" id="undo-btn-mobile" onclick="undoLastAction()" style="display:none">&#8630; Undo Last Action</button>
@@ -1314,10 +1341,10 @@ html,body{overflow-x:hidden;max-width:100vw}
 <!-- TOP NAV -->
 <div class="glass topnav">
   <div class="brand">
-    <div class="logo">CRM</div>
+    <div class="logo">SFR</div>
     <div class="brand-text">
       <div class="title">Student File Report</div>
-      <div class="sub">CLIENT RELATIONSHIP MANAGEMENT · <strong>Tausif Jaman</strong></div>
+      <div class="sub">STUDENT FILE REPORT · <strong>Tausif Jaman</strong></div>
     </div>
   </div>
   <div class="nav-tabs">
@@ -1331,7 +1358,7 @@ html,body{overflow-x:hidden;max-width:100vw}
     <div class="fx-strip" id="fx-strip">
       <span class="fx-loading" id="fx-status">💱 Loading rates...</span>
     </div>
-    <button class="btn btn-primary btn-sm" onclick="openCRMExport()" title="Export selected students to CRM (TXT)">📤 Export to CRM</button>
+    <button class="btn btn-primary btn-sm" onclick="openExport()" title="Export selected students summary (TXT)">📤 Export Summary</button>
     <button class="btn btn-primary btn-sm" onclick="openWhatsAppModal()">WhatsApp</button>
     <div class="clock-widget">
       <div class="clock-digits" id="clock"><span id="ch">00</span><span class="clock-sep" id="csep">:</span><span id="cm">00</span><span class="clock-sep">:</span><span id="cs">00</span></div>
@@ -1397,26 +1424,30 @@ html,body{overflow-x:hidden;max-width:100vw}
   <!-- Dashboard Layout Row 2: Statistics -->
   <div style="display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px">
     <div class="glass2" style="padding:14px 16px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
-        <div class="slbl" style="margin-bottom:0">&#128202; Statistics</div>
-        <button onclick="toggleCountrySummary()" style="padding:6px 12px;font-size:11px;border:1px solid var(--b400);background:var(--bg);border-radius:6px;cursor:pointer;color:var(--tp);font-weight:600;transition:all 0.2s">Countries</button>
+      <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDashSection('stats')">
+        <div class="slbl" style="margin-bottom:0">&#128202; Statistics <span id="stats-chev" style="font-size:11px;color:var(--tm)">▸ tap to open</span></div>
+        <button onclick="event.stopPropagation();toggleCountrySummary()" style="padding:6px 12px;font-size:11px;border:1px solid var(--b400);background:var(--bg);border-radius:6px;cursor:pointer;color:var(--tp);font-weight:600;transition:all 0.2s">Countries</button>
       </div>
-      <div class="intake-tabs" id="intake-tabs" style="margin-bottom:14px;display:flex;gap:5px;flex-wrap:wrap"></div>
-      <div class="info-grid" id="info-grid" style="padding-bottom:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px"></div>
-      <div id="au-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
-      <div id="ca-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
-      <div id="nz-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
-      <div id="my-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
+      <div id="stats-body" style="display:none;margin-top:8px">
+        <div class="intake-tabs" id="intake-tabs" style="margin-bottom:14px;display:flex;gap:5px;flex-wrap:wrap"></div>
+        <div class="info-grid" id="info-grid" style="padding-bottom:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:12px"></div>
+        <div id="au-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
+        <div id="ca-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
+        <div id="nz-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
+        <div id="my-stats-container" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--b100)"></div>
+      </div>
     </div>
   </div>
 
   <div style="display:grid;grid-template-columns:1fr;gap:14px;margin-bottom:14px">
     <div class="glass2" style="padding:14px 16px">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-        <div class="slbl" style="margin-bottom:0">🤝 Agent Overview</div>
+      <div style="display:flex;justify-content:space-between;align-items:center;cursor:pointer" onclick="toggleDashSection('agent')">
+        <div class="slbl" style="margin-bottom:0">🤝 Agent Overview <span id="agent-chev" style="font-size:11px;color:var(--tm)">▸ tap to open</span></div>
         <span style="font-size:11px;color:var(--tm)">UP, GEEbee, RBS, NZUAC, GSP &amp; Direct applications</span>
       </div>
-      <div id="agent-overview"></div>
+      <div id="agent-overview-body" style="display:none;margin-top:10px">
+        <div id="agent-overview"></div>
+      </div>
     </div>
   </div>
 
@@ -1529,6 +1560,7 @@ html,body{overflow-x:hidden;max-width:100vw}
   <div class="uk-summary" id="uk-summary"></div>
 
   <div class="glass2 uk-filters">
+    <div class="uk-fgroup" id="uk-status-filters"><span class="uk-flabel">Status</span></div>
     <div class="uk-fgroup" id="uk-agent-filters"><span class="uk-flabel">Agent</span></div>
     <div class="uk-fgroup" id="uk-country-filters"><span class="uk-flabel">Country</span></div>
     <div class="uk-fgroup" id="uk-stage-filters"><span class="uk-flabel">Stage</span></div>
@@ -1554,6 +1586,9 @@ html,body{overflow-x:hidden;max-width:100vw}
       <tbody id="uk-table-body"></tbody>
     </table>
   </div>
+
+  <!-- Mobile-only accordion rendering of the same rows (see .uk-acc CSS under the 768px breakpoint) -->
+  <div class="uk-acc" id="uk-acc-list"></div>
 
   <div class="glass2" style="padding:10px 18px;font-size:11px;color:var(--tm);margin-top:12px">
     🔒 = fields locked (decision on file for this cycle) · 🔓 = fields unlocked (awaiting/reopened) · Red-highlighted rows = visa still pending with class starting ≤7 days · Click a row to jump to that student's file · Click column headers to sort
@@ -1642,7 +1677,7 @@ html,body{overflow-x:hidden;max-width:100vw}
       </div>
       <div class="fgroup">
         <label>Repository Name</label>
-        <input type="text" id="gh-repo" placeholder="e.g. crm-report" style="font-family:'DM Mono',monospace;font-size:12px">
+        <input type="text" id="gh-repo" placeholder="e.g. student-report" style="font-family:'DM Mono',monospace;font-size:12px">
       </div>
     </div>
     <div class="fgroup" style="margin-bottom:10px">
@@ -1712,7 +1747,7 @@ html,body{overflow-x:hidden;max-width:100vw}
   </div>
 </div>
 
-<div class="foot">CLIENT RELATIONSHIP MANAGEMENT &nbsp;·&nbsp; Tausif Jaman &nbsp;·&nbsp; <span id="fdate"></span></div>
+<div class="foot">STUDENT FILE REPORT &nbsp;·&nbsp; Tausif Jaman &nbsp;·&nbsp; <span id="fdate"></span></div>
 </div>
 
 <!-- ════════ MODALS ════════ -->
@@ -1849,18 +1884,18 @@ html,body{overflow-x:hidden;max-width:100vw}
   </div>
 </div>
 
-<!-- CRM EXPORT MODAL (Feature 1) -->
-<div class="mo" id="crm-mo">
+<!-- EXPORT SUMMARY MODAL (Feature 1) -->
+<div class="mo" id="export-mo">
   <div class="modal">
-    <div class="modal-hdr"><h3>📤 Export to CRM</h3><button class="modal-close" onclick="closeMo('crm-mo')">&#215;</button></div>
+    <div class="modal-hdr"><h3>📤 Export Summary</h3><button class="modal-close" onclick="closeMo('export-mo')">&#215;</button></div>
     <div class="modal-body">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;gap:8px;flex-wrap:wrap">
         <p style="color:var(--ts);font-size:13px;margin:0">Select students to export (university, program, link, agent):</p>
-        <div style="display:flex;gap:6px"><button class="btn btn-sm" onclick="crmToggleAll(true)">All</button><button class="btn btn-sm" onclick="crmToggleAll(false)">None</button></div>
+        <div style="display:flex;gap:6px"><button class="btn btn-sm" onclick="exportToggleAll(true)">All</button><button class="btn btn-sm" onclick="exportToggleAll(false)">None</button></div>
       </div>
-      <div id="crm-list" style="display:flex;flex-direction:column;gap:6px;max-height:50vh;overflow-y:auto"></div>
+      <div id="export-list" style="display:flex;flex-direction:column;gap:6px;max-height:50vh;overflow-y:auto"></div>
     </div>
-    <div class="modal-foot"><button class="btn" style="border-color:#d1d5db;color:#6b7280" onclick="closeMo('crm-mo')">Cancel</button><button class="btn btn-primary" style="padding:7px 14px;font-size:13px" onclick="doCRMExport()">Download CRM_Export.txt</button></div>
+    <div class="modal-foot"><button class="btn" style="border-color:#d1d5db;color:#6b7280" onclick="closeMo('export-mo')">Cancel</button><button class="btn btn-primary" style="padding:7px 14px;font-size:13px" onclick="doExport()">Download Export.txt</button></div>
   </div>
 </div>
 
@@ -2229,6 +2264,28 @@ function stageRank(country,stage){
   const idx=list.findIndex(s=>s.trim().toLowerCase()===stage.trim().toLowerCase());
   return idx;
 }
+// The rank (within that country's COUNTRY_STAGES pipeline) at/above which a stage can
+// only exist because an application was already submitted — e.g. you cannot be at
+// "Unconditional offer letter issued" without having submitted first. Used to INFER
+// submission even when the Application Date field was never manually filled in, so a
+// student who was fast-tracked straight to an advanced stage doesn't wrongly show up
+// as "no application submitted yet" everywhere else in the app.
+const SUBMIT_STAGE_RANK={'Australia':1,'Canada':3,'New Zealand':2,'Malaysia':1};
+// Has this student submitted at least one application? True if an explicit Application
+// Date is on file OR the student's/an application's recorded stage is already past the
+// submission point for that country's pipeline. This is the single source of truth —
+// every "no application submitted" check (reminders, stats, exports) should call this
+// instead of checking uniApplications[].applicationDate directly, so that advancing a
+// student's stage automatically keeps every other section in sync.
+function hasApplicationSubmitted(student){
+  const apps=student.uniApplications||[];
+  if(apps.some(a=>a.applicationDate))return true;
+  const country=student.country;
+  const threshold=SUBMIT_STAGE_RANK[country];
+  if(threshold===undefined)return false;
+  if(stageRank(country,student.appStage)>=threshold)return true;
+  return apps.some(a=>stageRank(country,a.stage)>=threshold);
+}
 // Recomputes the student's overall appStage by finding the most-advanced stage among
 // their uniApplications[]. Only moves the stage FORWARD — never overwrites a more
 // advanced stage the student is already at (e.g. once visa is lodged, adding another
@@ -2369,6 +2426,7 @@ function migrateData(){
     if(s.visaLodgedDate===undefined)s.visaLodgedDate='';if(s.expectedResultDate===undefined)s.expectedResultDate='';
     if(s.discontinuedDate===undefined)s.discontinuedDate='';if(s.discontinuedReason===undefined)s.discontinuedReason='';
     if(s.nextIntakeDate===undefined)s.nextIntakeDate='';if(s.applicationDeadline===undefined)s.applicationDeadline='';
+    if(!s.createdAt)s.createdAt=s.lastUpdated||Date.now();
     updateExpectedResult(s);
     if(!s.remarksHistory)s.remarksHistory=[];if(!s.situationHistory)s.situationHistory=[];if(!s.applicationCompletions)s.applicationCompletions=[];
     if(typeof s.visaFieldsLocked!=='boolean')s.visaFieldsLocked=false;
@@ -2386,6 +2444,12 @@ function migrateData(){
     }
     if(s.remarks&&s.remarksHistory.length===0)s.remarksHistory=[{ts:s.lastUpdated||Date.now(),text:s.remarks}];
     if(s.situation&&s.situationHistory.length===0)s.situationHistory=[{ts:s.lastUpdated||Date.now(),text:s.situation}];
+    // Keep the overall stage in sync with the most-advanced per-application stage on
+    // every load/import — so importing a backup where a student's uniApplications show
+    // e.g. "Unconditional offer letter issued" but the overall appStage was left blank
+    // or stale automatically catches the overall stage up, which in turn is what makes
+    // hasApplicationSubmitted() correctly infer "already submitted" everywhere else.
+    recomputeOverallStageFromApps(s);
   });
 }
 // ════════════════════════════════════════════════════════════
@@ -2623,7 +2687,7 @@ async function pushToGitHub(){
       log:(()=>{try{return JSON.parse(localStorage.getItem(LOGK)||'[]');}catch(e){return[];}})()
     };
     const content=btoa(unescape(encodeURIComponent(JSON.stringify(payload,null,2))));
-    const body={message:'CRM sync — '+new Date().toISOString(),content,branch:GH_BRANCH};
+    const body={message:'Data sync — '+new Date().toISOString(),content,branch:GH_BRANCH};
     if(ghFileSha)body.sha=ghFileSha;
     const res=await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${GH_FILE}`,{
       method:'PUT',
@@ -2775,7 +2839,7 @@ function updateLastAction(msg){
 // DEFAULT DATA
 // ════════════════════════════════════════════════════════════
 function blankStudent(name){
-  return{id:Date.now()+Math.random(),name:name||'New Student',country:'',intake:'',status:'Active',appStage:'',counselor:'',phone:'',email:'',uniCount:0,moreUni:'N',moreUniDate:'',bankMatured:'',bankMonths:'',bankExpectedDate:'',defer:'N',gsApplied:'N',gsStatus:'',coe:'N',visaPrep:'',visaNext:'',lastUpdated:Date.now(),remarks:'',situation:'',remarksHistory:[],situationHistory:[],applicationCompletions:[],uniApplications:[],stageHistory:[],locked:false,visaFieldsLocked:false,closedInfo:null,visaApplicationRef:null,visaLodgedDate:'',expectedResultDate:'',discontinuedDate:'',discontinuedReason:'',nextIntakeDate:'',applicationDeadline:''};
+  return{id:Date.now()+Math.random(),name:name||'New Student',country:'',intake:'',status:'Active',appStage:'',counselor:'',phone:'',email:'',uniCount:0,moreUni:'N',moreUniDate:'',bankMatured:'',bankMonths:'',bankExpectedDate:'',defer:'N',gsApplied:'N',gsStatus:'',coe:'N',visaPrep:'',visaNext:'',lastUpdated:Date.now(),createdAt:Date.now(),remarks:'',situation:'',remarksHistory:[],situationHistory:[],applicationCompletions:[],uniApplications:[],stageHistory:[],locked:false,visaFieldsLocked:false,closedInfo:null,visaApplicationRef:null,visaLodgedDate:'',expectedResultDate:'',discontinuedDate:'',discontinuedReason:'',nextIntakeDate:'',applicationDeadline:''};
 }
 async function loadBundledData(){
   try{
@@ -2864,6 +2928,23 @@ function visaGroupOf(stage){
   if(s==='visa lodged')return 'lodged';
   return null;
 }
+// ── Degree-level detection: there is no dedicated Bachelor/Masters field on a student or
+// application, so this is inferred from the free-text University/Program text (keyword +
+// AU/NZ level-code match). Anything that doesn't match either pattern is "Unspecified"
+// rather than being guessed into a bucket. Shared by the Dashboard stat cards and the PDF export.
+function degreeLevelOf(text){
+  const t=(text||'').toLowerCase();
+  if(/master|postgrad|post-grad|\bpg\b|\bl9\b|\bl8\b|level\s*8|level\s*9/.test(t))return 'Masters';
+  if(/bachelor|undergrad|under-grad|\bug\b|\bl7\b|level\s*7/.test(t))return 'Bachelor';
+  return 'Unspecified';
+}
+function studentLevel(s){
+  const refProgram=s.visaApplicationRef&&s.visaApplicationRef.program;
+  if(refProgram){const lvl=degreeLevelOf(refProgram);if(lvl!=='Unspecified')return lvl;}
+  const apps=s.uniApplications||[];
+  for(const a of apps){const lvl=degreeLevelOf(a.program);if(lvl!=='Unspecified')return lvl;}
+  return 'Unspecified';
+}
 // ── Visa timing engine ──
 // Assumed average lead time (days) needed between lodging a fresh visa
 // application and receiving a decision. Used to auto-determine whether a
@@ -2942,14 +3023,16 @@ function confirmVisaDecision(){
     s.visaFieldsLocked=true;
     recomputeVisaNext(s);
   }
+  let refusedNoResubmit=false;
   if(group==='issued'){
     lockStudent(s,'Visa Issued — Application Closed',newStage);
   }else if(group==='refused'){
     const resubmit=document.querySelector('input[name="vd-resubmit"]:checked');
     const wantsResubmit=resubmit?resubmit.value:'Y';
     if(wantsResubmit==='N'){
-      lockStudent(s,'Visa Refused — No Resubmission (Final)',newStage);
-      s.visaFieldsLocked=true;
+      // Refused + not intending to continue: this file goes straight to Discontinued,
+      // so don't lock it here — the discontinued modal (opened below) owns that status.
+      refusedNoResubmit=true;
     }else{
       s.locked=false;
       s.closedInfo=null;
@@ -2966,6 +3049,12 @@ function confirmVisaDecision(){
   pendingVisaDecision=null;
   persist((group==='issued'?'Visa issued & file closed: ':group==='refused'?'Visa refused, decision recorded: ':'Visa lodged: ')+s.name);
   renderAll();
+  if(refusedNoResubmit&&s.status!=='Discontinued'){
+    // Auto-open the "Mark as Discontinued" popup so the closure reason/date gets captured right away
+    openDiscontinuedModal(idx);
+    const vr=document.querySelector('input[name="disc-reason"][value="Visa Rejected"]');
+    if(vr){vr.checked=true;discReasonChanged();}
+  }
 }
 function cancelVisaDecision(){
   pendingVisaDecision=null;
@@ -3023,7 +3112,16 @@ function updateSummary(){
     {cls:'wn',val:pool.filter(s=>isVisaLodgedStage(s.appStage)&&isDateInWeek(s.expectedResultDate,1)).length,lbl:'Visa Decision Expected Next Week',f:'visa',key:'visa::decision_next_week'},
     {cls:'ok',val:allPool.filter(s=>['Visa granted','Visa Granted','Visa issued','Visa Issued'].includes(s.appStage)).length,lbl:'Total Visa Issued',f:'visa',key:'visa::issued_total'},
     {cls:'er',val:allPool.filter(s=>['Visa refused','Visa Refused','Visa rejected','Visa Rejected'].includes(s.appStage)).length,lbl:'Total Visa Refused',f:'visa',key:'visa::refused_total'},
-    {cls:'wn',val:discontinued.length,lbl:'Discontinued',f:'disc',key:'disc::all'}
+    {cls:'wn',val:discontinued.length,lbl:'Discontinued',f:'disc',key:'disc::all'},
+    // ── By Degree Level (Overall) — inferred from University/Program text, see studentLevel() ──
+    {cls:'def',val:pool.filter(s=>studentLevel(s)==='Bachelor').length,lbl:'Total Bachelor Students',f:'level',key:'level::bachelor::total'},
+    {cls:'def',val:pool.filter(s=>studentLevel(s)==='Masters').length,lbl:'Total Masters Students',f:'level',key:'level::masters::total'},
+    {cls:'ok',val:pool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Bachelor').length,lbl:'Bachelor — Visa Lodged',f:'level',key:'level::bachelor::lodged'},
+    {cls:'ok',val:pool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Masters').length,lbl:'Masters — Visa Lodged',f:'level',key:'level::masters::lodged'},
+    {cls:'ok',val:allPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Bachelor').length,lbl:'Bachelor — Visa Issued',f:'level',key:'level::bachelor::issued'},
+    {cls:'ok',val:allPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Masters').length,lbl:'Masters — Visa Issued',f:'level',key:'level::masters::issued'},
+    {cls:'er',val:allPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Bachelor').length,lbl:'Bachelor — Visa Refused',f:'level',key:'level::bachelor::refused'},
+    {cls:'er',val:allPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Masters').length,lbl:'Masters — Visa Refused',f:'level',key:'level::masters::refused'}
   ];
   
   document.getElementById('info-grid').innerHTML=overallStats.map((c,i)=>`<div class="sc ${c.cls} clickable anim-in" style="animation-delay:${i*60}ms" onclick="openStatModal('${esc(c.key)}')"><div class="sv" data-target="${c.val}">0</div><div class="sc-lbl">${esc(c.lbl)}</div></div>`).join('');
@@ -3079,7 +3177,15 @@ function buildAustraliaStats(pool,allPool){
     {lbl:'Visa Refused',val:auAllPool.filter(s=>s.appStage==='Visa refused').length, key:'au::stage::Visa refused'},
     {lbl:'Visa Granted',val:auAllPool.filter(s=>s.appStage==='Visa granted').length, key:'au::stage::Visa granted'},
     {lbl:'Fund >3 Months Matured',val:auPool.filter(s=>s.bankMatured==='Y'&&s.bankMonths&&(s.bankMonths.includes('More than')||s.bankMonths.includes('6'))).length, key:'au::fund_matured', bg:'rgba(13,148,136,0.08)', bd:'#0d9488'},
-    {lbl:'Expecting Visa This Intake',val:auPool.filter(s=>s.visaNext==='Y').length, key:'au::visa_next', bg:'rgba(124,58,237,0.08)', bd:'#7c3aed'}
+    {lbl:'Expecting Visa This Intake',val:auPool.filter(s=>s.visaNext==='Y').length, key:'au::visa_next', bg:'rgba(124,58,237,0.08)', bd:'#7c3aed'},
+    {lbl:'Bachelor Students',val:auPool.filter(s=>studentLevel(s)==='Bachelor').length, key:'au::level::bachelor::total'},
+    {lbl:'Masters Students',val:auPool.filter(s=>studentLevel(s)==='Masters').length, key:'au::level::masters::total'},
+    {lbl:'Bachelor — Lodged',val:auPool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Bachelor').length, key:'au::level::bachelor::lodged'},
+    {lbl:'Masters — Lodged',val:auPool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Masters').length, key:'au::level::masters::lodged'},
+    {lbl:'Bachelor — Issued',val:auAllPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Bachelor').length, key:'au::level::bachelor::issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Masters — Issued',val:auAllPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Masters').length, key:'au::level::masters::issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Bachelor — Refused',val:auAllPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Bachelor').length, key:'au::level::bachelor::refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
+    {lbl:'Masters — Refused',val:auAllPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Masters').length, key:'au::level::masters::refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'}
   ];
   
   return `<div style="margin:16px 0"><div style="font-weight:700;color:var(--tp);margin-bottom:12px;font-size:14px">🇦🇺 Australia — Destination Statistics</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">${stats.map((s,i)=>`<div class="sc def clickable anim-in" style="animation-delay:${i*50}ms;background:${s.bg||'rgba(37,99,235,0.08)'};border-left:3px solid ${s.bd||'var(--b600)'}" onclick="openStatModal('${s.key}')"><div class="sv" data-target="${s.val}">0</div><div class="sc-lbl">${s.lbl}</div></div>`).join('')}</div></div>`;
@@ -3104,7 +3210,15 @@ function buildCanadaStats(pool,allPool){
     {lbl:'Visa Refused',val:caAllPool.filter(s=>s.appStage==='Visa rejected').length, key:'ca::stage::Visa rejected', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
     {lbl:'Visa Granted',val:caAllPool.filter(s=>s.appStage==='Visa Granted').length, key:'ca::stage::Visa Granted', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
     {lbl:'Fund >6 Months Matured',val:caPool.filter(s=>s.bankMatured==='Y'&&s.bankMonths&&(s.bankMonths.includes('6')||s.bankMonths.includes('More than 6'))).length, key:'ca::fund_matured', bg:'rgba(13,148,136,0.08)', bd:'#0d9488'},
-    {lbl:'Expecting Visa This Intake',val:caPool.filter(s=>s.visaNext==='Y').length, key:'ca::visa_next'}
+    {lbl:'Expecting Visa This Intake',val:caPool.filter(s=>s.visaNext==='Y').length, key:'ca::visa_next'},
+    {lbl:'Bachelor Students',val:caPool.filter(s=>studentLevel(s)==='Bachelor').length, key:'ca::level::bachelor::total'},
+    {lbl:'Masters Students',val:caPool.filter(s=>studentLevel(s)==='Masters').length, key:'ca::level::masters::total'},
+    {lbl:'Bachelor — Lodged',val:caPool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Bachelor').length, key:'ca::level::bachelor::lodged'},
+    {lbl:'Masters — Lodged',val:caPool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Masters').length, key:'ca::level::masters::lodged'},
+    {lbl:'Bachelor — Issued',val:caAllPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Bachelor').length, key:'ca::level::bachelor::issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Masters — Issued',val:caAllPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Masters').length, key:'ca::level::masters::issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Bachelor — Refused',val:caAllPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Bachelor').length, key:'ca::level::bachelor::refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
+    {lbl:'Masters — Refused',val:caAllPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Masters').length, key:'ca::level::masters::refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'}
   ];
   
   return `<div style="margin:16px 0"><div style="font-weight:700;color:var(--tp);margin-bottom:12px;font-size:14px">🇨🇦 Canada — Destination Statistics</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">${stats.map((s,i)=>`<div class="sc def clickable anim-in" style="animation-delay:${i*50}ms;background:${s.bg||'rgba(5,150,105,0.08)'};border-left:3px solid ${s.bd||'var(--ok)'}" onclick="openStatModal('${s.key}')"><div class="sv" data-target="${s.val}">0</div><div class="sc-lbl">${s.lbl}</div></div>`).join('')}</div></div>`;
@@ -3128,7 +3242,15 @@ function buildNewZealandStats(pool,allPool){
     {lbl:'Visa Issued',val:nzAllPool.filter(s=>s.appStage==='Visa issued').length, key:'nz::stage::Visa issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
     {lbl:'Tuition Fee Paid',val:nzPool.filter(s=>s.appStage==='Tuition fee paid').length, key:'nz::stage::Tuition fee paid'},
     {lbl:'Fund >3 Months Matured',val:nzPool.filter(s=>s.bankMatured==='Y'&&s.bankMonths&&(s.bankMonths.includes('More than')||s.bankMonths.includes('6'))).length, key:'nz::fund_matured', bg:'rgba(13,148,136,0.08)', bd:'#0d9488'},
-    {lbl:'Expecting Visa This Intake',val:nzPool.filter(s=>s.visaNext==='Y').length, key:'nz::visa_next', bg:'rgba(217,119,6,0.15)', bd:'#d97706'}
+    {lbl:'Expecting Visa This Intake',val:nzPool.filter(s=>s.visaNext==='Y').length, key:'nz::visa_next', bg:'rgba(217,119,6,0.15)', bd:'#d97706'},
+    {lbl:'Bachelor Students',val:nzPool.filter(s=>studentLevel(s)==='Bachelor').length, key:'nz::level::bachelor::total'},
+    {lbl:'Masters Students',val:nzPool.filter(s=>studentLevel(s)==='Masters').length, key:'nz::level::masters::total'},
+    {lbl:'Bachelor — Lodged',val:nzPool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Bachelor').length, key:'nz::level::bachelor::lodged'},
+    {lbl:'Masters — Lodged',val:nzPool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Masters').length, key:'nz::level::masters::lodged'},
+    {lbl:'Bachelor — Issued',val:nzAllPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Bachelor').length, key:'nz::level::bachelor::issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Masters — Issued',val:nzAllPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Masters').length, key:'nz::level::masters::issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Bachelor — Refused',val:nzAllPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Bachelor').length, key:'nz::level::bachelor::refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
+    {lbl:'Masters — Refused',val:nzAllPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Masters').length, key:'nz::level::masters::refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'}
   ];
   
   return `<div style="margin:16px 0"><div style="font-weight:700;color:var(--tp);margin-bottom:12px;font-size:14px">🇳🇿 New Zealand — Destination Statistics</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">${stats.map((s,i)=>`<div class="sc def clickable anim-in" style="animation-delay:${i*50}ms;background:${s.bg||'rgba(217,119,6,0.08)'};border-left:3px solid ${s.bd||'var(--wn)'}" onclick="openStatModal('${s.key}')"><div class="sv" data-target="${s.val}">0</div><div class="sc-lbl">${s.lbl}</div></div>`).join('')}</div></div>`;
@@ -3154,7 +3276,15 @@ function buildMalaysiaStats(pool,allPool){
     {lbl:'Accommodation Booked',val:myPool.filter(s=>s.appStage==='Booking accommodation').length, key:'my::stage::Booking accommodation'},
     {lbl:'Air Ticket Booked',val:myPool.filter(s=>s.appStage==='Booking air ticket').length, key:'my::stage::Booking air ticket'},
     {lbl:'Attending Orientation/Classes',val:myPool.filter(s=>s.appStage==='Attending orientation / classes').length, key:'my::stage::Attending orientation / classes', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
-    {lbl:'Expecting Visa This Intake',val:myPool.filter(s=>s.visaNext==='Y').length, key:'my::visa_next', bg:'rgba(124,58,237,0.08)', bd:'#7c3aed'}
+    {lbl:'Expecting Visa This Intake',val:myPool.filter(s=>s.visaNext==='Y').length, key:'my::visa_next', bg:'rgba(124,58,237,0.08)', bd:'#7c3aed'},
+    {lbl:'Bachelor Students',val:myPool.filter(s=>studentLevel(s)==='Bachelor').length, key:'my::level::bachelor::total'},
+    {lbl:'Masters Students',val:myPool.filter(s=>studentLevel(s)==='Masters').length, key:'my::level::masters::total'},
+    {lbl:'Bachelor — Lodged',val:myPool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Bachelor').length, key:'my::level::bachelor::lodged'},
+    {lbl:'Masters — Lodged',val:myPool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Masters').length, key:'my::level::masters::lodged'},
+    {lbl:'Bachelor — Issued',val:myAllPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Bachelor').length, key:'my::level::bachelor::issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Masters — Issued',val:myAllPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)==='Masters').length, key:'my::level::masters::issued', bg:'rgba(5,150,105,0.12)', bd:'#059669'},
+    {lbl:'Bachelor — Refused',val:myAllPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Bachelor').length, key:'my::level::bachelor::refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'},
+    {lbl:'Masters — Refused',val:myAllPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)==='Masters').length, key:'my::level::masters::refused', bg:'rgba(220,38,38,0.08)', bd:'#dc2626'}
   ];
   
   return `<div style="margin:16px 0"><div style="font-weight:700;color:var(--tp);margin-bottom:12px;font-size:14px">🇲🇾 Malaysia — Destination Statistics</div><div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">${stats.map((s,i)=>`<div class="sc def clickable anim-in" style="animation-delay:${i*50}ms;background:${s.bg||'rgba(220,38,38,0.06)'};border-left:3px solid ${s.bd||'#dc2626'}" onclick="openStatModal('${s.key}')"><div class="sv" data-target="${s.val}">0</div><div class="sc-lbl">${s.lbl}</div></div>`).join('')}</div></div>`;
@@ -3164,29 +3294,82 @@ function buildMalaysiaStats(pool,allPool){
 // AGENT STATISTICS
 // ════════════════════════════════════════════════════════════
 function getAgentStats(){
-  const allApps=students.flatMap(s=>(s.uniApplications||[]).map(app=>({...app,studentName:s.name,studentCountry:s.country,studentId:s.id})));
-  const agentNames=[...new Set(allApps.filter(a=>a.agent).map(a=>a.agent).filter(Boolean))];
-  const rows=agentNames.map(name=>{
-    const agentApps=allApps.filter(a=>a.agent===name);
-    const byCountry=Object.entries(agentApps.reduce((acc,a)=>{const c=a.country||'Unknown';acc[c]=(acc[c]||0)+1;return acc;},{})).sort((a,b)=>b[1]-a[1]);
-    const byStatus=Object.entries(agentApps.reduce((acc,a)=>{const key=a.status||'Unknown';acc[key]=(acc[key]||0)+1;return acc;},{})).sort((a,b)=>b[1]-a[1]);
-    const uniqueStudents=new Set(agentApps.map(a=>a.studentId)).size;
-    return {name,totalApplications:agentApps.length,uniqueStudents,byCountry,byStatus};
-  });
+  // Each row is one agent's full performance breakdown — see renderAgentOverview() for the
+  // per-agent card layout, and getStatEntries()'s 'agent::' branch for the click drill-downs.
+  const allApps=students.flatMap(s=>(s.uniApplications||[]).map(app=>({...app,student:s})));
+  const computeForApps=(agentApps)=>{
+    const uniqueStudents=[...new Map(agentApps.map(a=>[a.student.id,a.student])).values()];
+    return {
+      totalStudents:uniqueStudents.length,
+      totalApplications:agentApps.length,
+      bachelorApps:agentApps.filter(a=>degreeLevelOf(a.program)==='Bachelor').length,
+      mastersApps:agentApps.filter(a=>degreeLevelOf(a.program)==='Masters').length,
+      visaLodged:uniqueStudents.filter(s=>visaGroupOf(s.appStage)==='lodged').length,
+      visaPending:uniqueStudents.filter(s=>s.status!=='Discontinued'&&!['lodged','issued','refused'].includes(visaGroupOf(s.appStage))).length,
+      visaIssued:uniqueStudents.filter(s=>visaGroupOf(s.appStage)==='issued').length,
+      visaRefused:uniqueStudents.filter(s=>visaGroupOf(s.appStage)==='refused').length,
+      // "Discontinued for other reasons" excludes visa-refusal closures, which are already
+      // counted above — a refused file's appStage stays 'Visa refused' even after the file
+      // is marked Discontinued, so this only catches finance/withdrew/application-rejected etc.
+      discontinuedOther:uniqueStudents.filter(s=>s.status==='Discontinued'&&visaGroupOf(s.appStage)!=='refused'&&visaGroupOf(s.appStage)!=='issued').length
+    };
+  };
+  const agentNames=[...new Set(allApps.filter(a=>a.agent&&a.agent!=='Direct').map(a=>a.agent))];
+  const rows=agentNames.map(name=>({name,...computeForApps(allApps.filter(a=>a.agent===name))}));
   const directApps=allApps.filter(a=>!a.agent||a.agent==='Direct'||a.agent==='');
   if(directApps.length){
-    const byCountry=Object.entries(directApps.reduce((acc,a)=>{const c=a.country||'Unknown';acc[c]=(acc[c]||0)+1;return acc;},{})).sort((a,b)=>b[1]-a[1]);
-    rows.unshift({name:'Direct / Self',totalApplications:directApps.length,uniqueStudents:new Set(directApps.map(a=>a.studentId)).size,byCountry});
+    rows.unshift({name:'Direct / Self',...computeForApps(directApps)});
   }
-  return rows.sort((a,b)=>b.totalApplications-a.totalApplications);
+  return rows.sort((a,b)=>{
+    if(a.name==='Direct / Self')return -1;
+    if(b.name==='Direct / Self')return 1;
+    return b.totalApplications-a.totalApplications;
+  });
 }
 function renderAgentOverview(){
   const wrap=document.getElementById('agent-overview');
   if(!wrap)return;
   const rows=getAgentStats();
   if(!rows.length){wrap.innerHTML='<div style="padding:12px;text-align:center;color:var(--tm);font-size:12px;font-style:italic">No agent data yet. Applications added via agents will show here.</div>';return;}
-  wrap.innerHTML=`<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px">${rows.map((r,i)=>`<div class="sc def clickable anim-in" style="animation-delay:${i*50}ms;background:rgba(124,58,237,0.08);border-left:3px solid #7c3aed" onclick="openStatModal('agent::${encodeURIComponent(r.name)}')"><div class="sv" data-target="${r.totalApplications}">0</div><div class="sc-lbl">${esc(r.name)}<br><span style="font-size:10px;color:var(--tm);font-weight:400">${r.uniqueStudents} student${r.uniqueStudents!==1?'s':''}</span></div></div>`).join('')}</div>`;
+  // One row/block per agent, each with its own 9-card breakdown — same clickable stat-card
+  // pattern (and the same openStatModal() drill-down) used everywhere else in the dashboard.
+  wrap.innerHTML=rows.map((r,ri)=>{
+    const enc=encodeURIComponent(r.name);
+    const cardDefs=[
+      ['Total Students',r.totalStudents,'students','rgba(124,58,237,0.08)','#7c3aed'],
+      ['Total Applications',r.totalApplications,'applications','rgba(37,99,235,0.08)','#2563eb'],
+      ['Bachelor Applications',r.bachelorApps,'bachelor','rgba(37,99,235,0.08)','#2563eb'],
+      ['Masters Applications',r.mastersApps,'masters','rgba(37,99,235,0.08)','#2563eb'],
+      ['Visa Lodged',r.visaLodged,'lodged','rgba(217,119,6,0.12)','#b45309'],
+      ['Remaining to Lodge',r.visaPending,'pending','rgba(100,116,139,0.12)','#475569'],
+      ['Visa Issued',r.visaIssued,'issued','rgba(5,150,105,0.12)','#059669'],
+      ['Visa Refused',r.visaRefused,'refused','rgba(220,38,38,0.08)','#dc2626'],
+      ['Discontinued (Other Reasons)',r.discontinuedOther,'discontinued_other','rgba(220,38,38,0.06)','#991b1b']
+    ];
+    const cardsHtml=cardDefs.map(([lbl,val,metric,bg,bd],i)=>
+      `<div class="sc def clickable anim-in" style="animation-delay:${i*40}ms;background:${bg};border-left:3px solid ${bd}" onclick="openStatModal('agent::${enc}::${metric}')"><div class="sv" data-target="${val}">0</div><div class="sc-lbl">${lbl}</div></div>`
+    ).join('');
+    const rowKey='agentrow_'+ri;
+    const rowOpen=agentRowOpen.has(rowKey);
+    return `<div style="margin:${ri===0?'0':'18px'} 0 16px">
+      <div style="font-weight:700;color:var(--tp);margin-bottom:12px;font-size:14px;cursor:pointer;display:flex;align-items:center;gap:6px" onclick="toggleAgentRow('${rowKey}')">🤝 ${esc(r.name)} <span style="font-size:11px;color:var(--tm);font-weight:500">${rowOpen?'▾ tap to close':'▸ tap to open'}</span></div>
+      <div style="display:${rowOpen?'grid':'none'};grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">${cardsHtml}</div>
+    </div>`;
+  }).join('');
   setTimeout(()=>animateCounters(wrap),80);
+}
+let agentRowOpen=new Set();
+function toggleAgentRow(key){
+  if(agentRowOpen.has(key))agentRowOpen.delete(key);else agentRowOpen.add(key);
+  renderAgentOverview();
+}
+function toggleDashSection(name){
+  const body=document.getElementById(name==='stats'?'stats-body':'agent-overview-body');
+  const chev=document.getElementById(name==='stats'?'stats-chev':'agent-chev');
+  if(!body)return;
+  const isOpen=body.style.display!=='none';
+  body.style.display=isOpen?'none':(name==='stats'?'block':'block');
+  if(chev)chev.textContent=isOpen?'▸ tap to open':'▾ tap to close';
 }
 
 function animateCounters(container){
@@ -3272,13 +3455,29 @@ function getStatEntries(key){
   if(key==='my::stage::Visa refused') return make(allPool.filter(s=>s.country==='Malaysia'&&s.appStage==='Visa refused'), 'Visa Refused', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
   if(key==='my::stage::Visa granted') return make(allPool.filter(s=>s.country==='Malaysia'&&s.appStage==='Visa granted'), 'Visa Granted', s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
   if(key.indexOf('agent::')===0){
-    const agentName=decodeURIComponent(key.slice('agent::'.length));
+    // Format: 'agent::<encodedName>::<metric>' — see renderAgentOverview()/getAgentStats().
+    const rest=key.slice('agent::'.length);
+    const parts=rest.split('::');
+    const agentName=decodeURIComponent(parts[0]);
+    const metric=parts[1]||'students';
     const isDirect=agentName==='Direct / Self';
-    const matches=all.filter(s=>(s.uniApplications||[]).some(a=>isDirect?(!a.agent||a.agent==='Direct'||a.agent===''):a.agent===agentName));
-    return make(matches, agentName, s=>{
-      const apps=(s.uniApplications||[]).filter(a=>isDirect?(!a.agent||a.agent==='Direct'||a.agent===''):a.agent===agentName);
+    const appMatches=a=>isDirect?(!a.agent||a.agent==='Direct'||a.agent===''):a.agent===agentName;
+    const uniqueStudents=all.filter(s=>(s.uniApplications||[]).some(appMatches));
+    const universitiesLine=s=>{
+      const apps=(s.uniApplications||[]).filter(appMatches);
       return `Universities: ${apps.map(a=>a.university||'Unnamed').join(', ')||'—'}`;
-    });
+    };
+    const withStage=s=>`Country: ${s.country||'Not set'} · Stage: ${s.appStage||'Not set'}${s.status==='Discontinued'?' · (Discontinued)':''}`;
+    if(metric==='students') return make(uniqueStudents, `${agentName} — Total Students`, withStage);
+    if(metric==='applications') return make(uniqueStudents, `${agentName} — Total Applications`, universitiesLine);
+    if(metric==='bachelor') return make(uniqueStudents.filter(s=>(s.uniApplications||[]).some(a=>appMatches(a)&&degreeLevelOf(a.program)==='Bachelor')), `${agentName} — Bachelor Applications`, universitiesLine);
+    if(metric==='masters') return make(uniqueStudents.filter(s=>(s.uniApplications||[]).some(a=>appMatches(a)&&degreeLevelOf(a.program)==='Masters')), `${agentName} — Masters Applications`, universitiesLine);
+    if(metric==='lodged') return make(uniqueStudents.filter(s=>visaGroupOf(s.appStage)==='lodged'), `${agentName} — Visa Lodged`, withStage);
+    if(metric==='pending') return make(uniqueStudents.filter(s=>s.status!=='Discontinued'&&!['lodged','issued','refused'].includes(visaGroupOf(s.appStage))), `${agentName} — Remaining to Lodge`, withStage);
+    if(metric==='issued') return make(uniqueStudents.filter(s=>visaGroupOf(s.appStage)==='issued'), `${agentName} — Visa Issued`, withStage);
+    if(metric==='refused') return make(uniqueStudents.filter(s=>visaGroupOf(s.appStage)==='refused'), `${agentName} — Visa Refused`, withStage);
+    if(metric==='discontinued_other') return make(uniqueStudents.filter(s=>s.status==='Discontinued'&&visaGroupOf(s.appStage)!=='refused'&&visaGroupOf(s.appStage)!=='issued'), `${agentName} — Discontinued (Other Reasons)`, s=>`Reason: ${s.discontinuedReason||'Not recorded'}`);
+    return make(uniqueStudents, agentName, withStage);
   }
   if(key.indexOf('::stage::')!==-1){
     const parts=key.split('::');
@@ -3286,6 +3485,23 @@ function getStatEntries(key){
     const stage=parts[2];
     const country=cCode==='au'?'Australia':cCode==='ca'?'Canada':cCode==='nz'?'New Zealand':cCode==='my'?'Malaysia':'';
     return make(pool.filter(s=>s.country===country && s.appStage===stage), stage, s=>`Stage: ${s.appStage}`);
+  }
+  // By Degree Level cards — 'level::bachelor::total' (overall) or 'au::level::bachelor::lodged' (per-country), etc.
+  if(key.indexOf('level::')!==-1){
+    const parts=key.split('::');
+    const hasCountry=parts[0]!=='level';
+    const cCode=hasCountry?parts[0]:null;
+    const levelPart=hasCountry?parts[2]:parts[1];
+    const statPart=hasCountry?parts[3]:parts[2];
+    const country=cCode?({au:'Australia',ca:'Canada',nz:'New Zealand',my:'Malaysia'}[cCode]||''):null;
+    const levelLabel=levelPart==='bachelor'?'Bachelor':'Masters';
+    const suffix=country?` (${{Australia:'AU',Canada:'CA','New Zealand':'NZ',Malaysia:'MY'}[country]||country})`:'';
+    const basePool=country?pool.filter(s=>s.country===country):pool;
+    const baseAllPool=country?allPool.filter(s=>s.country===country):allPool;
+    if(statPart==='total') return make(basePool.filter(s=>studentLevel(s)===levelLabel), `Total ${levelLabel} Students${suffix}`, s=>`Program: ${(s.uniApplications&&s.uniApplications[0]&&s.uniApplications[0].program)||'Not specified'} · Stage: ${s.appStage||'Not set'}`);
+    if(statPart==='lodged') return make(basePool.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)===levelLabel), `${levelLabel} — Visa Lodged${suffix}`, s=>`Stage: ${s.appStage}`);
+    if(statPart==='issued') return make(baseAllPool.filter(s=>visaGroupOf(s.appStage)==='issued'&&studentLevel(s)===levelLabel), `${levelLabel} — Visa Issued${suffix}`, s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
+    if(statPart==='refused') return make(baseAllPool.filter(s=>visaGroupOf(s.appStage)==='refused'&&studentLevel(s)===levelLabel), `${levelLabel} — Visa Refused${suffix}`, s=>`Stage: ${s.appStage}${s.status==='Discontinued'?' · (File Closed)':''}`);
   }
   return {title:'Statistic Details', items:[]};
 }
@@ -3341,13 +3557,25 @@ function renderProgress(){
 function renderReminders(){
   const sec=document.getElementById('remind-sec');
   const pending=students.filter(s=>s.status!=='Discontinued'&&s.moreUni==='Y');
-  if(!pending.length){sec.innerHTML='<div style="color:var(--tm);font-size:12px;font-style:italic">No reminders</div>';return;}
-  sec.innerHTML=pending.map(s=>{
+  // Auto reminder: student has no application submitted yet (no uniApplications entry
+  // with an applicationDate on file). Due from the day the student was entered, and
+  // stays due every day until at least one application is submitted.
+  const noAppYet=students.filter(s=>s.status!=='Discontinued'&&!hasApplicationSubmitted(s));
+  const noAppHtml=noAppYet.map(s=>{
+    const idx=students.findIndex(x=>x.id===s.id);
+    const created=s.createdAt||s.lastUpdated||Date.now();
+    const daysDue=Math.max(0,Math.floor((Date.now()-created)/86400000));
+    const info=daysDue<=0?'<strong>due today</strong>':`<strong>${daysDue}d overdue</strong>`;
+    return `<div class="remind-item urgent"><div class="remind-main"><div><strong>${esc(s.name)}</strong> — look for universities &amp; submit an application · ${info}</div><div style="font-size:11px;margin-top:4px">Country: ${esc(s.country||'Not set')} · Intake: ${esc(s.intake||'Not set')}</div></div><div class="remind-actions"><button class="btn-remind-done" onclick="jumpToStudentDetail(${idx})">Open Student</button></div></div>`;
+  }).join('');
+  const moreUniHtml=pending.map(s=>{
     const idx=students.findIndex(x=>x.id===s.id);
     let info='',urgent=false;
     if(s.moreUniDate){const diff=Math.floor((new Date(s.moreUniDate)-Date.now())/(86400000));if(diff<0){info=`<strong>${Math.abs(diff)}d overdue</strong>`;urgent=true;}else if(diff===0){info='<strong>due today!</strong>';urgent=true;}else{info=`<strong>${diff}d left</strong> (${s.moreUniDate})`;if(diff<=7)urgent=true;}}
     return `<div class="remind-item${urgent?' urgent':''}"><div class="remind-main"><div><strong>${esc(s.name)}</strong> — need to submit application${info?` · ${info}`:''}</div><div style="font-size:11px;margin-top:4px">Country: ${esc(s.country||'Not set')} · Intake: ${esc(s.intake||'Not set')}</div></div><div class="remind-actions"><button class="btn-remind-done" onclick="openReminderCompletion(${idx})">Mark completed</button></div></div>`;
   }).join('');
+  const combined=noAppHtml+moreUniHtml;
+  sec.innerHTML=combined||'<div style="color:var(--tm);font-size:12px;font-style:italic">No reminders</div>';
 }
 
 // ════════════════════════════════════════════════════════════
@@ -3489,7 +3717,7 @@ function markExpediteEmailSent(){
 // ════════════════════════════════════════════════════════════
 // UNIVERSITY APPLICATIONS — KANBAN PAGE (p5)
 // ════════════════════════════════════════════════════════════
-let ukAgentFilter='ALL',ukCountryFilter='ALL',ukStageFilter='ALL';
+let ukAgentFilter='ALL',ukCountryFilter='ALL',ukStageFilter='ALL',ukStatusFilter='ACTIVE';
 let ukSortKey='class',ukSortDir='asc';
 const _idxTagE='a6fd44e45ddcb'; // internal index checksum — do not modify
 function ukColumnOf(stage){
@@ -3501,6 +3729,14 @@ function ukColumnOf(stage){
   return 'notapplied';
 }
 function renderUniKanban(){
+  // Status filter chips (Active / Discontinued / All)
+  const statusWrap=document.getElementById('uk-status-filters');
+  if(statusWrap){
+    const discCount=students.filter(s=>s.status==='Discontinued').length;
+    const statusOpts=[{key:'ACTIVE',label:'Active'},{key:'DISCONTINUED',label:'🚫 Discontinued'+(discCount?` (${discCount})`:'')},{key:'ALL',label:'All'}];
+    statusWrap.innerHTML='<span class="uk-flabel">Status</span>'+
+      statusOpts.map(o=>`<span class="uk-chip${ukStatusFilter===o.key?' active':''}" onclick="ukStatusFilter='${o.key}';renderUniKanban()">${o.label}</span>`).join('');
+  }
   // Agent filter chips
   const agentWrap=document.getElementById('uk-agent-filters');
   if(agentWrap){
@@ -3518,7 +3754,7 @@ function renderUniKanban(){
   }
   const stageWrap=document.getElementById('uk-stage-filters');
   if(stageWrap){
-    const stageCols=[{key:'notapplied',label:'🕓 Not Applied'},{key:'submitted',label:'📤 Submitted'},{key:'lodged',label:'⏳ Lodged'},{key:'refused',label:'❌ Refused'},{key:'issued',label:'✅ Issued'}];
+    const stageCols=[{key:'notapplied',label:'🕓 Not Applied'},{key:'submitted',label:'📤 Submitted'},{key:'lodged',label:'⏳ Lodged'},{key:'issued',label:'✅ Issued'}];
     stageWrap.innerHTML='<span class="uk-flabel">Stage</span>'+
       `<span class="uk-chip${ukStageFilter==='ALL'?' active':''}" onclick="ukStageFilter='ALL';renderUniKanban()">All</span>`+
       stageCols.map(c=>`<span class="uk-chip${ukStageFilter===c.key?' active':''}" onclick="ukStageFilter='${c.key}';renderUniKanban()">${c.label}</span>`).join('');
@@ -3530,13 +3766,15 @@ function renderUniKanban(){
   // Build flat list of {student, idx, app, col}
   let cards=[];
   students.forEach((s,idx)=>{
-    if(s.status==='Discontinued')return;
+    const isDisc=s.status==='Discontinued';
+    if(ukStatusFilter==='ACTIVE'&&isDisc)return;
+    if(ukStatusFilter==='DISCONTINUED'&&!isDisc)return;
     const col=ukColumnOf(s.appStage);
     const apps=(s.uniApplications||[]);
     if(apps.length===0){
-      cards.push({s,idx,app:null,col:'notapplied'});
+      cards.push({s,idx,app:null,appIdx:-1,col:'notapplied'});
     }else{
-      apps.forEach(a=>cards.push({s,idx,app:a,col}));
+      apps.forEach((a,ai)=>cards.push({s,idx,app:a,appIdx:ai,col}));
     }
   });
 
@@ -3631,12 +3869,79 @@ function renderUniKanban(){
   });
 
   const tbody=document.getElementById('uk-table-body');
-  if(!tbody)return;
+  const accWrap=document.getElementById('uk-acc-list');
   if(!cards.length){
-    tbody.innerHTML='<tr class="uk-empty-row"><td colspan="9">No applications match these filters</td></tr>';
+    if(tbody)tbody.innerHTML='<tr class="uk-empty-row"><td colspan="9">No applications match these filters</td></tr>';
+    if(accWrap)accWrap.innerHTML='<div class="uk-empty-row" style="text-align:center;color:var(--tm);font-style:italic;padding:18px">No applications match these filters</div>';
     return;
   }
-  tbody.innerHTML=cards.map(c=>ukRowHtml(c,colLabel)).join('');
+  if(tbody)tbody.innerHTML=cards.map(c=>ukRowHtml(c,colLabel)).join('');
+  if(accWrap)accWrap.innerHTML=cards.map(c=>ukAccRowHtml(c,colLabel)).join('');
+}
+// ── Mobile (<768px) accordion-row rendering for the Uni Applications table ──
+let ukAccOpen=new Set();
+function ukToggleAcc(idx,appIdx){
+  const key=idx+'_'+appIdx;
+  if(ukAccOpen.has(key))ukAccOpen.delete(key);else ukAccOpen.add(key);
+  renderUniKanban();
+}
+function ukAccRowHtml(c,colLabel){
+  const s=c.s,a=c.app,idx=c.idx,appIdx=c.appIdx;
+  const key=idx+'_'+appIdx;
+  const open=ukAccOpen.has(key);
+  const lockLbl=s.locked?'🔒':(s.visaFieldsLocked?'🔒':'🔓');
+  let classCell='<span class="uk-missing">—</span>',inUrgentWindow=false;
+  if(a&&a.classCommencementDate){
+    const d=daysUntil(a.classCommencementDate);
+    if(d!==null){
+      inUrgentWindow=c.col==='lodged'&&d<=VISA_ALARM_WINDOW_DAYS;
+      const dayCls=d<0||d<=7?'color:#dc2626;font-weight:700':'color:var(--tm)';
+      const dayLbl=d<0?`${Math.abs(d)}d overdue`:d===0?'today!':`${d}d left`;
+      classCell=`${esc(a.classCommencementDate)} <span style="${dayCls}">(${dayLbl})</span>`;
+    }else{
+      classCell=esc(a.classCommencementDate);
+    }
+  }
+  const resolved=inUrgentWindow&&s.defer==='Y';
+  const alarm=inUrgentWindow&&s.defer!=='Y';
+  const stageColors={notapplied:'background:rgba(100,116,139,0.12);color:#475569',submitted:'background:rgba(37,99,235,0.12);color:#1d4ed8',lodged:'background:rgba(217,119,6,0.12);color:#b45309',refused:'background:rgba(220,38,38,0.12);color:#dc2626',issued:'background:rgba(5,150,105,0.12);color:#059669'};
+  const stageTag=`<span class="uk-status-tag" style="${stageColors[c.col]||''}">${colLabel(c.col)}</span>`;
+  let decisionCell='<span class="uk-missing">—</span>';
+  if(c.col==='lodged'&&s.expectedResultDate){
+    const dTo=Math.floor((new Date(s.expectedResultDate+'T00:00:00')-new Date(new Date().toDateString()))/86400000);
+    const overdue=dTo<0;
+    const style=overdue?'color:#dc2626;font-weight:700':'color:var(--tm)';
+    const sub=overdue?`${Math.abs(dTo)}d overdue`:dTo===0?'today!':`${dTo}d left`;
+    decisionCell=`${fmtDateShort(s.expectedResultDate)} <span style="${style}">(${sub})</span>`;
+  }else if(c.col==='lodged'){
+    decisionCell='<span class="uk-missing" style="font-style:italic">Not set</span>';
+  }
+  const discTag=s.status==='Discontinued'?'<span class="uk-status-tag" style="background:rgba(220,38,38,0.12);color:#dc2626">🚫 Discontinued</span>':'';
+  const deferTag=s.defer==='Y'?`<span class="uk-status-tag" style="background:rgba(124,58,237,0.12);color:#7c3aed">${resolved?'✓ Deferral':'Deferred'}</span>`:'';
+  const alarmTag=alarm?'<span class="uk-status-tag" style="background:rgba(220,38,38,0.15);color:#dc2626">🚨 Urgent</span>':'';
+  const followupTag=a?(typeof appReviewFollowupTag==='function'?appReviewFollowupTag(a):''):'';
+  const flagsRow=(discTag||deferTag||alarmTag||followupTag)?`<div class="uk-acc-row"><span>Flags</span><strong>${alarmTag} ${discTag} ${deferTag} ${followupTag}</strong></div>`:'';
+  const uniLabel=a?`${esc(a.university||'')}${a.program?' — '+esc(a.program):''}`:'<span class="uk-missing" style="font-style:italic">No applications logged</span>';
+  const linkHtml=a&&a.link?`<a href="${esc(a.link)}" target="_blank" rel="noopener" onclick="event.stopPropagation()" style="font-size:11.5px;font-weight:600">🔗 Open link</a>`:'';
+  const linkRow=linkHtml?`<div class="uk-acc-row"><span>Link</span><strong>${linkHtml}</strong></div>`:'';
+  return `<div class="uk-acc-item${open?' open':''}">
+    <div class="uk-acc-hd" onclick="ukToggleAcc(${idx},${appIdx})">
+      <div class="uk-acc-hd-l">
+        <div class="uk-acc-name">${lockLbl} ${esc(s.name)}</div>
+        <div class="uk-acc-sub">${FLAGS[s.country]||''} ${esc(s.country||'')}${a?' · '+esc(a.university||''):''}</div>
+      </div>
+      <div class="uk-acc-hd-r">${stageTag}<span class="uk-acc-chev">▾</span></div>
+    </div>
+    <div class="uk-acc-body"><div class="uk-acc-body-in">
+      <div class="uk-acc-row"><span>University / Program</span><strong style="text-align:right">${uniLabel}</strong></div>
+      <div class="uk-acc-row"><span>Agent</span><strong>${a?esc(a.agent||'Direct/Self'):'—'}</strong></div>
+      <div class="uk-acc-row"><span>Visa Decision Expected</span><strong>${decisionCell}</strong></div>
+      <div class="uk-acc-row"><span>Class Starts</span><strong>${classCell}</strong></div>
+      ${flagsRow}
+      ${linkRow}
+      <button class="uk-acc-openbtn" onclick="event.stopPropagation();jumpToStudentDetail(${idx})">&#8594; Open Student File</button>
+    </div></div>
+  </div>`;
 }
 function ukSetSort(key){
   if(ukSortKey===key)ukSortDir=ukSortDir==='asc'?'desc':'asc';
@@ -3673,6 +3978,7 @@ function ukRowHtml(c,colLabel){
   }else if(c.col==='lodged'){
     decisionCell=`<span class="uk-missing" style="font-style:italic">Not set</span> <button class="btn btn-sm" style="border-color:#0d9484;color:#0f766e;background:rgba(13,148,136,0.08);padding:2px 8px;font-size:10.5px" onclick="event.stopPropagation();openVisaLodgedModal(${idx})" title="Set Visa Lodgment Date">📅 Set</button>`;
   }
+  const discTag=s.status==='Discontinued'?` <span class="uk-status-tag" style="background:rgba(220,38,38,0.12);color:#dc2626">🚫 Discontinued</span>`:'';
   const deferTag=s.defer==='Y'?` <span class="uk-status-tag" style="background:rgba(124,58,237,0.12);color:#7c3aed">${resolved?'✓ Deferral':'Deferred'}</span>`:'';
   const alarmTag=alarm?' <span class="uk-status-tag" style="background:rgba(220,38,38,0.15);color:#dc2626">🚨 Urgent</span>':'';
   const followupTag=a?' '+appReviewFollowupTag(a):'';
@@ -3687,7 +3993,7 @@ function ukRowHtml(c,colLabel){
     <td>${stageTag}</td>
     <td>${decisionCell}</td>
     <td>${classCell}</td>
-    <td>${alarmTag}${deferTag}${followupTag}</td>
+    <td>${alarmTag}${discTag}${deferTag}${followupTag}</td>
     <td>${linkHtml}</td>
   </tr>`;
 }
@@ -5021,7 +5327,7 @@ function downloadCaseSummary(format='pdf'){
   
   if(format==='txt'){
     const lines=[
-      'CLIENT RELATIONSHIP MANAGEMENT — STUDENT CASE SUMMARY',
+      'STUDENT CASE SUMMARY',
       '═══════════════════════════════════════════',
       '',
       `Case Generated: ${new Date().toLocaleString()}`,
@@ -5059,7 +5365,7 @@ function downloadCaseSummary(format='pdf'){
       'Case Status: PARTIALLY CLOSED',
       'Final closure pending visa decision & student choice on other destinations.',
       '',
-      'Generated by Client Relationship Management Student Tracker'
+      'Generated by Student File Report Tracker'
     ];
     dl(lines.join('\n'),`Case_Summary_${summary.name.replace(/\s+/g,'_')}_${iso(new Date())}.txt`,'text/plain');
     addLog('Downloaded case summary (TXT): '+summary.name);
@@ -5068,7 +5374,7 @@ function downloadCaseSummary(format='pdf'){
     const doc=new jsPDF({orientation:'portrait',unit:'pt',format:'a4'});
     let y=30,pageH=doc.internal.pageSize.getHeight(),margin=30;
     
-    doc.setFont('helvetica','bold');doc.setFontSize(16);doc.setTextColor(37,99,235);doc.text('CLIENT RELATIONSHIP MANAGEMENT',margin,y);
+    doc.setFont('helvetica','bold');doc.setFontSize(16);doc.setTextColor(37,99,235);doc.text('STUDENT FILE REPORT',margin,y);
     doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(122,150,180);doc.text('Student Case Summary Report',margin,y+14);y+=28;
     
     // Title
@@ -5210,7 +5516,7 @@ function downloadDocChecklist(format){
     doc.setFont('helvetica','bold');doc.setFontSize(16);doc.setTextColor(37,99,235);
     doc.text('Document Checklist',margin,y);y+=16;
     doc.setFont('helvetica','normal');doc.setFontSize(10);doc.setTextColor(122,150,180);
-    doc.text('Client Relationship Management',margin,y);y+=20;
+    doc.text('Student File Report',margin,y);y+=20;
 
     doc.setFont('helvetica','bold');doc.setFontSize(13);doc.setTextColor(30,58,95);
     doc.text(name,margin,y);y+=14;
@@ -5330,7 +5636,7 @@ function exportTXT(){
     if(bIdx!==-1)return 1;
     return a.localeCompare(b);
   });
-  const lines=['============================================================','       CLIENT RELATIONSHIP MANAGEMENT — STUDENT FILE STATUS REPORT','============================================================',
+  const lines=['============================================================','       STUDENT FILE STATUS REPORT','============================================================',
     `Generated: ${fmtDateTime(now)}`,
     '',` SUMMARY`,'------------------------------------------------------------',
     `Counsellor Name                          : Tausif Jaman`,
@@ -5369,7 +5675,7 @@ function exportTXT(){
     });
   });
   lines.push('============================================================');lines.push('End of Report');lines.push('');
-  dl(lines.join('\n'),`CRM_Summary_${iso(now)}.txt`,'text/plain');addLog('Exported TXT');
+  dl(lines.join('\n'),`Student_File_Summary_${iso(now)}.txt`,'text/plain');addLog('Exported TXT');
 }
 
 
@@ -5381,7 +5687,7 @@ function openExportOptions(){
 }
 
 // ════════════════════════════════════════════════════════════
-// V3.0 FEATURES — CRM Export · Visa Date Tracking · Discontinued / Reactivate
+// V3.0 FEATURES — Export Summary · Visa Date Tracking · Discontinued / Reactivate
 // ════════════════════════════════════════════════════════════
 const COUNTRY_CODES={'New Zealand':'NZ','Australia':'AU','Canada':'CA','United Kingdom':'UK','Malaysia':'MY'};
 function countryCode(c){return COUNTRY_CODES[c]||c||'';}
@@ -5465,16 +5771,10 @@ function offerFollowupActive(a){
 }
 function buildExpediteEmailDraft(student,app){
   const uni=app.university||'the university';
-  const programTxt=app.program?` for the ${app.program} program`:'';
-  const agentName=app.agent&&app.agent!=='Direct/Self'?app.agent:'Admissions Team';
-  const subject=`Follow-up on Application Status — ${student.name}${programTxt}`;
-  const body='Dear '+agentName+',\n\n'+
-    'I hope this email finds you well.\n\n'+
-    'I am writing to follow up on the application submitted on behalf of our student, '+student.name+', for admission'+programTxt+' at '+uni+'. '+
-    'The application was submitted on '+fmtDateLong(app.applicationDate)+', and to date we have not received any update regarding its status or an offer letter.\n\n'+
-    'Could you kindly advise on the current status of this application? We would greatly appreciate it if the review process could be expedited, given the student\'s intake timeline.\n\n'+
-    'Please do let us know if any further documents or information are required from our side to help move the application forward.\n\n'+
-    'Thank you for your continued support, and I look forward to your response.\n\n'+
+  const intake=student.intake||app.classCommencementDate&&fmtDateLong(app.classCommencementDate)||'the upcoming intake';
+  const subject=`Follow-up on Application Status — ${student.name}`;
+  const body='Dear,\n\n'+
+    'We would like to request an update for this student for his application to '+uni+' for the intake of '+intake+'.\n\n'+
     'Best regards,\nTausif Jaman';
   return {subject,body};
 }
@@ -5574,23 +5874,23 @@ function saveReactivateStatus(){
   showToast('♻️ '+s.name+' reactivated — next intake '+fmtDateShort(v));
 }
 
-// ── Feature 1: CRM Export (TXT) ──
-function openCRMExport(){
+// ── Feature 1: Export Summary (TXT) ──
+function openExport(){
   const active=students.filter(s=>s.status!=='Discontinued').sort((a,b)=>a.name.localeCompare(b.name));
-  const box=document.getElementById('crm-list');
+  const box=document.getElementById('export-list');
   box.innerHTML=active.length?active.map(s=>{
     const apps=(s.uniApplications||[]).filter(a=>a.university||a.program);
     const agent=(apps.find(a=>a.agent)||{}).agent||'';
     return '<label style="display:flex;align-items:center;gap:8px;padding:7px 10px;border:1px solid var(--b100);border-radius:8px;font-size:13px;cursor:pointer;font-weight:400;text-transform:none;letter-spacing:0">'
-      +'<input type="checkbox" class="crm-chk" value="'+s.id+'" checked>'
+      +'<input type="checkbox" class="export-chk" value="'+s.id+'" checked>'
       +'<span style="flex:1"><strong>'+esc(s.name)+'</strong> <span style="color:var(--tm);font-size:11px">'+(countryCode(s.country)||s.country||'No country')+(agent?' · '+esc(agent):'')+(apps.length?' · '+apps.length+' app'+(apps.length>1?'s':''):' · no applications')+'</span></span></label>';
   }).join(''):'<div style="padding:12px;text-align:center;color:var(--tm);font-size:13px">No active students</div>';
-  document.getElementById('crm-mo').classList.add('open');
+  document.getElementById('export-mo').classList.add('open');
 }
-function crmToggleAll(v){document.querySelectorAll('.crm-chk').forEach(c=>c.checked=v);}
-function doCRMExport(){
-  const ids=new Set([...document.querySelectorAll('.crm-chk:checked')].map(c=>parseFloat(c.value)));
-  const lines=['Please add the following in the CRM',''];
+function exportToggleAll(v){document.querySelectorAll('.export-chk').forEach(c=>c.checked=v);}
+function doExport(){
+  const ids=new Set([...document.querySelectorAll('.export-chk:checked')].map(c=>parseFloat(c.value)));
+  const lines=['Please add the following details',''];
   let n=0;
   students.filter(s=>ids.has(s.id)).forEach(s=>{
     (s.uniApplications||[]).filter(a=>a.university||a.program).forEach(a=>{
@@ -5606,10 +5906,10 @@ function doCRMExport(){
   const now=new Date();const ds=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0');
   const blob=new Blob([lines.join('\n')],{type:'text/plain'});
   const url=URL.createObjectURL(blob);const a=document.createElement('a');
-  a.href=url;a.download='CRM_Export_'+ds+'.txt';a.click();URL.revokeObjectURL(url);
-  addLog('CRM export — '+n+' application(s)');
-  closeMo('crm-mo');
-  showToast('📤 CRM export downloaded ('+n+' entries)');
+  a.href=url;a.download='Export_'+ds+'.txt';a.click();URL.revokeObjectURL(url);
+  addLog('Export — '+n+' application(s)');
+  closeMo('export-mo');
+  showToast('📤 Export downloaded ('+n+' entries)');
 }
 
 function exportPDF(type='active'){
@@ -5647,6 +5947,14 @@ function exportPDF(type='active'){
   const auActive=active.filter(s=>s.country==='Australia');
   const caActive=active.filter(s=>s.country==='Canada');
   const nzActive=active.filter(s=>s.country==='New Zealand');
+  const myActive=active.filter(s=>s.country==='Malaysia');
+  const ukActive=active.filter(s=>s.country==='United Kingdom');
+  // degreeLevelOf() / studentLevel() are defined globally (shared with the Dashboard stat cards).
+  const isRefusedStage=(stage)=>['Visa refused','Visa Refused','Visa rejected','Visa Rejected'].includes(stage);
+  // Refusals get converted to Discontinued immediately (see the visa-decision flow), so this
+  // is counted across ALL students — active and discontinued alike — not just the type-filtered set.
+  const totalVisaRefusedAll=students.filter(s=>isRefusedStage(s.appStage)).length;
+  const refusedInCountry=(countryName)=>students.filter(s=>s.country===countryName&&isRefusedStage(s.appStage)).length;
   const safe=v=>v===undefined||v===null||v===''?'—':String(v);
   const bankText=s=>{
     if(s.bankMatured==='Y')return 'Matured'+(s.bankMonths?' ('+s.bankMonths+')':'');
@@ -5668,54 +5976,66 @@ function exportPDF(type='active'){
   const dateStr=dayNames[now.getDay()]+', '+now.getDate()+' '+monthNames[now.getMonth()]+' '+now.getFullYear();
   const timeStr=String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
 
+  // Reusable "big card" row renderer — used for both Overall Statistics categories below.
+  const cardW=110,cardH=42,cardGap=8,cardsPerRow=Math.max(1,Math.floor((pageWidth-margin*2+cardGap)/(cardW+cardGap)));
+  const renderBigCardRow=(statsArr)=>{
+    ensureSpace((cardH+cardGap)*Math.ceil(statsArr.length/cardsPerRow));
+    const cardStartY=y;
+    statsArr.forEach((st,i)=>{
+      const col=i%cardsPerRow,row=Math.floor(i/cardsPerRow);
+      const cx=margin+col*(cardW+cardGap),cy=cardStartY+row*(cardH+cardGap);
+      doc.setFillColor(248,251,255);
+      doc.setDrawColor(...st.color);
+      doc.setLineWidth(1.5);
+      doc.roundedRect(cx,cy,cardW,cardH,4,4,'FD');
+      doc.setFont('helvetica','bold');
+      doc.setFontSize(16);
+      doc.setTextColor(...st.color);
+      doc.text(String(st.val),cx+cardW/2,cy+18,{align:'center'});
+      doc.setFont('helvetica','normal');
+      doc.setFontSize(6.5);
+      doc.setTextColor(74,112,152);
+      const splitLabel=doc.splitTextToSize(st.label, cardW-4);
+      const textY=splitLabel.length>1?cy+30:cy+32;
+      doc.text(splitLabel,cx+cardW/2,textY,{align:'center'});
+    });
+    y+=Math.ceil(statsArr.length/cardsPerRow)*(cardH+cardGap)+12;
+  };
+  const renderCategoryHeading=(title)=>{
+    ensureSpace(30);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(12);
+    doc.setTextColor(30,58,95);
+    doc.text(title,margin,y);
+    y+=16;
+  };
+
   // OVERALL STATISTICS SECTION
   if(type === 'stats' || type === 'active') {
-  doc.setFont('helvetica','bold');
-  doc.setFontSize(12);
-  doc.setTextColor(30,58,95);
-  doc.text('Overall Statistics',margin,y);
-  y+=16;
 
-  // Overall stats cards (6 main ones)
+  // ── Category 1: Overall Statistics ──
+  renderCategoryHeading('Overall Statistics');
   const overallStats=[
     {label:'Total Active',val:active.length,color:[37,99,235]},
     {label:'Expecting Visa This Intake',val:active.filter(s=>s.visaNext==='Y').length,color:[5,150,105]},
     {label:'Ready for submitting visa application',val:active.filter(s=>s.visaPrep==='Ready').length,color:[5,150,105]},
-    {label:'Total Visa Lodge',val:active.filter(s=>s.appStage==='Visa lodged'||s.appStage==='Visa Lodged').length,color:[13,148,136]}
+    {label:'Total Visa Lodge',val:active.filter(s=>s.appStage==='Visa lodged'||s.appStage==='Visa Lodged').length,color:[13,148,136]},
+    {label:'Total Visa Refused',val:totalVisaRefusedAll,color:[220,38,38]}
   ];
+  renderBigCardRow(overallStats);
 
-  const cardW=110,cardH=42,cardGap=8,cardsPerRow=Math.max(1,Math.floor((pageWidth-margin*2+cardGap)/(cardW+cardGap)));
-  let cardStartY=y;
-  overallStats.forEach((st,i)=>{
-    const col=i%cardsPerRow,row=Math.floor(i/cardsPerRow);
-    const cx=margin+col*(cardW+cardGap),cy=cardStartY+row*(cardH+cardGap);
-    doc.setFillColor(248,251,255);
-    doc.setDrawColor(...st.color);
-    doc.setLineWidth(1.5);
-    doc.roundedRect(cx,cy,cardW,cardH,4,4,'FD');
-    doc.setFont('helvetica','bold');
-    doc.setFontSize(16);
-    doc.setTextColor(...st.color);
-    doc.text(String(st.val),cx+cardW/2,cy+18,{align:'center'});
-    doc.setFont('helvetica','normal');
-    doc.setFontSize(6.5);
-    doc.setTextColor(74,112,152);
-    const splitLabel=doc.splitTextToSize(st.label, cardW-4);
-    const textY=splitLabel.length>1?cy+30:cy+32;
-    doc.text(splitLabel,cx+cardW/2,textY,{align:'center'});
-  });
-  y+=Math.ceil(overallStats.length/cardsPerRow)*(cardH+cardGap)+12;
+  // ── Category 2: Overall — By Degree Level ──
+  renderCategoryHeading('By Degree Level (Overall)');
+  const degreeStatsOverall=[
+    {label:'Total Bachelor Students',val:active.filter(s=>studentLevel(s)==='Bachelor').length,color:[124,58,237]},
+    {label:'Total Masters Students',val:active.filter(s=>studentLevel(s)==='Masters').length,color:[124,58,237]},
+    {label:'Bachelor — Visa Lodged',val:active.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Bachelor').length,color:[13,148,136]},
+    {label:'Masters — Visa Lodged',val:active.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Masters').length,color:[13,148,136]}
+  ];
+  renderBigCardRow(degreeStatsOverall);
 
-  // COUNTRY-WISE STATISTICS SECTION
-  if(y+120>pageHeight-60){
-    doc.addPage();
-    y=margin;
-  }
-  doc.setFont('helvetica','bold');
-  doc.setFontSize(12);
-  doc.setTextColor(30,58,95);
-  doc.text('Country-Wise Statistics',margin,y);
-  y+=16;
+  // ── Category 3: Country-Wise Statistics ──
+  renderCategoryHeading('Country-Wise Statistics');
 
   const countryCardW=100,countryCardH=36,countryCardGap=6;
   const renderCountrySection = (title, statsArr) => {
@@ -5759,6 +6079,18 @@ function exportPDF(type='active'){
   };
 
 
+  // Appends the shared "by degree level" cards (Visa Refused / Bachelor / Masters / Lodged-by-level)
+  // onto a country's stat array, so every country section carries the same category-3 breakdown.
+  const addLevelCards=(arr,countryActive,countryName,baseColor)=>{
+    arr.push(
+      {label:'Visa Refused',val:refusedInCountry(countryName),color:[220,38,38]},
+      {label:'Bachelor Students',val:countryActive.filter(s=>studentLevel(s)==='Bachelor').length,color:baseColor},
+      {label:'Masters Students',val:countryActive.filter(s=>studentLevel(s)==='Masters').length,color:baseColor},
+      {label:'Bachelor — Lodged',val:countryActive.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Bachelor').length,color:[13,148,136]},
+      {label:'Masters — Lodged',val:countryActive.filter(s=>visaGroupOf(s.appStage)==='lodged'&&studentLevel(s)==='Masters').length,color:[13,148,136]}
+    );
+  };
+
   // Australia stats
   if(auActive.length>0){
     const auStatsArr=[
@@ -5776,6 +6108,7 @@ function exportPDF(type='active'){
       {label:'Fund >3 Months Matured',val:auActive.filter(s=>s.bankMatured==='Y'&&s.bankMonths&&(s.bankMonths.includes('More than')||s.bankMonths.includes('6'))).length,color:[13,148,136]},
       {label:'Expecting Visa This Intake',val:auActive.filter(s=>s.visaNext==='Y').length,color:[124,58,237]}
     ];
+    addLevelCards(auStatsArr, auActive, 'Australia', [37,99,235]);
     renderCountrySection('Australia Statistics', auStatsArr);
   }
   // Canada stats
@@ -5792,6 +6125,7 @@ function exportPDF(type='active'){
 
       {label:'Expecting Visa This Intake',val:caActive.filter(s=>s.visaNext==='Y').length,color:[124,58,237]}
     ];
+    addLevelCards(caStatsArr, caActive, 'Canada', [147,51,234]);
     renderCountrySection('Canada Statistics', caStatsArr);
   }
   // New Zealand stats
@@ -5808,7 +6142,49 @@ function exportPDF(type='active'){
       {label:'Tuition Fee Paid',val:nzActive.filter(s=>s.appStage==='Tuition fee paid').length,color:[217,119,6]},
       {label:'Expecting Visa This Intake',val:nzActive.filter(s=>s.visaNext==='Y').length,color:[124,58,237]}
     ];
+    addLevelCards(nzStatsArr, nzActive, 'New Zealand', [217,119,6]);
     renderCountrySection('New Zealand Statistics', nzStatsArr);
+  }
+  // Malaysia stats — mirrors the Malaysia pipeline used in the Dashboard/Uni Applications views
+  // (Selection of course → ... → Visa lodged/granted → post-visa arrival steps)
+  if(myActive.length>0){
+    const myStatsArr=[
+      {label:'Total Active MY',val:myActive.length,color:[5,150,105]},
+      {label:'Applications Submitted',val:myActive.filter(s=>s.appStage && !['Selection of course'].includes(s.appStage)).length,color:[5,150,105]},
+      {label:'Conditional Offer Received',val:myActive.filter(s=>s.appStage==='Getting conditional offer').length,color:[5,150,105]},
+      {label:'Applied for EMGS',val:myActive.filter(s=>s.appStage==='Applying for EMGS').length,color:[5,150,105]},
+      {label:'VAL & Full Offer Received',val:myActive.filter(s=>s.appStage==='Receiving VAL & full offer letter').length,color:[5,150,105]},
+      {label:'SEV Applied',val:myActive.filter(s=>s.appStage==='Applying for Single Entry Visa (SEV)').length,color:[5,150,105]},
+      {label:'Visa Lodged',val:myActive.filter(s=>s.appStage==='Visa lodged').length,color:[5,150,105]},
+      {label:'Visa Granted',val:myActive.filter(s=>s.appStage==='Visa granted').length,color:[5,150,105]},
+      {label:'Tuition Fee Paid',val:myActive.filter(s=>s.appStage==='Tuition fee payment').length,color:[5,150,105]},
+      {label:'Accommodation Booked',val:myActive.filter(s=>s.appStage==='Booking accommodation').length,color:[5,150,105]},
+      {label:'Air Ticket Booked',val:myActive.filter(s=>s.appStage==='Booking air ticket').length,color:[5,150,105]},
+      {label:'Attending Orientation/Classes',val:myActive.filter(s=>s.appStage==='Attending orientation / classes').length,color:[5,150,105]},
+      {label:'Expecting Visa This Intake',val:myActive.filter(s=>s.visaNext==='Y').length,color:[124,58,237]}
+    ];
+    addLevelCards(myStatsArr, myActive, 'Malaysia', [5,150,105]);
+    renderCountrySection('Malaysia Statistics', myStatsArr);
+  }
+  // United Kingdom stats — UK has no dedicated stage pipeline in COUNTRY_STAGES, so its
+  // students use the generic APP_STAGES list; these checkpoints are pulled from that list.
+  if(ukActive.length>0){
+    const ukEarlyStages=['','Documents from student are pending','Looking for Universities','Havent made up his mind yet'];
+    const ukStatsArr=[
+      {label:'Total Active UK',val:ukActive.length,color:[219,39,119]},
+      {label:'Applications Submitted',val:ukActive.filter(s=>s.appStage && !ukEarlyStages.includes(s.appStage)).length,color:[219,39,119]},
+      {label:'Cond. Offer Received',val:ukActive.filter(s=>s.appStage==='Cond. Offer Received').length,color:[219,39,119]},
+      {label:'GS Preparation Ongoing',val:ukActive.filter(s=>s.appStage==='GS Preparation Ongoing').length,color:[219,39,119]},
+      {label:'GS Submitted',val:ukActive.filter(s=>s.appStage==='GS Submitted').length,color:[219,39,119]},
+      {label:'GS Rejected',val:ukActive.filter(s=>s.appStage==='GS Rejected').length,color:[220,38,38]},
+      {label:'Uncond Offer Received',val:ukActive.filter(s=>s.appStage==='Uncond Offer Received').length,color:[219,39,119]},
+      {label:'Tuition Fee & OSHC Paid',val:ukActive.filter(s=>s.appStage==='Tuition Fee & OSHC Paid').length,color:[219,39,119]},
+      {label:'COE Received',val:ukActive.filter(s=>s.appStage==='COE Received').length,color:[219,39,119]},
+      {label:'Visa Submitted',val:ukActive.filter(s=>s.appStage==='Visa Submitted').length,color:[219,39,119]},
+      {label:'Expecting Visa This Intake',val:ukActive.filter(s=>s.visaNext==='Y').length,color:[124,58,237]}
+    ];
+    addLevelCards(ukStatsArr, ukActive, 'United Kingdom', [219,39,119]);
+    renderCountrySection('United Kingdom Statistics', ukStatsArr);
   }
   } // end if(type === 'stats' || type === 'active')
 
@@ -5893,7 +6269,7 @@ function exportPDF(type='active'){
 function exportJSON(){
   const now=new Date();
   const payload={_meta:{exported:now.toISOString(),counsellor:'Tausif Jaman',version:8,count:students.length},students,pendingTasks,quickNotes,learnedUnis,learnedPrograms,log:(()=>{try{return JSON.parse(localStorage.getItem(LOGK)||'[]');}catch(e){return[];}})()};
-  dl(JSON.stringify(payload,null,2),`CRM_Data_Backup_${iso(now)}.json`,'application/json');addLog('Data exported');
+  dl(JSON.stringify(payload,null,2),`Data_Backup_${iso(now)}.json`,'application/json');addLog('Data exported');
 }
 function importJSON(input){
   const file=input.files[0];if(!file)return;

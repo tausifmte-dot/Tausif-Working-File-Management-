@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-14T10:12:05.824Z",
+    "saved": "2026-09-14T10:12:13.465Z",
     "version": 8,
     "count": 36
   },
@@ -2207,7 +2207,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1789380723801,
+      "lastUpdated": 1789380731432,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -2222,7 +2222,9 @@
           "applicationDate": "2026-08-25",
           "link": "https://www.unitec.ac.nz/career-and-study-options/business/accounting/bachelor-of-accounting/",
           "classCommencementDate": "2027-02-01",
-          "stage": "Application submitted"
+          "stage": "Application submitted",
+          "lastExpediteEmailAt": 1789380731432,
+          "expediteEmailCount": 1
         },
         {
           "country": "New Zealand",
@@ -2724,6 +2726,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1789380731432,
+      "msg": "Follow-up email #1 logged for SIAM AHMED's application at Unitec Institute of Technology (Unitec)"
+    },
     {
       "ts": 1789380723801,
       "msg": "Follow-up email #1 logged for SIAM AHMED's application at Ara Institute of Canterbury (Ara)"

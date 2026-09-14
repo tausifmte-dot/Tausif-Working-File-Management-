@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-14T10:12:23.014Z",
+    "saved": "2026-09-14T10:12:26.907Z",
     "version": 8,
     "count": 36
   },
@@ -1458,7 +1458,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788079219741,
+      "lastUpdated": 1789380743023,
       "remarks": "STUDENT FINANCE IS POOR - STUDENT IS CURRENTLY ARRANGING FUNDS - 35 L THEIR OWN AND THE REST IS PARKING FUND. BANK TRANSFER HAS BEEN ASKED TO MAINTAIN",
       "situation": "NEED TO WRITE SOP (GIVEN TO STUDENT TO WRITE) \n\nNEED TO RECEIVE STUDY CONTINUATION DOCUMENTS FROM HIM",
       "remarksHistory": [
@@ -1493,7 +1493,9 @@
           "applicationDate": "2026-08-23",
           "link": "https://www.unitec.ac.nz/career-and-study-options/computing-and-information-technology/bachelor-of-computing-systems/",
           "classCommencementDate": "2027-02-15",
-          "stage": "Applications are with agents for review"
+          "stage": "Applications are with agents for review",
+          "lastExpediteEmailAt": 1789380743023,
+          "expediteEmailCount": 1
         }
       ],
       "stageHistory": [
@@ -2522,7 +2524,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788154704703,
+      "lastUpdated": 1789380744867,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -2547,7 +2549,9 @@
           "applicationDate": "2026-01-08",
           "link": "https://www.massey.ac.nz/study/all-qualifications-and-degrees/master-of-professional-accountancy-PMPRC/",
           "classCommencementDate": "2027-03-01",
-          "stage": "Application submitted"
+          "stage": "Application submitted",
+          "lastExpediteEmailAt": 1789380744867,
+          "expediteEmailCount": 1
         }
       ],
       "stageHistory": [
@@ -2730,6 +2734,14 @@
     }
   ],
   "log": [
+    {
+      "ts": 1789380744867,
+      "msg": "Follow-up email #1 logged for Tasfia mim Mim's application at Massey University (Massey)"
+    },
+    {
+      "ts": 1789380743024,
+      "msg": "Follow-up email #1 logged for MMH Niloy Chowdhury's application at Unitec Institute of Technology"
+    },
     {
       "ts": 1789380740970,
       "msg": "Follow-up email #1 logged for Moon Sarkar's application at University of Wollongong"

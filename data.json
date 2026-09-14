@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-10T09:08:46.176Z",
+    "saved": "2026-09-14T10:12:05.824Z",
     "version": 8,
     "count": 36
   },
@@ -86,7 +86,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788079958669
     },
     {
       "id": 1787570676528.4294,
@@ -169,7 +170,8 @@
       "discontinuedDate": "2026-09-07",
       "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788811522667
     },
     {
       "id": 1786707888165.7642,
@@ -272,7 +274,8 @@
         "date": 1788811406310,
         "university": "Otago Polytechnic (Otago Poly)",
         "program": "Bachelor of information technology L7"
-      }
+      },
+      "createdAt": 1788811492637
     },
     {
       "id": 1786707888165.7734,
@@ -325,7 +328,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1787628130012
     },
     {
       "id": 1786707888166.1926,
@@ -362,7 +366,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1786707888165
     },
     {
       "id": 1786707888159.537,
@@ -399,7 +404,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1786707888158
     },
     {
       "id": 1786707888167.429,
@@ -487,7 +493,8 @@
         "university": "NZTC",
         "program": "Bachelor of Education (Early Childhood Education)",
         "classCommencementDate": "2026-08-28"
-      }
+      },
+      "createdAt": 1788096575335
     },
     {
       "id": 1786707888167.1072,
@@ -551,7 +558,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788096528474
     },
     {
       "id": 1786707888167.4526,
@@ -599,7 +607,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788096407778
     },
     {
       "id": 1786707888166.3389,
@@ -669,7 +678,8 @@
         "university": "Otago Polytechnic (Otago Poly)",
         "program": "Bachelor of Information Technology",
         "classCommencementDate": "2026-10-05"
-      }
+      },
+      "createdAt": 1788079807533
     },
     {
       "id": 1786707888167.485,
@@ -777,7 +787,8 @@
         "date": 1788148043836,
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Information Technology"
-      }
+      },
+      "createdAt": 1788148043836
     },
     {
       "id": 1786707888167.6492,
@@ -825,7 +836,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788096339314
     },
     {
       "id": 1786707888166.386,
@@ -923,7 +935,8 @@
         "date": 1788838604939,
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Business (BBus)"
-      }
+      },
+      "createdAt": 1788838604938
     },
     {
       "id": 1786707888165.96,
@@ -982,7 +995,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788096315657
     },
     {
       "id": 1786707888166.878,
@@ -1065,7 +1079,8 @@
         "date": 1788095973725,
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Information Technology"
-      }
+      },
+      "createdAt": 1788095973724
     },
     {
       "id": 1786707888167.5527,
@@ -1168,7 +1183,8 @@
         "date": 1788095873074,
         "university": "NZTC",
         "program": "Bachelor of Education (Early Childhood Education)"
-      }
+      },
+      "createdAt": 1788095873074
     },
     {
       "id": 1788095918717.7913,
@@ -1209,7 +1225,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788095918717
     },
     {
       "id": 1786707888165.9988,
@@ -1280,7 +1297,8 @@
         "program": "Bachelor of Information Technology",
         "classCommencementDate": "2026-10-05"
       },
-      "email": ""
+      "email": "",
+      "createdAt": 1788811654162
     },
     {
       "id": 1787288403083.617,
@@ -1321,7 +1339,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1787288403083
     },
     {
       "id": 1786707888166.9294,
@@ -1414,7 +1433,8 @@
         "date": 1788095765380,
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Information Technology"
-      }
+      },
+      "createdAt": 1788095765380
     },
     {
       "id": 1787288335155.9739,
@@ -1492,7 +1512,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788079219741
     },
     {
       "id": 1786707888166.244,
@@ -1546,7 +1567,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788095699770
     },
     {
       "id": 1786707888167.5266,
@@ -1615,7 +1637,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788095644803
     },
     {
       "id": 1789031324140.4116,
@@ -1661,7 +1684,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1789031324140
     },
     {
       "id": 1786707888166.4446,
@@ -1731,7 +1755,8 @@
         "university": "University of Waikato (Waikato)",
         "program": "PRE MASTERS TO MASTERS IN SUBPPLY CHAIN",
         "classCommencementDate": "2026-11-09"
-      }
+      },
+      "createdAt": 1788081634514
     },
     {
       "id": 1786707888166.7832,
@@ -1809,7 +1834,8 @@
         "date": 1788095497410,
         "university": "NZTC",
         "program": "Bachelor of Education (Early Childhood Education)"
-      }
+      },
+      "createdAt": 1788095497410
     },
     {
       "id": 1786707888166.2905,
@@ -1852,7 +1878,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1786707888165
     },
     {
       "id": 1788078416908.3806,
@@ -1914,7 +1941,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788078576893
     },
     {
       "id": 1786707888166.9136,
@@ -2007,7 +2035,8 @@
         "date": 1788095341927,
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Information Technology"
-      }
+      },
+      "createdAt": 1788095341927
     },
     {
       "id": 1786707888167.329,
@@ -2104,7 +2133,8 @@
       "discontinuedDate": "2026-08-30",
       "discontinuedReason": "Visa Rejected",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788095240581
     },
     {
       "id": 1786707888166.6946,
@@ -2152,7 +2182,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1786707888166
     },
     {
       "id": 1788078714704.3745,
@@ -2176,7 +2207,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788078985898,
+      "lastUpdated": 1789380723801,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -2201,7 +2232,9 @@
           "applicationDate": "2026-08-25",
           "link": "https://www.ara.ac.nz/products/programme/tp4775-stru-bachelor-of-accounting/",
           "classCommencementDate": "2027-02-01",
-          "stage": "Applications are with agents for review"
+          "stage": "Applications are with agents for review",
+          "lastExpediteEmailAt": 1789380723801,
+          "expediteEmailCount": 1
         }
       ],
       "stageHistory": [
@@ -2220,7 +2253,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788078985898
     },
     {
       "id": 1786707888166.8071,
@@ -2293,7 +2327,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1787370899240
     },
     {
       "id": 1786707888165.9783,
@@ -2367,7 +2402,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788095178064
     },
     {
       "id": 1786707888167.1116,
@@ -2457,7 +2493,8 @@
         "university": "Auckland Institute of Studies (AIS)",
         "program": "Bachelor of Information Technology",
         "classCommencementDate": "2026-09-14"
-      }
+      },
+      "createdAt": 1788095119108
     },
     {
       "id": 1786707888166.6794,
@@ -2521,7 +2558,8 @@
       "discontinuedDate": "",
       "discontinuedReason": "",
       "nextIntakeDate": "",
-      "applicationDeadline": ""
+      "applicationDeadline": "",
+      "createdAt": 1788154704703
     }
   ],
   "pendingTasks": [
@@ -2686,6 +2724,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1789380723801,
+      "msg": "Follow-up email #1 logged for SIAM AHMED's application at Ara Institute of Canterbury (Ara)"
+    },
     {
       "ts": 1789031324141,
       "msg": "Added: Mostakim Khan"

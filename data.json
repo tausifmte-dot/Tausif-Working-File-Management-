@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-14T10:39:44.545Z",
+    "saved": "2026-09-24T00:54:12.201Z",
     "version": 8,
     "count": 36
   },
@@ -1458,7 +1458,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1789380743023,
+      "lastUpdated": 1790211250153,
       "remarks": "STUDENT FINANCE IS POOR - STUDENT IS CURRENTLY ARRANGING FUNDS - 35 L THEIR OWN AND THE REST IS PARKING FUND. BANK TRANSFER HAS BEEN ASKED TO MAINTAIN",
       "situation": "NEED TO WRITE SOP (GIVEN TO STUDENT TO WRITE) \n\nNEED TO RECEIVE STUDY CONTINUATION DOCUMENTS FROM HIM",
       "remarksHistory": [
@@ -1483,7 +1483,9 @@
           "applicationDate": "2026-08-23",
           "link": "https://www.sit.ac.nz/programme/course/Bachelor%20of%20Information%20Technology",
           "classCommencementDate": "2027-02-15",
-          "stage": "Applications are with agents for review"
+          "stage": "Applications are with agents for review",
+          "lastExpediteEmailAt": 1790211250153,
+          "expediteEmailCount": 1
         },
         {
           "country": "New Zealand",
@@ -2754,6 +2756,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1790211250154,
+      "msg": "Follow-up email #1 logged for MMH Niloy Chowdhury's application at Southern Institute of Technology"
+    },
     {
       "ts": 1789382382496,
       "msg": "Auto-saved"

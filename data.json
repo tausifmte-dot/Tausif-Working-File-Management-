@@ -1,8 +1,8 @@
 {
   "_meta": {
-    "saved": "2026-09-27T03:34:07.339Z",
+    "saved": "2026-09-27T03:45:30.991Z",
     "version": 8,
-    "count": 36
+    "count": 37
   },
   "students": [
     {
@@ -368,6 +368,53 @@
       "nextIntakeDate": "",
       "applicationDeadline": "",
       "createdAt": 1786707888165
+    },
+    {
+      "id": 1790480728947.5962,
+      "name": "BARSHAN BOSE",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Application submitted",
+      "counselor": "",
+      "phone": "",
+      "email": "",
+      "uniCount": 2,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "Y",
+      "bankMonths": "3 months",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1790480728947,
+      "createdAt": 1790480728947,
+      "remarks": "geebee has been asked to sent all the official documents",
+      "situation": "",
+      "remarksHistory": [
+        {
+          "ts": 1790480728947,
+          "text": "geebee has been asked to sent all the official documents"
+        }
+      ],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [],
+      "stageHistory": [],
+      "locked": false,
+      "visaFieldsLocked": false,
+      "closedInfo": null,
+      "visaApplicationRef": null,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": ""
     },
     {
       "id": 1786707888159.537,
@@ -937,81 +984,6 @@
         "program": "Bachelor of Business (BBus)"
       },
       "createdAt": 1788838604938
-    },
-    {
-      "id": 1786707888165.96,
-      "name": "MUSFIKA JAHAN BOBI",
-      "country": "New Zealand",
-      "intake": "February 2027",
-      "status": "Active",
-      "appStage": "Application submitted",
-      "counselor": "Tausif Jaman",
-      "uniCount": 0,
-      "moreUni": "N",
-      "moreUniDate": "",
-      "bankMatured": "Y",
-      "bankMonths": "3 months",
-      "bankExpectedDate": "",
-      "defer": "N",
-      "gsApplied": "N",
-      "gsStatus": "",
-      "coe": "N",
-      "visaPrep": "",
-      "visaNext": "",
-      "lastUpdated": 1790480009238,
-      "remarks": "",
-      "situation": "",
-      "remarksHistory": [],
-      "situationHistory": [],
-      "applicationCompletions": [],
-      "uniApplications": [
-        {
-          "country": "New Zealand",
-          "university": "University of Waikato (Waikato)",
-          "program": "Master of Education",
-          "agent": "NZUAC",
-          "applicationDate": "2027-08-01",
-          "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-education/",
-          "classCommencementDate": "2027-11-01",
-          "stage": "Application submitted"
-        }
-      ],
-      "stageHistory": [
-        {
-          "stage": "Application submitted",
-          "enteredDate": 1790479998830,
-          "duration": 0
-        },
-        {
-          "stage": "Conditional offer letter issued",
-          "enteredDate": 1790479951103,
-          "duration": 0
-        },
-        {
-          "stage": "Application submitted",
-          "enteredDate": 1790479922783,
-          "duration": 0
-        },
-        {
-          "stage": "Conditional offer letter issued",
-          "enteredDate": 1788096315658,
-          "duration": 27
-        },
-        {
-          "stage": "Processing for Application",
-          "enteredDate": 1778630400000,
-          "duration": 109
-        }
-      ],
-      "phone": "",
-      "visaFieldsLocked": false,
-      "visaLodgedDate": "",
-      "expectedResultDate": "",
-      "discontinuedDate": "",
-      "discontinuedReason": "",
-      "nextIntakeDate": "",
-      "applicationDeadline": "",
-      "createdAt": 1788096315657
     },
     {
       "id": 1786707888166.878,
@@ -1707,6 +1679,81 @@
       "nextIntakeDate": "",
       "applicationDeadline": "",
       "createdAt": 1789031324140
+    },
+    {
+      "id": 1786707888165.96,
+      "name": "MUSFIKA JAHAN BOBI",
+      "country": "New Zealand",
+      "intake": "February 2027",
+      "status": "Active",
+      "appStage": "Application submitted",
+      "counselor": "Tausif Jaman",
+      "uniCount": 0,
+      "moreUni": "N",
+      "moreUniDate": "",
+      "bankMatured": "Y",
+      "bankMonths": "3 months",
+      "bankExpectedDate": "",
+      "defer": "N",
+      "gsApplied": "N",
+      "gsStatus": "",
+      "coe": "N",
+      "visaPrep": "",
+      "visaNext": "",
+      "lastUpdated": 1790480009238,
+      "remarks": "",
+      "situation": "",
+      "remarksHistory": [],
+      "situationHistory": [],
+      "applicationCompletions": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "University of Waikato (Waikato)",
+          "program": "Master of Education",
+          "agent": "NZUAC",
+          "applicationDate": "2027-08-01",
+          "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-education/",
+          "classCommencementDate": "2027-11-01",
+          "stage": "Application submitted"
+        }
+      ],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1790479998830,
+          "duration": 0
+        },
+        {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1790479951103,
+          "duration": 0
+        },
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1790479922783,
+          "duration": 0
+        },
+        {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1788096315658,
+          "duration": 27
+        },
+        {
+          "stage": "Processing for Application",
+          "enteredDate": 1778630400000,
+          "duration": 109
+        }
+      ],
+      "phone": "",
+      "visaFieldsLocked": false,
+      "visaLodgedDate": "",
+      "expectedResultDate": "",
+      "discontinuedDate": "",
+      "discontinuedReason": "",
+      "nextIntakeDate": "",
+      "applicationDeadline": "",
+      "createdAt": 1788096315657
     },
     {
       "id": 1786707888166.4446,
@@ -2780,6 +2827,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1790480728947,
+      "msg": "Added: BARSHAN BOSE"
+    },
     {
       "ts": 1790480044353,
       "msg": "Auto-saved"

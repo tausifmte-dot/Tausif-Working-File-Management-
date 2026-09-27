@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-27T03:33:05.721Z",
+    "saved": "2026-09-27T03:34:07.339Z",
     "version": 8,
     "count": 36
   },
@@ -944,13 +944,13 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Conditional offer letter issued",
+      "appStage": "Application submitted",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
       "moreUniDate": "",
-      "bankMatured": "",
-      "bankMonths": "",
+      "bankMatured": "Y",
+      "bankMonths": "3 months",
       "bankExpectedDate": "",
       "defer": "N",
       "gsApplied": "N",
@@ -958,7 +958,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1790479963613,
+      "lastUpdated": 1790480009238,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -977,6 +977,11 @@
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1790479998830,
+          "duration": 0
+        },
         {
           "stage": "Conditional offer letter issued",
           "enteredDate": 1790479951103,
@@ -2775,6 +2780,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1790480044353,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1790479983686,
       "msg": "Auto-saved"

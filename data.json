@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-27T03:32:05.720Z",
+    "saved": "2026-09-27T03:33:05.721Z",
     "version": 8,
     "count": 36
   },
@@ -944,7 +944,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Application submitted",
+      "appStage": "Conditional offer letter issued",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -958,7 +958,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1790479922783,
+      "lastUpdated": 1790479963613,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -968,15 +968,20 @@
         {
           "country": "New Zealand",
           "university": "University of Waikato (Waikato)",
-          "program": "Master of Teaching and Learning",
-          "agent": "GEEbee",
+          "program": "Master of Education",
+          "agent": "NZUAC",
           "applicationDate": "2027-08-01",
-          "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-teaching-and-learning/",
+          "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-education/",
           "classCommencementDate": "2027-11-01",
-          "stage": "Conditional offer letter issued"
+          "stage": "Application submitted"
         }
       ],
       "stageHistory": [
+        {
+          "stage": "Conditional offer letter issued",
+          "enteredDate": 1790479951103,
+          "duration": 0
+        },
         {
           "stage": "Application submitted",
           "enteredDate": 1790479922783,
@@ -2728,9 +2733,9 @@
       "country": "New Zealand",
       "university": "University of Waikato (Waikato)",
       "program": "Master of Teaching and Learning",
-      "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-teaching-and-learning/",
+      "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-education/",
       "classCommencementDate": "2027-11-01",
-      "lastUsed": 1788096315657
+      "lastUsed": 1790479957344
     },
     {
       "id": "pb_1788096517979_za3wm",
@@ -2758,9 +2763,22 @@
       "link": "https://www.apu.edu.my/course/bsc-hons-in-computer-science-digital-forensics",
       "classCommencementDate": "2026-11-01",
       "lastUsed": 1789382365921
+    },
+    {
+      "id": "pb_1790479963613_hpae2",
+      "country": "New Zealand",
+      "university": "University of Waikato (Waikato)",
+      "program": "Master of Education",
+      "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-education/",
+      "classCommencementDate": "2027-11-01",
+      "lastUsed": 1790479963613
     }
   ],
   "log": [
+    {
+      "ts": 1790479983686,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1790479923684,
       "msg": "Auto-saved"

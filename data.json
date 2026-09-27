@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-27T03:51:07.342Z",
+    "saved": "2026-09-27T03:54:05.738Z",
     "version": 8,
     "count": 37
   },
@@ -351,7 +351,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1790481008171,
+      "lastUpdated": 1790481207878,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -366,6 +366,16 @@
           "applicationDate": "2026-09-20",
           "link": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/master-of-health-sciences-mhsc.html",
           "classCommencementDate": "2027-03-01",
+          "stage": "Application submitted"
+        },
+        {
+          "country": "New Zealand",
+          "university": "Eastern Institute of Technology (EIT) / Te Pūkenga",
+          "program": "Master of Health Science",
+          "agent": "GEEbee",
+          "applicationDate": "2026-09-20",
+          "link": "https://www.eit.ac.nz/programmes/master-of-health-science/",
+          "classCommencementDate": "2027-02-01",
           "stage": "Application submitted"
         }
       ],
@@ -2681,7 +2691,8 @@
       "White cliff College",
       "Southern Institute of Technology",
       "Unitec Institute of Technology",
-      "NZTC"
+      "NZTC",
+      "Eastern Institute of Technology (EIT) / Te Pūkenga"
     ],
     "Malaysia": [
       "University of Wollongong",
@@ -2850,9 +2861,22 @@
       "link": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/master-of-health-sciences-mhsc.html",
       "classCommencementDate": "2027-03-01",
       "lastUsed": 1790481008172
+    },
+    {
+      "id": "pb_1790481207879_bsrpf",
+      "country": "New Zealand",
+      "university": "Eastern Institute of Technology (EIT) / Te Pūkenga",
+      "program": "Master of Health Science",
+      "link": "https://www.eit.ac.nz/programmes/master-of-health-science/",
+      "classCommencementDate": "2027-02-01",
+      "lastUsed": 1790481207879
     }
   ],
   "log": [
+    {
+      "ts": 1790481243696,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1790481064347,
       "msg": "Auto-saved"

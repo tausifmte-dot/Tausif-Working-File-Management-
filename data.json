@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-27T03:45:30.991Z",
+    "saved": "2026-09-27T03:51:07.342Z",
     "version": 8,
     "count": 37
   },
@@ -337,7 +337,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "",
+      "appStage": "Application submitted",
       "counselor": "",
       "uniCount": 0,
       "moreUni": "N",
@@ -351,14 +351,31 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1786707888165,
+      "lastUpdated": 1790481008171,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
-      "stageHistory": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "University of Auckland (UoA)",
+          "program": "Master of Health Sciences (MHSc)",
+          "agent": "GEEbee",
+          "applicationDate": "2026-09-20",
+          "link": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/master-of-health-sciences-mhsc.html",
+          "classCommencementDate": "2027-03-01",
+          "stage": "Application submitted"
+        }
+      ],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1790481008172,
+          "duration": 0
+        }
+      ],
       "phone": "",
       "visaFieldsLocked": false,
       "visaLodgedDate": "",
@@ -2824,9 +2841,22 @@
       "link": "https://www.waikato.ac.nz/int/study/qualifications/master-of-education/",
       "classCommencementDate": "2027-11-01",
       "lastUsed": 1790479963613
+    },
+    {
+      "id": "pb_1790481008172_mzrd7",
+      "country": "New Zealand",
+      "university": "University of Auckland (UoA)",
+      "program": "Master of Health Sciences (MHSc)",
+      "link": "https://www.auckland.ac.nz/en/study/study-options/find-a-study-option/master-of-health-sciences-mhsc.html",
+      "classCommencementDate": "2027-03-01",
+      "lastUsed": 1790481008172
     }
   ],
   "log": [
+    {
+      "ts": 1790481064347,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1790480728947,
       "msg": "Added: BARSHAN BOSE"

@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-24T00:54:12.201Z",
+    "saved": "2026-09-27T03:32:05.720Z",
     "version": 8,
     "count": 36
   },
@@ -940,11 +940,11 @@
     },
     {
       "id": 1786707888165.96,
-      "name": "Md Monjurul Hasan Rabbi",
+      "name": "MUSFIKA JAHAN BOBI",
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Conditional offer letter issued",
+      "appStage": "Application submitted",
       "counselor": "Tausif Jaman",
       "uniCount": 0,
       "moreUni": "N",
@@ -958,7 +958,7 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1788096315657,
+      "lastUpdated": 1790479922783,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
@@ -978,9 +978,14 @@
       ],
       "stageHistory": [
         {
+          "stage": "Application submitted",
+          "enteredDate": 1790479922783,
+          "duration": 0
+        },
+        {
           "stage": "Conditional offer letter issued",
           "enteredDate": 1788096315658,
-          "duration": 0
+          "duration": 27
         },
         {
           "stage": "Processing for Application",
@@ -2756,6 +2761,10 @@
     }
   ],
   "log": [
+    {
+      "ts": 1790479923684,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1790211250154,
       "msg": "Follow-up email #1 logged for MMH Niloy Chowdhury's application at Southern Institute of Technology"

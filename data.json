@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "saved": "2026-09-27T03:54:05.738Z",
+    "saved": "2026-11-18T03:27:34.620Z",
     "version": 8,
     "count": 37
   },
@@ -1320,7 +1320,7 @@
       "country": "New Zealand",
       "intake": "February 2027",
       "status": "Active",
-      "appStage": "Waiting for documents from student side to submit application",
+      "appStage": "Application submitted",
       "counselor": "",
       "phone": "",
       "email": "",
@@ -1336,14 +1336,31 @@
       "coe": "N",
       "visaPrep": "",
       "visaNext": "",
-      "lastUpdated": 1787288403083,
+      "lastUpdated": 1794972450674,
       "remarks": "",
       "situation": "",
       "remarksHistory": [],
       "situationHistory": [],
       "applicationCompletions": [],
-      "uniApplications": [],
-      "stageHistory": [],
+      "uniApplications": [
+        {
+          "country": "New Zealand",
+          "university": "Victoria University of Wellington",
+          "program": "BSc in Biotechnology (Hons.)",
+          "agent": "Other",
+          "applicationDate": "",
+          "link": "https://www.wgtn.ac.nz/study/subjects/biotechnology/biotechnology-bachelor-of-science-honours",
+          "classCommencementDate": "2027-05-01",
+          "stage": "Application submitted"
+        }
+      ],
+      "stageHistory": [
+        {
+          "stage": "Application submitted",
+          "enteredDate": 1794972450674,
+          "duration": 0
+        }
+      ],
       "locked": false,
       "closedInfo": null,
       "visaApplicationRef": null,
@@ -2692,7 +2709,8 @@
       "Southern Institute of Technology",
       "Unitec Institute of Technology",
       "NZTC",
-      "Eastern Institute of Technology (EIT) / Te Pūkenga"
+      "Eastern Institute of Technology (EIT) / Te Pūkenga",
+      "Victoria University of Wellington"
     ],
     "Malaysia": [
       "University of Wollongong",
@@ -2870,9 +2888,22 @@
       "link": "https://www.eit.ac.nz/programmes/master-of-health-science/",
       "classCommencementDate": "2027-02-01",
       "lastUsed": 1790481207879
+    },
+    {
+      "id": "pb_1794972450674_icmze",
+      "country": "New Zealand",
+      "university": "Victoria University of Wellington",
+      "program": "BSc in Biotechnology (Hons.)",
+      "link": "https://www.wgtn.ac.nz/study/subjects/biotechnology/biotechnology-bachelor-of-science-honours",
+      "classCommencementDate": "2027-05-01",
+      "lastUsed": 1794972450674
     }
   ],
   "log": [
+    {
+      "ts": 1794972452572,
+      "msg": "Auto-saved"
+    },
     {
       "ts": 1790481243696,
       "msg": "Auto-saved"
